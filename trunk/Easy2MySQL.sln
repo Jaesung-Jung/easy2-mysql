@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy2MySQL", "Easy2MySQL\Easy2MySQL.csproj", "{A43077B6-D811-4309-AED7-2B607EFAF026}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy2MySQL", "Easy2MySQL\Easy2MySQL.csproj", "{0DC72499-6BFC-40C0-BE77-B9A9E79724E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A43077B6-D811-4309-AED7-2B607EFAF026}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A43077B6-D811-4309-AED7-2B607EFAF026}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A43077B6-D811-4309-AED7-2B607EFAF026}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A43077B6-D811-4309-AED7-2B607EFAF026}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DC72499-6BFC-40C0-BE77-B9A9E79724E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DC72499-6BFC-40C0-BE77-B9A9E79724E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DC72499-6BFC-40C0-BE77-B9A9E79724E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DC72499-6BFC-40C0-BE77-B9A9E79724E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A43077B6-D811-4309-AED7-2B607EFAF026}</ProjectGuid>
+    <ProjectGuid>{0DC72499-6BFC-40C0-BE77-B9A9E79724E8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Easy2</RootNamespace>
@@ -40,4 +40,255 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=8.2.0.2, Culture=neutral, PublicKeyToken=5fd520d36328f741, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\DotNetBar for Windows Forms\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainApplication.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\Help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\Config.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\ConnectDatabase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\ConnectDatabaseCurrentSetting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\QueryEditor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\QueryWizard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\SchemaDesigner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\CloseTab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\Disconnect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\DisconnectAll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\OpenFile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\OpenFileNewTab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\SaveAsFile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\SaveFile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\QuitApplication.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\RefreshObjectBrowser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\PasteToClipboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\SelectAll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\CopySelection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\CutSelection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\DeleteSelection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\FindNextData.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\GoToLine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\ReplaceData.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\CancelSelection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\FindData.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\RedoAction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\UndoAction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\ExecuteAllQuery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\ExecuteQuery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\ExecuteSelectQuery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\SwitchNextTab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\SwitchPreviousTab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\AddUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\AlterUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\PrivilegeUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\TruncateDatabase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\AlterDatabase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\CreateDatabase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\DropDatabase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\TruncateTable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\AlterTable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\CreateTable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\DropTable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\DropColumn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\DropIndex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\AlterIndex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\CreateIndex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\DropView.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\AlterView.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\CreateView.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\DropStoredProcedure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\AlterStoredProcedure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\CreateStoredProcedure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\DropFunction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\AlterFunction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\CreateFunction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\AlterTrigger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\CreateTrigger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\DropTrigger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\AlterEvent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\CreateEvent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\DropEvent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\OpenObject.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\CopyDatabase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\RestoreDatabase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\ImportDatabase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\ExportDatabase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\UpdateCheck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\FormStyle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\HelpDocument.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\ColorTable.png" />
+  </ItemGroup>
 </Project>

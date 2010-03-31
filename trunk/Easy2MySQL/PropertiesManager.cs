@@ -113,7 +113,7 @@ namespace Easy2
 			}
 			set
 			{
-				this.propertyPath = PropertyPath;
+				this.propertyPath = value;
 			}
 		}
 

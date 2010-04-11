@@ -30,6 +30,39 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.m_ribbonControl = new DevComponents.DotNetBar.RibbonControl();
+			this.m_homePanel = new DevComponents.DotNetBar.RibbonPanel();
+			this.m_paneBar = new DevComponents.DotNetBar.RibbonBar();
+			this.m_paneItemContainer = new DevComponents.DotNetBar.ItemContainer();
+			this.m_objectBrowserPane = new DevComponents.DotNetBar.CheckBoxItem();
+			this.m_queryEditPane = new DevComponents.DotNetBar.CheckBoxItem();
+			this.m_resultPane = new DevComponents.DotNetBar.CheckBoxItem();
+			this.m_tabBar = new DevComponents.DotNetBar.RibbonBar();
+			this.m_switchPreviousTab = new DevComponents.DotNetBar.ButtonItem();
+			this.m_switchNextTab = new DevComponents.DotNetBar.ButtonItem();
+			this.m_executeBar = new DevComponents.DotNetBar.RibbonBar();
+			this.m_executeQuery = new DevComponents.DotNetBar.ButtonItem();
+			this.m_executeSelectQuery = new DevComponents.DotNetBar.ButtonItem();
+			this.m_execyteAllQuery = new DevComponents.DotNetBar.ButtonItem();
+			this.m_editBar = new DevComponents.DotNetBar.RibbonBar();
+			this.m_findData = new DevComponents.DotNetBar.ButtonItem();
+			this.m_editItemContainer1 = new DevComponents.DotNetBar.ItemContainer();
+			this.m_findNextData = new DevComponents.DotNetBar.ButtonItem();
+			this.m_replaceData = new DevComponents.DotNetBar.ButtonItem();
+			this.m_goToLine = new DevComponents.DotNetBar.ButtonItem();
+			this.m_editItemContainer2 = new DevComponents.DotNetBar.ItemContainer();
+			this.m_selectAll = new DevComponents.DotNetBar.ButtonItem();
+			this.m_cancelSelection = new DevComponents.DotNetBar.ButtonItem();
+			this.m_clearSelection = new DevComponents.DotNetBar.ButtonItem();
+			this.m_editItemContainer3 = new DevComponents.DotNetBar.ItemContainer();
+			this.m_undoAction = new DevComponents.DotNetBar.ButtonItem();
+			this.m_redoAction = new DevComponents.DotNetBar.ButtonItem();
+			this.m_clipboardBar = new DevComponents.DotNetBar.RibbonBar();
+			this.m_pasteToClipboard = new DevComponents.DotNetBar.ButtonItem();
+			this.m_clipboardItemContainer = new DevComponents.DotNetBar.ItemContainer();
+			this.m_cutSelection = new DevComponents.DotNetBar.ButtonItem();
+			this.m_copySelection = new DevComponents.DotNetBar.ButtonItem();
+			this.m_refreshBar = new DevComponents.DotNetBar.RibbonBar();
+			this.m_refreshObjectBrowser = new DevComponents.DotNetBar.ButtonItem();
 			this.m_toolPanel = new DevComponents.DotNetBar.RibbonPanel();
 			this.m_externalBar = new DevComponents.DotNetBar.RibbonBar();
 			this.m_importExternal = new DevComponents.DotNetBar.ButtonItem();
@@ -82,39 +115,6 @@
 			this.m_addUser = new DevComponents.DotNetBar.ButtonItem();
 			this.m_alterUser = new DevComponents.DotNetBar.ButtonItem();
 			this.m_privilegeUser = new DevComponents.DotNetBar.ButtonItem();
-			this.m_homePanel = new DevComponents.DotNetBar.RibbonPanel();
-			this.m_paneBar = new DevComponents.DotNetBar.RibbonBar();
-			this.m_paneItemContainer = new DevComponents.DotNetBar.ItemContainer();
-			this.m_objectBrowserPane = new DevComponents.DotNetBar.CheckBoxItem();
-			this.m_queryEditPane = new DevComponents.DotNetBar.CheckBoxItem();
-			this.m_resultPane = new DevComponents.DotNetBar.CheckBoxItem();
-			this.m_tabBar = new DevComponents.DotNetBar.RibbonBar();
-			this.m_switchPreviousTab = new DevComponents.DotNetBar.ButtonItem();
-			this.m_switchNextTab = new DevComponents.DotNetBar.ButtonItem();
-			this.m_executeBar = new DevComponents.DotNetBar.RibbonBar();
-			this.m_executeQuery = new DevComponents.DotNetBar.ButtonItem();
-			this.m_executeSelectQuery = new DevComponents.DotNetBar.ButtonItem();
-			this.m_execyteAllQuery = new DevComponents.DotNetBar.ButtonItem();
-			this.m_editBar = new DevComponents.DotNetBar.RibbonBar();
-			this.m_findData = new DevComponents.DotNetBar.ButtonItem();
-			this.m_editItemContainer1 = new DevComponents.DotNetBar.ItemContainer();
-			this.m_findNextData = new DevComponents.DotNetBar.ButtonItem();
-			this.m_replaceData = new DevComponents.DotNetBar.ButtonItem();
-			this.m_goToLine = new DevComponents.DotNetBar.ButtonItem();
-			this.m_editItemContainer2 = new DevComponents.DotNetBar.ItemContainer();
-			this.m_selectAll = new DevComponents.DotNetBar.ButtonItem();
-			this.m_cancelSelection = new DevComponents.DotNetBar.ButtonItem();
-			this.m_clearSelection = new DevComponents.DotNetBar.ButtonItem();
-			this.m_editItemContainer3 = new DevComponents.DotNetBar.ItemContainer();
-			this.m_undoAction = new DevComponents.DotNetBar.ButtonItem();
-			this.m_redoAction = new DevComponents.DotNetBar.ButtonItem();
-			this.m_clipboardBar = new DevComponents.DotNetBar.RibbonBar();
-			this.m_pasteToClipboard = new DevComponents.DotNetBar.ButtonItem();
-			this.m_clipboardItemContainer = new DevComponents.DotNetBar.ItemContainer();
-			this.m_cutSelection = new DevComponents.DotNetBar.ButtonItem();
-			this.m_copySelection = new DevComponents.DotNetBar.ButtonItem();
-			this.m_refreshBar = new DevComponents.DotNetBar.RibbonBar();
-			this.m_refreshObjectBrowser = new DevComponents.DotNetBar.ButtonItem();
 			this.m_startButton = new DevComponents.DotNetBar.Office2007StartButton();
 			this.m_fileItemContainer = new DevComponents.DotNetBar.ItemContainer();
 			this.m_fileMenuItemContainer = new DevComponents.DotNetBar.ItemContainer();
@@ -154,10 +154,11 @@
 			this.m_showAbout = new DevComponents.DotNetBar.ButtonItem();
 			this.m_styleManager = new DevComponents.DotNetBar.StyleManager();
 			this.m_statusBar = new DevComponents.DotNetBar.Bar();
+			this.m_queryTextBox = new System.Windows.Forms.SyntaxHighlightTextBox();
 			this.m_ribbonControl.SuspendLayout();
+			this.m_homePanel.SuspendLayout();
 			this.m_toolPanel.SuspendLayout();
 			this.m_createPanel.SuspendLayout();
-			this.m_homePanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_statusBar)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -188,6 +189,459 @@
 			this.m_ribbonControl.TabGroupHeight = 14;
 			this.m_ribbonControl.TabIndex = 0;
 			this.m_ribbonControl.Text = "ribbonControl1";
+			// 
+			// m_homePanel
+			// 
+			this.m_homePanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_homePanel.Controls.Add(this.m_paneBar);
+			this.m_homePanel.Controls.Add(this.m_tabBar);
+			this.m_homePanel.Controls.Add(this.m_executeBar);
+			this.m_homePanel.Controls.Add(this.m_editBar);
+			this.m_homePanel.Controls.Add(this.m_clipboardBar);
+			this.m_homePanel.Controls.Add(this.m_refreshBar);
+			this.m_homePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.m_homePanel.Location = new System.Drawing.Point(0, 56);
+			this.m_homePanel.Name = "m_homePanel";
+			this.m_homePanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+			this.m_homePanel.Size = new System.Drawing.Size(1106, 122);
+			// 
+			// 
+			// 
+			this.m_homePanel.Style.Class = "";
+			// 
+			// 
+			// 
+			this.m_homePanel.StyleMouseDown.Class = "";
+			// 
+			// 
+			// 
+			this.m_homePanel.StyleMouseOver.Class = "";
+			this.m_homePanel.TabIndex = 1;
+			// 
+			// m_paneBar
+			// 
+			this.m_paneBar.AutoOverflowEnabled = true;
+			// 
+			// 
+			// 
+			this.m_paneBar.BackgroundMouseOverStyle.Class = "";
+			// 
+			// 
+			// 
+			this.m_paneBar.BackgroundStyle.Class = "";
+			this.m_paneBar.ContainerControlProcessDialogKey = true;
+			this.m_paneBar.Dock = System.Windows.Forms.DockStyle.Left;
+			this.m_paneBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_paneItemContainer});
+			this.m_paneBar.Location = new System.Drawing.Point(867, 0);
+			this.m_paneBar.Name = "m_paneBar";
+			this.m_paneBar.Size = new System.Drawing.Size(144, 119);
+			this.m_paneBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_paneBar.TabIndex = 5;
+			this.m_paneBar.Text = "창";
+			// 
+			// 
+			// 
+			this.m_paneBar.TitleStyle.Class = "";
+			// 
+			// 
+			// 
+			this.m_paneBar.TitleStyleMouseOver.Class = "";
+			// 
+			// m_paneItemContainer
+			// 
+			// 
+			// 
+			// 
+			this.m_paneItemContainer.BackgroundStyle.Class = "";
+			this.m_paneItemContainer.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
+			this.m_paneItemContainer.Name = "m_paneItemContainer";
+			this.m_paneItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_objectBrowserPane,
+            this.m_queryEditPane,
+            this.m_resultPane});
+			this.m_paneItemContainer.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
+			// 
+			// m_objectBrowserPane
+			// 
+			this.m_objectBrowserPane.KeyTips = "HO";
+			this.m_objectBrowserPane.Name = "m_objectBrowserPane";
+			this.m_objectBrowserPane.Text = "오브젝트 브라우저";
+			// 
+			// m_queryEditPane
+			// 
+			this.m_queryEditPane.KeyTips = "HQ";
+			this.m_queryEditPane.Name = "m_queryEditPane";
+			this.m_queryEditPane.Text = "질의 편집기";
+			// 
+			// m_resultPane
+			// 
+			this.m_resultPane.KeyTips = "HR";
+			this.m_resultPane.Name = "m_resultPane";
+			this.m_resultPane.Text = "결과 창";
+			// 
+			// m_tabBar
+			// 
+			this.m_tabBar.AutoOverflowEnabled = true;
+			// 
+			// 
+			// 
+			this.m_tabBar.BackgroundMouseOverStyle.Class = "";
+			// 
+			// 
+			// 
+			this.m_tabBar.BackgroundStyle.Class = "";
+			this.m_tabBar.ContainerControlProcessDialogKey = true;
+			this.m_tabBar.Dock = System.Windows.Forms.DockStyle.Left;
+			this.m_tabBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_switchPreviousTab,
+            this.m_switchNextTab});
+			this.m_tabBar.Location = new System.Drawing.Point(743, 0);
+			this.m_tabBar.Name = "m_tabBar";
+			this.m_tabBar.Size = new System.Drawing.Size(124, 119);
+			this.m_tabBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_tabBar.TabIndex = 4;
+			this.m_tabBar.Text = "탭";
+			// 
+			// 
+			// 
+			this.m_tabBar.TitleStyle.Class = "";
+			// 
+			// 
+			// 
+			this.m_tabBar.TitleStyleMouseOver.Class = "";
+			// 
+			// m_switchPreviousTab
+			// 
+			this.m_switchPreviousTab.Image = global::Easy2.Properties.Resources.SwitchPreviousTab;
+			this.m_switchPreviousTab.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+			this.m_switchPreviousTab.KeyTips = "TP";
+			this.m_switchPreviousTab.Name = "m_switchPreviousTab";
+			this.m_switchPreviousTab.SubItemsExpandWidth = 14;
+			this.m_switchPreviousTab.Text = "이전 탭";
+			// 
+			// m_switchNextTab
+			// 
+			this.m_switchNextTab.Image = global::Easy2.Properties.Resources.SwitchNextTab;
+			this.m_switchNextTab.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+			this.m_switchNextTab.KeyTips = "TN";
+			this.m_switchNextTab.Name = "m_switchNextTab";
+			this.m_switchNextTab.SubItemsExpandWidth = 14;
+			this.m_switchNextTab.Text = "다음 탭";
+			// 
+			// m_executeBar
+			// 
+			this.m_executeBar.AutoOverflowEnabled = true;
+			// 
+			// 
+			// 
+			this.m_executeBar.BackgroundMouseOverStyle.Class = "";
+			// 
+			// 
+			// 
+			this.m_executeBar.BackgroundStyle.Class = "";
+			this.m_executeBar.ContainerControlProcessDialogKey = true;
+			this.m_executeBar.Dock = System.Windows.Forms.DockStyle.Left;
+			this.m_executeBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_executeQuery,
+            this.m_executeSelectQuery,
+            this.m_execyteAllQuery});
+			this.m_executeBar.Location = new System.Drawing.Point(548, 0);
+			this.m_executeBar.Name = "m_executeBar";
+			this.m_executeBar.Size = new System.Drawing.Size(195, 119);
+			this.m_executeBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_executeBar.TabIndex = 3;
+			this.m_executeBar.Text = "실행";
+			// 
+			// 
+			// 
+			this.m_executeBar.TitleStyle.Class = "";
+			// 
+			// 
+			// 
+			this.m_executeBar.TitleStyleMouseOver.Class = "";
+			// 
+			// m_executeQuery
+			// 
+			this.m_executeQuery.Image = global::Easy2.Properties.Resources.ExecuteQuery;
+			this.m_executeQuery.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+			this.m_executeQuery.KeyTips = "QE";
+			this.m_executeQuery.Name = "m_executeQuery";
+			this.m_executeQuery.SubItemsExpandWidth = 14;
+			this.m_executeQuery.Text = "쿼리실행";
+			// 
+			// m_executeSelectQuery
+			// 
+			this.m_executeSelectQuery.Image = global::Easy2.Properties.Resources.ExecuteSelectQuery;
+			this.m_executeSelectQuery.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+			this.m_executeSelectQuery.KeyTips = "QS";
+			this.m_executeSelectQuery.Name = "m_executeSelectQuery";
+			this.m_executeSelectQuery.SubItemsExpandWidth = 14;
+			this.m_executeSelectQuery.Text = "<div align=\"center\">선택된<br/>쿼리실행</div>";
+			// 
+			// m_execyteAllQuery
+			// 
+			this.m_execyteAllQuery.Image = global::Easy2.Properties.Resources.ExecuteAllQuery;
+			this.m_execyteAllQuery.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+			this.m_execyteAllQuery.KeyTips = "QA";
+			this.m_execyteAllQuery.Name = "m_execyteAllQuery";
+			this.m_execyteAllQuery.SubItemsExpandWidth = 14;
+			this.m_execyteAllQuery.Text = "<div align=\"center\">모든<br/>쿼리실행</div>\r\n";
+			// 
+			// m_editBar
+			// 
+			this.m_editBar.AutoOverflowEnabled = true;
+			// 
+			// 
+			// 
+			this.m_editBar.BackgroundMouseOverStyle.Class = "";
+			// 
+			// 
+			// 
+			this.m_editBar.BackgroundStyle.Class = "";
+			this.m_editBar.ContainerControlProcessDialogKey = true;
+			this.m_editBar.Dock = System.Windows.Forms.DockStyle.Left;
+			this.m_editBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_findData,
+            this.m_editItemContainer1,
+            this.m_editItemContainer2,
+            this.m_editItemContainer3});
+			this.m_editBar.Location = new System.Drawing.Point(233, 0);
+			this.m_editBar.Name = "m_editBar";
+			this.m_editBar.Size = new System.Drawing.Size(315, 119);
+			this.m_editBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_editBar.TabIndex = 2;
+			this.m_editBar.Text = "편집";
+			// 
+			// 
+			// 
+			this.m_editBar.TitleStyle.Class = "";
+			// 
+			// 
+			// 
+			this.m_editBar.TitleStyleMouseOver.Class = "";
+			// 
+			// m_findData
+			// 
+			this.m_findData.Image = global::Easy2.Properties.Resources.FindData;
+			this.m_findData.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+			this.m_findData.KeyTips = "F";
+			this.m_findData.Name = "m_findData";
+			this.m_findData.SubItemsExpandWidth = 14;
+			this.m_findData.Text = "찾기";
+			// 
+			// m_editItemContainer1
+			// 
+			// 
+			// 
+			// 
+			this.m_editItemContainer1.BackgroundStyle.Class = "";
+			this.m_editItemContainer1.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
+			this.m_editItemContainer1.Name = "m_editItemContainer1";
+			this.m_editItemContainer1.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_findNextData,
+            this.m_replaceData,
+            this.m_goToLine});
+			this.m_editItemContainer1.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
+			// 
+			// m_findNextData
+			// 
+			this.m_findNextData.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_findNextData.Image = global::Easy2.Properties.Resources.FindNextData;
+			this.m_findNextData.KeyTips = "N";
+			this.m_findNextData.Name = "m_findNextData";
+			this.m_findNextData.Text = "다음찾기";
+			// 
+			// m_replaceData
+			// 
+			this.m_replaceData.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_replaceData.Image = global::Easy2.Properties.Resources.ReplaceData;
+			this.m_replaceData.KeyTips = "E";
+			this.m_replaceData.Name = "m_replaceData";
+			this.m_replaceData.Text = "바꾸기";
+			// 
+			// m_goToLine
+			// 
+			this.m_goToLine.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_goToLine.Image = global::Easy2.Properties.Resources.GoToLine;
+			this.m_goToLine.KeyTips = "G";
+			this.m_goToLine.Name = "m_goToLine";
+			this.m_goToLine.Text = "바로가기";
+			// 
+			// m_editItemContainer2
+			// 
+			// 
+			// 
+			// 
+			this.m_editItemContainer2.BackgroundStyle.Class = "";
+			this.m_editItemContainer2.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
+			this.m_editItemContainer2.Name = "m_editItemContainer2";
+			this.m_editItemContainer2.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_selectAll,
+            this.m_cancelSelection,
+            this.m_clearSelection});
+			this.m_editItemContainer2.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
+			// 
+			// m_selectAll
+			// 
+			this.m_selectAll.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_selectAll.Image = global::Easy2.Properties.Resources.SelectAll;
+			this.m_selectAll.KeyTips = "A";
+			this.m_selectAll.Name = "m_selectAll";
+			this.m_selectAll.Text = "모두선택";
+			// 
+			// m_cancelSelection
+			// 
+			this.m_cancelSelection.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_cancelSelection.Image = global::Easy2.Properties.Resources.CancelSelection;
+			this.m_cancelSelection.KeyTips = "X";
+			this.m_cancelSelection.Name = "m_cancelSelection";
+			this.m_cancelSelection.Text = "선택취소";
+			// 
+			// m_clearSelection
+			// 
+			this.m_clearSelection.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_clearSelection.Image = global::Easy2.Properties.Resources.DeleteSelection;
+			this.m_clearSelection.KeyTips = "L";
+			this.m_clearSelection.Name = "m_clearSelection";
+			this.m_clearSelection.Text = "지우기";
+			// 
+			// m_editItemContainer3
+			// 
+			// 
+			// 
+			// 
+			this.m_editItemContainer3.BackgroundStyle.Class = "";
+			this.m_editItemContainer3.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
+			this.m_editItemContainer3.Name = "m_editItemContainer3";
+			this.m_editItemContainer3.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_undoAction,
+            this.m_redoAction});
+			this.m_editItemContainer3.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
+			// 
+			// m_undoAction
+			// 
+			this.m_undoAction.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_undoAction.Image = global::Easy2.Properties.Resources.UndoAction;
+			this.m_undoAction.KeyTips = "U";
+			this.m_undoAction.Name = "m_undoAction";
+			this.m_undoAction.Text = "실행취소";
+			// 
+			// m_redoAction
+			// 
+			this.m_redoAction.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_redoAction.Image = global::Easy2.Properties.Resources.RedoAction;
+			this.m_redoAction.KeyTips = "O";
+			this.m_redoAction.Name = "m_redoAction";
+			this.m_redoAction.Text = "다시실행";
+			// 
+			// m_clipboardBar
+			// 
+			this.m_clipboardBar.AutoOverflowEnabled = true;
+			// 
+			// 
+			// 
+			this.m_clipboardBar.BackgroundMouseOverStyle.Class = "";
+			// 
+			// 
+			// 
+			this.m_clipboardBar.BackgroundStyle.Class = "";
+			this.m_clipboardBar.ContainerControlProcessDialogKey = true;
+			this.m_clipboardBar.Dock = System.Windows.Forms.DockStyle.Left;
+			this.m_clipboardBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_pasteToClipboard,
+            this.m_clipboardItemContainer});
+			this.m_clipboardBar.Location = new System.Drawing.Point(76, 0);
+			this.m_clipboardBar.Name = "m_clipboardBar";
+			this.m_clipboardBar.Size = new System.Drawing.Size(157, 119);
+			this.m_clipboardBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_clipboardBar.TabIndex = 1;
+			this.m_clipboardBar.Text = "클립보드";
+			// 
+			// 
+			// 
+			this.m_clipboardBar.TitleStyle.Class = "";
+			// 
+			// 
+			// 
+			this.m_clipboardBar.TitleStyleMouseOver.Class = "";
+			// 
+			// m_pasteToClipboard
+			// 
+			this.m_pasteToClipboard.Image = global::Easy2.Properties.Resources.PasteToClipboard;
+			this.m_pasteToClipboard.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+			this.m_pasteToClipboard.KeyTips = "P";
+			this.m_pasteToClipboard.Name = "m_pasteToClipboard";
+			this.m_pasteToClipboard.SubItemsExpandWidth = 14;
+			this.m_pasteToClipboard.Text = "붙여넣기";
+			// 
+			// m_clipboardItemContainer
+			// 
+			// 
+			// 
+			// 
+			this.m_clipboardItemContainer.BackgroundStyle.Class = "";
+			this.m_clipboardItemContainer.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
+			this.m_clipboardItemContainer.Name = "m_clipboardItemContainer";
+			this.m_clipboardItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_cutSelection,
+            this.m_copySelection});
+			this.m_clipboardItemContainer.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
+			// 
+			// m_cutSelection
+			// 
+			this.m_cutSelection.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_cutSelection.Image = global::Easy2.Properties.Resources.CutSelection;
+			this.m_cutSelection.KeyTips = "T";
+			this.m_cutSelection.Name = "m_cutSelection";
+			this.m_cutSelection.Text = "잘라내기";
+			// 
+			// m_copySelection
+			// 
+			this.m_copySelection.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_copySelection.Image = global::Easy2.Properties.Resources.CopySelection;
+			this.m_copySelection.KeyTips = "C";
+			this.m_copySelection.Name = "m_copySelection";
+			this.m_copySelection.Text = "복사하기";
+			// 
+			// m_refreshBar
+			// 
+			this.m_refreshBar.AutoOverflowEnabled = true;
+			// 
+			// 
+			// 
+			this.m_refreshBar.BackgroundMouseOverStyle.Class = "";
+			// 
+			// 
+			// 
+			this.m_refreshBar.BackgroundStyle.Class = "";
+			this.m_refreshBar.ContainerControlProcessDialogKey = true;
+			this.m_refreshBar.Dock = System.Windows.Forms.DockStyle.Left;
+			this.m_refreshBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_refreshObjectBrowser});
+			this.m_refreshBar.Location = new System.Drawing.Point(3, 0);
+			this.m_refreshBar.Name = "m_refreshBar";
+			this.m_refreshBar.Size = new System.Drawing.Size(73, 119);
+			this.m_refreshBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_refreshBar.TabIndex = 0;
+			this.m_refreshBar.Text = "새로고침";
+			// 
+			// 
+			// 
+			this.m_refreshBar.TitleStyle.Class = "";
+			// 
+			// 
+			// 
+			this.m_refreshBar.TitleStyleMouseOver.Class = "";
+			// 
+			// m_refreshObjectBrowser
+			// 
+			this.m_refreshObjectBrowser.Image = global::Easy2.Properties.Resources.RefreshObjectBrowser;
+			this.m_refreshObjectBrowser.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+			this.m_refreshObjectBrowser.KeyTips = "R";
+			this.m_refreshObjectBrowser.Name = "m_refreshObjectBrowser";
+			this.m_refreshObjectBrowser.SubItemsExpandWidth = 14;
+			this.m_refreshObjectBrowser.Text = "새로고침";
 			// 
 			// m_toolPanel
 			// 
@@ -874,459 +1328,6 @@
 			this.m_privilegeUser.SubItemsExpandWidth = 14;
 			this.m_privilegeUser.Text = "<div align=\"center\">권한<br/>설정하기</div>";
 			// 
-			// m_homePanel
-			// 
-			this.m_homePanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_homePanel.Controls.Add(this.m_paneBar);
-			this.m_homePanel.Controls.Add(this.m_tabBar);
-			this.m_homePanel.Controls.Add(this.m_executeBar);
-			this.m_homePanel.Controls.Add(this.m_editBar);
-			this.m_homePanel.Controls.Add(this.m_clipboardBar);
-			this.m_homePanel.Controls.Add(this.m_refreshBar);
-			this.m_homePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_homePanel.Location = new System.Drawing.Point(0, 56);
-			this.m_homePanel.Name = "m_homePanel";
-			this.m_homePanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-			this.m_homePanel.Size = new System.Drawing.Size(1106, 122);
-			// 
-			// 
-			// 
-			this.m_homePanel.Style.Class = "";
-			// 
-			// 
-			// 
-			this.m_homePanel.StyleMouseDown.Class = "";
-			// 
-			// 
-			// 
-			this.m_homePanel.StyleMouseOver.Class = "";
-			this.m_homePanel.TabIndex = 1;
-			// 
-			// m_paneBar
-			// 
-			this.m_paneBar.AutoOverflowEnabled = true;
-			// 
-			// 
-			// 
-			this.m_paneBar.BackgroundMouseOverStyle.Class = "";
-			// 
-			// 
-			// 
-			this.m_paneBar.BackgroundStyle.Class = "";
-			this.m_paneBar.ContainerControlProcessDialogKey = true;
-			this.m_paneBar.Dock = System.Windows.Forms.DockStyle.Left;
-			this.m_paneBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_paneItemContainer});
-			this.m_paneBar.Location = new System.Drawing.Point(867, 0);
-			this.m_paneBar.Name = "m_paneBar";
-			this.m_paneBar.Size = new System.Drawing.Size(144, 119);
-			this.m_paneBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_paneBar.TabIndex = 5;
-			this.m_paneBar.Text = "창";
-			// 
-			// 
-			// 
-			this.m_paneBar.TitleStyle.Class = "";
-			// 
-			// 
-			// 
-			this.m_paneBar.TitleStyleMouseOver.Class = "";
-			// 
-			// m_paneItemContainer
-			// 
-			// 
-			// 
-			// 
-			this.m_paneItemContainer.BackgroundStyle.Class = "";
-			this.m_paneItemContainer.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
-			this.m_paneItemContainer.Name = "m_paneItemContainer";
-			this.m_paneItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_objectBrowserPane,
-            this.m_queryEditPane,
-            this.m_resultPane});
-			this.m_paneItemContainer.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
-			// 
-			// m_objectBrowserPane
-			// 
-			this.m_objectBrowserPane.KeyTips = "HO";
-			this.m_objectBrowserPane.Name = "m_objectBrowserPane";
-			this.m_objectBrowserPane.Text = "오브젝트 브라우저";
-			// 
-			// m_queryEditPane
-			// 
-			this.m_queryEditPane.KeyTips = "HQ";
-			this.m_queryEditPane.Name = "m_queryEditPane";
-			this.m_queryEditPane.Text = "질의 편집기";
-			// 
-			// m_resultPane
-			// 
-			this.m_resultPane.KeyTips = "HR";
-			this.m_resultPane.Name = "m_resultPane";
-			this.m_resultPane.Text = "결과 창";
-			// 
-			// m_tabBar
-			// 
-			this.m_tabBar.AutoOverflowEnabled = true;
-			// 
-			// 
-			// 
-			this.m_tabBar.BackgroundMouseOverStyle.Class = "";
-			// 
-			// 
-			// 
-			this.m_tabBar.BackgroundStyle.Class = "";
-			this.m_tabBar.ContainerControlProcessDialogKey = true;
-			this.m_tabBar.Dock = System.Windows.Forms.DockStyle.Left;
-			this.m_tabBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_switchPreviousTab,
-            this.m_switchNextTab});
-			this.m_tabBar.Location = new System.Drawing.Point(743, 0);
-			this.m_tabBar.Name = "m_tabBar";
-			this.m_tabBar.Size = new System.Drawing.Size(124, 119);
-			this.m_tabBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_tabBar.TabIndex = 4;
-			this.m_tabBar.Text = "탭";
-			// 
-			// 
-			// 
-			this.m_tabBar.TitleStyle.Class = "";
-			// 
-			// 
-			// 
-			this.m_tabBar.TitleStyleMouseOver.Class = "";
-			// 
-			// m_switchPreviousTab
-			// 
-			this.m_switchPreviousTab.Image = global::Easy2.Properties.Resources.SwitchPreviousTab;
-			this.m_switchPreviousTab.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-			this.m_switchPreviousTab.KeyTips = "TP";
-			this.m_switchPreviousTab.Name = "m_switchPreviousTab";
-			this.m_switchPreviousTab.SubItemsExpandWidth = 14;
-			this.m_switchPreviousTab.Text = "이전 탭";
-			// 
-			// m_switchNextTab
-			// 
-			this.m_switchNextTab.Image = global::Easy2.Properties.Resources.SwitchNextTab;
-			this.m_switchNextTab.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-			this.m_switchNextTab.KeyTips = "TN";
-			this.m_switchNextTab.Name = "m_switchNextTab";
-			this.m_switchNextTab.SubItemsExpandWidth = 14;
-			this.m_switchNextTab.Text = "다음 탭";
-			// 
-			// m_executeBar
-			// 
-			this.m_executeBar.AutoOverflowEnabled = true;
-			// 
-			// 
-			// 
-			this.m_executeBar.BackgroundMouseOverStyle.Class = "";
-			// 
-			// 
-			// 
-			this.m_executeBar.BackgroundStyle.Class = "";
-			this.m_executeBar.ContainerControlProcessDialogKey = true;
-			this.m_executeBar.Dock = System.Windows.Forms.DockStyle.Left;
-			this.m_executeBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_executeQuery,
-            this.m_executeSelectQuery,
-            this.m_execyteAllQuery});
-			this.m_executeBar.Location = new System.Drawing.Point(548, 0);
-			this.m_executeBar.Name = "m_executeBar";
-			this.m_executeBar.Size = new System.Drawing.Size(195, 119);
-			this.m_executeBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_executeBar.TabIndex = 3;
-			this.m_executeBar.Text = "실행";
-			// 
-			// 
-			// 
-			this.m_executeBar.TitleStyle.Class = "";
-			// 
-			// 
-			// 
-			this.m_executeBar.TitleStyleMouseOver.Class = "";
-			// 
-			// m_executeQuery
-			// 
-			this.m_executeQuery.Image = global::Easy2.Properties.Resources.ExecuteQuery;
-			this.m_executeQuery.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-			this.m_executeQuery.KeyTips = "QE";
-			this.m_executeQuery.Name = "m_executeQuery";
-			this.m_executeQuery.SubItemsExpandWidth = 14;
-			this.m_executeQuery.Text = "쿼리실행";
-			// 
-			// m_executeSelectQuery
-			// 
-			this.m_executeSelectQuery.Image = global::Easy2.Properties.Resources.ExecuteSelectQuery;
-			this.m_executeSelectQuery.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-			this.m_executeSelectQuery.KeyTips = "QS";
-			this.m_executeSelectQuery.Name = "m_executeSelectQuery";
-			this.m_executeSelectQuery.SubItemsExpandWidth = 14;
-			this.m_executeSelectQuery.Text = "<div align=\"center\">선택된<br/>쿼리실행</div>";
-			// 
-			// m_execyteAllQuery
-			// 
-			this.m_execyteAllQuery.Image = global::Easy2.Properties.Resources.ExecuteAllQuery;
-			this.m_execyteAllQuery.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-			this.m_execyteAllQuery.KeyTips = "QA";
-			this.m_execyteAllQuery.Name = "m_execyteAllQuery";
-			this.m_execyteAllQuery.SubItemsExpandWidth = 14;
-			this.m_execyteAllQuery.Text = "<div align=\"center\">모든<br/>쿼리실행</div>\r\n";
-			// 
-			// m_editBar
-			// 
-			this.m_editBar.AutoOverflowEnabled = true;
-			// 
-			// 
-			// 
-			this.m_editBar.BackgroundMouseOverStyle.Class = "";
-			// 
-			// 
-			// 
-			this.m_editBar.BackgroundStyle.Class = "";
-			this.m_editBar.ContainerControlProcessDialogKey = true;
-			this.m_editBar.Dock = System.Windows.Forms.DockStyle.Left;
-			this.m_editBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_findData,
-            this.m_editItemContainer1,
-            this.m_editItemContainer2,
-            this.m_editItemContainer3});
-			this.m_editBar.Location = new System.Drawing.Point(233, 0);
-			this.m_editBar.Name = "m_editBar";
-			this.m_editBar.Size = new System.Drawing.Size(315, 119);
-			this.m_editBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_editBar.TabIndex = 2;
-			this.m_editBar.Text = "편집";
-			// 
-			// 
-			// 
-			this.m_editBar.TitleStyle.Class = "";
-			// 
-			// 
-			// 
-			this.m_editBar.TitleStyleMouseOver.Class = "";
-			// 
-			// m_findData
-			// 
-			this.m_findData.Image = global::Easy2.Properties.Resources.FindData;
-			this.m_findData.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-			this.m_findData.KeyTips = "F";
-			this.m_findData.Name = "m_findData";
-			this.m_findData.SubItemsExpandWidth = 14;
-			this.m_findData.Text = "찾기";
-			// 
-			// m_editItemContainer1
-			// 
-			// 
-			// 
-			// 
-			this.m_editItemContainer1.BackgroundStyle.Class = "";
-			this.m_editItemContainer1.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
-			this.m_editItemContainer1.Name = "m_editItemContainer1";
-			this.m_editItemContainer1.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_findNextData,
-            this.m_replaceData,
-            this.m_goToLine});
-			this.m_editItemContainer1.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
-			// 
-			// m_findNextData
-			// 
-			this.m_findNextData.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_findNextData.Image = global::Easy2.Properties.Resources.FindNextData;
-			this.m_findNextData.KeyTips = "N";
-			this.m_findNextData.Name = "m_findNextData";
-			this.m_findNextData.Text = "다음찾기";
-			// 
-			// m_replaceData
-			// 
-			this.m_replaceData.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_replaceData.Image = global::Easy2.Properties.Resources.ReplaceData;
-			this.m_replaceData.KeyTips = "E";
-			this.m_replaceData.Name = "m_replaceData";
-			this.m_replaceData.Text = "바꾸기";
-			// 
-			// m_goToLine
-			// 
-			this.m_goToLine.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_goToLine.Image = global::Easy2.Properties.Resources.GoToLine;
-			this.m_goToLine.KeyTips = "G";
-			this.m_goToLine.Name = "m_goToLine";
-			this.m_goToLine.Text = "바로가기";
-			// 
-			// m_editItemContainer2
-			// 
-			// 
-			// 
-			// 
-			this.m_editItemContainer2.BackgroundStyle.Class = "";
-			this.m_editItemContainer2.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
-			this.m_editItemContainer2.Name = "m_editItemContainer2";
-			this.m_editItemContainer2.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_selectAll,
-            this.m_cancelSelection,
-            this.m_clearSelection});
-			this.m_editItemContainer2.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
-			// 
-			// m_selectAll
-			// 
-			this.m_selectAll.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_selectAll.Image = global::Easy2.Properties.Resources.SelectAll;
-			this.m_selectAll.KeyTips = "A";
-			this.m_selectAll.Name = "m_selectAll";
-			this.m_selectAll.Text = "모두선택";
-			// 
-			// m_cancelSelection
-			// 
-			this.m_cancelSelection.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_cancelSelection.Image = global::Easy2.Properties.Resources.CancelSelection;
-			this.m_cancelSelection.KeyTips = "X";
-			this.m_cancelSelection.Name = "m_cancelSelection";
-			this.m_cancelSelection.Text = "선택취소";
-			// 
-			// m_clearSelection
-			// 
-			this.m_clearSelection.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_clearSelection.Image = global::Easy2.Properties.Resources.DeleteSelection;
-			this.m_clearSelection.KeyTips = "L";
-			this.m_clearSelection.Name = "m_clearSelection";
-			this.m_clearSelection.Text = "지우기";
-			// 
-			// m_editItemContainer3
-			// 
-			// 
-			// 
-			// 
-			this.m_editItemContainer3.BackgroundStyle.Class = "";
-			this.m_editItemContainer3.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
-			this.m_editItemContainer3.Name = "m_editItemContainer3";
-			this.m_editItemContainer3.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_undoAction,
-            this.m_redoAction});
-			this.m_editItemContainer3.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
-			// 
-			// m_undoAction
-			// 
-			this.m_undoAction.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_undoAction.Image = global::Easy2.Properties.Resources.UndoAction;
-			this.m_undoAction.KeyTips = "U";
-			this.m_undoAction.Name = "m_undoAction";
-			this.m_undoAction.Text = "실행취소";
-			// 
-			// m_redoAction
-			// 
-			this.m_redoAction.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_redoAction.Image = global::Easy2.Properties.Resources.RedoAction;
-			this.m_redoAction.KeyTips = "O";
-			this.m_redoAction.Name = "m_redoAction";
-			this.m_redoAction.Text = "다시실행";
-			// 
-			// m_clipboardBar
-			// 
-			this.m_clipboardBar.AutoOverflowEnabled = true;
-			// 
-			// 
-			// 
-			this.m_clipboardBar.BackgroundMouseOverStyle.Class = "";
-			// 
-			// 
-			// 
-			this.m_clipboardBar.BackgroundStyle.Class = "";
-			this.m_clipboardBar.ContainerControlProcessDialogKey = true;
-			this.m_clipboardBar.Dock = System.Windows.Forms.DockStyle.Left;
-			this.m_clipboardBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_pasteToClipboard,
-            this.m_clipboardItemContainer});
-			this.m_clipboardBar.Location = new System.Drawing.Point(76, 0);
-			this.m_clipboardBar.Name = "m_clipboardBar";
-			this.m_clipboardBar.Size = new System.Drawing.Size(157, 119);
-			this.m_clipboardBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_clipboardBar.TabIndex = 1;
-			this.m_clipboardBar.Text = "클립보드";
-			// 
-			// 
-			// 
-			this.m_clipboardBar.TitleStyle.Class = "";
-			// 
-			// 
-			// 
-			this.m_clipboardBar.TitleStyleMouseOver.Class = "";
-			// 
-			// m_pasteToClipboard
-			// 
-			this.m_pasteToClipboard.Image = global::Easy2.Properties.Resources.PasteToClipboard;
-			this.m_pasteToClipboard.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-			this.m_pasteToClipboard.KeyTips = "P";
-			this.m_pasteToClipboard.Name = "m_pasteToClipboard";
-			this.m_pasteToClipboard.SubItemsExpandWidth = 14;
-			this.m_pasteToClipboard.Text = "붙여넣기";
-			// 
-			// m_clipboardItemContainer
-			// 
-			// 
-			// 
-			// 
-			this.m_clipboardItemContainer.BackgroundStyle.Class = "";
-			this.m_clipboardItemContainer.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
-			this.m_clipboardItemContainer.Name = "m_clipboardItemContainer";
-			this.m_clipboardItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_cutSelection,
-            this.m_copySelection});
-			this.m_clipboardItemContainer.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
-			// 
-			// m_cutSelection
-			// 
-			this.m_cutSelection.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_cutSelection.Image = global::Easy2.Properties.Resources.CutSelection;
-			this.m_cutSelection.KeyTips = "T";
-			this.m_cutSelection.Name = "m_cutSelection";
-			this.m_cutSelection.Text = "잘라내기";
-			// 
-			// m_copySelection
-			// 
-			this.m_copySelection.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_copySelection.Image = global::Easy2.Properties.Resources.CopySelection;
-			this.m_copySelection.KeyTips = "C";
-			this.m_copySelection.Name = "m_copySelection";
-			this.m_copySelection.Text = "복사하기";
-			// 
-			// m_refreshBar
-			// 
-			this.m_refreshBar.AutoOverflowEnabled = true;
-			// 
-			// 
-			// 
-			this.m_refreshBar.BackgroundMouseOverStyle.Class = "";
-			// 
-			// 
-			// 
-			this.m_refreshBar.BackgroundStyle.Class = "";
-			this.m_refreshBar.ContainerControlProcessDialogKey = true;
-			this.m_refreshBar.Dock = System.Windows.Forms.DockStyle.Left;
-			this.m_refreshBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_refreshObjectBrowser});
-			this.m_refreshBar.Location = new System.Drawing.Point(3, 0);
-			this.m_refreshBar.Name = "m_refreshBar";
-			this.m_refreshBar.Size = new System.Drawing.Size(73, 119);
-			this.m_refreshBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_refreshBar.TabIndex = 0;
-			this.m_refreshBar.Text = "새로고침";
-			// 
-			// 
-			// 
-			this.m_refreshBar.TitleStyle.Class = "";
-			// 
-			// 
-			// 
-			this.m_refreshBar.TitleStyleMouseOver.Class = "";
-			// 
-			// m_refreshObjectBrowser
-			// 
-			this.m_refreshObjectBrowser.Image = global::Easy2.Properties.Resources.RefreshObjectBrowser;
-			this.m_refreshObjectBrowser.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-			this.m_refreshObjectBrowser.KeyTips = "R";
-			this.m_refreshObjectBrowser.Name = "m_refreshObjectBrowser";
-			this.m_refreshObjectBrowser.SubItemsExpandWidth = 14;
-			this.m_refreshObjectBrowser.Text = "새로고침";
-			// 
 			// m_startButton
 			// 
 			this.m_startButton.AutoExpandOnClick = true;
@@ -1586,7 +1587,7 @@
 			// 
 			// m_themeCommand
 			// 
-			this.m_themeCommand.Executed += new System.EventHandler(this.AppCommandTheme_Executed);
+			this.m_themeCommand.Executed += new System.EventHandler(this.OnExecutedThemeCommand);
 			// 
 			// m_aeroBlueTheme
 			// 
@@ -1678,11 +1679,22 @@
 			this.m_statusBar.TabStop = false;
 			this.m_statusBar.Text = "statusBar";
 			// 
+			// m_queryTextBox
+			// 
+			this.m_queryTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.m_queryTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.m_queryTextBox.Location = new System.Drawing.Point(4, 181);
+			this.m_queryTextBox.Name = "m_queryTextBox";
+			this.m_queryTextBox.Size = new System.Drawing.Size(1106, 424);
+			this.m_queryTextBox.TabIndex = 2;
+			this.m_queryTextBox.Text = "";
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1114, 632);
+			this.Controls.Add(this.m_queryTextBox);
 			this.Controls.Add(this.m_statusBar);
 			this.Controls.Add(this.m_ribbonControl);
 			this.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -1691,9 +1703,9 @@
 			this.Text = "Easy To MySQL";
 			this.m_ribbonControl.ResumeLayout(false);
 			this.m_ribbonControl.PerformLayout();
+			this.m_homePanel.ResumeLayout(false);
 			this.m_toolPanel.ResumeLayout(false);
 			this.m_createPanel.ResumeLayout(false);
-			this.m_homePanel.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.m_statusBar)).EndInit();
 			this.ResumeLayout(false);
 
@@ -1826,5 +1838,6 @@
 		private DevComponents.DotNetBar.ButtonItem m_officeSilverTheme;
 		private DevComponents.DotNetBar.ButtonItem m_officeNavyTheme;
 		private DevComponents.DotNetBar.Command m_themeCommand;
+		private System.Windows.Forms.SyntaxHighlightTextBox m_queryTextBox;
 	}
 }

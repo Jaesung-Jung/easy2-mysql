@@ -1,19 +1,31 @@
 ﻿
 // MainForm.cs
+//
 using System;
 using System.Drawing;
 using DevComponents.DotNetBar;
 
 namespace Easy2
 {
+	/// <summary>
+	/// 메인폼 클래스입니다.
+	/// </summary>
 	public partial class MainForm : Office2007RibbonForm
 	{
+		/// <summary>
+		/// 생성자입니다.
+		/// </summary>
 		public MainForm()
 		{
 			InitializeComponent();
 		}
 
-		private void AppCommandTheme_Executed(object sender, System.EventArgs e)
+		/// <summary>
+		/// 테마커맨드 이벤트입니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생한 객체입니다.</param>
+		/// <param name="e">이벤트정보 객체입니다.</param>
+		protected void OnExecutedThemeCommand(object sender, System.EventArgs e)
 		{
 			ICommandSource source = sender as ICommandSource;
 			if(source.CommandParameter is string)

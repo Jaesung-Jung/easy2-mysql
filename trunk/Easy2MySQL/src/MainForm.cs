@@ -21,6 +21,23 @@ namespace Easy2
 		}
 
 		/// <summary>
+		/// OnLoad 이벤트 재정의입니다.
+		/// </summary>
+		/// <param name="e">이벤트 객체입니다.</param>
+		protected override void OnLoad(EventArgs e)
+		{
+			base.OnLoad(e);
+
+			// 구문강조 코드를 기술함
+			this.m_queryTextBox.Keywords.Add("select");
+			this.m_queryTextBox.Keywords.Add("delete");
+			this.m_queryTextBox.Keywords.Add("insert");
+			this.m_queryTextBox.Keywords.Add("update");
+
+			this.m_queryTextBox.CompileHighlightWord();
+		}
+
+		/// <summary>
 		/// 테마커맨드 이벤트입니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생한 객체입니다.</param>

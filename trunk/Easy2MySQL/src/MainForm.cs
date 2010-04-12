@@ -29,12 +29,6 @@ namespace Easy2
 			base.OnLoad(e);
 
 			// 구문강조 코드를 기술함
-			this.m_queryTextBox.Keywords.Add("select");
-			this.m_queryTextBox.Keywords.Add("delete");
-			this.m_queryTextBox.Keywords.Add("insert");
-			this.m_queryTextBox.Keywords.Add("update");
-
-			this.m_queryTextBox.CompileHighlightWord();
 		}
 
 		/// <summary>

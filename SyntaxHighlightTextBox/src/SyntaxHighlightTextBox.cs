@@ -20,6 +20,9 @@ namespace System.Windows.Forms
 		private List<string> m_keywords = new List<string>();			// 키워드 리스트
 		private List<string> m_functions = new List<string>();			// 함수 리스트
 		private List<string> m_others = new List<string>();				// 기타구문 리스트
+		private string m_regexKeywords = "";							// 키워드 정규식
+		private string m_regexFunctions = "";							// 함수 정규식
+		private string m_regexOthers = "";								// 기타구문 정규식
 		private string m_singleLineCommentBegin = "//";					// 단일라인주석 시작형식
 		private bool m_enableKeywords = true;							// 키워드 사용여부
 		private bool m_enableFunctions = false;							// 함수 사용여부
@@ -37,13 +40,9 @@ namespace System.Windows.Forms
 		private Color m_colorCharacterHighlight = Color.Red;			// 문자 색상
 		private Color m_colorIntegerHighlight = Color.Black;			// 숫자 색상
 		#endregion
-		private string m_regexKeywords = "";							// 키워드 정규식
-		private string m_regexFunctions = "";							// 함수 정규식
-		private string m_regexOthers = "";								// 기타구문 정규식
 		private bool m_isPaint = true;									// 화면을 새로 그릴지 여부
 		private bool m_isIMEComposition = false;						// 한글이 조립중인지 판단
 		private bool m_isEnterKeyDown = false;							// 엔터키가 눌러졌는지 판단
-		private bool m_isCompileHighlightWord = false;					// 강조 될 단어가 컴파일 되었는지 판단
 
 		/// <summary>
 		/// WndProc의 재정의입니다.
@@ -122,9 +121,6 @@ namespace System.Windows.Forms
 			if(syntax.Length == 0 || startIndex < 0)
 				return;
 
-			if(!this.m_isCompileHighlightWord)
-				this.CompileHighlightWord();
-
 			int caretPosition = this.SelectionStart;
 			this.SelectionStart = startIndex;
 			this.SelectionLength = syntax.Length;
@@ -174,7 +170,7 @@ namespace System.Windows.Forms
 		/// <summary>
 		/// 입력된 키워드리스트, 함수리스트, 기타구문을 정규표현식으로 만듭니다.
 		/// </summary>
-		private void CompileHighlightWord()
+		public void CompileHighlightWord()
 		{
 			StringBuilder regexBuilder = new StringBuilder();
 
@@ -263,6 +259,36 @@ namespace System.Windows.Forms
 		public List<string> Others
 		{
 			get { return this.m_others; }
+		}
+		/// <summary>
+		/// 키워드 정규식입니다.
+		/// </summary>
+		[Category("항목")]
+		[Description("키워드 정규식입니다.")]
+		public string RegexKeywords
+		{
+			get { return this.m_regexKeywords; }
+			set { this.m_regexKeywords = value; }
+		}
+		/// <summary>
+		/// 함수 정규식입니다.
+		/// </summary>
+		[Category("항목")]
+		[Description("함수 정규식입니다.")]
+		public string RegexFunctions
+		{
+			get { return this.m_regexFunctions; }
+			set { this.m_regexFunctions = value; }
+		}
+		/// <summary>
+		/// 기타구문 정규식입니다.
+		/// </summary>
+		[Category("항목")]
+		[Description("기타구문 정규식입니다.")]
+		public string RegexOthers
+		{
+			get { return this.m_regexOthers; }
+			set { this.m_regexOthers = value; }
 		}
 		/// <summary>
 		/// 단일라인주석의 시작 형식입니다.

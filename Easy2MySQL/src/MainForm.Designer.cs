@@ -29,23 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			DevComponents.DotNetBar.DotNetBarManager m_dotNetBarManager;
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-			this.m_bottomDockSite = new DevComponents.DotNetBar.DockSite();
-			this.m_dataDockBar = new DevComponents.DotNetBar.Bar();
-			this.m_resultDockContainer = new DevComponents.DotNetBar.PanelDockContainer();
-			this.m_resultDockContainerItem = new DevComponents.DotNetBar.DockContainerItem();
-			this.m_fillDockSite = new DevComponents.DotNetBar.DockSite();
-			this.m_leftDockSite = new DevComponents.DotNetBar.DockSite();
-			this.m_objectBrowserBar = new DevComponents.DotNetBar.Bar();
-			this.m_objectBrowserDockContainer = new DevComponents.DotNetBar.PanelDockContainer();
-			this.m_objectBrowserDockContainerItem = new DevComponents.DotNetBar.DockContainerItem();
-			this.m_rightDockSite = new DevComponents.DotNetBar.DockSite();
-			this.dockSite4 = new DevComponents.DotNetBar.DockSite();
-			this.dockSite1 = new DevComponents.DotNetBar.DockSite();
-			this.dockSite2 = new DevComponents.DotNetBar.DockSite();
-			this.dockSite3 = new DevComponents.DotNetBar.DockSite();
-			this.m_topDockSite = new DevComponents.DotNetBar.DockSite();
 			this.m_ribbonControl = new DevComponents.DotNetBar.RibbonControl();
 			this.m_homePanel = new DevComponents.DotNetBar.RibbonPanel();
 			this.m_paneBar = new DevComponents.DotNetBar.RibbonBar();
@@ -171,212 +155,62 @@
 			this.m_quitApplication = new DevComponents.DotNetBar.ButtonItem();
 			this.m_styleManager = new DevComponents.DotNetBar.StyleManager();
 			this.m_statusBar = new DevComponents.DotNetBar.Bar();
-			m_dotNetBarManager = new DevComponents.DotNetBar.DotNetBarManager(this.components);
-			this.m_bottomDockSite.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.m_dataDockBar)).BeginInit();
-			this.m_dataDockBar.SuspendLayout();
-			this.m_leftDockSite.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.m_objectBrowserBar)).BeginInit();
-			this.m_objectBrowserBar.SuspendLayout();
+			this.m_fillDockSite = new DevComponents.DotNetBar.DockSite();
+			this.m_topDockSite = new DevComponents.DotNetBar.DockSite();
+			this.m_leftDockSite = new DevComponents.DotNetBar.DockSite();
+			this.m_bottomDockSite = new DevComponents.DotNetBar.DockSite();
+			this.m_rightDockSite = new DevComponents.DotNetBar.DockSite();
+
 			this.m_ribbonControl.SuspendLayout();
 			this.m_homePanel.SuspendLayout();
 			this.m_toolPanel.SuspendLayout();
 			this.m_createPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_statusBar)).BeginInit();
 			this.SuspendLayout();
-			// 
-			// m_dotNetBarManager
-			// 
-			m_dotNetBarManager.BottomDockSite = this.m_bottomDockSite;
-			m_dotNetBarManager.FillDockSite = this.m_fillDockSite;
-			m_dotNetBarManager.LeftDockSite = this.m_leftDockSite;
-			m_dotNetBarManager.ParentForm = this;
-			m_dotNetBarManager.RightDockSite = this.m_rightDockSite;
-			m_dotNetBarManager.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			m_dotNetBarManager.ToolbarBottomDockSite = this.dockSite4;
-			m_dotNetBarManager.ToolbarLeftDockSite = this.dockSite1;
-			m_dotNetBarManager.ToolbarRightDockSite = this.dockSite2;
-			m_dotNetBarManager.ToolbarTopDockSite = this.dockSite3;
-			m_dotNetBarManager.TopDockSite = this.m_topDockSite;
-			// 
-			// m_bottomDockSite
-			// 
-			this.m_bottomDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-			this.m_bottomDockSite.Controls.Add(this.m_dataDockBar);
-			this.m_bottomDockSite.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.m_bottomDockSite.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer(new DevComponents.DotNetBar.DocumentBaseContainer[] {
-            ((DevComponents.DotNetBar.DocumentBaseContainer)(new DevComponents.DotNetBar.DocumentBarContainer(this.m_dataDockBar, 831, 194)))}, DevComponents.DotNetBar.eOrientation.Vertical);
-			this.m_bottomDockSite.Location = new System.Drawing.Point(279, 408);
-			this.m_bottomDockSite.Name = "m_bottomDockSite";
-			this.m_bottomDockSite.Size = new System.Drawing.Size(831, 197);
-			this.m_bottomDockSite.TabIndex = 5;
-			this.m_bottomDockSite.TabStop = false;
+
 			// 
 			// m_dataDockBar
 			// 
-			this.m_dataDockBar.AccessibleDescription = "결과 (m_dataDockBar)";
-			this.m_dataDockBar.AccessibleName = "결과";
-			this.m_dataDockBar.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
-			this.m_dataDockBar.AutoSyncBarCaption = true;
-			this.m_dataDockBar.CloseSingleTab = true;
-			this.m_dataDockBar.Controls.Add(this.m_resultDockContainer);
-			this.m_dataDockBar.GrabHandleStyle = DevComponents.DotNetBar.eGrabHandleStyle.CaptionDotted;
-			this.m_dataDockBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_resultDockContainerItem});
-			this.m_dataDockBar.LayoutType = DevComponents.DotNetBar.eLayoutType.DockContainer;
-			this.m_dataDockBar.Location = new System.Drawing.Point(0, 3);
-			this.m_dataDockBar.Name = "m_dataDockBar";
-			this.m_dataDockBar.Size = new System.Drawing.Size(831, 194);
-			this.m_dataDockBar.Stretch = true;
-			this.m_dataDockBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_dataDockBar.TabIndex = 0;
-			this.m_dataDockBar.TabStop = false;
-			this.m_dataDockBar.Text = "결과";
+// 			this.m_dataDockBar.AccessibleDescription = "결과 (m_dataDockBar)";
+// 			this.m_dataDockBar.AccessibleName = "결과";
+// 			this.m_dataDockBar.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
+// 			this.m_dataDockBar.AutoSyncBarCaption = true;
+// 			this.m_dataDockBar.CloseSingleTab = true;
+// 			this.m_dataDockBar.Controls.Add(this.m_resultDockContainer);
+// 			this.m_dataDockBar.GrabHandleStyle = DevComponents.DotNetBar.eGrabHandleStyle.CaptionDotted;
+// 			this.m_dataDockBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+//             this.m_resultDockContainerItem});
+// 			this.m_dataDockBar.LayoutType = DevComponents.DotNetBar.eLayoutType.DockContainer;
+// 			this.m_dataDockBar.Location = new System.Drawing.Point(0, 3);
+// 			this.m_dataDockBar.Name = "m_dataDockBar";
+// 			this.m_dataDockBar.Size = new System.Drawing.Size(831, 194);
+// 			this.m_dataDockBar.Stretch = true;
+// 			this.m_dataDockBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+// 			this.m_dataDockBar.TabIndex = 0;
+// 			this.m_dataDockBar.TabStop = false;
+// 			this.m_dataDockBar.Text = "결과";
 			// 
 			// m_resultDockContainer
 			// 
-			this.m_resultDockContainer.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_resultDockContainer.Location = new System.Drawing.Point(3, 26);
-			this.m_resultDockContainer.Name = "m_resultDockContainer";
-			this.m_resultDockContainer.Size = new System.Drawing.Size(825, 165);
-			this.m_resultDockContainer.Style.Alignment = System.Drawing.StringAlignment.Center;
-			this.m_resultDockContainer.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-			this.m_resultDockContainer.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
-			this.m_resultDockContainer.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-			this.m_resultDockContainer.Style.GradientAngle = 90;
-			this.m_resultDockContainer.TabIndex = 0;
+// 			this.m_resultDockContainer.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+// 			this.m_resultDockContainer.Location = new System.Drawing.Point(3, 26);
+// 			this.m_resultDockContainer.Name = "m_resultDockContainer";
+// 			this.m_resultDockContainer.Size = new System.Drawing.Size(825, 165);
+// 			this.m_resultDockContainer.Style.Alignment = System.Drawing.StringAlignment.Center;
+// 			this.m_resultDockContainer.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+// 			this.m_resultDockContainer.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+// 			this.m_resultDockContainer.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+// 			this.m_resultDockContainer.Style.GradientAngle = 90;
+// 			this.m_resultDockContainer.TabIndex = 0;
 			// 
 			// m_resultDockContainerItem
 			// 
-			this.m_resultDockContainerItem.Control = this.m_resultDockContainer;
-			this.m_resultDockContainerItem.Name = "m_resultDockContainerItem";
-			this.m_resultDockContainerItem.Text = "결과";
-			// 
-			// m_fillDockSite
-			// 
-			this.m_fillDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-			this.m_fillDockSite.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_fillDockSite.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer();
-			this.m_fillDockSite.Location = new System.Drawing.Point(279, 181);
-			this.m_fillDockSite.Name = "m_fillDockSite";
-			this.m_fillDockSite.Size = new System.Drawing.Size(831, 227);
-			this.m_fillDockSite.TabIndex = 3;
-			this.m_fillDockSite.TabStop = false;
-			// 
-			// m_leftDockSite
-			// 
-			this.m_leftDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-			this.m_leftDockSite.Controls.Add(this.m_objectBrowserBar);
-			this.m_leftDockSite.Dock = System.Windows.Forms.DockStyle.Left;
-			this.m_leftDockSite.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer(new DevComponents.DotNetBar.DocumentBaseContainer[] {
-            ((DevComponents.DotNetBar.DocumentBaseContainer)(new DevComponents.DotNetBar.DocumentBarContainer(this.m_objectBrowserBar, 272, 424)))}, DevComponents.DotNetBar.eOrientation.Horizontal);
-			this.m_leftDockSite.Location = new System.Drawing.Point(4, 181);
-			this.m_leftDockSite.Name = "m_leftDockSite";
-			this.m_leftDockSite.Size = new System.Drawing.Size(275, 424);
-			this.m_leftDockSite.TabIndex = 2;
-			this.m_leftDockSite.TabStop = false;
-			// 
-			// m_objectBrowserBar
-			// 
-			this.m_objectBrowserBar.AccessibleDescription = "오브젝트 브라우저 (m_objectBrowserBar)";
-			this.m_objectBrowserBar.AccessibleName = "오브젝트 브라우저";
-			this.m_objectBrowserBar.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
-			this.m_objectBrowserBar.AutoSyncBarCaption = true;
-			this.m_objectBrowserBar.CloseSingleTab = true;
-			this.m_objectBrowserBar.Controls.Add(this.m_objectBrowserDockContainer);
-			this.m_objectBrowserBar.DockOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
-			this.m_objectBrowserBar.GrabHandleStyle = DevComponents.DotNetBar.eGrabHandleStyle.CaptionDotted;
-			this.m_objectBrowserBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_objectBrowserDockContainerItem});
-			this.m_objectBrowserBar.LayoutType = DevComponents.DotNetBar.eLayoutType.DockContainer;
-			this.m_objectBrowserBar.Location = new System.Drawing.Point(0, 0);
-			this.m_objectBrowserBar.Name = "m_objectBrowserBar";
-			this.m_objectBrowserBar.Size = new System.Drawing.Size(272, 424);
-			this.m_objectBrowserBar.Stretch = true;
-			this.m_objectBrowserBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_objectBrowserBar.TabIndex = 0;
-			this.m_objectBrowserBar.TabStop = false;
-			this.m_objectBrowserBar.Text = "오브젝트 브라우저";
-			// 
-			// m_objectBrowserDockContainer
-			// 
-			this.m_objectBrowserDockContainer.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_objectBrowserDockContainer.Location = new System.Drawing.Point(3, 26);
-			this.m_objectBrowserDockContainer.Name = "m_objectBrowserDockContainer";
-			this.m_objectBrowserDockContainer.Size = new System.Drawing.Size(266, 395);
-			this.m_objectBrowserDockContainer.Style.Alignment = System.Drawing.StringAlignment.Center;
-			this.m_objectBrowserDockContainer.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-			this.m_objectBrowserDockContainer.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
-			this.m_objectBrowserDockContainer.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-			this.m_objectBrowserDockContainer.Style.GradientAngle = 90;
-			this.m_objectBrowserDockContainer.TabIndex = 0;
-			// 
-			// m_objectBrowserDockContainerItem
-			// 
-			this.m_objectBrowserDockContainerItem.Control = this.m_objectBrowserDockContainer;
-			this.m_objectBrowserDockContainerItem.Name = "m_objectBrowserDockContainerItem";
-			this.m_objectBrowserDockContainerItem.Text = "오브젝트 브라우저";
-			// 
-			// m_rightDockSite
-			// 
-			this.m_rightDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-			this.m_rightDockSite.Dock = System.Windows.Forms.DockStyle.Right;
-			this.m_rightDockSite.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer();
-			this.m_rightDockSite.Location = new System.Drawing.Point(1110, 181);
-			this.m_rightDockSite.Name = "m_rightDockSite";
-			this.m_rightDockSite.Size = new System.Drawing.Size(0, 227);
-			this.m_rightDockSite.TabIndex = 4;
-			this.m_rightDockSite.TabStop = false;
-			// 
-			// dockSite4
-			// 
-			this.dockSite4.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-			this.dockSite4.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.dockSite4.Location = new System.Drawing.Point(4, 630);
-			this.dockSite4.Name = "dockSite4";
-			this.dockSite4.Size = new System.Drawing.Size(1106, 0);
-			this.dockSite4.TabIndex = 10;
-			this.dockSite4.TabStop = false;
-			// 
-			// dockSite1
-			// 
-			this.dockSite1.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-			this.dockSite1.Dock = System.Windows.Forms.DockStyle.Left;
-			this.dockSite1.Location = new System.Drawing.Point(4, 1);
-			this.dockSite1.Name = "dockSite1";
-			this.dockSite1.Size = new System.Drawing.Size(0, 629);
-			this.dockSite1.TabIndex = 7;
-			this.dockSite1.TabStop = false;
-			// 
-			// dockSite2
-			// 
-			this.dockSite2.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-			this.dockSite2.Dock = System.Windows.Forms.DockStyle.Right;
-			this.dockSite2.Location = new System.Drawing.Point(1110, 1);
-			this.dockSite2.Name = "dockSite2";
-			this.dockSite2.Size = new System.Drawing.Size(0, 629);
-			this.dockSite2.TabIndex = 8;
-			this.dockSite2.TabStop = false;
-			// 
-			// dockSite3
-			// 
-			this.dockSite3.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-			this.dockSite3.Dock = System.Windows.Forms.DockStyle.Top;
-			this.dockSite3.Location = new System.Drawing.Point(4, 1);
-			this.dockSite3.Name = "dockSite3";
-			this.dockSite3.Size = new System.Drawing.Size(1106, 0);
-			this.dockSite3.TabIndex = 9;
-			this.dockSite3.TabStop = false;
-			// 
-			// m_topDockSite
-			// 
-			this.m_topDockSite.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-			this.m_topDockSite.Dock = System.Windows.Forms.DockStyle.Top;
-			this.m_topDockSite.Location = new System.Drawing.Point(4, 181);
-			this.m_topDockSite.Name = "m_topDockSite";
-			this.m_topDockSite.Size = new System.Drawing.Size(1106, 0);
-			this.m_topDockSite.TabIndex = 6;
-			this.m_topDockSite.TabStop = false;
+// 			this.m_resultDockContainerItem.Control = this.m_resultDockContainer;
+// 			this.m_resultDockContainerItem.Name = "m_resultDockContainerItem";
+// 			this.m_resultDockContainerItem.Text = "결과";
+
+
+
 			// 
 			// m_ribbonControl
 			// 
@@ -1903,25 +1737,21 @@
 			this.ClientSize = new System.Drawing.Size(1114, 632);
 			this.Controls.Add(this.m_fillDockSite);
 			this.Controls.Add(this.m_rightDockSite);
-			this.Controls.Add(this.m_bottomDockSite);
+	  		this.Controls.Add(this.m_bottomDockSite);
 			this.Controls.Add(this.m_leftDockSite);
-			this.Controls.Add(this.m_topDockSite);
+	  		this.Controls.Add(this.m_topDockSite);
 			this.Controls.Add(this.m_statusBar);
 			this.Controls.Add(this.m_ribbonControl);
-			this.Controls.Add(this.dockSite1);
-			this.Controls.Add(this.dockSite2);
-			this.Controls.Add(this.dockSite3);
-			this.Controls.Add(this.dockSite4);
 			this.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "MainForm";
 			this.Text = "Easy To MySQL";
-			this.m_bottomDockSite.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.m_dataDockBar)).EndInit();
-			this.m_dataDockBar.ResumeLayout(false);
-			this.m_leftDockSite.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.m_objectBrowserBar)).EndInit();
-			this.m_objectBrowserBar.ResumeLayout(false);
+// 			this.m_bottomDockSite.ResumeLayout(false);
+// 			((System.ComponentModel.ISupportInitialize)(this.m_dataDockBar)).EndInit();
+// 			this.m_dataDockBar.ResumeLayout(false);
+// 			this.m_leftDockSite.ResumeLayout(false);
+// 			((System.ComponentModel.ISupportInitialize)(this.m_objectBrowserBar)).EndInit();
+// 			this.m_objectBrowserBar.ResumeLayout(false);
 			this.m_ribbonControl.ResumeLayout(false);
 			this.m_ribbonControl.PerformLayout();
 			this.m_homePanel.ResumeLayout(false);
@@ -2059,20 +1889,10 @@
 		private DevComponents.DotNetBar.ButtonItem m_officeSilverTheme;
 		private DevComponents.DotNetBar.ButtonItem m_officeNavyTheme;
 		private DevComponents.DotNetBar.Command m_themeCommand;
-		private DevComponents.DotNetBar.DockSite m_bottomDockSite;
-		private DevComponents.DotNetBar.Bar m_dataDockBar;
-		private DevComponents.DotNetBar.PanelDockContainer m_resultDockContainer;
-		private DevComponents.DotNetBar.DockContainerItem m_resultDockContainerItem;
-		private DevComponents.DotNetBar.DockSite m_leftDockSite;
-		private DevComponents.DotNetBar.Bar m_objectBrowserBar;
-		private DevComponents.DotNetBar.PanelDockContainer m_objectBrowserDockContainer;
-		private DevComponents.DotNetBar.DockContainerItem m_objectBrowserDockContainerItem;
 		private DevComponents.DotNetBar.DockSite m_fillDockSite;
-		private DevComponents.DotNetBar.DockSite m_rightDockSite;
 		private DevComponents.DotNetBar.DockSite m_topDockSite;
-		private DevComponents.DotNetBar.DockSite dockSite1;
-		private DevComponents.DotNetBar.DockSite dockSite2;
-		private DevComponents.DotNetBar.DockSite dockSite3;
-		private DevComponents.DotNetBar.DockSite dockSite4;
+		private DevComponents.DotNetBar.DockSite m_leftDockSite;
+		private DevComponents.DotNetBar.DockSite m_bottomDockSite;
+		private DevComponents.DotNetBar.DockSite m_rightDockSite;
 	}
 }

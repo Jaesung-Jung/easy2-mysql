@@ -46,11 +46,16 @@
       <HintPath>..\..\..\..\..\..\..\Program Files\DotNetBar for Windows Forms\DevComponents.DotNetBar2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\DockBrowser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="src\DockManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="src\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +66,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="src\ObjectBrowser.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="src\Program.cs" />
   </ItemGroup>

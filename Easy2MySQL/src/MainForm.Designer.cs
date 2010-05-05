@@ -28,7 +28,6 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.m_ribbonControl = new DevComponents.DotNetBar.RibbonControl();
 			this.m_homePanel = new DevComponents.DotNetBar.RibbonPanel();
@@ -155,62 +154,12 @@
 			this.m_quitApplication = new DevComponents.DotNetBar.ButtonItem();
 			this.m_styleManager = new DevComponents.DotNetBar.StyleManager();
 			this.m_statusBar = new DevComponents.DotNetBar.Bar();
-			this.m_fillDockSite = new DevComponents.DotNetBar.DockSite();
-			this.m_topDockSite = new DevComponents.DotNetBar.DockSite();
-			this.m_leftDockSite = new DevComponents.DotNetBar.DockSite();
-			this.m_bottomDockSite = new DevComponents.DotNetBar.DockSite();
-			this.m_rightDockSite = new DevComponents.DotNetBar.DockSite();
-
 			this.m_ribbonControl.SuspendLayout();
 			this.m_homePanel.SuspendLayout();
 			this.m_toolPanel.SuspendLayout();
 			this.m_createPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_statusBar)).BeginInit();
 			this.SuspendLayout();
-
-			// 
-			// m_dataDockBar
-			// 
-// 			this.m_dataDockBar.AccessibleDescription = "결과 (m_dataDockBar)";
-// 			this.m_dataDockBar.AccessibleName = "결과";
-// 			this.m_dataDockBar.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
-// 			this.m_dataDockBar.AutoSyncBarCaption = true;
-// 			this.m_dataDockBar.CloseSingleTab = true;
-// 			this.m_dataDockBar.Controls.Add(this.m_resultDockContainer);
-// 			this.m_dataDockBar.GrabHandleStyle = DevComponents.DotNetBar.eGrabHandleStyle.CaptionDotted;
-// 			this.m_dataDockBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-//             this.m_resultDockContainerItem});
-// 			this.m_dataDockBar.LayoutType = DevComponents.DotNetBar.eLayoutType.DockContainer;
-// 			this.m_dataDockBar.Location = new System.Drawing.Point(0, 3);
-// 			this.m_dataDockBar.Name = "m_dataDockBar";
-// 			this.m_dataDockBar.Size = new System.Drawing.Size(831, 194);
-// 			this.m_dataDockBar.Stretch = true;
-// 			this.m_dataDockBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-// 			this.m_dataDockBar.TabIndex = 0;
-// 			this.m_dataDockBar.TabStop = false;
-// 			this.m_dataDockBar.Text = "결과";
-			// 
-			// m_resultDockContainer
-			// 
-// 			this.m_resultDockContainer.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-// 			this.m_resultDockContainer.Location = new System.Drawing.Point(3, 26);
-// 			this.m_resultDockContainer.Name = "m_resultDockContainer";
-// 			this.m_resultDockContainer.Size = new System.Drawing.Size(825, 165);
-// 			this.m_resultDockContainer.Style.Alignment = System.Drawing.StringAlignment.Center;
-// 			this.m_resultDockContainer.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-// 			this.m_resultDockContainer.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
-// 			this.m_resultDockContainer.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-// 			this.m_resultDockContainer.Style.GradientAngle = 90;
-// 			this.m_resultDockContainer.TabIndex = 0;
-			// 
-			// m_resultDockContainerItem
-			// 
-// 			this.m_resultDockContainerItem.Control = this.m_resultDockContainer;
-// 			this.m_resultDockContainerItem.Name = "m_resultDockContainerItem";
-// 			this.m_resultDockContainerItem.Text = "결과";
-
-
-
 			// 
 			// m_ribbonControl
 			// 
@@ -224,6 +173,7 @@
 			this.m_ribbonControl.Controls.Add(this.m_createPanel);
 			this.m_ribbonControl.Dock = System.Windows.Forms.DockStyle.Top;
 			this.m_ribbonControl.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_startButton,
             this.m_homeTab,
             this.m_createTab,
             this.m_toolTab,
@@ -232,10 +182,7 @@
 			this.m_ribbonControl.KeyTipsFont = new System.Drawing.Font("Tahoma", 7F);
 			this.m_ribbonControl.Location = new System.Drawing.Point(4, 1);
 			this.m_ribbonControl.Name = "m_ribbonControl";
-			this.m_ribbonControl.Office2007ColorTable = DevComponents.DotNetBar.Rendering.eOffice2007ColorScheme.Silver;
 			this.m_ribbonControl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
-			this.m_ribbonControl.QuickToolbarItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_startButton});
 			this.m_ribbonControl.Size = new System.Drawing.Size(1106, 180);
 			this.m_ribbonControl.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_ribbonControl.TabGroupHeight = 14;
@@ -252,10 +199,10 @@
 			this.m_homePanel.Controls.Add(this.m_clipboardBar);
 			this.m_homePanel.Controls.Add(this.m_refreshBar);
 			this.m_homePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_homePanel.Location = new System.Drawing.Point(0, 59);
+			this.m_homePanel.Location = new System.Drawing.Point(0, 56);
 			this.m_homePanel.Name = "m_homePanel";
 			this.m_homePanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-			this.m_homePanel.Size = new System.Drawing.Size(1106, 119);
+			this.m_homePanel.Size = new System.Drawing.Size(1106, 122);
 			// 
 			// 
 			// 
@@ -287,7 +234,7 @@
             this.m_paneItemContainer});
 			this.m_paneBar.Location = new System.Drawing.Point(867, 0);
 			this.m_paneBar.Name = "m_paneBar";
-			this.m_paneBar.Size = new System.Drawing.Size(144, 116);
+			this.m_paneBar.Size = new System.Drawing.Size(144, 119);
 			this.m_paneBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_paneBar.TabIndex = 5;
 			this.m_paneBar.Text = "창";
@@ -350,7 +297,7 @@
             this.m_switchNextTab});
 			this.m_tabBar.Location = new System.Drawing.Point(743, 0);
 			this.m_tabBar.Name = "m_tabBar";
-			this.m_tabBar.Size = new System.Drawing.Size(124, 116);
+			this.m_tabBar.Size = new System.Drawing.Size(124, 119);
 			this.m_tabBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_tabBar.TabIndex = 4;
 			this.m_tabBar.Text = "탭";
@@ -400,7 +347,7 @@
             this.m_execyteAllQuery});
 			this.m_executeBar.Location = new System.Drawing.Point(548, 0);
 			this.m_executeBar.Name = "m_executeBar";
-			this.m_executeBar.Size = new System.Drawing.Size(195, 116);
+			this.m_executeBar.Size = new System.Drawing.Size(195, 119);
 			this.m_executeBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_executeBar.TabIndex = 3;
 			this.m_executeBar.Text = "실행";
@@ -460,7 +407,7 @@
             this.m_editItemContainer3});
 			this.m_editBar.Location = new System.Drawing.Point(233, 0);
 			this.m_editBar.Name = "m_editBar";
-			this.m_editBar.Size = new System.Drawing.Size(315, 116);
+			this.m_editBar.Size = new System.Drawing.Size(315, 119);
 			this.m_editBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_editBar.TabIndex = 2;
 			this.m_editBar.Text = "편집";
@@ -605,7 +552,7 @@
             this.m_clipboardItemContainer});
 			this.m_clipboardBar.Location = new System.Drawing.Point(76, 0);
 			this.m_clipboardBar.Name = "m_clipboardBar";
-			this.m_clipboardBar.Size = new System.Drawing.Size(157, 116);
+			this.m_clipboardBar.Size = new System.Drawing.Size(157, 119);
 			this.m_clipboardBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_clipboardBar.TabIndex = 1;
 			this.m_clipboardBar.Text = "클립보드";
@@ -673,7 +620,7 @@
             this.m_refreshObjectBrowser});
 			this.m_refreshBar.Location = new System.Drawing.Point(3, 0);
 			this.m_refreshBar.Name = "m_refreshBar";
-			this.m_refreshBar.Size = new System.Drawing.Size(73, 116);
+			this.m_refreshBar.Size = new System.Drawing.Size(73, 119);
 			this.m_refreshBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_refreshBar.TabIndex = 0;
 			this.m_refreshBar.Text = "새로고침";
@@ -1522,8 +1469,9 @@
 			this.m_startButton.AutoExpandOnClick = true;
 			this.m_startButton.CanCustomize = false;
 			this.m_startButton.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.Image;
-			this.m_startButton.ImagePaddingHorizontal = 2;
-			this.m_startButton.ImagePaddingVertical = 2;
+			this.m_startButton.ImageFixedSize = new System.Drawing.Size(16, 16);
+			this.m_startButton.ImagePaddingHorizontal = 0;
+			this.m_startButton.ImagePaddingVertical = 0;
 			this.m_startButton.Name = "m_startButton";
 			this.m_startButton.ShowSubItems = false;
 			this.m_startButton.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -1712,7 +1660,7 @@
 			// 
 			// m_styleManager
 			// 
-			this.m_styleManager.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2007Silver;
+			this.m_styleManager.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Silver;
 			// 
 			// m_statusBar
 			// 
@@ -1735,23 +1683,12 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1114, 632);
-			this.Controls.Add(this.m_fillDockSite);
-			this.Controls.Add(this.m_rightDockSite);
-	  		this.Controls.Add(this.m_bottomDockSite);
-			this.Controls.Add(this.m_leftDockSite);
-	  		this.Controls.Add(this.m_topDockSite);
 			this.Controls.Add(this.m_statusBar);
 			this.Controls.Add(this.m_ribbonControl);
 			this.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "MainForm";
 			this.Text = "Easy To MySQL";
-// 			this.m_bottomDockSite.ResumeLayout(false);
-// 			((System.ComponentModel.ISupportInitialize)(this.m_dataDockBar)).EndInit();
-// 			this.m_dataDockBar.ResumeLayout(false);
-// 			this.m_leftDockSite.ResumeLayout(false);
-// 			((System.ComponentModel.ISupportInitialize)(this.m_objectBrowserBar)).EndInit();
-// 			this.m_objectBrowserBar.ResumeLayout(false);
 			this.m_ribbonControl.ResumeLayout(false);
 			this.m_ribbonControl.PerformLayout();
 			this.m_homePanel.ResumeLayout(false);
@@ -1889,10 +1826,5 @@
 		private DevComponents.DotNetBar.ButtonItem m_officeSilverTheme;
 		private DevComponents.DotNetBar.ButtonItem m_officeNavyTheme;
 		private DevComponents.DotNetBar.Command m_themeCommand;
-		private DevComponents.DotNetBar.DockSite m_fillDockSite;
-		private DevComponents.DotNetBar.DockSite m_topDockSite;
-		private DevComponents.DotNetBar.DockSite m_leftDockSite;
-		private DevComponents.DotNetBar.DockSite m_bottomDockSite;
-		private DevComponents.DotNetBar.DockSite m_rightDockSite;
 	}
 }

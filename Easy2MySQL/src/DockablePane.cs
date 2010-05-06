@@ -1,5 +1,5 @@
 ﻿
-// DockBrowser.cs
+// DockablePane.cs
 //
 using DevComponents.DotNetBar;
 
@@ -8,13 +8,12 @@ namespace Easy2
 	/// <summary>
 	/// 도킹 브라우저 클래스입니다.
 	/// </summary>
-	class DockBrowser : Bar
+	class DockablePane : Bar
 	{
 		/// <summary>
 		/// 생성자입니다.
 		/// </summary>
-		/// <param name="captionText">캡션 문자열입니다.</param>
-		public DockBrowser(string captionText) : base(captionText)
+		public DockablePane()
 		{
 			this.m_dockItem = new DockContainerItem();
 			//
@@ -26,10 +25,16 @@ namespace Easy2
 			this.Style = eDotNetBarStyle.StyleManagerControlled;
 			this.GrabHandleStyle = eGrabHandleStyle.CaptionDotted;
 			this.Items.Add(this.m_dockItem);
-			//
-			// m_dockItem
-			//
-			this.m_dockItem.Text = captionText;
+		}
+
+		/// <summary>
+		/// Text 속성이 변경될 때 수행합니다.
+		/// </summary>
+		/// <param name="e">이벤트 객체입니다.</param>
+		protected override void OnTextChanged(System.EventArgs e)
+		{
+			base.OnTextChanged(e);
+			this.m_dockItem.Text = this.Text;
 		}
 
 		protected DockContainerItem m_dockItem;

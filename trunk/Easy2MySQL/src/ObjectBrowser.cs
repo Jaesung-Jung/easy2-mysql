@@ -2,6 +2,7 @@
 // ObjectBrowser.cs
 //
 using System.Drawing;
+using System.Windows.Forms;
 using DevComponents.DotNetBar;
 
 namespace Easy2
@@ -9,21 +10,23 @@ namespace Easy2
 	/// <summary>
 	/// 오브젝트 브라우저 클래스입니다.
 	/// </summary>
-	class ObjectBrowser : DockBrowser
+	class ObjectBrowser : DockablePane
 	{
 		/// <summary>
 		/// 생성자입니다.
 		/// </summary>
-		public ObjectBrowser() : base("Object Browser")
+		public ObjectBrowser()
 		{
+			this.m_objectTree = new TreeView();
+			base.m_dockItem.Control = this.m_objectTree;
+
+//			TreeNode node = this.m_objectTree.Nodes.Add("테스트");
+//			node.Nodes.Add("차일드1");
+//			node.Nodes.Add("차일드2");
+//			node.Nodes.Add("차일드3");
+//			this.m_objectTree.Nodes[0].Expand();
 		}
 
-		/// <summary>
-		/// 생성자입니다.
-		/// </summary>
-		/// <param name="captionText">캡션 문자열입니다.</param>
-		public ObjectBrowser(string captionText) : base(captionText)
-		{
-		}
+		private TreeView m_objectTree;
 	}
 }

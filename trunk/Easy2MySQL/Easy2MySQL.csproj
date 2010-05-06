@@ -50,10 +50,10 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\DockBrowser.cs">
+    <Compile Include="src\DockablePane.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="src\DockManager.cs">
+    <Compile Include="src\DockingManager.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="src\MainForm.cs">

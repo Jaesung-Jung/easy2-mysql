@@ -10,15 +10,14 @@ namespace Easy2
 	/// <summary>
 	/// 도킹 매니저 클래스입니다.
 	/// </summary>
-	class DockManager : DotNetBarManager
+	class DockingManager : DotNetBarManager
 	{
 		/// <summary>
 		/// 생성자입니다.
 		/// </summary>
 		/// <param name="parentForm">도킹 매니저가 관리할 폼입니다.</param>
-		public DockManager(Form parentForm)
+		public DockingManager(Form parentForm)
 		{
-			this.m_components = new Container();
 			this.m_topDockSite = new DockSite();
 			this.m_bottomDockSite = new DockSite();
 			this.m_leftDockSite = new DockSite();
@@ -65,60 +64,6 @@ namespace Easy2
 			parentForm.Controls.Add(this.m_rightDockSite);
 		}
 
-		/// <summary>
-		/// 윈도우를 도킹시킵니다.
-		/// </summary>
-		/// <param name="bar">도킹할 컨트롤입니다.</param>
-		/// <param name="dockSide">도킹 위치입니다.</param>
-		public void Dock(Bar bar, eDockSide dockSide)
-		{
-			this.Bars.Add(bar);
-			
-			switch(dockSide)
-			{
-				case eDockSide.Top:
-					this.m_topDockSite.GetDocumentUIManager().Dock(bar);
-					break;
-				case  eDockSide.Bottom:
-					this.m_bottomDockSite.GetDocumentUIManager().Dock(bar);
-					break;
-				case eDockSide.Left:
-					this.m_leftDockSite.GetDocumentUIManager().Dock(bar);
-					break;
-				case  eDockSide.Right:
-					this.m_rightDockSite.GetDocumentUIManager().Dock(bar);
-					break;
-			}
-		}
-
-		/// <summary>
-		/// 윈도우를 도킹시킵니다.
-		/// </summary>
-		/// <param name="target">도킹의 기준이 될 컨트롤입니다.</param>
-		/// <param name="bar">도킹할 컨트롤입니다.</param>
-		/// <param name="dockSide">도킹 위치입니다.</param>
-		public void Dock(Bar target, Bar bar, eDockSide dockSide)
-		{
-			this.Bars.Add(bar);
-
-			switch(target.DockSide)
-			{
-				case eDockSide.Top:
-					this.m_topDockSite.GetDocumentUIManager().Dock(target, bar, dockSide);
-					break;
-				case eDockSide.Bottom:
-					this.m_bottomDockSite.GetDocumentUIManager().Dock(target, bar, dockSide);
-					break;
-				case eDockSide.Left:
-					this.m_leftDockSite.GetDocumentUIManager().Dock(target, bar, dockSide);
-					break;
-				case eDockSide.Right:
-					this.m_rightDockSite.GetDocumentUIManager().Dock(target, bar, dockSide);
-					break;
-			}
-		}
-
-		private IContainer m_components;
 		private DockSite m_topDockSite;
 		private DockSite m_bottomDockSite;
 		private DockSite m_leftDockSite;

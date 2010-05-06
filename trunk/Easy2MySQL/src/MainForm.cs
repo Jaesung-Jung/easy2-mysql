@@ -17,7 +17,7 @@ namespace Easy2
 		/// </summary>
 		public MainForm()
 		{
-			this.m_dockManager = new DockManager(this);
+			this.m_dockingManager = new DockingManager(this);
 			InitializeComponent();
 		}
 
@@ -28,13 +28,8 @@ namespace Easy2
 		protected override void OnLoad(EventArgs e)
 		{
 			base.OnLoad(e);
-			ObjectBrowser item1 = new ObjectBrowser();
-			ObjectBrowser item2 = new ObjectBrowser("메롱1");
-			ObjectBrowser item3 = new ObjectBrowser("사랑해");
-
-			this.m_dockManager.Dock(item1, eDockSide.Left);
-			this.m_dockManager.Dock(item1, item2, eDockSide.Bottom);
-			this.m_dockManager.Dock(item3, eDockSide.Top);
+//			ObjectBrowser obj = new ObjectBrowser();
+//			this.m_dockingManager.Dock(obj, eDockSide.Left);
 		}
 
 		/// <summary>
@@ -53,6 +48,6 @@ namespace Easy2
 			}
 		}
 
-		private DockManager m_dockManager;
+		private DockingManager m_dockingManager;
 	}
 }

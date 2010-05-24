@@ -14,9 +14,10 @@ namespace Easy2
 		/// <summary>
 		/// 생성자입니다.
 		/// </summary>
-		public DockablePane()
+		public DockablePane(string s)
 		{
 			this.m_dockItem = new DockContainerItem();
+			this.m_dockItem.Text = s;
 			//
 			// m_dockBar
 			//
@@ -29,15 +30,8 @@ namespace Easy2
 		}
 
 		/// <summary>
-		/// Text 속성이 변경될 때 수행합니다.
+		/// 컨트롤 객체입니다.
 		/// </summary>
-		/// <param name="e">이벤트 객체입니다.</param>
-		protected override void OnTextChanged(System.EventArgs e)
-		{
-			base.OnTextChanged(e);
-			this.m_dockItem.Text = this.Text;
-		}
-
 		protected Control Control
 		{
 			get { return this.m_dockItem.Control; }

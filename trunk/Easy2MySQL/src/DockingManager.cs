@@ -71,6 +71,15 @@ namespace Easy2
 			this.RightDockSite = this.m_rightDockSite;
 			this.ParentForm = parentForm;
 			this.Style = eDotNetBarStyle.StyleManagerControlled;
+			this.DockTabChange += new DockTabChangeEventHandler(OnDockTabChanged);
+		}
+
+		private void OnDockTabChanged(object sender, DockTabChangeEventArgs e)
+		{
+			DockablePane dockablePane = sender as DockablePane;
+			if(dockablePane == null || e.NewTab == null)
+				return;
+			dockablePane.Text = e.NewTab.Text;
 		}
 
 		/// <summary>

@@ -3,6 +3,8 @@
 //
 using System.Drawing;
 using System.Windows.Forms;
+using System.ComponentModel;
+using DevComponents.AdvTree;
 using DevComponents.DotNetBar;
 
 namespace Easy2
@@ -17,16 +19,30 @@ namespace Easy2
 		/// </summary>
 		public ObjectBrowser()
 		{
-			this.m_objectTree = new TreeView();
-			base.m_dockItem.Control = this.m_objectTree;
+			this.m_objectTreeView = new ObjectTreeView();
+			this.m_nodeStyle = new ElementStyle();
+			((ISupportInitialize)(this.m_objectTreeView)).BeginInit();
+			this.m_objectTreeView.SuspendLayout();
+			//
+			// m_objectTreeView
+			//
+			this.m_objectTreeView.AccessibleRole = AccessibleRole.Outline;
+			this.m_objectTreeView.AllowDrop = true;
+			this.m_objectTreeView.BackColor = SystemColors.Window;
+			this.m_objectTreeView.Dock = DockStyle.Fill;
+			this.m_objectTreeView.NodeStyle = this.m_nodeStyle;
+			this.m_objectTreeView.Styles.Add(this.m_nodeStyle);
+			//
+			// m_nodeStyle
+			//
+			this.m_nodeStyle.TextColor = SystemColors.ControlText;
 
-//			TreeNode node = this.m_objectTree.Nodes.Add("테스트");
-//			node.Nodes.Add("차일드1");
-//			node.Nodes.Add("차일드2");
-//			node.Nodes.Add("차일드3");
-//			this.m_objectTree.Nodes[0].Expand();
+			this.m_objectTreeView.ResumeLayout();
+			((ISupportInitialize)(this.m_objectTreeView)).EndInit();
+			this.Control = this.m_objectTreeView;
 		}
 
-		private TreeView m_objectTree;
+		private ObjectTreeView m_objectTreeView;
+		private ElementStyle m_nodeStyle;
 	}
 }

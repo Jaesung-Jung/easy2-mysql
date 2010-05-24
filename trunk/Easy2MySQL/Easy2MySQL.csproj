@@ -70,7 +70,13 @@
     <Compile Include="src\ObjectBrowser.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="src\ObjectTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="src\Program.cs" />
+    <Compile Include="src\QueryEditor.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="src\MainForm.resx">

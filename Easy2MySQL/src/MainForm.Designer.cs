@@ -31,11 +31,6 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.m_ribbonControl = new DevComponents.DotNetBar.RibbonControl();
 			this.m_homePanel = new DevComponents.DotNetBar.RibbonPanel();
-			this.m_paneBar = new DevComponents.DotNetBar.RibbonBar();
-			this.m_paneItemContainer = new DevComponents.DotNetBar.ItemContainer();
-			this.m_objectBrowserPane = new DevComponents.DotNetBar.CheckBoxItem();
-			this.m_queryEditPane = new DevComponents.DotNetBar.CheckBoxItem();
-			this.m_resultPane = new DevComponents.DotNetBar.CheckBoxItem();
 			this.m_tabBar = new DevComponents.DotNetBar.RibbonBar();
 			this.m_switchPreviousTab = new DevComponents.DotNetBar.ButtonItem();
 			this.m_switchNextTab = new DevComponents.DotNetBar.ButtonItem();
@@ -192,7 +187,6 @@
 			// m_homePanel
 			// 
 			this.m_homePanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_homePanel.Controls.Add(this.m_paneBar);
 			this.m_homePanel.Controls.Add(this.m_tabBar);
 			this.m_homePanel.Controls.Add(this.m_executeBar);
 			this.m_homePanel.Controls.Add(this.m_editBar);
@@ -216,68 +210,6 @@
 			// 
 			this.m_homePanel.StyleMouseOver.Class = "";
 			this.m_homePanel.TabIndex = 1;
-			// 
-			// m_paneBar
-			// 
-			this.m_paneBar.AutoOverflowEnabled = true;
-			// 
-			// 
-			// 
-			this.m_paneBar.BackgroundMouseOverStyle.Class = "";
-			// 
-			// 
-			// 
-			this.m_paneBar.BackgroundStyle.Class = "";
-			this.m_paneBar.ContainerControlProcessDialogKey = true;
-			this.m_paneBar.Dock = System.Windows.Forms.DockStyle.Left;
-			this.m_paneBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_paneItemContainer});
-			this.m_paneBar.Location = new System.Drawing.Point(867, 0);
-			this.m_paneBar.Name = "m_paneBar";
-			this.m_paneBar.Size = new System.Drawing.Size(144, 119);
-			this.m_paneBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_paneBar.TabIndex = 5;
-			this.m_paneBar.Text = "창";
-			// 
-			// 
-			// 
-			this.m_paneBar.TitleStyle.Class = "";
-			// 
-			// 
-			// 
-			this.m_paneBar.TitleStyleMouseOver.Class = "";
-			// 
-			// m_paneItemContainer
-			// 
-			// 
-			// 
-			// 
-			this.m_paneItemContainer.BackgroundStyle.Class = "";
-			this.m_paneItemContainer.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
-			this.m_paneItemContainer.Name = "m_paneItemContainer";
-			this.m_paneItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_objectBrowserPane,
-            this.m_queryEditPane,
-            this.m_resultPane});
-			this.m_paneItemContainer.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
-			// 
-			// m_objectBrowserPane
-			// 
-			this.m_objectBrowserPane.KeyTips = "HO";
-			this.m_objectBrowserPane.Name = "m_objectBrowserPane";
-			this.m_objectBrowserPane.Text = "오브젝트 브라우저";
-			// 
-			// m_queryEditPane
-			// 
-			this.m_queryEditPane.KeyTips = "HQ";
-			this.m_queryEditPane.Name = "m_queryEditPane";
-			this.m_queryEditPane.Text = "질의 편집기";
-			// 
-			// m_resultPane
-			// 
-			this.m_resultPane.KeyTips = "HR";
-			this.m_resultPane.Name = "m_resultPane";
-			this.m_resultPane.Text = "결과 창";
 			// 
 			// m_tabBar
 			// 
@@ -1755,11 +1687,6 @@
 		private DevComponents.DotNetBar.RibbonBar m_tabBar;
 		private DevComponents.DotNetBar.ButtonItem m_switchPreviousTab;
 		private DevComponents.DotNetBar.ButtonItem m_switchNextTab;
-		private DevComponents.DotNetBar.RibbonBar m_paneBar;
-		private DevComponents.DotNetBar.ItemContainer m_paneItemContainer;
-		private DevComponents.DotNetBar.CheckBoxItem m_objectBrowserPane;
-		private DevComponents.DotNetBar.CheckBoxItem m_queryEditPane;
-		private DevComponents.DotNetBar.CheckBoxItem m_resultPane;
 		private DevComponents.DotNetBar.RibbonBar m_userBar;
 		private DevComponents.DotNetBar.ButtonItem m_addUser;
 		private DevComponents.DotNetBar.ButtonItem m_alterUser;

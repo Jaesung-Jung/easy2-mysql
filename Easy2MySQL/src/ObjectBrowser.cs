@@ -17,7 +17,7 @@ namespace Easy2
 		/// <summary>
 		/// 생성자입니다.
 		/// </summary>
-		public ObjectBrowser()
+		public ObjectBrowser(string s) : base(s)
 		{
 			this.m_objectTreeView = new ObjectTreeView();
 			this.m_nodeStyle = new ElementStyle();
@@ -40,6 +40,7 @@ namespace Easy2
 			this.m_objectTreeView.ResumeLayout();
 			((ISupportInitialize)(this.m_objectTreeView)).EndInit();
 			this.Control = this.m_objectTreeView;
+			this.Text = s;
 		}
 
 		private ObjectTreeView m_objectTreeView;

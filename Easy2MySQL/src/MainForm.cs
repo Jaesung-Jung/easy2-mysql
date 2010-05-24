@@ -32,6 +32,8 @@ namespace Easy2
 			base.OnLoad(e);
 
 			CreateObjectBrowser(eDockSide.Left, new Size(250, 100));
+			CreateObjectBrowser(eDockSide.Right, new Size(250, 100));
+			CreateMessageWindow(eDockSide.Bottom, new Size(100, 250));
 			CreateNewDocument(DocumentType.QueryEditor);
 		}
 
@@ -58,11 +60,23 @@ namespace Easy2
 		/// <param name="size">오브젝트 브라우저의 크기입니다.</param>
 		private void CreateObjectBrowser(eDockSide dockSide, Size size)
 		{
-			this.m_objectBrowser = new ObjectBrowser();
-			this.m_objectBrowser.Text = "오브젝트 브라우저";
+			this.m_objectBrowser = new ObjectBrowser("오브젝트 브라우저");
 			this.m_objectBrowser.Size = size;
 
 			this.m_dockingManager.Dock(this.m_objectBrowser, dockSide);
+		}
+
+		/// <summary>
+		/// 메세지 윈도우를 생성합니다.
+		/// </summary>
+		/// <param name="dockSide">메세지 윈도우의 도킹위치입니다.</param>
+		/// <param name="size">메세지 윈도우의 사이즈입니다.</param>
+		private void CreateMessageWindow(eDockSide dockSide, Size size)
+		{
+			this.m_messageWindow = new MessageWindow("메세지 창");
+			this.m_messageWindow.Size = size;
+
+			this.m_dockingManager.Dock(this.m_messageWindow, dockSide);
 		}
 
 		/// <summary>
@@ -75,10 +89,8 @@ namespace Easy2
 			if(type == DocumentType.QueryEditor)
 			{
 				this.m_queryEditorsCount++;
-				QueryEditor queryEditor = new QueryEditor();
-				documentItem.Control = queryEditor;
+				documentItem.Control = new QueryEditor();
 				documentItem.Text = "QueryEditor" + this.m_queryEditorsCount.ToString();
-				this.m_queryEditors.Add(queryEditor);
 			}
 //			else if(type == DocumentType.QueryBuilder)
 //				documentItem.Control = new QueryBuilder();
@@ -86,7 +98,11 @@ namespace Easy2
 			bar.Items.Add(documentItem);
 			if(!bar.Visible)
 				bar.Visible = true;
+
 			bar.SelectedDockTab = bar.Items.IndexOf(documentItem);
+			bar.DockTabControl.CloseButtonPosition = eTabCloseButtonPosition.Right;
+			bar.DockTabControl.CloseButtonOnTabsVisible = true;
+			bar.DockTabControl.TabLayoutType = eTabLayoutType.MultilineNoNavigationBox;
 			bar.RecalcLayout();
 		}
 
@@ -102,12 +118,26 @@ namespace Easy2
 					return b;
 			}
 			Bar bar = BarUtilities.CreateDocumentBar();
+			bar.DockTabClosing += new DockTabClosingEventHandler(DockableTabClosing);
 			this.m_dockingManager.FillDockSite.GetDocumentUIManager().Dock(bar);
 
 			return bar;
 		}
 
 		#region 이벤트
+
+		/// <summary>
+		/// 탭이 닫힐 때의 이벤트입니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 호출한 객체입니다.</param>
+		/// <param name="e">이벤트 객체입니다.</param>
+		private void DockableTabClosing(object sender, DockTabClosingEventArgs e)
+		{
+			e.RemoveDockTab = true;
+			if(((Bar)sender).Items.Count == 1)
+				this.m_dockingManager.Bars.Remove((Bar)sender);
+		}
+
 		/// <summary>
 		/// 새 쿼리에디터 만들기 버튼을 클릭하였을 경우의 이벤트입니다.
 		/// </summary>
@@ -117,12 +147,13 @@ namespace Easy2
 		{
 			CreateNewDocument(DocumentType.QueryEditor);
 		}
+
 		#endregion
 
 		private int m_queryEditorsCount;
-		private DockingManager m_dockingManager;							// 도킹 매니저
-		private ObjectBrowser m_objectBrowser;								// 오브젝트 브라우저
-		private List<QueryEditor> m_queryEditors = new List<QueryEditor>();	// 쿼리에디터 리스트
+		private DockingManager m_dockingManager;	// 도킹 매니저
+		private ObjectBrowser m_objectBrowser;		// 오브젝트 브라우저
+		private MessageWindow m_messageWindow;		// 메세지 윈도우
 	}
 
 	public enum DocumentType

@@ -1,6 +1,7 @@
 ﻿
 // DockablePane.cs
 //
+using System.Windows.Forms;
 using DevComponents.DotNetBar;
 
 namespace Easy2
@@ -37,6 +38,12 @@ namespace Easy2
 			this.m_dockItem.Text = this.Text;
 		}
 
-		protected DockContainerItem m_dockItem;
+		protected Control Control
+		{
+			get { return this.m_dockItem.Control; }
+			set { this.m_dockItem.Control = value; }
+		}
+
+		private DockContainerItem m_dockItem;
 	}
 }

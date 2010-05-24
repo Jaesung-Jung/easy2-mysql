@@ -22,6 +22,13 @@ namespace Easy2
 			this.m_bottomDockSite = new DockSite();
 			this.m_leftDockSite = new DockSite();
 			this.m_rightDockSite = new DockSite();
+			this.m_fillDockSite = new DockSite();
+			//
+			// m_fillDockSite
+			//
+			this.m_fillDockSite.AccessibleRole = AccessibleRole.Window;
+			this.m_fillDockSite.Dock = DockStyle.Fill;
+			this.m_fillDockSite.DocumentDockContainer = new DocumentDockContainer();
 			//
 			// m_topDockSite
 			//
@@ -47,23 +54,71 @@ namespace Easy2
 			this.m_rightDockSite.Dock = DockStyle.Right;
 			this.m_rightDockSite.DocumentDockContainer = new DocumentDockContainer();
 			//
-			// DockManager
-			//
-			this.ParentForm = parentForm;
-			this.TopDockSite = this.m_topDockSite;
-			this.BottomDockSite = this.m_bottomDockSite;
-			this.LeftDockSite = this.m_leftDockSite;
-			this.RightDockSite = this.m_rightDockSite;
-			this.Style = eDotNetBarStyle.StyleManagerControlled;
-			//
 			// parentForm
 			//
+			parentForm.Controls.Add(this.m_fillDockSite);
 			parentForm.Controls.Add(this.m_topDockSite);
 			parentForm.Controls.Add(this.m_bottomDockSite);
 			parentForm.Controls.Add(this.m_leftDockSite);
 			parentForm.Controls.Add(this.m_rightDockSite);
+			//
+			// DockManager
+			//
+			this.FillDockSite = this.m_fillDockSite;
+			this.TopDockSite = this.m_topDockSite;
+			this.BottomDockSite = this.m_bottomDockSite;
+			this.LeftDockSite = this.m_leftDockSite;
+			this.RightDockSite = this.m_rightDockSite;
+			this.ParentForm = parentForm;
+			this.Style = eDotNetBarStyle.StyleManagerControlled;
 		}
 
+		/// <summary>
+		/// 채우기 도킹 사이트입니다.
+		/// </summary>
+		public DockSite FillDock
+		{
+			get	{ return this.m_fillDockSite; }
+			set { this.m_fillDockSite = value; }
+		}
+
+		/// <summary>
+		/// 윗쪽 도킹 사이트입니다.
+		/// </summary>
+		public DockSite TopDock
+		{
+			get { return this.m_topDockSite; }
+			set { this.m_topDockSite = value; }
+		}
+
+		/// <summary>
+		/// 아랫쪽 도킹 사이트입니다.
+		/// </summary>
+		public DockSite BottomDock
+		{
+			get { return this.m_bottomDockSite; }
+			set { this.m_bottomDockSite = value; }
+		}
+
+		/// <summary>
+		/// 왼쪽 도킹 사이트입니다.
+		/// </summary>
+		public DockSite LeftDock
+		{
+			get { return this.m_bottomDockSite; }
+			set { this.m_bottomDockSite = value; }
+		}
+
+		/// <summary>
+		/// 오른쪽 도킹 사이트입니다.
+		/// </summary>
+		public DockSite RightDock
+		{
+			get { return this.m_rightDockSite; }
+			set { this.m_rightDockSite = value; }
+		}
+
+		private DockSite m_fillDockSite;
 		private DockSite m_topDockSite;
 		private DockSite m_bottomDockSite;
 		private DockSite m_leftDockSite;

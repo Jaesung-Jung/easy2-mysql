@@ -32,7 +32,6 @@ namespace Easy2
 			base.OnLoad(e);
 
 			CreateObjectBrowser(eDockSide.Left, new Size(250, 100));
-			CreateObjectBrowser(eDockSide.Right, new Size(250, 100));
 			CreateMessageWindow(eDockSide.Bottom, new Size(100, 250));
 			CreateNewDocument(DocumentType.QueryEditor);
 		}
@@ -136,6 +135,11 @@ namespace Easy2
 			e.RemoveDockTab = true;
 			if(((Bar)sender).Items.Count == 1)
 				this.m_dockingManager.Bars.Remove((Bar)sender);
+		}
+
+		private void m_newConnection_Click(object sender, EventArgs e)
+		{
+			new ConnectForm().ShowDialog(this);
 		}
 
 		/// <summary>

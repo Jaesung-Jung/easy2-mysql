@@ -1264,9 +1264,8 @@
 			this.m_startButton.AutoExpandOnClick = true;
 			this.m_startButton.CanCustomize = false;
 			this.m_startButton.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.Image;
-			this.m_startButton.ImageFixedSize = new System.Drawing.Size(16, 16);
-			this.m_startButton.ImagePaddingHorizontal = 0;
-			this.m_startButton.ImagePaddingVertical = 0;
+			this.m_startButton.ImagePaddingHorizontal = 2;
+			this.m_startButton.ImagePaddingVertical = 2;
 			this.m_startButton.Name = "m_startButton";
 			this.m_startButton.ShowSubItems = false;
 			this.m_startButton.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -1327,6 +1326,7 @@
 			this.m_newConnection.Name = "m_newConnection";
 			this.m_newConnection.SubItemsExpandWidth = 24;
 			this.m_newConnection.Text = "새로운 연결(&C)...";
+			this.m_newConnection.Click += new System.EventHandler(this.m_newConnection_Click);
 			// 
 			// m_newConnectionUsingCurrentSettings
 			// 

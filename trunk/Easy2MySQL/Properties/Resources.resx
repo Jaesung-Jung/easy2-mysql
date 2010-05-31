@@ -163,6 +163,9 @@
   <data name="ConnectDatabase" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\png\connectdatabase.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ConnectDatabase64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\ConnectDatabase64.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ConnectDatabaseCurrentSetting" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\png\connectdatabasecurrentsetting.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

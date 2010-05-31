@@ -165,6 +165,13 @@ namespace Easy2.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap ConnectDatabase64 {
+            get {
+                object obj = ResourceManager.GetObject("ConnectDatabase64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap ConnectDatabaseCurrentSetting {
             get {
                 object obj = ResourceManager.GetObject("ConnectDatabaseCurrentSetting", resourceCulture);

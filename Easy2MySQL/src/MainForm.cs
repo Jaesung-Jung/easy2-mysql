@@ -23,35 +23,7 @@ namespace Easy2
 			InitializeComponent();
 		}
 
-		/// <summary>
-		/// OnLoad 이벤트 재정의입니다.
-		/// </summary>
-		/// <param name="e">이벤트 객체입니다.</param>
-		protected override void OnLoad(EventArgs e)
-		{
-			base.OnLoad(e);
-
-			CreateObjectBrowser(eDockSide.Left, new Size(250, 100));
-			CreateMessageWindow(eDockSide.Bottom, new Size(100, 250));
-			CreateNewDocument(DocumentType.QueryEditor);
-		}
-
-		/// <summary>
-		/// 테마커맨드 이벤트입니다.
-		/// </summary>
-		/// <param name="sender">이벤트를 발생한 객체입니다.</param>
-		/// <param name="e">이벤트정보 객체입니다.</param>
-		protected void OnExecutedThemeCommand(object sender, System.EventArgs e)
-		{
-			ICommandSource source = sender as ICommandSource;
-			if(source.CommandParameter is string)
-			{
-				eStyle style = (eStyle)Enum.Parse(typeof(eStyle), source.CommandParameter.ToString());
-				// Using StyleManager change the style and color tinting
-				StyleManager.ChangeStyle(style, Color.Empty);
-			}
-		}
-
+		#region 컨트롤 생성
 		/// <summary>
 		/// 새로운 오브젝트 브라우저를 생성합니다.
 		/// </summary>
@@ -123,7 +95,38 @@ namespace Easy2
 			return bar;
 		}
 
+		#endregion
+
 		#region 이벤트
+
+		/// <summary>
+		/// OnLoad 이벤트 재정의입니다.
+		/// </summary>
+		/// <param name="e">이벤트 객체입니다.</param>
+		protected override void OnLoad(EventArgs e)
+		{
+			base.OnLoad(e);
+
+			CreateObjectBrowser(eDockSide.Left, new Size(250, 100));
+			CreateMessageWindow(eDockSide.Bottom, new Size(100, 250));
+			CreateNewDocument(DocumentType.QueryEditor);
+		}
+
+		/// <summary>
+		/// 테마커맨드 이벤트입니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생한 객체입니다.</param>
+		/// <param name="e">이벤트정보 객체입니다.</param>
+		protected void OnExecutedThemeCommand(object sender, System.EventArgs e)
+		{
+			ICommandSource source = sender as ICommandSource;
+			if(source.CommandParameter is string)
+			{
+				eStyle style = (eStyle)Enum.Parse(typeof(eStyle), source.CommandParameter.ToString());
+				// Using StyleManager change the style and color tinting
+				StyleManager.ChangeStyle(style, Color.Empty);
+			}
+		}
 
 		/// <summary>
 		/// 탭이 닫힐 때의 이벤트입니다.

@@ -10,7 +10,7 @@ namespace Easy2
 	/// <summary>
 	/// 도킹 매니저 클래스입니다.
 	/// </summary>
-	class DockingManager : DotNetBarManager
+	public class DockingManager : DotNetBarManager
 	{
 		/// <summary>
 		/// 생성자입니다.

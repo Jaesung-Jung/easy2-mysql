@@ -62,8 +62,10 @@
     </Reference>
     <Reference Include="MySql.Data, Version=6.2.2.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\BaseForm.cs">
@@ -84,6 +86,12 @@
     <Compile Include="src\DockingManager.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="src\ErrorMessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\ErrorMessageForm.Designer.cs">
+      <DependentUpon>ErrorMessageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +106,9 @@
     <Compile Include="src\MessageWindow.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="src\MySqlCommunicator.cs" />
+    <Compile Include="src\MySqlConnectInfo.cs" />
+    <Compile Include="src\MySqlGenerator.cs" />
     <Compile Include="src\ObjectBrowser.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -115,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\ConnectForm.resx">
       <DependentUpon>ConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\ErrorMessageForm.resx">
+      <DependentUpon>ErrorMessageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -387,5 +401,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="img\png\ConnectDatabase64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\Error.png" />
   </ItemGroup>
 </Project>

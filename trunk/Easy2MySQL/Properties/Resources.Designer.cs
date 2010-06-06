@@ -340,6 +340,13 @@ namespace Easy2.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Error {
+            get {
+                object obj = ResourceManager.GetObject("Error", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap ExecuteAllQuery {
             get {
                 object obj = ResourceManager.GetObject("ExecuteAllQuery", resourceCulture);
@@ -414,6 +421,24 @@ namespace Easy2.Properties {
             get {
                 object obj = ResourceManager.GetObject("ImportDatabase", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   MySQL 서버 연결에 실패하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string MySqlConnectFail {
+            get {
+                return ResourceManager.GetString("MySqlConnectFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   MySQL 서버 연결에 성공하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string MySqlConnectSuccess {
+            get {
+                return ResourceManager.GetString("MySqlConnectSuccess", resourceCulture);
             }
         }
         

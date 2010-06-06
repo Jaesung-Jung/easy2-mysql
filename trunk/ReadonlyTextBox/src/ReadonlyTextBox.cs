@@ -14,9 +14,9 @@ namespace System.Windows.Forms
 		public ReadonlyTextBox()
 		{
 			this.Multiline = true;
-			this.Dock = DockStyle.Fill;
+//			this.Dock = DockStyle.Fill;
 			this.Font = new Font("맑은 고딕", 10);
-			this.Text = "샘플 문자열입니다.\r\n입력은 제한됩니다.\r\n클립보드로 복사는 가능합니다.";
+//			this.Text = "샘플 문자열입니다.\r\n입력은 제한됩니다.\r\n클립보드로 복사는 가능합니다.";
 		}
 
 		/// <summary>

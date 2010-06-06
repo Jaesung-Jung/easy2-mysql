@@ -28,33 +28,15 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.m_ribbonControl = new DevComponents.DotNetBar.RibbonControl();
 			this.SuspendLayout();
-			// 
-			// m_ribbonControl
-			// 
-			// 
-			// 
-			// 
-			this.m_ribbonControl.BackgroundStyle.Class = "";
-			this.m_ribbonControl.CaptionVisible = true;
-			this.m_ribbonControl.Dock = System.Windows.Forms.DockStyle.Top;
-			this.m_ribbonControl.KeyTipsFont = new System.Drawing.Font("Tahoma", 7F);
-			this.m_ribbonControl.Location = new System.Drawing.Point(4, 1);
-			this.m_ribbonControl.Name = "m_ribbonControl";
-			this.m_ribbonControl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
-			this.m_ribbonControl.Size = new System.Drawing.Size(476, 27);
-			this.m_ribbonControl.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_ribbonControl.TabGroupHeight = 14;
-			this.m_ribbonControl.TabIndex = 0;
-			this.m_ribbonControl.Text = "ribbonControl";
 			// 
 			// BaseForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(484, 359);
-			this.Controls.Add(this.m_ribbonControl);
+			this.ClientSize = new System.Drawing.Size(468, 455);
+			this.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "BaseForm";
 			this.Text = "BaseForm";
 			this.ResumeLayout(false);
@@ -63,6 +45,5 @@
 
 		#endregion
 
-		private DevComponents.DotNetBar.RibbonControl m_ribbonControl;
 	}
 }

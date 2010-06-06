@@ -20,9 +20,9 @@ namespace System.Windows.Forms
 		private List<string> m_keywords = new List<string>();			// 키워드 리스트
 		private List<string> m_functions = new List<string>();			// 함수 리스트
 		private List<string> m_others = new List<string>();				// 기타구문 리스트
-		private string m_regexKeywords = "";							// 키워드 정규식
-		private string m_regexFunctions = "";							// 함수 정규식
-		private string m_regexOthers = "";								// 기타구문 정규식
+		private static string m_regexKeywords = "";							// 키워드 정규식
+		private static string m_regexFunctions = "";							// 함수 정규식
+		private static string m_regexOthers = "";								// 기타구문 정규식
 		private string m_singleLineCommentBegin = "//";					// 단일라인주석 시작형식
 		private bool m_enableKeywords = true;							// 키워드 사용여부
 		private bool m_enableFunctions = false;							// 함수 사용여부
@@ -127,11 +127,11 @@ namespace System.Windows.Forms
 			this.SelectionColor = this.ForeColor;
 
 			if(this.m_enableKeywords)
-				this.AnalysisSyntaxAndChangeColor(this.m_regexKeywords, syntax, this.m_colorKeywordsHighlight);
+				this.AnalysisSyntaxAndChangeColor(SyntaxHighlightTextBox.m_regexKeywords, syntax, this.m_colorKeywordsHighlight);
 			if(this.m_enableFunctions)
-				this.AnalysisSyntaxAndChangeColor(this.m_regexFunctions, syntax, this.m_colorFunctionsHighlight);
+				this.AnalysisSyntaxAndChangeColor(SyntaxHighlightTextBox.m_regexFunctions, syntax, this.m_colorFunctionsHighlight);
 			if(this.m_enableOthers)
-				this.AnalysisSyntaxAndChangeColor(this.m_regexOthers, syntax, this.m_colorOthersHighlight);
+				this.AnalysisSyntaxAndChangeColor(SyntaxHighlightTextBox.m_regexOthers, syntax, this.m_colorOthersHighlight);
 			if(this.m_enableString)
 				this.AnalysisSyntaxAndChangeColor("\"[^\"\\\\\\r\\n]*(?:\\\\.[^\"\\\\\\r\\n]*)*\"", syntax, this.m_colorStringHighlight);
 			if(this.m_enableCharacter)
@@ -179,7 +179,7 @@ namespace System.Windows.Forms
 				regexBuilder.AppendFormat("\\b{0}\\b|", this.m_keywords[i]);
 			if(regexBuilder.Length != 0)
 				regexBuilder.Remove(regexBuilder.Length - 1, 1); // 마지막에 위치한 '|' 문자를 제거
-			this.m_regexKeywords = regexBuilder.ToString();
+			SyntaxHighlightTextBox.m_regexKeywords = regexBuilder.ToString();
 
 			// Compile functions
 			regexBuilder.Remove(0, regexBuilder.Length);
@@ -187,7 +187,7 @@ namespace System.Windows.Forms
 				regexBuilder.AppendFormat("\\b{0}\\b|", this.m_functions[i]);
 			if(regexBuilder.Length != 0)
 				regexBuilder.Remove(regexBuilder.Length - 1, 1);
-			this.m_regexFunctions = regexBuilder.ToString();
+			SyntaxHighlightTextBox.m_regexFunctions = regexBuilder.ToString();
 
 			// Compile Others
 			regexBuilder.Remove(0, regexBuilder.Length);
@@ -195,7 +195,7 @@ namespace System.Windows.Forms
 				regexBuilder.AppendFormat("\\b{0}\\b|", this.m_others[i]);
 			if(regexBuilder.Length != 0)
 				regexBuilder.Remove(regexBuilder.Length - 1, 1);
-			this.m_regexOthers = regexBuilder.ToString();
+			SyntaxHighlightTextBox.m_regexOthers = regexBuilder.ToString();
 		}
 
 		/// <summary>
@@ -260,36 +260,36 @@ namespace System.Windows.Forms
 		{
 			get { return this.m_others; }
 		}
-		/// <summary>
-		/// 키워드 정규식입니다.
-		/// </summary>
-		[Category("항목")]
-		[Description("키워드 정규식입니다.")]
-		public string RegexKeywords
-		{
-			get { return this.m_regexKeywords; }
-			set { this.m_regexKeywords = value; }
-		}
-		/// <summary>
-		/// 함수 정규식입니다.
-		/// </summary>
-		[Category("항목")]
-		[Description("함수 정규식입니다.")]
-		public string RegexFunctions
-		{
-			get { return this.m_regexFunctions; }
-			set { this.m_regexFunctions = value; }
-		}
-		/// <summary>
-		/// 기타구문 정규식입니다.
-		/// </summary>
-		[Category("항목")]
-		[Description("기타구문 정규식입니다.")]
-		public string RegexOthers
-		{
-			get { return this.m_regexOthers; }
-			set { this.m_regexOthers = value; }
-		}
+// 		/// <summary>
+// 		/// 키워드 정규식입니다.
+// 		/// </summary>
+// 		[Category("항목")]
+// 		[Description("키워드 정규식입니다.")]
+// 		public string RegexKeywords
+// 		{
+// 			get { return this.m_regexKeywords; }
+// 			set { this.m_regexKeywords = value; }
+// 		}
+// 		/// <summary>
+// 		/// 함수 정규식입니다.
+// 		/// </summary>
+// 		[Category("항목")]
+// 		[Description("함수 정규식입니다.")]
+// 		public string RegexFunctions
+// 		{
+// 			get { return this.m_regexFunctions; }
+// 			set { this.m_regexFunctions = value; }
+// 		}
+// 		/// <summary>
+// 		/// 기타구문 정규식입니다.
+// 		/// </summary>
+// 		[Category("항목")]
+// 		[Description("기타구문 정규식입니다.")]
+// 		public string RegexOthers
+// 		{
+// 			get { return this.m_regexOthers; }
+// 			set { this.m_regexOthers = value; }
+// 		}
 		/// <summary>
 		/// 단일라인주석의 시작 형식입니다.
 		/// </summary>

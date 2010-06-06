@@ -12,7 +12,7 @@ namespace Easy2
 	/// <summary>
 	/// 오브젝트 브라우저 클래스입니다.
 	/// </summary>
-	class ObjectBrowser : DockablePane
+	public class ObjectBrowser : DockablePane
 	{
 		/// <summary>
 		/// 생성자입니다.

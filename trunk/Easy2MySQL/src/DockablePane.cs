@@ -9,7 +9,7 @@ namespace Easy2
 	/// <summary>
 	/// 도킹 브라우저 클래스입니다.
 	/// </summary>
-	class DockablePane : Bar
+	public class DockablePane : Bar
 	{
 		/// <summary>
 		/// 생성자입니다.

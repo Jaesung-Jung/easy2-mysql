@@ -110,6 +110,23 @@
 			this.m_addUser = new DevComponents.DotNetBar.ButtonItem();
 			this.m_alterUser = new DevComponents.DotNetBar.ButtonItem();
 			this.m_privilegeUser = new DevComponents.DotNetBar.ButtonItem();
+			this.m_homeTab = new DevComponents.DotNetBar.RibbonTabItem();
+			this.m_createTab = new DevComponents.DotNetBar.RibbonTabItem();
+			this.m_toolTab = new DevComponents.DotNetBar.RibbonTabItem();
+			this.m_configGroup = new DevComponents.DotNetBar.ButtonItem();
+			this.m_appSettings = new DevComponents.DotNetBar.ButtonItem();
+			this.m_formTheme = new DevComponents.DotNetBar.ButtonItem();
+			this.m_aeroSilverTheme = new DevComponents.DotNetBar.ButtonItem();
+			this.m_themeCommand = new DevComponents.DotNetBar.Command();
+			this.m_aeroBlueTheme = new DevComponents.DotNetBar.ButtonItem();
+			this.m_officeBlueTheme = new DevComponents.DotNetBar.ButtonItem();
+			this.m_officeBlackTheme = new DevComponents.DotNetBar.ButtonItem();
+			this.m_officeSilverTheme = new DevComponents.DotNetBar.ButtonItem();
+			this.m_officeNavyTheme = new DevComponents.DotNetBar.ButtonItem();
+			this.m_helpGroup = new DevComponents.DotNetBar.ButtonItem();
+			this.m_helpDocument = new DevComponents.DotNetBar.ButtonItem();
+			this.m_updateCheck = new DevComponents.DotNetBar.ButtonItem();
+			this.m_showAbout = new DevComponents.DotNetBar.ButtonItem();
 			this.m_startButton = new DevComponents.DotNetBar.Office2007StartButton();
 			this.m_fileItemContainer = new DevComponents.DotNetBar.ItemContainer();
 			this.m_fileMenuItemContainer = new DevComponents.DotNetBar.ItemContainer();
@@ -130,23 +147,6 @@
 			this.m_recentLabel = new DevComponents.DotNetBar.LabelItem();
 			this.m_botomItemContainer = new DevComponents.DotNetBar.ItemContainer();
 			this.m_quitApplication = new DevComponents.DotNetBar.ButtonItem();
-			this.m_homeTab = new DevComponents.DotNetBar.RibbonTabItem();
-			this.m_createTab = new DevComponents.DotNetBar.RibbonTabItem();
-			this.m_toolTab = new DevComponents.DotNetBar.RibbonTabItem();
-			this.m_configGroup = new DevComponents.DotNetBar.ButtonItem();
-			this.m_appSettings = new DevComponents.DotNetBar.ButtonItem();
-			this.m_formTheme = new DevComponents.DotNetBar.ButtonItem();
-			this.m_aeroSilverTheme = new DevComponents.DotNetBar.ButtonItem();
-			this.m_themeCommand = new DevComponents.DotNetBar.Command();
-			this.m_aeroBlueTheme = new DevComponents.DotNetBar.ButtonItem();
-			this.m_officeBlueTheme = new DevComponents.DotNetBar.ButtonItem();
-			this.m_officeBlackTheme = new DevComponents.DotNetBar.ButtonItem();
-			this.m_officeSilverTheme = new DevComponents.DotNetBar.ButtonItem();
-			this.m_officeNavyTheme = new DevComponents.DotNetBar.ButtonItem();
-			this.m_helpGroup = new DevComponents.DotNetBar.ButtonItem();
-			this.m_helpDocument = new DevComponents.DotNetBar.ButtonItem();
-			this.m_updateCheck = new DevComponents.DotNetBar.ButtonItem();
-			this.m_showAbout = new DevComponents.DotNetBar.ButtonItem();
 			this.m_styleManager = new DevComponents.DotNetBar.StyleManager();
 			this.m_statusBar = new DevComponents.DotNetBar.Bar();
 			this.m_ribbonControl.SuspendLayout();
@@ -1259,13 +1259,151 @@
 			this.m_privilegeUser.SubItemsExpandWidth = 14;
 			this.m_privilegeUser.Text = "<div align=\"center\">권한<br/>설정하기</div>";
 			// 
+			// m_homeTab
+			// 
+			this.m_homeTab.Checked = true;
+			this.m_homeTab.KeyTips = "H";
+			this.m_homeTab.Name = "m_homeTab";
+			this.m_homeTab.Panel = this.m_homePanel;
+			this.m_homeTab.Text = "홈";
+			// 
+			// m_createTab
+			// 
+			this.m_createTab.KeyTips = "C";
+			this.m_createTab.Name = "m_createTab";
+			this.m_createTab.Panel = this.m_createPanel;
+			this.m_createTab.Text = "만들기";
+			// 
+			// m_toolTab
+			// 
+			this.m_toolTab.KeyTips = "T";
+			this.m_toolTab.Name = "m_toolTab";
+			this.m_toolTab.Panel = this.m_toolPanel;
+			this.m_toolTab.Text = "도구";
+			// 
+			// m_configGroup
+			// 
+			this.m_configGroup.AutoExpandOnClick = true;
+			this.m_configGroup.Image = ((System.Drawing.Image)(resources.GetObject("m_configGroup.Image")));
+			this.m_configGroup.ItemAlignment = DevComponents.DotNetBar.eItemAlignment.Far;
+			this.m_configGroup.Name = "m_configGroup";
+			this.m_configGroup.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_appSettings,
+            this.m_formTheme});
+			// 
+			// m_appSettings
+			// 
+			this.m_appSettings.Image = global::Easy2.Properties.Resources.Settings;
+			this.m_appSettings.Name = "m_appSettings";
+			this.m_appSettings.Text = "환경설정(&U)...";
+			// 
+			// m_formTheme
+			// 
+			this.m_formTheme.AutoExpandOnClick = true;
+			this.m_formTheme.BeginGroup = true;
+			this.m_formTheme.Image = global::Easy2.Properties.Resources.FormStyle;
+			this.m_formTheme.Name = "m_formTheme";
+			this.m_formTheme.OptionGroup = "theme";
+			this.m_formTheme.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_aeroSilverTheme,
+            this.m_aeroBlueTheme,
+            this.m_officeBlueTheme,
+            this.m_officeBlackTheme,
+            this.m_officeSilverTheme,
+            this.m_officeNavyTheme});
+			this.m_formTheme.Text = "테마(&T)";
+			// 
+			// m_aeroSilverTheme
+			// 
+			this.m_aeroSilverTheme.Checked = true;
+			this.m_aeroSilverTheme.Command = this.m_themeCommand;
+			this.m_aeroSilverTheme.CommandParameter = "Office2010Silver";
+			this.m_aeroSilverTheme.Name = "m_aeroSilverTheme";
+			this.m_aeroSilverTheme.OptionGroup = "theme";
+			this.m_aeroSilverTheme.Text = "Aero Silver";
+			// 
+			// m_themeCommand
+			// 
+			this.m_themeCommand.Executed += new System.EventHandler(this.OnExecutedThemeCommand);
+			// 
+			// m_aeroBlueTheme
+			// 
+			this.m_aeroBlueTheme.Command = this.m_themeCommand;
+			this.m_aeroBlueTheme.CommandParameter = "Windows7Blue";
+			this.m_aeroBlueTheme.Name = "m_aeroBlueTheme";
+			this.m_aeroBlueTheme.OptionGroup = "theme";
+			this.m_aeroBlueTheme.Text = "Aero Blue";
+			// 
+			// m_officeBlueTheme
+			// 
+			this.m_officeBlueTheme.Command = this.m_themeCommand;
+			this.m_officeBlueTheme.CommandParameter = "Office2007Blue";
+			this.m_officeBlueTheme.Name = "m_officeBlueTheme";
+			this.m_officeBlueTheme.OptionGroup = "theme";
+			this.m_officeBlueTheme.Text = "Office Blue";
+			// 
+			// m_officeBlackTheme
+			// 
+			this.m_officeBlackTheme.Command = this.m_themeCommand;
+			this.m_officeBlackTheme.CommandParameter = "Office2007Black";
+			this.m_officeBlackTheme.Name = "m_officeBlackTheme";
+			this.m_officeBlackTheme.OptionGroup = "theme";
+			this.m_officeBlackTheme.Text = "Office Black";
+			// 
+			// m_officeSilverTheme
+			// 
+			this.m_officeSilverTheme.Command = this.m_themeCommand;
+			this.m_officeSilverTheme.CommandParameter = "Office2007Silver";
+			this.m_officeSilverTheme.Name = "m_officeSilverTheme";
+			this.m_officeSilverTheme.OptionGroup = "theme";
+			this.m_officeSilverTheme.Text = "Office Silver";
+			// 
+			// m_officeNavyTheme
+			// 
+			this.m_officeNavyTheme.Command = this.m_themeCommand;
+			this.m_officeNavyTheme.CommandParameter = "Office2007VistaGlass";
+			this.m_officeNavyTheme.Name = "m_officeNavyTheme";
+			this.m_officeNavyTheme.OptionGroup = "theme";
+			this.m_officeNavyTheme.Text = "Office Navy";
+			// 
+			// m_helpGroup
+			// 
+			this.m_helpGroup.AutoExpandOnClick = true;
+			this.m_helpGroup.Image = global::Easy2.Properties.Resources.Help;
+			this.m_helpGroup.ItemAlignment = DevComponents.DotNetBar.eItemAlignment.Far;
+			this.m_helpGroup.Name = "m_helpGroup";
+			this.m_helpGroup.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_helpDocument,
+            this.m_updateCheck,
+            this.m_showAbout});
+			// 
+			// m_helpDocument
+			// 
+			this.m_helpDocument.Image = global::Easy2.Properties.Resources.HelpDocument;
+			this.m_helpDocument.Name = "m_helpDocument";
+			this.m_helpDocument.Text = "도움말(&H)...";
+			// 
+			// m_updateCheck
+			// 
+			this.m_updateCheck.BeginGroup = true;
+			this.m_updateCheck.Image = global::Easy2.Properties.Resources.UpdateCheck;
+			this.m_updateCheck.Name = "m_updateCheck";
+			this.m_updateCheck.Text = "업데이트 확인(&U)...";
+			// 
+			// m_showAbout
+			// 
+			this.m_showAbout.BeginGroup = true;
+			this.m_showAbout.Name = "m_showAbout";
+			this.m_showAbout.Text = "Easy to MySQL 정보(&A)...";
+			// 
 			// m_startButton
 			// 
 			this.m_startButton.AutoExpandOnClick = true;
 			this.m_startButton.CanCustomize = false;
 			this.m_startButton.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.Image;
-			this.m_startButton.ImagePaddingHorizontal = 2;
-			this.m_startButton.ImagePaddingVertical = 2;
+			this.m_startButton.ImageFixedSize = new System.Drawing.Size(16, 16);
+			this.m_startButton.ImagePaddingHorizontal = 0;
+			this.m_startButton.ImagePaddingVertical = 0;
 			this.m_startButton.Name = "m_startButton";
 			this.m_startButton.ShowSubItems = false;
 			this.m_startButton.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -1453,143 +1591,6 @@
 			this.m_quitApplication.Name = "m_quitApplication";
 			this.m_quitApplication.SubItemsExpandWidth = 24;
 			this.m_quitApplication.Text = "종료하기(&X)";
-			// 
-			// m_homeTab
-			// 
-			this.m_homeTab.Checked = true;
-			this.m_homeTab.KeyTips = "H";
-			this.m_homeTab.Name = "m_homeTab";
-			this.m_homeTab.Panel = this.m_homePanel;
-			this.m_homeTab.Text = "홈";
-			// 
-			// m_createTab
-			// 
-			this.m_createTab.KeyTips = "C";
-			this.m_createTab.Name = "m_createTab";
-			this.m_createTab.Panel = this.m_createPanel;
-			this.m_createTab.Text = "만들기";
-			// 
-			// m_toolTab
-			// 
-			this.m_toolTab.KeyTips = "T";
-			this.m_toolTab.Name = "m_toolTab";
-			this.m_toolTab.Panel = this.m_toolPanel;
-			this.m_toolTab.Text = "도구";
-			// 
-			// m_configGroup
-			// 
-			this.m_configGroup.AutoExpandOnClick = true;
-			this.m_configGroup.Image = ((System.Drawing.Image)(resources.GetObject("m_configGroup.Image")));
-			this.m_configGroup.ItemAlignment = DevComponents.DotNetBar.eItemAlignment.Far;
-			this.m_configGroup.Name = "m_configGroup";
-			this.m_configGroup.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_appSettings,
-            this.m_formTheme});
-			// 
-			// m_appSettings
-			// 
-			this.m_appSettings.Image = global::Easy2.Properties.Resources.Settings;
-			this.m_appSettings.Name = "m_appSettings";
-			this.m_appSettings.Text = "환경설정(&U)...";
-			// 
-			// m_formTheme
-			// 
-			this.m_formTheme.AutoExpandOnClick = true;
-			this.m_formTheme.BeginGroup = true;
-			this.m_formTheme.Image = global::Easy2.Properties.Resources.FormStyle;
-			this.m_formTheme.Name = "m_formTheme";
-			this.m_formTheme.OptionGroup = "theme";
-			this.m_formTheme.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_aeroSilverTheme,
-            this.m_aeroBlueTheme,
-            this.m_officeBlueTheme,
-            this.m_officeBlackTheme,
-            this.m_officeSilverTheme,
-            this.m_officeNavyTheme});
-			this.m_formTheme.Text = "테마(&T)";
-			// 
-			// m_aeroSilverTheme
-			// 
-			this.m_aeroSilverTheme.Checked = true;
-			this.m_aeroSilverTheme.Command = this.m_themeCommand;
-			this.m_aeroSilverTheme.CommandParameter = "Office2010Silver";
-			this.m_aeroSilverTheme.Name = "m_aeroSilverTheme";
-			this.m_aeroSilverTheme.OptionGroup = "theme";
-			this.m_aeroSilverTheme.Text = "Aero Silver";
-			// 
-			// m_themeCommand
-			// 
-			this.m_themeCommand.Executed += new System.EventHandler(this.OnExecutedThemeCommand);
-			// 
-			// m_aeroBlueTheme
-			// 
-			this.m_aeroBlueTheme.Command = this.m_themeCommand;
-			this.m_aeroBlueTheme.CommandParameter = "Windows7Blue";
-			this.m_aeroBlueTheme.Name = "m_aeroBlueTheme";
-			this.m_aeroBlueTheme.OptionGroup = "theme";
-			this.m_aeroBlueTheme.Text = "Aero Blue";
-			// 
-			// m_officeBlueTheme
-			// 
-			this.m_officeBlueTheme.Command = this.m_themeCommand;
-			this.m_officeBlueTheme.CommandParameter = "Office2007Blue";
-			this.m_officeBlueTheme.Name = "m_officeBlueTheme";
-			this.m_officeBlueTheme.OptionGroup = "theme";
-			this.m_officeBlueTheme.Text = "Office Blue";
-			// 
-			// m_officeBlackTheme
-			// 
-			this.m_officeBlackTheme.Command = this.m_themeCommand;
-			this.m_officeBlackTheme.CommandParameter = "Office2007Black";
-			this.m_officeBlackTheme.Name = "m_officeBlackTheme";
-			this.m_officeBlackTheme.OptionGroup = "theme";
-			this.m_officeBlackTheme.Text = "Office Black";
-			// 
-			// m_officeSilverTheme
-			// 
-			this.m_officeSilverTheme.Command = this.m_themeCommand;
-			this.m_officeSilverTheme.CommandParameter = "Office2007Silver";
-			this.m_officeSilverTheme.Name = "m_officeSilverTheme";
-			this.m_officeSilverTheme.OptionGroup = "theme";
-			this.m_officeSilverTheme.Text = "Office Silver";
-			// 
-			// m_officeNavyTheme
-			// 
-			this.m_officeNavyTheme.Command = this.m_themeCommand;
-			this.m_officeNavyTheme.CommandParameter = "Office2007VistaGlass";
-			this.m_officeNavyTheme.Name = "m_officeNavyTheme";
-			this.m_officeNavyTheme.OptionGroup = "theme";
-			this.m_officeNavyTheme.Text = "Office Navy";
-			// 
-			// m_helpGroup
-			// 
-			this.m_helpGroup.AutoExpandOnClick = true;
-			this.m_helpGroup.Image = global::Easy2.Properties.Resources.Help;
-			this.m_helpGroup.ItemAlignment = DevComponents.DotNetBar.eItemAlignment.Far;
-			this.m_helpGroup.Name = "m_helpGroup";
-			this.m_helpGroup.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_helpDocument,
-            this.m_updateCheck,
-            this.m_showAbout});
-			// 
-			// m_helpDocument
-			// 
-			this.m_helpDocument.Image = global::Easy2.Properties.Resources.HelpDocument;
-			this.m_helpDocument.Name = "m_helpDocument";
-			this.m_helpDocument.Text = "도움말(&H)...";
-			// 
-			// m_updateCheck
-			// 
-			this.m_updateCheck.BeginGroup = true;
-			this.m_updateCheck.Image = global::Easy2.Properties.Resources.UpdateCheck;
-			this.m_updateCheck.Name = "m_updateCheck";
-			this.m_updateCheck.Text = "업데이트 확인(&U)...";
-			// 
-			// m_showAbout
-			// 
-			this.m_showAbout.BeginGroup = true;
-			this.m_showAbout.Name = "m_showAbout";
-			this.m_showAbout.Text = "Easy to MySQL 정보(&A)...";
 			// 
 			// m_styleManager
 			// 

@@ -55,7 +55,7 @@ namespace Easy2
 		/// 닫기 버튼을 눌렀을 때 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
-		/// <param name="e">이벤트 객체입니다.</param>
+		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
 		private void m_closeButton_Click(object sender, EventArgs e)
 		{
 			this.Dispose(true);
@@ -65,7 +65,7 @@ namespace Easy2
 		/// 복사버튼을 눌렀을 때 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
-		/// <param name="e">이벤트 객체입니다.</param>
+		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
 		private void m_copyButton_Click(object sender, EventArgs e)
 		{
 			Clipboard.SetText(this.m_errorMessageText.Text);

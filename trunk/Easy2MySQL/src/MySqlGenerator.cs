@@ -37,7 +37,56 @@ namespace Easy2
 		/// <returns>데이터베이를 조회하는 쿼리문입니다.</returns>
 		public string ShowDatabases()
 		{
-			return String.Format("SHOW DATABASES");
+			return "SHOW DATABASES";
+		}
+
+		/// <summary>
+		/// 테이블을 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <returns>테이블을 조회하는 쿼리문입니다.</returns>
+		public string ShowTables(string databaseName)
+		{
+			// SHOW FULL TABLES FROM {db_name} WHERE table_type = 'base table'
+			string query;
+			if(databaseName == "information_schema")
+				query = String.Format("SHOW TABLES FROM {0}", databaseName);
+			else
+				query = String.Format("SHOW FULL TABLES FROM {0} WHERE table_type = 'base table'", Program.ActivateCommunicator.UseDatabaseName);
+			return query;
+		}
+
+		/// <summary>
+		/// 사용할 데이터베이스를 지정하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="databaseName">사용할 데이터베이스의 이름입니다.</param>
+		/// <returns>사용할 데이터베이스를 지정하는 쿼리문입니다.</returns>
+		public string UseDatabase(string databaseName)
+		{
+			return String.Format("USE {0}", databaseName);
+		}
+
+		/// <summary>
+		/// 컬럼을 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="tableName">조회할 컬럼의 테이블이름입니다.</param>
+		/// <returns>컬럼을 조회하는 쿼리문입니다.</returns>
+		public string ShowColumns(string tableName)
+		{
+			return String.Format("DESCRIBE {0}", tableName);
+		}
+
+		/// <summary>
+		/// 트리에 표시할 행문자열을 생성합니다.
+		/// </summary>
+		/// <param name="columnInfo">컬럼정보를 가지는 배열입니다.</param>
+		/// <returns>트리에 표시할 행문자열입니다.</returns>
+		public string MakeColumnInfo(string[] columnInfo)
+		{
+			string columnText = String.Format("{0}, {1}", columnInfo[0], columnInfo[1]);
+			if(columnInfo[2] == "YES")
+				columnText += ", Nullable";
+
+			return columnText;
 		}
 	}
 }

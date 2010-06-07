@@ -103,11 +103,31 @@ namespace Easy2
 		/// <summary>
 		/// OnShown 재정의입니다.
 		/// </summary>
-		/// <param name="e">이벤트 객체입니다.</param>
+		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
 		protected override void OnShown(EventArgs e)
 		{
 			base.OnShown(e);
 			this.m_newConnection_Click(this, null);
+		}
+
+		/// <summary>
+		/// OnClose 재정의입니다.
+		/// </summary>
+		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
+		protected override void OnClosed(EventArgs e)
+		{
+			base.OnClosed(e);
+			Program.CoummunicatorList.DisconnectAll();
+			System.Console.WriteLine("종료");
+		}
+
+		/// <summary>
+		/// 종료하기 버튼을 클릭했을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
+		private void m_quitApplication_Click(object sender, EventArgs e)
+		{
 		}
 
 		/// <summary>
@@ -130,7 +150,7 @@ namespace Easy2
 		/// 탭이 닫힐 때 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
-		/// <param name="e">이벤트 객체입니다.</param>
+		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
 		private void DockableTabClosing(object sender, DockTabClosingEventArgs e)
 		{
 			e.RemoveDockTab = true;
@@ -142,7 +162,7 @@ namespace Easy2
 		/// 새로운연결 버튼을 클릭했을 때 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
-		/// <param name="e">이벤트 객체입니다.</param>
+		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
 		private void m_newConnection_Click(object sender, EventArgs e)
 		{
 			ConnectForm connectForm = new ConnectForm();
@@ -163,7 +183,7 @@ namespace Easy2
 		/// 연결종료 버튼을 클릭했을 때 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
-		/// <param name="e">이벤트 객체입니다.</param>
+		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
 		private void m_disconnectMySql_Click(object sender, EventArgs e)
 		{
 			if(Program.ActivateCommunicator != null)
@@ -179,10 +199,31 @@ namespace Easy2
 		}
 
 		/// <summary>
+		/// 모든연결종료 버튼을 클릭했을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
+		private void m_disconnectAllMySql_Click(object sender, EventArgs e)
+		{
+			Program.CoummunicatorList.DisconnectAll();
+			this.m_dockingManager.Bars.Clear();
+		}
+
+		/// <summary>
+		/// 새로고침 버튼을 클릭했을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
+		private void m_refreshObjectBrowser_Click(object sender, EventArgs e)
+		{
+			this.m_objectBrowser.Tree.UpdateTree();
+		}
+
+		/// <summary>
 		/// 새 쿼리에디터 만들기 버튼을 클릭하였을 경우의 이벤트입니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
-		/// <param name="e">이벤트 객체입니다.</param>
+		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
 		private void m_newQueryEditor_Click(object sender, EventArgs e)
 		{
 			CreateNewDocument(DocumentType.QueryEditor);

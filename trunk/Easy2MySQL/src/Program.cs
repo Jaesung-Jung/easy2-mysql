@@ -3,7 +3,6 @@
 //
 using System;
 using System.Windows.Forms;
-using System.Collections.Generic;
 
 namespace Easy2
 {
@@ -39,9 +38,9 @@ namespace Easy2
 		}
 
 		/// <summary>
-		/// 연결객체들의 리스트를 나타냅니다.
+		/// Communicator 객체의 컬렉션을 나타냅니다.
 		/// </summary>
-		public static List<MySqlCommunicator> CoummunicatorList
+		public static CommunicatorCollection CoummunicatorList
 		{
 			get { return Program.m_communicatorList; }
 		}
@@ -57,6 +56,6 @@ namespace Easy2
 		private static MainForm m_mainForm;
 		private static MySqlCommunicator m_activateCommunicator = null;
 		private static MySqlCommunicator m_mysqlCommunicator;
-		private static List<MySqlCommunicator> m_communicatorList = new List<MySqlCommunicator>();
+		private static CommunicatorCollection m_communicatorList = new CommunicatorCollection();
 	}
 }

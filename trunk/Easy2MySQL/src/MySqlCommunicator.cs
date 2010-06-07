@@ -116,10 +116,23 @@ namespace Easy2
 		/// </summary>
 		/// <param name="query">쿼리문입니다.</param>
 		/// <returns>쿼리문의 실행결과 객체입니다.</returns>
-		public MySqlDataReader ExcuteReader(string query)
+		public MySqlDataReader ExecuteReader(string query)
 		{
+			System.Console.WriteLine(query);
 			MySqlCommand command = new MySqlCommand(query, this.m_connection);
 			return command.ExecuteReader();
+		}
+
+		/// <summary>
+		/// 쿼리를 실행합니다.
+		/// </summary>
+		/// <param name="query">쿼리문입니다.</param>
+		/// <returns>영향을 받은 행 갯수입니다.</returns>
+		public int Execute(string query)
+		{
+			System.Console.WriteLine(query);
+			MySqlCommand command = new MySqlCommand(query, this.m_connection);
+			return command.ExecuteNonQuery();
 		}
 
 		/// <summary>
@@ -131,7 +144,17 @@ namespace Easy2
 			set { this.m_connectInfo = value; }
 		}
 
+		/// <summary>
+		/// 사용중인 데이터베이스 이름을 나타냅니다.
+		/// </summary>
+		public string UseDatabaseName
+		{
+			get { return this.m_useDatabaseName; }
+			set { this.m_useDatabaseName = value; }
+		}
+
 		private MySqlConnection m_connection;
 		private MySqlConnectInfo m_connectInfo;
+		private string m_useDatabaseName;
 	}
 }

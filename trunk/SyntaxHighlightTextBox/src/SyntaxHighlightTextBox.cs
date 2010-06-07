@@ -50,7 +50,7 @@ namespace System.Windows.Forms
 		/// <summary>
 		/// OnTextChanged의 재정의입니다.
 		/// </summary>
-		/// <param name="e">이벤트 객체입니다.</param>
+		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
 		protected override void OnTextChanged(EventArgs e)
 		{
 			// 한글조립중에 구문분석을 수행하면 한글조립이
@@ -74,7 +74,7 @@ namespace System.Windows.Forms
 		/// <summary>
 		/// OnKeyDown의 재정의입니다.
 		/// </summary>
-		/// <param name="e">키 이벤트 객체입니다.</param>
+		/// <param name="e">키 이벤트 정보를 가진 객체입니다.</param>
 		protected override void OnKeyDown(KeyEventArgs e)
 		{
 			if(e.KeyData == Keys.Enter && this.Lines.Length != 0)

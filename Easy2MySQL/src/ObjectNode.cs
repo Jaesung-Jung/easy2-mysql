@@ -19,6 +19,7 @@ namespace Easy2
 		{
 			this.m_parentNode = parentNode;
 			this.Text = text;
+			this.NodeType = type;
 
 			switch(type)
 			{
@@ -28,6 +29,18 @@ namespace Easy2
 					
 				case ObjectNodeType.MySqlDatabase:
 					this.Image = Properties.Resources.MySqlDatabase;
+					break;
+
+				case ObjectNodeType.MySqlTable:
+					this.Image = Properties.Resources.MysqlTable;
+					break;
+
+				case ObjectNodeType.MySqlColumn:
+					this.Image = Properties.Resources.MySqlColumn;
+					break;
+
+				case  ObjectNodeType.MySqlPkColumn:
+					this.Image = Properties.Resources.MySqlPrimaryKey;
 					break;
 
 				case ObjectNodeType.Folder:
@@ -72,7 +85,9 @@ namespace Easy2
 		MySqlTrigger,
 		MySqlEvent,
 		MySqlColumn,
+		MySqlPkColumn,
 		MySqlIndex,
+		MySqlPkIndex,
 		Folder,
 	}
 }

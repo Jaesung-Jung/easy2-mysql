@@ -69,7 +69,7 @@ namespace Easy2
 		/// <summary>
 		/// OnLoad 재정의입니다.
 		/// </summary>
-		/// <param name="e">이벤트 객체입니다.</param>
+		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
 		protected override void OnLoad(System.EventArgs e)
 		{
 			base.OnLoad(e);
@@ -85,7 +85,7 @@ namespace Easy2
 		/// 연결하기 버튼을 클릭했을 때 발생합니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
-		/// <param name="e">이벤트 객체입니다.</param>
+		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
 		private void m_connect_Click(object sender, System.EventArgs e)
 		{
 			MySqlConnectInfo connectInfo = new MySqlConnectInfo();
@@ -113,7 +113,7 @@ namespace Easy2
 		/// 연결테스트 버튼을 클릭했을 때 발생합니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
-		/// <param name="e">이벤트 객체입니다.</param>
+		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
 		private void m_connectTest_Click(object sender, EventArgs e)
 		{
 			MySqlConnectInfo connectInfo = new MySqlConnectInfo();
@@ -135,7 +135,7 @@ namespace Easy2
 		/// 취소 버튼을 클릭했을 때 발생합니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
-		/// <param name="e">이벤트 객체입니다.</param>
+		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
 		private void m_cancel_Click(object sender, EventArgs e)
 		{
 			this.DialogResult = DialogResult.Cancel;

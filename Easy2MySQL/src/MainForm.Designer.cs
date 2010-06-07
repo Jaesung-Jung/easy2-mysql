@@ -573,6 +573,7 @@
 			this.m_refreshObjectBrowser.Name = "m_refreshObjectBrowser";
 			this.m_refreshObjectBrowser.SubItemsExpandWidth = 14;
 			this.m_refreshObjectBrowser.Text = "새로고침";
+			this.m_refreshObjectBrowser.Click += new System.EventHandler(this.m_refreshObjectBrowser_Click);
 			// 
 			// m_toolPanel
 			// 
@@ -1386,6 +1387,7 @@
 			this.m_disconnectAllMySql.Image = global::Easy2.Properties.Resources.DisconnectAll;
 			this.m_disconnectAllMySql.Name = "m_disconnectAllMySql";
 			this.m_disconnectAllMySql.Text = "모든 연결종료(&L)";
+			this.m_disconnectAllMySql.Click += new System.EventHandler(this.m_disconnectAllMySql_Click);
 			// 
 			// m_openFileInSameTab
 			// 
@@ -1455,6 +1457,7 @@
 			this.m_quitApplication.Name = "m_quitApplication";
 			this.m_quitApplication.SubItemsExpandWidth = 24;
 			this.m_quitApplication.Text = "종료하기(&X)";
+			this.m_quitApplication.Click += new System.EventHandler(this.m_quitApplication_Click);
 			// 
 			// m_homeTab
 			// 

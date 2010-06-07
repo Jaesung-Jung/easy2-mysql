@@ -289,11 +289,35 @@
   <data name="MySqlDatabase" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\png\MySqlDatabase.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MySqlDeleteCommandDenied" xml:space="preserve">
+    <value>서버에서 &lt;font color=\"#FF0000\"&gt;DELETE&lt;/font&gt; 명령을 거부하였습니다.</value>
+  </data>
+  <data name="MySqlExecuteFail" xml:space="preserve">
+    <value>쿼리문 실행을 실패하였습니다.</value>
+  </data>
+  <data name="MySqlInsertCommandDenied" xml:space="preserve">
+    <value>서버에서 &lt;font color=\"#FF0000\"&gt;INSERT&lt;/font&gt; 명령을 거부하였습니다.</value>
+  </data>
+  <data name="MySqlSelectCommandDenied" xml:space="preserve">
+    <value>서버에서 &lt;font color=\"#FF0000\"&gt;SELECT&lt;/font&gt; 명령을 거부하였습니다.</value>
+  </data>
   <data name="MySqlServerActivate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\png\MySqlServerActivate.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MySqlServerDeactivate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\png\MySqlServerDeactivate.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MySqlShowCommandDenied" xml:space="preserve">
+    <value>서버에서 &lt;font color=\"#FF0000\"&gt;SHOW&lt;/font&gt; 명령을 거부하였습니다.</value>
+  </data>
+  <data name="MysqlTable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\MysqlTable.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MySqlUpdateCommandDenied" xml:space="preserve">
+    <value>서버에서 &lt;font color=\"#FF0000\"&gt;UPDATE&lt;/font&gt; 명령을 거부하였습니다.</value>
+  </data>
+  <data name="MySqlUseCommanDenied" xml:space="preserve">
+    <value>서버에서 &lt;font color=\"#FF0000\"&gt;USE&lt;/font&gt; 명령을 거부하였습니다.</value>
   </data>
   <data name="OpenFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\png\OpenFile.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -363,5 +387,11 @@
   </data>
   <data name="UpdateCheck" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\png\UpdateCheck.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MySqlColumn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\MySqlColumn.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MySqlPrimaryKey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\MySqlPrimaryKey.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

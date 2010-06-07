@@ -18,18 +18,20 @@ namespace Easy2
 		/// </summary>
 		public ObjectTree()
 		{
-			this.SelectionChanged += new System.EventHandler(OnSelectionChanged);
+			this.SelectionChanged += new System.EventHandler(this.OnSelectionChanged);
+			this.AfterExpand += new DevComponents.AdvTree.AdvTreeNodeEventHandler(this.OnAfterExpand);
 		}
 
 		/// <summary>
 		/// 선택된 노드가 변경될 때 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생한 객체입니다.</param>
-		/// <param name="e">이벤트 객체입니다.</param>
+		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
 		private void OnSelectionChanged(object sender, EventArgs e)
 		{
-			Node header = this.SelectedNode;
+			MySqlGenerator generator = new MySqlGenerator();
 
+			Node header = this.SelectedNode;
 			if(header == null)
 				return;
 
@@ -41,6 +43,69 @@ namespace Easy2
 
 			header.Image = Properties.Resources.MySqlServerActivate;
 			Program.ActivateCommunicator = Program.CoummunicatorList[header.Index];
+
+			Node databaseNode = this.SelectedNode;
+			if(databaseNode == null || databaseNode.Parent == null)
+				return;
+
+			while(databaseNode.Parent != header)
+				databaseNode = databaseNode.Parent;
+
+			try
+			{
+				Program.ActivateCommunicator.Execute(new MySqlGenerator().UseDatabase(databaseNode.Text));
+				Program.ActivateCommunicator.UseDatabaseName = databaseNode.Text;
+			}
+			catch(MySqlException ex)
+			{
+				EasyToMySqlError.Show(Program.MainFormHandle, ex.Message, Properties.Resources.MySqlExecuteFail, ex.Number);
+			}
+		}
+
+		/// <summary>
+		/// 노드가 펼쳐질 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생한 객체입니다.</param>
+		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
+		private void OnAfterExpand(object sender, AdvTreeNodeEventArgs e)
+		{
+			this.SelectedNode = e.Node;
+			MySqlDataReader reader = null;
+
+			try
+			{
+				switch(((ObjectNode)e.Node).NodeType)
+				{
+					case ObjectNodeType.Folder:
+						Node folderNode = e.Node;
+						if(folderNode.Nodes.Count == 0)	// 노드가 없다면 테이블을 조회권한이 없다는 의미
+							break;
+
+						if(folderNode.Nodes[0].Text == "null")
+						{
+							folderNode.Nodes.Clear();
+							if(folderNode.Text == "테이블")
+							{
+								reader = Program.ActivateCommunicator.ExecuteReader(new MySqlGenerator().ShowTables(Program.ActivateCommunicator.UseDatabaseName));
+								this.ReadTables(folderNode, reader);
+							}
+						}
+						break;
+
+					case ObjectNodeType.MySqlTable:
+						Node tableNode = e.Node;
+						reader = Program.ActivateCommunicator.ExecuteReader(new MySqlGenerator().ShowColumns(tableNode.Text));
+						this.ReadColumns(tableNode.Nodes[0], reader);
+						break;
+				}
+			}
+			catch(MySqlException ex)
+			{
+				EasyToMySqlError.Show(Program.MainFormHandle, ex.Message, Properties.Resources.MySqlExecuteFail, ex.Number);
+			}
+
+			if(reader != null)
+				reader.Close();
 		}
 
 		/// <summary>
@@ -68,7 +133,14 @@ namespace Easy2
 				if(communicator.ConnectInfo.Database.Length == 0)
 				{
 					MySqlGenerator generator = new MySqlGenerator();
-					reader = communicator.ExcuteReader(generator.ShowDatabases());
+					try
+					{
+						reader = communicator.ExecuteReader(generator.ShowDatabases());
+					}
+					catch(MySqlException ex)
+					{
+						EasyToMySqlError.Show(Program.MainFormHandle, ex.Message, Properties.Resources.MySqlExecuteFail, ex.Number);
+					}
 					while(reader.Read())
 						databaseList.Add(reader.GetString(0));
 					reader.Close();
@@ -92,6 +164,35 @@ namespace Easy2
 						folderNode.Nodes.Add(new ObjectNode(folderNode, "null", ObjectNodeType.MySqlTable));
 					}
 				}
+			}
+		}
+
+		/// <summary>
+		/// 테이블데이터를 읽어 트리에 추가합니다.
+		/// </summary>
+		/// <param name="folderNode">테이블데이터 폴더의 노드입니다.</param>
+		/// <param name="reader">테이블데이터를 가진 객체입니다.</param>
+		private void ReadTables(Node folderNode, MySqlDataReader reader)
+		{
+			while(reader.Read())
+			{
+				ObjectNode tableNode = new ObjectNode((ObjectNode)folderNode, reader.GetString(0), ObjectNodeType.MySqlTable);
+				tableNode.Nodes.Add(new ObjectNode(tableNode, "컬럼", ObjectNodeType.Folder));
+				tableNode.Nodes.Add(new ObjectNode(tableNode, "인덱스", ObjectNodeType.Folder));
+				folderNode.Nodes.Add(tableNode);
+			}
+		}
+
+		private void ReadColumns(Node folderNode, MySqlDataReader reader)
+		{
+			while(reader.Read())
+			{
+				string[] columnData = { reader["field"].ToString(), reader["type"].ToString(), reader["null"].ToString(), reader["key"].ToString() };
+				string columnText = new MySqlGenerator().MakeColumnInfo(columnData);
+				if(reader["key"].ToString() == "PRI")
+					folderNode.Nodes.Add(new ObjectNode((ObjectNode)folderNode, columnText, ObjectNodeType.MySqlPkColumn));
+				else
+					folderNode.Nodes.Add(new ObjectNode((ObjectNode)folderNode, columnText, ObjectNodeType.MySqlColumn));
 			}
 		}
 	}

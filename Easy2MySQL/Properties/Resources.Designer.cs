@@ -438,6 +438,13 @@ namespace Easy2.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap MySqlColumn {
+            get {
+                object obj = ResourceManager.GetObject("MySqlColumn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         /// <summary>
         ///   MySQL 서버 연결에 실패하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
@@ -463,6 +470,49 @@ namespace Easy2.Properties {
             }
         }
         
+        /// <summary>
+        ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;DELETE&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string MySqlDeleteCommandDenied {
+            get {
+                return ResourceManager.GetString("MySqlDeleteCommandDenied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   쿼리문 실행을 실패하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string MySqlExecuteFail {
+            get {
+                return ResourceManager.GetString("MySqlExecuteFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;INSERT&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string MySqlInsertCommandDenied {
+            get {
+                return ResourceManager.GetString("MySqlInsertCommandDenied", resourceCulture);
+            }
+        }
+        
+        internal static System.Drawing.Bitmap MySqlPrimaryKey {
+            get {
+                object obj = ResourceManager.GetObject("MySqlPrimaryKey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;SELECT&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string MySqlSelectCommandDenied {
+            get {
+                return ResourceManager.GetString("MySqlSelectCommandDenied", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap MySqlServerActivate {
             get {
                 object obj = ResourceManager.GetObject("MySqlServerActivate", resourceCulture);
@@ -474,6 +524,40 @@ namespace Easy2.Properties {
             get {
                 object obj = ResourceManager.GetObject("MySqlServerDeactivate", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;SHOW&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string MySqlShowCommandDenied {
+            get {
+                return ResourceManager.GetString("MySqlShowCommandDenied", resourceCulture);
+            }
+        }
+        
+        internal static System.Drawing.Bitmap MysqlTable {
+            get {
+                object obj = ResourceManager.GetObject("MysqlTable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;UPDATE&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string MySqlUpdateCommandDenied {
+            get {
+                return ResourceManager.GetString("MySqlUpdateCommandDenied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;USE&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string MySqlUseCommanDenied {
+            get {
+                return ResourceManager.GetString("MySqlUseCommanDenied", resourceCulture);
             }
         }
         

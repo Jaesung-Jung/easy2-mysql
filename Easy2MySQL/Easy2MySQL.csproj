@@ -74,6 +74,7 @@
     <Compile Include="src\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\CommunicatorCollection.cs" />
     <Compile Include="src\ConnectForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -422,5 +423,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="img\png\MySqlServerDeactivate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\MysqlTable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\MySqlColumn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\MySqlPrimaryKey.png" />
   </ItemGroup>
 </Project>

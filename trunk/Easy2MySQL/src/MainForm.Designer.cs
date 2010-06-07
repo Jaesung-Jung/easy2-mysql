@@ -110,23 +110,6 @@
 			this.m_addUser = new DevComponents.DotNetBar.ButtonItem();
 			this.m_alterUser = new DevComponents.DotNetBar.ButtonItem();
 			this.m_privilegeUser = new DevComponents.DotNetBar.ButtonItem();
-			this.m_homeTab = new DevComponents.DotNetBar.RibbonTabItem();
-			this.m_createTab = new DevComponents.DotNetBar.RibbonTabItem();
-			this.m_toolTab = new DevComponents.DotNetBar.RibbonTabItem();
-			this.m_configGroup = new DevComponents.DotNetBar.ButtonItem();
-			this.m_appSettings = new DevComponents.DotNetBar.ButtonItem();
-			this.m_formTheme = new DevComponents.DotNetBar.ButtonItem();
-			this.m_aeroSilverTheme = new DevComponents.DotNetBar.ButtonItem();
-			this.m_themeCommand = new DevComponents.DotNetBar.Command();
-			this.m_aeroBlueTheme = new DevComponents.DotNetBar.ButtonItem();
-			this.m_officeBlueTheme = new DevComponents.DotNetBar.ButtonItem();
-			this.m_officeBlackTheme = new DevComponents.DotNetBar.ButtonItem();
-			this.m_officeSilverTheme = new DevComponents.DotNetBar.ButtonItem();
-			this.m_officeNavyTheme = new DevComponents.DotNetBar.ButtonItem();
-			this.m_helpGroup = new DevComponents.DotNetBar.ButtonItem();
-			this.m_helpDocument = new DevComponents.DotNetBar.ButtonItem();
-			this.m_updateCheck = new DevComponents.DotNetBar.ButtonItem();
-			this.m_showAbout = new DevComponents.DotNetBar.ButtonItem();
 			this.m_startButton = new DevComponents.DotNetBar.Office2007StartButton();
 			this.m_fileItemContainer = new DevComponents.DotNetBar.ItemContainer();
 			this.m_fileMenuItemContainer = new DevComponents.DotNetBar.ItemContainer();
@@ -147,6 +130,23 @@
 			this.m_recentLabel = new DevComponents.DotNetBar.LabelItem();
 			this.m_botomItemContainer = new DevComponents.DotNetBar.ItemContainer();
 			this.m_quitApplication = new DevComponents.DotNetBar.ButtonItem();
+			this.m_homeTab = new DevComponents.DotNetBar.RibbonTabItem();
+			this.m_createTab = new DevComponents.DotNetBar.RibbonTabItem();
+			this.m_toolTab = new DevComponents.DotNetBar.RibbonTabItem();
+			this.m_configGroup = new DevComponents.DotNetBar.ButtonItem();
+			this.m_appSettings = new DevComponents.DotNetBar.ButtonItem();
+			this.m_formTheme = new DevComponents.DotNetBar.ButtonItem();
+			this.m_aeroSilverTheme = new DevComponents.DotNetBar.ButtonItem();
+			this.m_themeCommand = new DevComponents.DotNetBar.Command();
+			this.m_aeroBlueTheme = new DevComponents.DotNetBar.ButtonItem();
+			this.m_officeBlueTheme = new DevComponents.DotNetBar.ButtonItem();
+			this.m_officeBlackTheme = new DevComponents.DotNetBar.ButtonItem();
+			this.m_officeSilverTheme = new DevComponents.DotNetBar.ButtonItem();
+			this.m_officeNavyTheme = new DevComponents.DotNetBar.ButtonItem();
+			this.m_helpGroup = new DevComponents.DotNetBar.ButtonItem();
+			this.m_helpDocument = new DevComponents.DotNetBar.ButtonItem();
+			this.m_updateCheck = new DevComponents.DotNetBar.ButtonItem();
+			this.m_showAbout = new DevComponents.DotNetBar.ButtonItem();
 			this.m_styleManager = new DevComponents.DotNetBar.StyleManager();
 			this.m_statusBar = new DevComponents.DotNetBar.Bar();
 			this.m_ribbonControl.SuspendLayout();
@@ -1259,6 +1259,203 @@
 			this.m_privilegeUser.SubItemsExpandWidth = 14;
 			this.m_privilegeUser.Text = "<div align=\"center\">권한<br/>설정하기</div>";
 			// 
+			// m_startButton
+			// 
+			this.m_startButton.AutoExpandOnClick = true;
+			this.m_startButton.CanCustomize = false;
+			this.m_startButton.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.Image;
+			this.m_startButton.ImageFixedSize = new System.Drawing.Size(16, 16);
+			this.m_startButton.ImagePaddingHorizontal = 0;
+			this.m_startButton.ImagePaddingVertical = 0;
+			this.m_startButton.Name = "m_startButton";
+			this.m_startButton.ShowSubItems = false;
+			this.m_startButton.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_fileItemContainer});
+			this.m_startButton.Text = "&File";
+			// 
+			// m_fileItemContainer
+			// 
+			// 
+			// 
+			// 
+			this.m_fileItemContainer.BackgroundStyle.Class = "RibbonFileMenuContainer";
+			this.m_fileItemContainer.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
+			this.m_fileItemContainer.Name = "m_fileItemContainer";
+			this.m_fileItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_fileMenuItemContainer,
+            this.m_botomItemContainer});
+			// 
+			// m_fileMenuItemContainer
+			// 
+			// 
+			// 
+			// 
+			this.m_fileMenuItemContainer.BackgroundStyle.Class = "RibbonFileMenuTwoColumnContainer";
+			this.m_fileMenuItemContainer.ItemSpacing = 0;
+			this.m_fileMenuItemContainer.Name = "m_fileMenuItemContainer";
+			this.m_fileMenuItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_leftItemContainer,
+            this.m_rightItemContainer});
+			// 
+			// m_leftItemContainer
+			// 
+			// 
+			// 
+			// 
+			this.m_leftItemContainer.BackgroundStyle.Class = "RibbonFileMenuColumnOneContainer";
+			this.m_leftItemContainer.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
+			this.m_leftItemContainer.MinimumSize = new System.Drawing.Size(120, 0);
+			this.m_leftItemContainer.Name = "m_leftItemContainer";
+			this.m_leftItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_newConnection,
+            this.m_newConnectionUsingCurrentSettings,
+            this.m_newQueryEditor,
+            this.m_newQueryWizard,
+            this.m_newSchemaDesigner,
+            this.m_closeTab,
+            this.m_disconnectMySql,
+            this.m_disconnectAllMySql,
+            this.m_openFileInSameTab,
+            this.m_openFileInNewTab,
+            this.m_saveFile,
+            this.m_saveAs});
+			// 
+			// m_newConnection
+			// 
+			this.m_newConnection.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_newConnection.Image = global::Easy2.Properties.Resources.ConnectDatabase;
+			this.m_newConnection.Name = "m_newConnection";
+			this.m_newConnection.SubItemsExpandWidth = 24;
+			this.m_newConnection.Text = "새로운 연결(&C)...";
+			this.m_newConnection.Click += new System.EventHandler(this.m_newConnection_Click);
+			// 
+			// m_newConnectionUsingCurrentSettings
+			// 
+			this.m_newConnectionUsingCurrentSettings.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_newConnectionUsingCurrentSettings.Image = ((System.Drawing.Image)(resources.GetObject("m_newConnectionUsingCurrentSettings.Image")));
+			this.m_newConnectionUsingCurrentSettings.Name = "m_newConnectionUsingCurrentSettings";
+			this.m_newConnectionUsingCurrentSettings.SubItemsExpandWidth = 24;
+			this.m_newConnectionUsingCurrentSettings.Text = "기존 설정 연결(&N)";
+			// 
+			// m_newQueryEditor
+			// 
+			this.m_newQueryEditor.BeginGroup = true;
+			this.m_newQueryEditor.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_newQueryEditor.Image = global::Easy2.Properties.Resources.QueryEditor;
+			this.m_newQueryEditor.Name = "m_newQueryEditor";
+			this.m_newQueryEditor.SubItemsExpandWidth = 24;
+			this.m_newQueryEditor.Text = "새 쿼리 에디터(&Q)";
+			this.m_newQueryEditor.Click += new System.EventHandler(this.m_newQueryEditor_Click);
+			// 
+			// m_newQueryWizard
+			// 
+			this.m_newQueryWizard.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_newQueryWizard.Image = global::Easy2.Properties.Resources.QueryWizard;
+			this.m_newQueryWizard.Name = "m_newQueryWizard";
+			this.m_newQueryWizard.SubItemsExpandWidth = 24;
+			this.m_newQueryWizard.Text = "새 쿼리 마법사(&W)";
+			// 
+			// m_newSchemaDesigner
+			// 
+			this.m_newSchemaDesigner.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_newSchemaDesigner.Image = global::Easy2.Properties.Resources.SchemaDesigner;
+			this.m_newSchemaDesigner.Name = "m_newSchemaDesigner";
+			this.m_newSchemaDesigner.SubItemsExpandWidth = 24;
+			this.m_newSchemaDesigner.Text = "새 스키마 디자이너(&H)";
+			// 
+			// m_closeTab
+			// 
+			this.m_closeTab.BeginGroup = true;
+			this.m_closeTab.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_closeTab.Image = global::Easy2.Properties.Resources.CloseTab;
+			this.m_closeTab.Name = "m_closeTab";
+			this.m_closeTab.SubItemsExpandWidth = 24;
+			this.m_closeTab.Text = "댑 닫기(&T)";
+			// 
+			// m_disconnectMySql
+			// 
+			this.m_disconnectMySql.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_disconnectMySql.Image = global::Easy2.Properties.Resources.Disconnect;
+			this.m_disconnectMySql.Name = "m_disconnectMySql";
+			this.m_disconnectMySql.Text = "연결종료(&D)";
+			this.m_disconnectMySql.Click += new System.EventHandler(this.m_disconnectMySql_Click);
+			// 
+			// m_disconnectAllMySql
+			// 
+			this.m_disconnectAllMySql.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_disconnectAllMySql.Image = global::Easy2.Properties.Resources.DisconnectAll;
+			this.m_disconnectAllMySql.Name = "m_disconnectAllMySql";
+			this.m_disconnectAllMySql.Text = "모든 연결종료(&L)";
+			// 
+			// m_openFileInSameTab
+			// 
+			this.m_openFileInSameTab.BeginGroup = true;
+			this.m_openFileInSameTab.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_openFileInSameTab.Image = global::Easy2.Properties.Resources.OpenFile;
+			this.m_openFileInSameTab.Name = "m_openFileInSameTab";
+			this.m_openFileInSameTab.Text = "불러오기(&O)...";
+			// 
+			// m_openFileInNewTab
+			// 
+			this.m_openFileInNewTab.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_openFileInNewTab.Image = global::Easy2.Properties.Resources.OpenFileNewTab;
+			this.m_openFileInNewTab.Name = "m_openFileInNewTab";
+			this.m_openFileInNewTab.Text = "새 탭에 불러오기(&F)...";
+			// 
+			// m_saveFile
+			// 
+			this.m_saveFile.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_saveFile.Image = global::Easy2.Properties.Resources.SaveFile;
+			this.m_saveFile.Name = "m_saveFile";
+			this.m_saveFile.Text = "저장하기(&S)...";
+			// 
+			// m_saveAs
+			// 
+			this.m_saveAs.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_saveAs.Image = global::Easy2.Properties.Resources.SaveAsFile;
+			this.m_saveAs.Name = "m_saveAs";
+			this.m_saveAs.Text = "다른 이름으로 저장하기(&A)...";
+			// 
+			// m_rightItemContainer
+			// 
+			// 
+			// 
+			// 
+			this.m_rightItemContainer.BackgroundStyle.Class = "RibbonFileMenuColumnTwoContainer";
+			this.m_rightItemContainer.EnableGalleryPopup = false;
+			this.m_rightItemContainer.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
+			this.m_rightItemContainer.MinimumSize = new System.Drawing.Size(180, 240);
+			this.m_rightItemContainer.MultiLine = false;
+			this.m_rightItemContainer.Name = "m_rightItemContainer";
+			this.m_rightItemContainer.PopupUsesStandardScrollbars = false;
+			this.m_rightItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_recentLabel});
+			// 
+			// m_recentLabel
+			// 
+			this.m_recentLabel.Name = "m_recentLabel";
+			this.m_recentLabel.Text = "최근 사용한 파일";
+			// 
+			// m_botomItemContainer
+			// 
+			// 
+			// 
+			// 
+			this.m_botomItemContainer.BackgroundStyle.Class = "RibbonFileMenuBottomContainer";
+			this.m_botomItemContainer.HorizontalItemAlignment = DevComponents.DotNetBar.eHorizontalItemsAlignment.Right;
+			this.m_botomItemContainer.Name = "m_botomItemContainer";
+			this.m_botomItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_quitApplication});
+			// 
+			// m_quitApplication
+			// 
+			this.m_quitApplication.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_quitApplication.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_quitApplication.Image = global::Easy2.Properties.Resources.QuitApplication;
+			this.m_quitApplication.Name = "m_quitApplication";
+			this.m_quitApplication.SubItemsExpandWidth = 24;
+			this.m_quitApplication.Text = "종료하기(&X)";
+			// 
 			// m_homeTab
 			// 
 			this.m_homeTab.Checked = true;
@@ -1395,202 +1592,6 @@
 			this.m_showAbout.BeginGroup = true;
 			this.m_showAbout.Name = "m_showAbout";
 			this.m_showAbout.Text = "Easy to MySQL 정보(&A)...";
-			// 
-			// m_startButton
-			// 
-			this.m_startButton.AutoExpandOnClick = true;
-			this.m_startButton.CanCustomize = false;
-			this.m_startButton.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.Image;
-			this.m_startButton.ImageFixedSize = new System.Drawing.Size(16, 16);
-			this.m_startButton.ImagePaddingHorizontal = 0;
-			this.m_startButton.ImagePaddingVertical = 0;
-			this.m_startButton.Name = "m_startButton";
-			this.m_startButton.ShowSubItems = false;
-			this.m_startButton.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_fileItemContainer});
-			this.m_startButton.Text = "&File";
-			// 
-			// m_fileItemContainer
-			// 
-			// 
-			// 
-			// 
-			this.m_fileItemContainer.BackgroundStyle.Class = "RibbonFileMenuContainer";
-			this.m_fileItemContainer.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
-			this.m_fileItemContainer.Name = "m_fileItemContainer";
-			this.m_fileItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_fileMenuItemContainer,
-            this.m_botomItemContainer});
-			// 
-			// m_fileMenuItemContainer
-			// 
-			// 
-			// 
-			// 
-			this.m_fileMenuItemContainer.BackgroundStyle.Class = "RibbonFileMenuTwoColumnContainer";
-			this.m_fileMenuItemContainer.ItemSpacing = 0;
-			this.m_fileMenuItemContainer.Name = "m_fileMenuItemContainer";
-			this.m_fileMenuItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_leftItemContainer,
-            this.m_rightItemContainer});
-			// 
-			// m_leftItemContainer
-			// 
-			// 
-			// 
-			// 
-			this.m_leftItemContainer.BackgroundStyle.Class = "RibbonFileMenuColumnOneContainer";
-			this.m_leftItemContainer.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
-			this.m_leftItemContainer.MinimumSize = new System.Drawing.Size(120, 0);
-			this.m_leftItemContainer.Name = "m_leftItemContainer";
-			this.m_leftItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_newConnection,
-            this.m_newConnectionUsingCurrentSettings,
-            this.m_newQueryEditor,
-            this.m_newQueryWizard,
-            this.m_newSchemaDesigner,
-            this.m_closeTab,
-            this.m_disconnectMySql,
-            this.m_disconnectAllMySql,
-            this.m_openFileInSameTab,
-            this.m_openFileInNewTab,
-            this.m_saveFile,
-            this.m_saveAs});
-			// 
-			// m_newConnection
-			// 
-			this.m_newConnection.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_newConnection.Image = global::Easy2.Properties.Resources.ConnectDatabase;
-			this.m_newConnection.Name = "m_newConnection";
-			this.m_newConnection.SubItemsExpandWidth = 24;
-			this.m_newConnection.Text = "새로운 연결(&C)...";
-			this.m_newConnection.Click += new System.EventHandler(this.m_newConnection_Click);
-			// 
-			// m_newConnectionUsingCurrentSettings
-			// 
-			this.m_newConnectionUsingCurrentSettings.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_newConnectionUsingCurrentSettings.Image = ((System.Drawing.Image)(resources.GetObject("m_newConnectionUsingCurrentSettings.Image")));
-			this.m_newConnectionUsingCurrentSettings.Name = "m_newConnectionUsingCurrentSettings";
-			this.m_newConnectionUsingCurrentSettings.SubItemsExpandWidth = 24;
-			this.m_newConnectionUsingCurrentSettings.Text = "기존 설정 연결(&N)";
-			// 
-			// m_newQueryEditor
-			// 
-			this.m_newQueryEditor.BeginGroup = true;
-			this.m_newQueryEditor.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_newQueryEditor.Image = global::Easy2.Properties.Resources.QueryEditor;
-			this.m_newQueryEditor.Name = "m_newQueryEditor";
-			this.m_newQueryEditor.SubItemsExpandWidth = 24;
-			this.m_newQueryEditor.Text = "새 쿼리 에디터(&Q)";
-			this.m_newQueryEditor.Click += new System.EventHandler(this.m_newQueryEditor_Click);
-			// 
-			// m_newQueryWizard
-			// 
-			this.m_newQueryWizard.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_newQueryWizard.Image = global::Easy2.Properties.Resources.QueryWizard;
-			this.m_newQueryWizard.Name = "m_newQueryWizard";
-			this.m_newQueryWizard.SubItemsExpandWidth = 24;
-			this.m_newQueryWizard.Text = "새 쿼리 마법사(&W)";
-			// 
-			// m_newSchemaDesigner
-			// 
-			this.m_newSchemaDesigner.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_newSchemaDesigner.Image = global::Easy2.Properties.Resources.SchemaDesigner;
-			this.m_newSchemaDesigner.Name = "m_newSchemaDesigner";
-			this.m_newSchemaDesigner.SubItemsExpandWidth = 24;
-			this.m_newSchemaDesigner.Text = "새 스키마 디자이너(&H)";
-			// 
-			// m_closeTab
-			// 
-			this.m_closeTab.BeginGroup = true;
-			this.m_closeTab.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_closeTab.Image = global::Easy2.Properties.Resources.CloseTab;
-			this.m_closeTab.Name = "m_closeTab";
-			this.m_closeTab.SubItemsExpandWidth = 24;
-			this.m_closeTab.Text = "댑 닫기(&T)";
-			// 
-			// m_disconnectMySql
-			// 
-			this.m_disconnectMySql.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_disconnectMySql.Image = global::Easy2.Properties.Resources.Disconnect;
-			this.m_disconnectMySql.Name = "m_disconnectMySql";
-			this.m_disconnectMySql.Text = "연결종료(&D)";
-			// 
-			// m_disconnectAllMySql
-			// 
-			this.m_disconnectAllMySql.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_disconnectAllMySql.Image = global::Easy2.Properties.Resources.DisconnectAll;
-			this.m_disconnectAllMySql.Name = "m_disconnectAllMySql";
-			this.m_disconnectAllMySql.Text = "모든 연결종료(&L)";
-			// 
-			// m_openFileInSameTab
-			// 
-			this.m_openFileInSameTab.BeginGroup = true;
-			this.m_openFileInSameTab.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_openFileInSameTab.Image = global::Easy2.Properties.Resources.OpenFile;
-			this.m_openFileInSameTab.Name = "m_openFileInSameTab";
-			this.m_openFileInSameTab.Text = "불러오기(&O)...";
-			// 
-			// m_openFileInNewTab
-			// 
-			this.m_openFileInNewTab.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_openFileInNewTab.Image = global::Easy2.Properties.Resources.OpenFileNewTab;
-			this.m_openFileInNewTab.Name = "m_openFileInNewTab";
-			this.m_openFileInNewTab.Text = "새 탭에 불러오기(&F)...";
-			// 
-			// m_saveFile
-			// 
-			this.m_saveFile.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_saveFile.Image = global::Easy2.Properties.Resources.SaveFile;
-			this.m_saveFile.Name = "m_saveFile";
-			this.m_saveFile.Text = "저장하기(&S)...";
-			// 
-			// m_saveAs
-			// 
-			this.m_saveAs.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_saveAs.Image = global::Easy2.Properties.Resources.SaveAsFile;
-			this.m_saveAs.Name = "m_saveAs";
-			this.m_saveAs.Text = "다른 이름으로 저장하기(&A)...";
-			// 
-			// m_rightItemContainer
-			// 
-			// 
-			// 
-			// 
-			this.m_rightItemContainer.BackgroundStyle.Class = "RibbonFileMenuColumnTwoContainer";
-			this.m_rightItemContainer.EnableGalleryPopup = false;
-			this.m_rightItemContainer.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
-			this.m_rightItemContainer.MinimumSize = new System.Drawing.Size(180, 240);
-			this.m_rightItemContainer.MultiLine = false;
-			this.m_rightItemContainer.Name = "m_rightItemContainer";
-			this.m_rightItemContainer.PopupUsesStandardScrollbars = false;
-			this.m_rightItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_recentLabel});
-			// 
-			// m_recentLabel
-			// 
-			this.m_recentLabel.Name = "m_recentLabel";
-			this.m_recentLabel.Text = "최근 사용한 파일";
-			// 
-			// m_botomItemContainer
-			// 
-			// 
-			// 
-			// 
-			this.m_botomItemContainer.BackgroundStyle.Class = "RibbonFileMenuBottomContainer";
-			this.m_botomItemContainer.HorizontalItemAlignment = DevComponents.DotNetBar.eHorizontalItemsAlignment.Right;
-			this.m_botomItemContainer.Name = "m_botomItemContainer";
-			this.m_botomItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_quitApplication});
-			// 
-			// m_quitApplication
-			// 
-			this.m_quitApplication.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_quitApplication.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-			this.m_quitApplication.Image = global::Easy2.Properties.Resources.QuitApplication;
-			this.m_quitApplication.Name = "m_quitApplication";
-			this.m_quitApplication.SubItemsExpandWidth = 24;
-			this.m_quitApplication.Text = "종료하기(&X)";
 			// 
 			// m_styleManager
 			// 

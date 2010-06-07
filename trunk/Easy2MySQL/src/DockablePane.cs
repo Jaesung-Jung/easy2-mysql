@@ -7,7 +7,7 @@ using DevComponents.DotNetBar;
 namespace Easy2
 {
 	/// <summary>
-	/// 도킹 브라우저 클래스입니다.
+	/// 도킹이 가능한 팬 클래스입니다.
 	/// </summary>
 	public class DockablePane : Bar
 	{
@@ -30,7 +30,7 @@ namespace Easy2
 		}
 
 		/// <summary>
-		/// 컨트롤 객체입니다.
+		/// 컨트롤 객체를 나타냅니다.
 		/// </summary>
 		protected Control Control
 		{

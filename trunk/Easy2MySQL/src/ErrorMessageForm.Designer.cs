@@ -33,7 +33,7 @@
 			this.m_errorNumberLabel = new DevComponents.DotNetBar.LabelX();
 			this.m_imgLabel = new DevComponents.DotNetBar.LabelX();
 			this.m_closeButton = new DevComponents.DotNetBar.ButtonX();
-			this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
+			this.m_copyButton = new DevComponents.DotNetBar.ButtonX();
 			this.SuspendLayout();
 			// 
 			// m_errorMessageText
@@ -96,29 +96,29 @@
 			this.m_closeButton.Text = "닫기";
 			this.m_closeButton.Click += new System.EventHandler(this.m_closeButton_Click);
 			// 
-			// buttonX1
+			// m_copyButton
 			// 
-			this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-			this.buttonX1.Location = new System.Drawing.Point(272, 196);
-			this.buttonX1.Name = "buttonX1";
-			this.buttonX1.Size = new System.Drawing.Size(84, 26);
-			this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.buttonX1.TabIndex = 7;
-			this.buttonX1.Text = "복사하기(&C)";
+			this.m_copyButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.m_copyButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_copyButton.Location = new System.Drawing.Point(272, 196);
+			this.m_copyButton.Name = "m_copyButton";
+			this.m_copyButton.Size = new System.Drawing.Size(84, 26);
+			this.m_copyButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_copyButton.TabIndex = 7;
+			this.m_copyButton.Text = "복사하기(&C)";
+			this.m_copyButton.Click += new System.EventHandler(this.m_copyButton_Click);
 			// 
 			// ErrorMessageForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(458, 235);
-			this.Controls.Add(this.buttonX1);
+			this.Controls.Add(this.m_copyButton);
 			this.Controls.Add(this.m_closeButton);
 			this.Controls.Add(this.m_imgLabel);
 			this.Controls.Add(this.m_errorMessageText);
 			this.Controls.Add(this.m_subjectLabel);
 			this.Controls.Add(this.m_errorNumberLabel);
-			this.DoubleBuffered = true;
 			this.Name = "ErrorMessageForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Easy To MySQL 오류";
@@ -134,6 +134,6 @@
 		private DevComponents.DotNetBar.LabelX m_errorNumberLabel;
 		private DevComponents.DotNetBar.LabelX m_imgLabel;
 		private DevComponents.DotNetBar.ButtonX m_closeButton;
-		private DevComponents.DotNetBar.ButtonX buttonX1;
+		private DevComponents.DotNetBar.ButtonX m_copyButton;
 	}
 }

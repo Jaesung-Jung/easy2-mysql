@@ -16,34 +16,6 @@ namespace System.Windows.Forms
 	/// </summar>
 	public class SyntaxHighlightTextBox : RichTextBox
 	{
-		#region Control attribute
-		private List<string> m_keywords = new List<string>();			// 키워드 리스트
-		private List<string> m_functions = new List<string>();			// 함수 리스트
-		private List<string> m_others = new List<string>();				// 기타구문 리스트
-		private static string m_regexKeywords = "";							// 키워드 정규식
-		private static string m_regexFunctions = "";							// 함수 정규식
-		private static string m_regexOthers = "";								// 기타구문 정규식
-		private string m_singleLineCommentBegin = "//";					// 단일라인주석 시작형식
-		private bool m_enableKeywords = true;							// 키워드 사용여부
-		private bool m_enableFunctions = false;							// 함수 사용여부
-		private bool m_enableOthers = false;							// 기타구문 사용여부
-		private bool m_enableSingleLineComment = true;					// 단일라인주석 사용여부
-		private bool m_enableString = true;								// 문자열형식 사용여부
-		private bool m_enableCharacter = true;							// 문자형식 사용여부
-		private bool m_enableInteger = false;							// 숫자형식 사용여부
-		private bool m_enableCaseSenstive = false;						// 대소문자 구분여부
-		private Color m_colorKeywordsHighlight = Color.Blue;			// 키워드 색상
-		private Color m_colorFunctionsHighlight = Color.Brown;			// 함수 색상
-		private Color m_colorOthersHighlight = Color.Navy;				// 기타구문 색상
-		private Color m_colorSingleLineCommenHighlight = Color.Green;	// 단일라인주석 색상
-		private Color m_colorStringHighlight = Color.Red;				// 문자열색상
-		private Color m_colorCharacterHighlight = Color.Red;			// 문자 색상
-		private Color m_colorIntegerHighlight = Color.Black;			// 숫자 색상
-		#endregion
-		private bool m_isPaint = true;									// 화면을 새로 그릴지 여부
-		private bool m_isIMEComposition = false;						// 한글이 조립중인지 판단
-		private bool m_isEnterKeyDown = false;							// 엔터키가 눌러졌는지 판단
-
 		/// <summary>
 		/// WndProc의 재정의입니다.
 		/// </summary>
@@ -78,7 +50,7 @@ namespace System.Windows.Forms
 		/// <summary>
 		/// OnTextChanged의 재정의입니다.
 		/// </summary>
-		/// <param name="e">이벤트 아규먼트 객체입니다.</param>
+		/// <param name="e">이벤트 객체입니다.</param>
 		protected override void OnTextChanged(EventArgs e)
 		{
 			// 한글조립중에 구문분석을 수행하면 한글조립이
@@ -102,7 +74,7 @@ namespace System.Windows.Forms
 		/// <summary>
 		/// OnKeyDown의 재정의입니다.
 		/// </summary>
-		/// <param name="e">키 이벤트 아규먼트 객체입니다.</param>
+		/// <param name="e">키 이벤트 객체입니다.</param>
 		protected override void OnKeyDown(KeyEventArgs e)
 		{
 			if(e.KeyData == Keys.Enter && this.Lines.Length != 0)
@@ -232,9 +204,8 @@ namespace System.Windows.Forms
 			return lineCounter;
 		}
 
-		#region Properties
 		/// <summary>
-		/// 키워드 리스트입니다.
+		/// 키워드 리스트를 나타냅니다.
 		/// </summary>
 		[Category("항목")]
 		[Description("키워드 항목입니다.")]
@@ -242,8 +213,9 @@ namespace System.Windows.Forms
 		{
 			get	{ return this.m_keywords; }
 		}
+
 		/// <summary>
-		/// 함수 리스트입니다.
+		/// 함수 리스트를 나타냅니다.
 		/// </summary>
 		[Category("항목")]
 		[Description("함수 항목입니다.")]
@@ -251,8 +223,9 @@ namespace System.Windows.Forms
 		{
 			get { return this.m_functions; }
 		}
+
 		/// <summary>
-		/// 기타구문 리스트입니다.
+		/// 기타구문 리스트를 나타냅니다.
 		/// </summary>
 		[Category("항목")]
 		[Description("기타 항목입니다.")]
@@ -260,38 +233,9 @@ namespace System.Windows.Forms
 		{
 			get { return this.m_others; }
 		}
-// 		/// <summary>
-// 		/// 키워드 정규식입니다.
-// 		/// </summary>
-// 		[Category("항목")]
-// 		[Description("키워드 정규식입니다.")]
-// 		public string RegexKeywords
-// 		{
-// 			get { return this.m_regexKeywords; }
-// 			set { this.m_regexKeywords = value; }
-// 		}
-// 		/// <summary>
-// 		/// 함수 정규식입니다.
-// 		/// </summary>
-// 		[Category("항목")]
-// 		[Description("함수 정규식입니다.")]
-// 		public string RegexFunctions
-// 		{
-// 			get { return this.m_regexFunctions; }
-// 			set { this.m_regexFunctions = value; }
-// 		}
-// 		/// <summary>
-// 		/// 기타구문 정규식입니다.
-// 		/// </summary>
-// 		[Category("항목")]
-// 		[Description("기타구문 정규식입니다.")]
-// 		public string RegexOthers
-// 		{
-// 			get { return this.m_regexOthers; }
-// 			set { this.m_regexOthers = value; }
-// 		}
+
 		/// <summary>
-		/// 단일라인주석의 시작 형식입니다.
+		/// 단일라인주석의 시작 형식을 나타냅니다.
 		/// </summary>
 		[Category("형식")]
 		[DefaultValue("//")]
@@ -301,6 +245,7 @@ namespace System.Windows.Forms
 			get { return this.m_singleLineCommentBegin; }
 			set { this.m_singleLineCommentBegin = value; }
 		}
+
 		/// <summary>
 		/// 키워드의 강조여부를 나타냅니다.
 		/// </summary>
@@ -312,6 +257,7 @@ namespace System.Windows.Forms
 			get { return this.m_enableKeywords; }
 			set { this.m_enableKeywords = value; }
 		}
+
 		/// <summary>
 		/// 함수의 강조여부를 나타냅니다.
 		/// </summary>
@@ -323,6 +269,7 @@ namespace System.Windows.Forms
 			get { return this.m_enableFunctions; }
 			set { this.m_enableFunctions = value; }
 		}
+
 		/// <summary>
 		/// 기타구문의 강조여부를 나타냅니다.
 		/// </summary>
@@ -334,6 +281,7 @@ namespace System.Windows.Forms
 			get	{ return this.m_enableOthers; }
 			set { this.m_enableOthers = value; }
 		}
+
 		/// <summary>
 		/// 단일라인주석의 강조여부를 나타냅니다.
 		/// </summary>
@@ -345,6 +293,7 @@ namespace System.Windows.Forms
 			get { return this.m_enableSingleLineComment; }
 			set { this.m_enableSingleLineComment = value; }
 		}
+
 		/// <summary>
 		/// 문자열형식의 강조여부를 나타냅니다.
 		/// </summary>
@@ -356,6 +305,7 @@ namespace System.Windows.Forms
 			get { return this.m_enableString; }
 			set { this.m_enableString = value; }
 		}
+
 		/// <summary>
 		/// 문자형식의 강조여부를 나타냅니다.
 		/// </summary>
@@ -367,6 +317,7 @@ namespace System.Windows.Forms
 			get { return this.m_enableCharacter; }
 			set { this.m_enableCharacter = value; }
 		}
+
 		/// <summary>
 		/// 숫자형식의 강조여부를 나타냅니다.
 		/// </summary>
@@ -378,6 +329,7 @@ namespace System.Windows.Forms
 			get { return this.m_enableInteger; }
 			set { this.m_enableInteger = value; }
 		}
+
 		/// <summary>
 		/// 대소문자 구분여부를 나타냅니다.
 		/// </summary>
@@ -389,8 +341,9 @@ namespace System.Windows.Forms
 			get { return this.m_enableCaseSenstive; }
 			set { this.m_enableCaseSenstive = value; }
 		}
+
 		/// <summary>
-		/// 키워드를 강조할 때 나타내는 색상입니다.
+		/// 키워드를 강조할 색상을 나타냅니다.
 		/// </summary>
 		[Category("모양")]
 		[DefaultValue(typeof(Color), "Blue")]
@@ -400,8 +353,9 @@ namespace System.Windows.Forms
 			get { return this.m_colorKeywordsHighlight; }
 			set { this.m_colorKeywordsHighlight = value; }
 		}
+
 		/// <summary>
-		/// 함수를 강조할 때 나타내는 색상입니다.
+		/// 함수를 강조할 색상을 나타냅니다.
 		/// </summary>
 		[Category("모양")]
 		[DefaultValue(typeof(Color), "Brown")]
@@ -411,8 +365,9 @@ namespace System.Windows.Forms
 			get { return this.m_colorFunctionsHighlight; }
 			set { this.m_colorFunctionsHighlight = value; }
 		}
+
 		/// <summary>
-		/// 기타구문을 강조할 때 나타내는 색상입니다.
+		/// 기타구문을 강조할 색상을 나타냅니다.
 		/// </summary>
 		[Category("모양")]
 		[DefaultValue(typeof(Color), "Navy")]
@@ -422,8 +377,9 @@ namespace System.Windows.Forms
 			get { return this.m_colorOthersHighlight; }
 			set { this.m_colorOthersHighlight = value; }
 		}
+
 		/// <summary>
-		/// 단일라인주석을 강조할 때 나타내는 색상입니다.
+		/// 단일라인주석을 강조할 색상을 나타냅니다.
 		/// </summary>
 		[Category("모양")]
 		[DefaultValue(typeof(Color), "Green")]
@@ -433,8 +389,9 @@ namespace System.Windows.Forms
 			get { return this.m_colorSingleLineCommenHighlight; }
 			set { this.m_colorSingleLineCommenHighlight = value; }
 		}
+
 		/// <summary>
-		/// 문자열을 강조할 때 나타내는 색상입니다.
+		/// 문자열을 강조할 색상을 나타냅니다.
 		/// </summary>
 		[Category("모양")]
 		[DefaultValue(typeof(Color), "Red")]
@@ -444,8 +401,9 @@ namespace System.Windows.Forms
 			get { return this.m_colorStringHighlight; }
 			set { this.m_colorStringHighlight = value; }
 		}
+
 		/// <summary>
-		/// 문자를 강조할 때 나타내는 색상입니다.
+		/// 문자를 강조할 색상을 나타냅니다.
 		/// </summary>
 		[Category("모양")]
 		[DefaultValue(typeof(Color), "Red")]
@@ -455,8 +413,9 @@ namespace System.Windows.Forms
 			get { return this.m_colorCharacterHighlight; }
 			set { this.m_colorCharacterHighlight = value; }
 		}
+
 		/// <summary>
-		/// 숫자를 강조할 때 나타내는 색상입니다.
+		/// 숫자를 강조할 색상을 나타냅니다.
 		/// </summary>
 		[Category("모양")]
 		[DefaultValue(typeof(Color), "Black")]
@@ -466,6 +425,31 @@ namespace System.Windows.Forms
 			get { return this.m_colorIntegerHighlight; }
 			set { this.m_colorIntegerHighlight = value; }
 		}
-		#endregion
+
+		private List<string> m_keywords = new List<string>();			// 키워드 리스트
+		private List<string> m_functions = new List<string>();			// 함수 리스트
+		private List<string> m_others = new List<string>();				// 기타구문 리스트
+		private static string m_regexKeywords = "";						// 키워드 정규식
+		private static string m_regexFunctions = "";					// 함수 정규식
+		private static string m_regexOthers = "";						// 기타구문 정규식
+		private string m_singleLineCommentBegin = "//";					// 단일라인주석 시작형식
+		private bool m_enableKeywords = true;							// 키워드 사용여부
+		private bool m_enableFunctions = false;							// 함수 사용여부
+		private bool m_enableOthers = false;							// 기타구문 사용여부
+		private bool m_enableSingleLineComment = true;					// 단일라인주석 사용여부
+		private bool m_enableString = true;								// 문자열형식 사용여부
+		private bool m_enableCharacter = true;							// 문자형식 사용여부
+		private bool m_enableInteger = false;							// 숫자형식 사용여부
+		private bool m_enableCaseSenstive = false;						// 대소문자 구분여부
+		private Color m_colorKeywordsHighlight = Color.Blue;			// 키워드 색상
+		private Color m_colorFunctionsHighlight = Color.Brown;			// 함수 색상
+		private Color m_colorOthersHighlight = Color.Navy;				// 기타구문 색상
+		private Color m_colorSingleLineCommenHighlight = Color.Green;	// 단일라인주석 색상
+		private Color m_colorStringHighlight = Color.Red;				// 문자열색상
+		private Color m_colorCharacterHighlight = Color.Red;			// 문자 색상
+		private Color m_colorIntegerHighlight = Color.Black;			// 숫자 색상
+		private bool m_isPaint = true;									// 화면을 새로 그릴지 여부
+		private bool m_isIMEComposition = false;						// 한글이 조립중인지 판단
+		private bool m_isEnterKeyDown = false;							// 엔터키가 눌러졌는지 판단
 	}
 }

@@ -112,7 +112,10 @@
     <Compile Include="src\ObjectBrowser.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="src\ObjectTreeView.cs">
+    <Compile Include="src\ObjectNode.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="src\ObjectTree.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="src\Program.cs" />
@@ -404,5 +407,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="img\png\Error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\FolderClose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\FolderOpen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\MySqlDatabase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\MySqlServerActivate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\MySqlServerDeactivate.png" />
   </ItemGroup>
 </Project>

@@ -389,6 +389,20 @@ namespace Easy2.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap FolderClose {
+            get {
+                object obj = ResourceManager.GetObject("FolderClose", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap FolderOpen {
+            get {
+                object obj = ResourceManager.GetObject("FolderOpen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap FormStyle {
             get {
                 object obj = ResourceManager.GetObject("FormStyle", resourceCulture);
@@ -439,6 +453,27 @@ namespace Easy2.Properties {
         internal static string MySqlConnectSuccess {
             get {
                 return ResourceManager.GetString("MySqlConnectSuccess", resourceCulture);
+            }
+        }
+        
+        internal static System.Drawing.Bitmap MySqlDatabase {
+            get {
+                object obj = ResourceManager.GetObject("MySqlDatabase", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap MySqlServerActivate {
+            get {
+                object obj = ResourceManager.GetObject("MySqlServerActivate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap MySqlServerDeactivate {
+            get {
+                object obj = ResourceManager.GetObject("MySqlServerDeactivate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

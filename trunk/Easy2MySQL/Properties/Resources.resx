@@ -259,6 +259,12 @@
   <data name="FindNextData" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\png\FindNextData.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="FolderClose" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\FolderClose.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FolderOpen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\FolderOpen.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="FormStyle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\png\FormStyle.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -279,6 +285,15 @@
   </data>
   <data name="MySqlConnectSuccess" xml:space="preserve">
     <value>MySQL 서버 연결에 성공하였습니다.</value>
+  </data>
+  <data name="MySqlDatabase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\MySqlDatabase.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MySqlServerActivate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\MySqlServerActivate.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MySqlServerDeactivate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\MySqlServerDeactivate.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="OpenFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\png\OpenFile.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

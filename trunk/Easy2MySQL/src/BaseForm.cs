@@ -8,7 +8,7 @@ using DevComponents.DotNetBar;
 namespace Easy2
 {
 	/// <summary>
-	/// 모든 다이얼로그를 구성하는 베이스폼 클래스입니다.
+	/// 모든 대화상자를 구성하는 베이스폼 클래스입니다.
 	/// </summary>
 	public partial class BaseForm : Office2007Form
 	{

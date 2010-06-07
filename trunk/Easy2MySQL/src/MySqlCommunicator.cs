@@ -2,6 +2,8 @@
 // MySqlCommunicator.cs
 //
 using System;
+using System.Data;
+using System.Collections.Generic;
 using MySql.Data.Types;
 using MySql.Data.MySqlClient;
 
@@ -27,15 +29,6 @@ namespace Easy2
 		}
 
 		/// <summary>
-		/// 연결정보입니다.
-		/// </summary>
-		public MySqlConnectInfo ConnectInfo
-		{
-			get { return this.m_connectInfo; }
-			set { this.m_connectInfo = value; }
-		}
-
-		/// <summary>
 		/// MySQL 서버에 연결합니다.
 		/// </summary>
 		public void Connect()
@@ -46,9 +39,10 @@ namespace Easy2
 		/// <summary>
 		/// MySQL 서버에 연결합니다.
 		/// </summary>
-		/// <param name="connectInfo"></param>
+		/// <param name="connectInfo">연결정보를 담고있는 객체입니다.</param>
 		public void Connect(MySqlConnectInfo connectInfo)
 		{
+			this.m_connectInfo = connectInfo;
 			Connect((new MySqlGenerator()).ConnectionString(connectInfo));
 		}
 
@@ -58,20 +52,15 @@ namespace Easy2
 		/// <param name="connectionString">연결정보를 담고있는 문자열입니다.</param>
 		public void Connect(string connectionString)
 		{
-			if(m_connection == null)
+			try
 			{
-				try
-				{
-					m_connection = new MySqlConnection(connectionString);
-					m_connection.Open();
-					m_connection.Close();	// 임시코드
-					m_connection = null;	// 임시코드
-				}
-				catch(MySqlException ex)
-				{
-					m_connection = null;
-					throw ex;
-				}
+				this.m_connection = new MySqlConnection(connectionString);
+				this.m_connection.Open();
+				Program.CoummunicatorList.Add(this);
+			}
+			catch(MySqlException ex)
+			{
+				throw ex;
 			}
 		}
 
@@ -110,6 +99,36 @@ namespace Easy2
 			testConnection.Close();
 
 			return message;
+		}
+
+		/// <summary>
+		/// MySQL 서버와의 연결을 종료합니다.
+		/// </summary>
+		public void Disconnect()
+		{
+			Program.CoummunicatorList.Remove(this);
+			this.m_connection.Close();
+			this.m_connection = null;
+		}
+
+		/// <summary>
+		/// 결과값이 있는 쿼리를 실행합니다.
+		/// </summary>
+		/// <param name="query">쿼리문입니다.</param>
+		/// <returns>쿼리문의 실행결과 객체입니다.</returns>
+		public MySqlDataReader ExcuteReader(string query)
+		{
+			MySqlCommand command = new MySqlCommand(query, this.m_connection);
+			return command.ExecuteReader();
+		}
+
+		/// <summary>
+		/// 연결정보를 나타냅니다.
+		/// </summary>
+		public MySqlConnectInfo ConnectInfo
+		{
+			get { return this.m_connectInfo; }
+			set { this.m_connectInfo = value; }
 		}
 
 		private MySqlConnection m_connection;

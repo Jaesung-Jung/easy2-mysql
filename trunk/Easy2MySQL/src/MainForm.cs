@@ -23,7 +23,6 @@ namespace Easy2
 			InitializeComponent();
 		}
 
-		#region 컨트롤 생성
 		/// <summary>
 		/// 새로운 오브젝트 브라우저를 생성합니다.
 		/// </summary>
@@ -57,14 +56,20 @@ namespace Easy2
 		private void CreateNewDocument(DocumentType type)
 		{
 			DockContainerItem documentItem = new DockContainerItem();
-			if(type == DocumentType.QueryEditor)
+
+			switch(type)
 			{
-				this.m_queryEditorsCount++;
-				documentItem.Control = new QueryEditor();
-				documentItem.Text = "QueryEditor" + this.m_queryEditorsCount.ToString();
+				case DocumentType.QueryEditor:
+					this.m_queryEditorsCount++;
+					documentItem.Control = new QueryEditor();
+					documentItem.Text = "QueryEditor" + this.m_queryEditorsCount.ToString();
+					break;
+
+				case DocumentType.QueryBuilder:
+//					documentItem.Control = new QueryBuilder();
+					break;
 			}
-//			else if(type == DocumentType.QueryBuilder)
-//				documentItem.Control = new QueryBuilder();
+
 			Bar bar = GetFirstDocumentBar();
 			bar.Items.Add(documentItem);
 			if(!bar.Visible)
@@ -95,21 +100,14 @@ namespace Easy2
 			return bar;
 		}
 
-		#endregion
-
-		#region 이벤트
-
 		/// <summary>
-		/// OnLoad 이벤트 재정의입니다.
+		/// OnShown 재정의입니다.
 		/// </summary>
 		/// <param name="e">이벤트 객체입니다.</param>
-		protected override void OnLoad(EventArgs e)
+		protected override void OnShown(EventArgs e)
 		{
-			base.OnLoad(e);
-
-			CreateObjectBrowser(eDockSide.Left, new Size(250, 100));
-			CreateMessageWindow(eDockSide.Bottom, new Size(100, 250));
-			CreateNewDocument(DocumentType.QueryEditor);
+			base.OnShown(e);
+			this.m_newConnection_Click(this, null);
 		}
 
 		/// <summary>
@@ -129,9 +127,9 @@ namespace Easy2
 		}
 
 		/// <summary>
-		/// 탭이 닫힐 때의 이벤트입니다.
+		/// 탭이 닫힐 때 호출됩니다.
 		/// </summary>
-		/// <param name="sender">이벤트를 호출한 객체입니다.</param>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트 객체입니다.</param>
 		private void DockableTabClosing(object sender, DockTabClosingEventArgs e)
 		{
@@ -140,29 +138,65 @@ namespace Easy2
 				this.m_dockingManager.Bars.Remove((Bar)sender);
 		}
 
+		/// <summary>
+		/// 새로운연결 버튼을 클릭했을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트 객체입니다.</param>
 		private void m_newConnection_Click(object sender, EventArgs e)
 		{
-			new ConnectForm().ShowDialog(this);
+			ConnectForm connectForm = new ConnectForm();
+			DialogResult dlgResult = connectForm.ShowDialog(this);
+			if(dlgResult == DialogResult.OK)
+			{
+				CreateObjectBrowser(eDockSide.Left, new Size(250, 100));
+				CreateMessageWindow(eDockSide.Bottom, new Size(100, 250));
+				CreateNewDocument(DocumentType.QueryEditor);
+			}
+			else if(dlgResult == DialogResult.Cancel)
+				return;
+
+			this.m_objectBrowser.Tree.UpdateTree();
+		}
+
+		/// <summary>
+		/// 연결종료 버튼을 클릭했을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트 객체입니다.</param>
+		private void m_disconnectMySql_Click(object sender, EventArgs e)
+		{
+			if(Program.ActivateCommunicator != null)
+			{
+				Program.ActivateCommunicator.Disconnect();
+				Program.ActivateCommunicator = null;
+				if(Program.CoummunicatorList.Count == 0)
+					this.m_dockingManager.Bars.Clear();
+				
+				else
+					this.m_objectBrowser.Tree.UpdateTree();
+			}
 		}
 
 		/// <summary>
 		/// 새 쿼리에디터 만들기 버튼을 클릭하였을 경우의 이벤트입니다.
 		/// </summary>
-		/// <param name="sender">이벤트를 호출한 객체입니다.</param>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트 객체입니다.</param>
 		private void m_newQueryEditor_Click(object sender, EventArgs e)
 		{
 			CreateNewDocument(DocumentType.QueryEditor);
 		}
 
-		#endregion
-
 		private int m_queryEditorsCount;
-		private DockingManager m_dockingManager;	// 도킹 매니저
-		private ObjectBrowser m_objectBrowser;		// 오브젝트 브라우저
-		private MessageWindow m_messageWindow;		// 메세지 윈도우
+		private DockingManager m_dockingManager;
+		private ObjectBrowser m_objectBrowser;
+		private MessageWindow m_messageWindow;
 	}
 
+	/// <summary>
+	/// 탭문서 형색을 나타내는 열거형입니다.
+	/// </summary>
 	public enum DocumentType
 	{
 		QueryEditor,

@@ -7,8 +7,14 @@ using DevComponents.DotNetBar;
 
 namespace Easy2
 {
+	/// <summary>
+	/// EasyToMySQL 오류를 출력하는 폼 클래스입니다.
+	/// </summary>
 	public partial class ErrorMessageForm : BaseForm
 	{
+		/// <summary>
+		/// 생성자입니다.
+		/// </summary>
 		public ErrorMessageForm()
 		{
 			InitializeComponent();
@@ -45,16 +51,34 @@ namespace Easy2
 			set { this.m_errorNumberLabel.Text = value; }
 		}
 
+		/// <summary>
+		/// 닫기 버튼을 눌렀을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트 객체입니다.</param>
 		private void m_closeButton_Click(object sender, EventArgs e)
 		{
 			this.Dispose(true);
 		}
+
+		/// <summary>
+		/// 복사버튼을 눌렀을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트 객체입니다.</param>
+		private void m_copyButton_Click(object sender, EventArgs e)
+		{
+			Clipboard.SetText(this.m_errorMessageText.Text);
+		}
 	}
 
+	/// <summary>
+	/// ErrorMessageForm을 생성하는 클래스입니다.
+	/// </summary>
 	public class EasyToMySqlError
 	{
 		/// <summary>
-		/// 오류 메세지를 출력하는 폼을 띄웁니다.
+		/// 오류 메세지를 출력하는 폼을 생성합니다.
 		/// </summary>
 		/// <param name="owner">부모 윈도우입니다.</param>
 		/// <param name="message">오류 메세지입니다.</param>
@@ -65,7 +89,7 @@ namespace Easy2
 		}
 
 		/// <summary>
-		/// 오류 메세지를 출력하는 폼을 띄웁니다.
+		/// 오류 메세지를 출력하는 폼을 생성합니다.
 		/// </summary>
 		/// <param name="owner">부모 윈도우입니다.</param>
 		/// <param name="message">오류 메세지입니다.</param>

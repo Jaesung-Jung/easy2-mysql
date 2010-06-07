@@ -74,6 +74,11 @@ namespace Easy2
 			this.DockTabChange += new DockTabChangeEventHandler(OnDockTabChanged);
 		}
 
+		/// <summary>
+		/// 도킹된 탭이 변경될 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트 객체입니다.</param>
 		private void OnDockTabChanged(object sender, DockTabChangeEventArgs e)
 		{
 			DockablePane dockablePane = sender as DockablePane;

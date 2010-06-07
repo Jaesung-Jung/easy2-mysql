@@ -9,36 +9,54 @@ namespace Easy2
 	/// </summary>
 	public class MySqlConnectInfo
 	{
+		/// <summary>
+		/// 호소트명을 나타냅니다.
+		/// </summary>
 		public string Host
 		{
 			get { return this.m_host; }
 			set { this.m_host = value; }
 		}
 
+		/// <summary>
+		/// 사용자명을 나타냅니다.
+		/// </summary>
 		public string Username
 		{
 			get { return this.m_username; }
 			set { this.m_username = value; }
 		}
 
+		/// <summary>
+		/// 비밀번호를 나타냅니다.
+		/// </summary>
 		public string Password
 		{
 			get { return this.m_password; }
 			set { this.m_password = value; }
 		}
 
+		/// <summary>
+		/// 포트번호를 나타냅니다.
+		/// </summary>
 		public int Port
 		{
 			get { return this.m_port; }
 			set { this.m_port = value; }
 		}
 
+		/// <summary>
+		/// 사용할 데이터베이스를 나타냅니다.
+		/// </summary>
 		public string Database
 		{
 			get { return this.m_database; }
 			set { this.m_database = value; }
 		}
 
+		/// <summary>
+		/// 연결대기시간을 나타냅니다.
+		/// </summary>
 		public int ConnectTimeout
 		{
 			get { return this.m_timeout; }

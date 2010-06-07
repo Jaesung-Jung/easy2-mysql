@@ -14,8 +14,13 @@ namespace Easy2
 		/// <summary>
 		/// 생성자입니다.
 		/// </summary>
-		public MySqlGenerator() {}
+		public MySqlGenerator() { }
 
+		/// <summary>
+		/// 연결정보 문자열을 생성합니다.
+		/// </summary>
+		/// <param name="connectInfo">연결정보 객체입니다.</param>
+		/// <returns>연결정보 문자열입니다.</returns>
 		public string ConnectionString(MySqlConnectInfo connectInfo)
 		{
 			string connectionString = String.Format(
@@ -24,6 +29,15 @@ namespace Easy2
 				connectInfo.Password, connectInfo.Database, connectInfo.ConnectTimeout);
 
 			return connectionString;
+		}
+
+		/// <summary>
+		/// 데이터베이스를 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <returns>데이터베이를 조회하는 쿼리문입니다.</returns>
+		public string ShowDatabases()
+		{
+			return String.Format("SHOW DATABASES");
 		}
 	}
 }

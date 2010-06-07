@@ -3,6 +3,7 @@
 //
 using System;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace Easy2
 {
@@ -14,15 +15,48 @@ namespace Easy2
 		[STAThread]
 		public static void Main()
 		{
+			Program.m_mainForm = new MainForm();
 			Application.EnableVisualStyles();
-			Application.Run(new MainForm());
+			Application.Run(Program.m_mainForm);
 		}
 
-		public static MySqlCommunicator MySqlCommunicatorHandle
+		/// <summary>
+		/// 연결객체를 나타냅니다.
+		/// </summary>
+		public static MySqlCommunicator MySqlConnector
 		{
 			get { return Program.m_mysqlCommunicator; }
+			set { Program.m_mysqlCommunicator = value; }
 		}
 
-		private static MySqlCommunicator m_mysqlCommunicator = new MySqlCommunicator();
+		/// <summary>
+		/// 현재 활성화된 연결객체를 나타냅니다.
+		/// </summary>
+		public static MySqlCommunicator ActivateCommunicator
+		{
+			get { return Program.m_activateCommunicator; }
+			set { Program.m_activateCommunicator = value; }
+		}
+
+		/// <summary>
+		/// 연결객체들의 리스트를 나타냅니다.
+		/// </summary>
+		public static List<MySqlCommunicator> CoummunicatorList
+		{
+			get { return Program.m_communicatorList; }
+		}
+
+		/// <summary>
+		/// 메인 폼의 핸들을 나타냅니다.
+		/// </summary>
+		public static MainForm MainFormHandle
+		{
+			get { return Program.m_mainForm; }
+		}
+
+		private static MainForm m_mainForm;
+		private static MySqlCommunicator m_activateCommunicator = null;
+		private static MySqlCommunicator m_mysqlCommunicator;
+		private static List<MySqlCommunicator> m_communicatorList = new List<MySqlCommunicator>();
 	}
 }

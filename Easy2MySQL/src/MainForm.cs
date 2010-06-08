@@ -118,7 +118,6 @@ namespace Easy2
 		{
 			base.OnClosed(e);
 			Program.CoummunicatorList.DisconnectAll();
-			System.Console.WriteLine("종료");
 		}
 
 		/// <summary>

@@ -19,7 +19,7 @@ namespace Easy2
 		public ObjectTree()
 		{
 			this.SelectionChanged += new System.EventHandler(this.OnSelectionChanged);
-			this.AfterExpand += new DevComponents.AdvTree.AdvTreeNodeEventHandler(this.OnAfterExpand);
+			this.BeforeExpand += new DevComponents.AdvTree.AdvTreeNodeCancelEventHandler(this.OnBeforeExpand);
 		}
 
 		/// <summary>
@@ -53,8 +53,11 @@ namespace Easy2
 
 			try
 			{
-				Program.ActivateCommunicator.Execute(new MySqlGenerator().UseDatabase(databaseNode.Text));
-				Program.ActivateCommunicator.UseDatabaseName = databaseNode.Text;
+				if(Program.ActivateCommunicator.UseDatabaseName != databaseNode.Text)
+				{
+					Program.ActivateCommunicator.Execute(new MySqlGenerator().UseDatabase(databaseNode.Text));
+					Program.ActivateCommunicator.UseDatabaseName = databaseNode.Text;
+				}
 			}
 			catch(MySqlException ex)
 			{
@@ -67,7 +70,7 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생한 객체입니다.</param>
 		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
-		private void OnAfterExpand(object sender, AdvTreeNodeEventArgs e)
+		private void OnBeforeExpand(object sender, AdvTreeNodeCancelEventArgs e)
 		{
 			this.SelectedNode = e.Node;
 			MySqlDataReader reader = null;
@@ -89,13 +92,47 @@ namespace Easy2
 								reader = Program.ActivateCommunicator.ExecuteReader(new MySqlGenerator().ShowTables(Program.ActivateCommunicator.UseDatabaseName));
 								this.ReadTables(folderNode, reader);
 							}
+							else if(folderNode.Text == "뷰")
+							{
+								reader = Program.ActivateCommunicator.ExecuteReader(new MySqlGenerator().ShowViews(Program.ActivateCommunicator.UseDatabaseName));
+								this.ReadObject(folderNode, reader);
+							}
+							else if(folderNode.Text == "저장 프로시저")
+							{
+								reader = Program.ActivateCommunicator.ExecuteReader(new MySqlGenerator().ShowStoredProcs(Program.ActivateCommunicator.UseDatabaseName));
+								this.ReadObject(folderNode, reader);
+							}
+							else if(folderNode.Text == "함수")
+							{
+								reader = Program.ActivateCommunicator.ExecuteReader(new MySqlGenerator().ShowFunctions(Program.ActivateCommunicator.UseDatabaseName));
+								this.ReadObject(folderNode, reader);
+							}
+							else if(folderNode.Text == "트리거")
+							{
+								reader = Program.ActivateCommunicator.ExecuteReader(new MySqlGenerator().ShowTriggers(Program.ActivateCommunicator.UseDatabaseName));
+								this.ReadObject(folderNode, reader);
+							}
+							else if(folderNode.Text == "이벤트")
+							{
+								reader = Program.ActivateCommunicator.ExecuteReader(new MySqlGenerator().ShowEvents(Program.ActivateCommunicator.UseDatabaseName));
+								this.ReadObject(folderNode, reader);
+							}
 						}
 						break;
 
 					case ObjectNodeType.MySqlTable:
 						Node tableNode = e.Node;
-						reader = Program.ActivateCommunicator.ExecuteReader(new MySqlGenerator().ShowColumns(tableNode.Text));
-						this.ReadColumns(tableNode.Nodes[0], reader);
+						if(tableNode.Nodes[0].Nodes.Count == 0)
+						{
+							reader = Program.ActivateCommunicator.ExecuteReader(new MySqlGenerator().ShowColumns(tableNode.Text));
+							this.ReadColumns(tableNode.Nodes[0], reader);
+							reader.Close();
+						}
+						if(tableNode.Nodes[1].Nodes.Count == 0)
+						{
+							reader = Program.ActivateCommunicator.ExecuteReader(new MySqlGenerator().ShowIndexes(tableNode.Text));
+							this.ReadIndexes(tableNode.Nodes[1], reader);
+						}
 						break;
 				}
 			}
@@ -183,6 +220,11 @@ namespace Easy2
 			}
 		}
 
+		/// <summary>
+		/// 컬럼을 읽어 트리에 추가합니다.
+		/// </summary>
+		/// <param name="folderNode">컬럼데이터 폴더의 노드입니다.</param>
+		/// <param name="reader">컬럼데이터를 가진 객체입니다.</param>
 		private void ReadColumns(Node folderNode, MySqlDataReader reader)
 		{
 			while(reader.Read())
@@ -194,6 +236,36 @@ namespace Easy2
 				else
 					folderNode.Nodes.Add(new ObjectNode((ObjectNode)folderNode, columnText, ObjectNodeType.MySqlColumn));
 			}
+		}
+
+		/// <summary>
+		/// 인덱스를 읽어 트리에 추가합니다.
+		/// </summary>
+		/// <param name="folderNode">인덱스데이터 폴더의 노드입니다.</param>
+		/// <param name="reader">인덱스데이터를 가진 객체입니다.</param>
+		private void ReadIndexes(Node folderNode, MySqlDataReader reader)
+		{
+			while(reader.Read())
+			{
+				string indexText = new MySqlGenerator().MakeIndexInfo(reader["Key_name"].ToString(), reader["Column_name"].ToString());
+				if(reader["Key_name"].ToString() == "PRIMARY")
+					folderNode.Nodes.Add(new ObjectNode((ObjectNode)folderNode, indexText, ObjectNodeType.MySqlPkIndex));
+				else
+					folderNode.Nodes.Add(new ObjectNode((ObjectNode)folderNode, indexText, ObjectNodeType.MySqlIndex));
+			}
+		}
+
+		/// <summary>
+		/// 오브젝트를 읽어 트리에 추가합니다.
+		/// </summary>
+		/// <param name="folderNode">해당 오브젝트 폴더의 노드입니다.</param>
+		/// <param name="reader">오브젝트데이터를 가진 객체입니다.</param>
+		private void ReadObject(Node folderNode, MySqlDataReader reader)
+		{
+			while(reader.Read())
+			{
+				folderNode.Nodes.Add(new ObjectNode((ObjectNode)folderNode, reader.GetString(0), ObjectNodeType.MySqlView));
+ 			}
 		}
 	}
 }

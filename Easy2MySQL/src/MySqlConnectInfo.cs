@@ -10,6 +10,15 @@ namespace Easy2
 	public class MySqlConnectInfo
 	{
 		/// <summary>
+		/// 연결명을 나타냅니다.
+		/// </summary>
+		public string ConnectName
+		{
+			get { return this.m_connectName; }
+			set { this.m_connectName = value; }
+		}
+
+		/// <summary>
 		/// 호소트명을 나타냅니다.
 		/// </summary>
 		public string Host
@@ -63,11 +72,12 @@ namespace Easy2
 			set { this.m_timeout = value; }
 		}
 
-		private string m_host;
-		private string m_username;
-		private string m_password;
-		private int m_port;
-		private string m_database;
-		private int m_timeout;
+		private string m_connectName = "";
+		private string m_host = "localhost";
+		private string m_username = "";
+		private string m_password = "";
+		private int m_port = 3306;
+		private string m_database = "";
+		private int m_timeout = 15;
 	}
 }

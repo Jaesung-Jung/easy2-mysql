@@ -60,7 +60,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files\DotNetBar for Windows Forms\DevComponents.DotNetBar2.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.2.2.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.2.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -110,6 +110,12 @@
     <Compile Include="src\MySqlCommunicator.cs" />
     <Compile Include="src\MySqlConnectInfo.cs" />
     <Compile Include="src\MySqlGenerator.cs" />
+    <Compile Include="src\NewConnectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\NewConnectForm.Designer.cs">
+      <DependentUpon>NewConnectForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\ObjectBrowser.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\NewConnectForm.resx">
+      <DependentUpon>NewConnectForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -432,5 +441,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="img\png\MySqlPrimaryKey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\MySqlView.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\MySqlStoredProc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\MySqlTrigger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\MySqlEvent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\MySqlFunction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\MySqlPkIndex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\MySqlIndex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\NewConnect.png" />
   </ItemGroup>
 </Project>

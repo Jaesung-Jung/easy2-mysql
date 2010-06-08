@@ -35,12 +35,40 @@ namespace Easy2
 					this.Image = Properties.Resources.MysqlTable;
 					break;
 
+				case ObjectNodeType.MySqlView:
+					this.Image = Properties.Resources.MySqlView;
+					break;
+
+				case ObjectNodeType.MySqlStoredProcs:
+					this.Image = Properties.Resources.MySqlStoredProc;
+					break;
+
+				case ObjectNodeType.MySqlFunction:
+					this.Image = Properties.Resources.MySqlFunction;
+					break;
+
+				case ObjectNodeType.MySqlTrigger:
+					this.Image = Properties.Resources.MySqlTrigger;
+					break;
+
+				case ObjectNodeType.MySqlEvent:
+					this.Image = Properties.Resources.MySqlEvent;
+					break;
+
 				case ObjectNodeType.MySqlColumn:
 					this.Image = Properties.Resources.MySqlColumn;
 					break;
 
-				case  ObjectNodeType.MySqlPkColumn:
+				case ObjectNodeType.MySqlPkColumn:
 					this.Image = Properties.Resources.MySqlPrimaryKey;
+					break;
+
+				case ObjectNodeType.MySqlIndex:
+					this.Image = Properties.Resources.MySqlIndex;
+					break;
+
+				case ObjectNodeType.MySqlPkIndex:
+					this.Image = Properties.Resources.MySqlPkIndex;
 					break;
 
 				case ObjectNodeType.Folder:

@@ -164,8 +164,8 @@
 			this.m_ribbonControl.BackgroundStyle.Class = "";
 			this.m_ribbonControl.CaptionVisible = true;
 			this.m_ribbonControl.Controls.Add(this.m_homePanel);
-			this.m_ribbonControl.Controls.Add(this.m_toolPanel);
 			this.m_ribbonControl.Controls.Add(this.m_createPanel);
+			this.m_ribbonControl.Controls.Add(this.m_toolPanel);
 			this.m_ribbonControl.Dock = System.Windows.Forms.DockStyle.Top;
 			this.m_ribbonControl.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.m_startButton,
@@ -1333,7 +1333,7 @@
 			// m_newConnectionUsingCurrentSettings
 			// 
 			this.m_newConnectionUsingCurrentSettings.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_newConnectionUsingCurrentSettings.Image = ((System.Drawing.Image)(resources.GetObject("m_newConnectionUsingCurrentSettings.Image")));
+			this.m_newConnectionUsingCurrentSettings.Image = global::Easy2.Properties.Resources.ConnectDatabaseCurrentSetting;
 			this.m_newConnectionUsingCurrentSettings.Name = "m_newConnectionUsingCurrentSettings";
 			this.m_newConnectionUsingCurrentSettings.SubItemsExpandWidth = 24;
 			this.m_newConnectionUsingCurrentSettings.Text = "기존 설정 연결(&N)";

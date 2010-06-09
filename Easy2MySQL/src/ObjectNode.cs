@@ -24,51 +24,51 @@ namespace Easy2
 			switch(type)
 			{
 				case ObjectNodeType.MySqlServer:
-					this.Image = Properties.Resources.MySqlServerDeactivate;
+					this.Image = Properties.Resources.TreeServerDeactivate;
 					break;
 					
 				case ObjectNodeType.MySqlDatabase:
-					this.Image = Properties.Resources.MySqlDatabase;
+					this.Image = Properties.Resources.TreeDatabase;
 					break;
 
 				case ObjectNodeType.MySqlTable:
-					this.Image = Properties.Resources.MysqlTable;
+					this.Image = Properties.Resources.TreeTable;
 					break;
 
 				case ObjectNodeType.MySqlView:
-					this.Image = Properties.Resources.MySqlView;
+					this.Image = Properties.Resources.TreeView;
 					break;
 
 				case ObjectNodeType.MySqlStoredProcs:
-					this.Image = Properties.Resources.MySqlStoredProc;
+					this.Image = Properties.Resources.TreeStoredProc;
 					break;
 
 				case ObjectNodeType.MySqlFunction:
-					this.Image = Properties.Resources.MySqlFunction;
+					this.Image = Properties.Resources.TreeFunction;
 					break;
 
 				case ObjectNodeType.MySqlTrigger:
-					this.Image = Properties.Resources.MySqlTrigger;
+					this.Image = Properties.Resources.TreeTrigger;
 					break;
 
 				case ObjectNodeType.MySqlEvent:
-					this.Image = Properties.Resources.MySqlEvent;
+					this.Image = Properties.Resources.TreeEvent;
 					break;
 
 				case ObjectNodeType.MySqlColumn:
-					this.Image = Properties.Resources.MySqlColumn;
+					this.Image = Properties.Resources.TreeColumn;
 					break;
 
 				case ObjectNodeType.MySqlPkColumn:
-					this.Image = Properties.Resources.MySqlPrimaryKey;
+					this.Image = Properties.Resources.TreePrimaryKey;
 					break;
 
 				case ObjectNodeType.MySqlIndex:
-					this.Image = Properties.Resources.MySqlIndex;
+					this.Image = Properties.Resources.TreeIndex;
 					break;
 
 				case ObjectNodeType.MySqlPkIndex:
-					this.Image = Properties.Resources.MySqlPkIndex;
+					this.Image = Properties.Resources.TreePkIndex;
 					break;
 
 				case ObjectNodeType.Folder:

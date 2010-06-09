@@ -165,16 +165,16 @@ namespace Easy2.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap ConnectDatabase64 {
+        internal static System.Drawing.Bitmap ConnectDatabaseCurrentSetting {
             get {
-                object obj = ResourceManager.GetObject("ConnectDatabase64", resourceCulture);
+                object obj = ResourceManager.GetObject("ConnectDatabaseCurrentSetting", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap ConnectDatabaseCurrentSetting {
+        internal static System.Drawing.Bitmap ConnectDatabaseL {
             get {
-                object obj = ResourceManager.GetObject("ConnectDatabaseCurrentSetting", resourceCulture);
+                object obj = ResourceManager.GetObject("ConnectDatabaseL", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -349,6 +349,87 @@ namespace Easy2.Properties {
             }
         }
         
+        /// <summary>
+        ///   MySQL 서버 연결에 실패하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2MsgConnectFail {
+            get {
+                return ResourceManager.GetString("Easy2MsgConnectFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   MySQL 서버 연결에 성공하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2MsgConnectSuccess {
+            get {
+                return ResourceManager.GetString("Easy2MsgConnectSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;DELETE&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2MsgDeleteCommandDenied {
+            get {
+                return ResourceManager.GetString("Easy2MsgDeleteCommandDenied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   쿼리문 실행을 실패하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2MsgExecuteFail {
+            get {
+                return ResourceManager.GetString("Easy2MsgExecuteFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;INSERT&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2MsgInsertCommandDenied {
+            get {
+                return ResourceManager.GetString("Easy2MsgInsertCommandDenied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;SELECT&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2MsgSelectCommandDenied {
+            get {
+                return ResourceManager.GetString("Easy2MsgSelectCommandDenied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;SHOW&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2MsgShowCommandDenied {
+            get {
+                return ResourceManager.GetString("Easy2MsgShowCommandDenied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;UPDATE&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2MsgUpdateCommandDenied {
+            get {
+                return ResourceManager.GetString("Easy2MsgUpdateCommandDenied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;USE&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2MSgUseCommanDenied {
+            get {
+                return ResourceManager.GetString("Easy2MSgUseCommanDenied", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap Error {
             get {
                 object obj = ResourceManager.GetObject("Error", resourceCulture);
@@ -381,6 +462,15 @@ namespace Easy2.Properties {
             get {
                 object obj = ResourceManager.GetObject("ExportDatabase", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   지정된 파일을 찾을 수 없습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string FileNotFound {
+            get {
+                return ResourceManager.GetString("FileNotFound", resourceCulture);
             }
         }
         
@@ -443,185 +533,6 @@ namespace Easy2.Properties {
         internal static System.Drawing.Bitmap ImportDatabase {
             get {
                 object obj = ResourceManager.GetObject("ImportDatabase", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap MySqlColumn {
-            get {
-                object obj = ResourceManager.GetObject("MySqlColumn", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   MySQL 서버 연결에 실패하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string MySqlConnectFail {
-            get {
-                return ResourceManager.GetString("MySqlConnectFail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   MySQL 서버 연결에 성공하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string MySqlConnectSuccess {
-            get {
-                return ResourceManager.GetString("MySqlConnectSuccess", resourceCulture);
-            }
-        }
-        
-        internal static System.Drawing.Bitmap MySqlDatabase {
-            get {
-                object obj = ResourceManager.GetObject("MySqlDatabase", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;DELETE&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string MySqlDeleteCommandDenied {
-            get {
-                return ResourceManager.GetString("MySqlDeleteCommandDenied", resourceCulture);
-            }
-        }
-        
-        internal static System.Drawing.Bitmap MySqlEvent {
-            get {
-                object obj = ResourceManager.GetObject("MySqlEvent", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   쿼리문 실행을 실패하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string MySqlExecuteFail {
-            get {
-                return ResourceManager.GetString("MySqlExecuteFail", resourceCulture);
-            }
-        }
-        
-        internal static System.Drawing.Bitmap MySqlFunction {
-            get {
-                object obj = ResourceManager.GetObject("MySqlFunction", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap MySqlIndex {
-            get {
-                object obj = ResourceManager.GetObject("MySqlIndex", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;INSERT&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string MySqlInsertCommandDenied {
-            get {
-                return ResourceManager.GetString("MySqlInsertCommandDenied", resourceCulture);
-            }
-        }
-        
-        internal static System.Drawing.Bitmap MySqlPkIndex {
-            get {
-                object obj = ResourceManager.GetObject("MySqlPkIndex", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap MySqlPrimaryKey {
-            get {
-                object obj = ResourceManager.GetObject("MySqlPrimaryKey", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;SELECT&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string MySqlSelectCommandDenied {
-            get {
-                return ResourceManager.GetString("MySqlSelectCommandDenied", resourceCulture);
-            }
-        }
-        
-        internal static System.Drawing.Bitmap MySqlServerActivate {
-            get {
-                object obj = ResourceManager.GetObject("MySqlServerActivate", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap MySqlServerDeactivate {
-            get {
-                object obj = ResourceManager.GetObject("MySqlServerDeactivate", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;SHOW&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string MySqlShowCommandDenied {
-            get {
-                return ResourceManager.GetString("MySqlShowCommandDenied", resourceCulture);
-            }
-        }
-        
-        internal static System.Drawing.Bitmap MySqlStoredProc {
-            get {
-                object obj = ResourceManager.GetObject("MySqlStoredProc", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap MysqlTable {
-            get {
-                object obj = ResourceManager.GetObject("MysqlTable", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap MySqlTrigger {
-            get {
-                object obj = ResourceManager.GetObject("MySqlTrigger", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;UPDATE&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string MySqlUpdateCommandDenied {
-            get {
-                return ResourceManager.GetString("MySqlUpdateCommandDenied", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;USE&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string MySqlUseCommanDenied {
-            get {
-                return ResourceManager.GetString("MySqlUseCommanDenied", resourceCulture);
-            }
-        }
-        
-        internal static System.Drawing.Bitmap MySqlView {
-            get {
-                object obj = ResourceManager.GetObject("MySqlView", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap NewConnect {
-            get {
-                object obj = ResourceManager.GetObject("NewConnect", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -755,6 +666,97 @@ namespace Easy2.Properties {
         internal static System.Drawing.Bitmap SwitchPreviousTab {
             get {
                 object obj = ResourceManager.GetObject("SwitchPreviousTab", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap TreeColumn {
+            get {
+                object obj = ResourceManager.GetObject("TreeColumn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap TreeDatabase {
+            get {
+                object obj = ResourceManager.GetObject("TreeDatabase", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap TreeEvent {
+            get {
+                object obj = ResourceManager.GetObject("TreeEvent", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap TreeFunction {
+            get {
+                object obj = ResourceManager.GetObject("TreeFunction", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap TreeIndex {
+            get {
+                object obj = ResourceManager.GetObject("TreeIndex", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap TreePkIndex {
+            get {
+                object obj = ResourceManager.GetObject("TreePkIndex", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap TreePrimaryKey {
+            get {
+                object obj = ResourceManager.GetObject("TreePrimaryKey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap TreeServerActivate {
+            get {
+                object obj = ResourceManager.GetObject("TreeServerActivate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap TreeServerDeactivate {
+            get {
+                object obj = ResourceManager.GetObject("TreeServerDeactivate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap TreeStoredProc {
+            get {
+                object obj = ResourceManager.GetObject("TreeStoredProc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap TreeTable {
+            get {
+                object obj = ResourceManager.GetObject("TreeTable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap TreeTrigger {
+            get {
+                object obj = ResourceManager.GetObject("TreeTrigger", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap TreeView {
+            get {
+                object obj = ResourceManager.GetObject("TreeView", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

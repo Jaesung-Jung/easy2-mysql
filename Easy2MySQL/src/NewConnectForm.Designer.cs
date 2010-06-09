@@ -41,7 +41,7 @@
 			// 
 			// 
 			this.m_imgLabel.BackgroundStyle.Class = "";
-			this.m_imgLabel.Image = global::Easy2.Properties.Resources.NewConnect;
+			this.m_imgLabel.Image = global::Easy2.Properties.Resources.ConnectDatabaseL;
 			this.m_imgLabel.Location = new System.Drawing.Point(2, 16);
 			this.m_imgLabel.Name = "m_imgLabel";
 			this.m_imgLabel.Size = new System.Drawing.Size(64, 64);
@@ -83,7 +83,7 @@
 			this.m_commitButton.Size = new System.Drawing.Size(92, 23);
 			this.m_commitButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_commitButton.TabIndex = 3;
-			this.m_commitButton.Text = "확인(&C)";
+			this.m_commitButton.Text = "확인(&O)";
 			this.m_commitButton.Click += new System.EventHandler(this.m_commitButton_Click);
 			// 
 			// m_cancelButton

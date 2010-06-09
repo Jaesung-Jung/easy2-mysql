@@ -163,8 +163,8 @@
   <data name="ConnectDatabase" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\png\connectdatabase.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ConnectDatabase64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\png\ConnectDatabase64.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ConnectDatabaseL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\ConnectDatabaseL.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ConnectDatabaseCurrentSetting" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\png\connectdatabasecurrentsetting.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -280,43 +280,43 @@
   <data name="ImportDatabase" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\png\ImportDatabase.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MySqlConnectFail" xml:space="preserve">
+  <data name="Easy2MsgConnectFail" xml:space="preserve">
     <value>MySQL 서버 연결에 실패하였습니다.</value>
   </data>
-  <data name="MySqlConnectSuccess" xml:space="preserve">
+  <data name="Easy2MsgConnectSuccess" xml:space="preserve">
     <value>MySQL 서버 연결에 성공하였습니다.</value>
   </data>
-  <data name="MySqlDatabase" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\png\MySqlDatabase.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TreeDatabase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\TreeDatabase.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MySqlDeleteCommandDenied" xml:space="preserve">
+  <data name="Easy2MsgDeleteCommandDenied" xml:space="preserve">
     <value>서버에서 &lt;font color=\"#FF0000\"&gt;DELETE&lt;/font&gt; 명령을 거부하였습니다.</value>
   </data>
-  <data name="MySqlExecuteFail" xml:space="preserve">
+  <data name="Easy2MsgExecuteFail" xml:space="preserve">
     <value>쿼리문 실행을 실패하였습니다.</value>
   </data>
-  <data name="MySqlInsertCommandDenied" xml:space="preserve">
+  <data name="Easy2MsgInsertCommandDenied" xml:space="preserve">
     <value>서버에서 &lt;font color=\"#FF0000\"&gt;INSERT&lt;/font&gt; 명령을 거부하였습니다.</value>
   </data>
-  <data name="MySqlSelectCommandDenied" xml:space="preserve">
+  <data name="Easy2MsgSelectCommandDenied" xml:space="preserve">
     <value>서버에서 &lt;font color=\"#FF0000\"&gt;SELECT&lt;/font&gt; 명령을 거부하였습니다.</value>
   </data>
-  <data name="MySqlServerActivate" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\png\MySqlServerActivate.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TreeServerActivate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\TreeServerActivate.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MySqlServerDeactivate" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\png\MySqlServerDeactivate.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TreeServerDeactivate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\TreeServerDeactivate.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MySqlShowCommandDenied" xml:space="preserve">
+  <data name="Easy2MsgShowCommandDenied" xml:space="preserve">
     <value>서버에서 &lt;font color=\"#FF0000\"&gt;SHOW&lt;/font&gt; 명령을 거부하였습니다.</value>
   </data>
-  <data name="MysqlTable" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\png\MysqlTable.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TreeTable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\TreeTable.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MySqlUpdateCommandDenied" xml:space="preserve">
+  <data name="Easy2MsgUpdateCommandDenied" xml:space="preserve">
     <value>서버에서 &lt;font color=\"#FF0000\"&gt;UPDATE&lt;/font&gt; 명령을 거부하였습니다.</value>
   </data>
-  <data name="MySqlUseCommanDenied" xml:space="preserve">
+  <data name="Easy2MSgUseCommanDenied" xml:space="preserve">
     <value>서버에서 &lt;font color=\"#FF0000\"&gt;USE&lt;/font&gt; 명령을 거부하였습니다.</value>
   </data>
   <data name="OpenFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -388,37 +388,37 @@
   <data name="UpdateCheck" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\png\UpdateCheck.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MySqlColumn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\png\MySqlColumn.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TreeColumn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\TreeColumn.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MySqlPrimaryKey" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\png\MySqlPrimaryKey.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TreePrimaryKey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\TreePrimaryKey.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MySqlView" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\png\MySqlView.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TreeView" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\TreeView.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MySqlEvent" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\png\MySqlEvent.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TreeEvent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\TreeEvent.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MySqlFunction" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\png\MySqlFunction.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TreeFunction" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\TreeFunction.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MySqlStoredProc" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\png\MySqlStoredProc.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TreeStoredProc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\TreeStoredProc.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MySqlTrigger" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\png\MySqlTrigger.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TreeTrigger" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\TreeTrigger.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MySqlIndex" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\png\MySqlIndex.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TreeIndex" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\TreeIndex.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MySqlPkIndex" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\png\MySqlPkIndex.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TreePkIndex" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\TreePkIndex.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ConnectionDataFilePath" xml:space="preserve">
     <value>..\\..\\dat\\connection.dat</value>
   </data>
-  <data name="NewConnect" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\img\png\NewConnect.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FileNotFound" xml:space="preserve">
+    <value>지정된 파일을 찾을 수 없습니다.</value>
   </data>
 </root>

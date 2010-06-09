@@ -39,9 +39,9 @@ namespace Easy2
 				header = header.Parent;
 
 			foreach(Node n in this.Nodes)
-				n.Image = Properties.Resources.MySqlServerDeactivate;
+				n.Image = Properties.Resources.TreeServerDeactivate;
 
-			header.Image = Properties.Resources.MySqlServerActivate;
+			header.Image = Properties.Resources.TreeServerActivate;
 			Program.ActivateCommunicator = Program.CoummunicatorList[header.Index];
 
 			Node databaseNode = this.SelectedNode;
@@ -61,7 +61,7 @@ namespace Easy2
 			}
 			catch(MySqlException ex)
 			{
-				EasyToMySqlError.Show(Program.MainFormHandle, ex.Message, Properties.Resources.MySqlExecuteFail, ex.Number);
+				EasyToMySqlError.Show(Program.MainFormHandle, ex.Message, Properties.Resources.Easy2MsgExecuteFail, ex.Number);
 			}
 		}
 
@@ -138,7 +138,7 @@ namespace Easy2
 			}
 			catch(MySqlException ex)
 			{
-				EasyToMySqlError.Show(Program.MainFormHandle, ex.Message, Properties.Resources.MySqlExecuteFail, ex.Number);
+				EasyToMySqlError.Show(Program.MainFormHandle, ex.Message, Properties.Resources.Easy2MsgExecuteFail, ex.Number);
 			}
 
 			if(reader != null)
@@ -176,7 +176,7 @@ namespace Easy2
 					}
 					catch(MySqlException ex)
 					{
-						EasyToMySqlError.Show(Program.MainFormHandle, ex.Message, Properties.Resources.MySqlExecuteFail, ex.Number);
+						EasyToMySqlError.Show(Program.MainFormHandle, ex.Message, Properties.Resources.Easy2MsgExecuteFail, ex.Number);
 					}
 					while(reader.Read())
 						databaseList.Add(reader.GetString(0));

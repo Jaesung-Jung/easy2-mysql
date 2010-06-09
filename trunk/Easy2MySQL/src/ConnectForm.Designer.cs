@@ -80,7 +80,6 @@
 			this.m_connectionListCombo.Size = new System.Drawing.Size(336, 25);
 			this.m_connectionListCombo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_connectionListCombo.TabIndex = 1;
-			this.m_connectionListCombo.SelectedIndexChanged += new System.EventHandler(this.m_savedConnectionList_SelectedIndexChanged);
 			// 
 			// m_savedConnectionLabel
 			// 
@@ -89,7 +88,7 @@
 			// 
 			// 
 			this.m_savedConnectionLabel.BackgroundStyle.Class = "";
-			this.m_savedConnectionLabel.Location = new System.Drawing.Point(8, 78);
+			this.m_savedConnectionLabel.Location = new System.Drawing.Point(21, 78);
 			this.m_savedConnectionLabel.Name = "m_savedConnectionLabel";
 			this.m_savedConnectionLabel.Size = new System.Drawing.Size(105, 21);
 			this.m_savedConnectionLabel.TabIndex = 0;
@@ -104,7 +103,7 @@
 			this.m_deleteConnection.Name = "m_deleteConnection";
 			this.m_deleteConnection.Size = new System.Drawing.Size(111, 25);
 			this.m_deleteConnection.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_deleteConnection.TabIndex = 21;
+			this.m_deleteConnection.TabIndex = 22;
 			this.m_deleteConnection.Text = "지우기(&D)...";
 			// 
 			// m_renameConnection
@@ -116,7 +115,7 @@
 			this.m_renameConnection.Name = "m_renameConnection";
 			this.m_renameConnection.Size = new System.Drawing.Size(111, 25);
 			this.m_renameConnection.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_renameConnection.TabIndex = 20;
+			this.m_renameConnection.TabIndex = 21;
 			this.m_renameConnection.Text = "바꾸기(&R)...";
 			// 
 			// m_saveConnection
@@ -128,9 +127,8 @@
 			this.m_saveConnection.Name = "m_saveConnection";
 			this.m_saveConnection.Size = new System.Drawing.Size(111, 25);
 			this.m_saveConnection.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_saveConnection.TabIndex = 19;
+			this.m_saveConnection.TabIndex = 20;
 			this.m_saveConnection.Text = "저장(&S)";
-			this.m_saveConnection.Click += new System.EventHandler(this.m_saveConnection_Click);
 			// 
 			// m_newConnection
 			// 
@@ -141,9 +139,8 @@
 			this.m_newConnection.Name = "m_newConnection";
 			this.m_newConnection.Size = new System.Drawing.Size(111, 25);
 			this.m_newConnection.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_newConnection.TabIndex = 18;
+			this.m_newConnection.TabIndex = 19;
 			this.m_newConnection.Text = "새 연결(&N)...";
-			this.m_newConnection.Click += new System.EventHandler(this.m_newConnection_Click);
 			// 
 			// m_tabControl
 			// 
@@ -159,12 +156,13 @@
 			this.m_tabControl.SelectedTabIndex = 0;
 			this.m_tabControl.Size = new System.Drawing.Size(462, 251);
 			this.m_tabControl.Style = DevComponents.DotNetBar.eTabStripStyle.Office2007Dock;
-			this.m_tabControl.TabIndex = 22;
+			this.m_tabControl.TabIndex = 1;
 			this.m_tabControl.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
 			this.m_tabControl.Tabs.Add(this.m_mysqlTab);
 			this.m_tabControl.Tabs.Add(this.m_httpTab);
 			this.m_tabControl.Tabs.Add(this.m_sshTab);
 			this.m_tabControl.Tabs.Add(this.m_sslTab);
+			this.m_tabControl.TabStop = false;
 			this.m_tabControl.Text = "tabControl1";
 			// 
 			// m_mysqlTabPanel
@@ -207,7 +205,7 @@
 			this.m_secondLabel.Location = new System.Drawing.Point(234, 174);
 			this.m_secondLabel.Name = "m_secondLabel";
 			this.m_secondLabel.Size = new System.Drawing.Size(20, 21);
-			this.m_secondLabel.TabIndex = 13;
+			this.m_secondLabel.TabIndex = 15;
 			this.m_secondLabel.Text = "초";
 			// 
 			// m_mysqlTimeoutText
@@ -454,9 +452,8 @@
 			this.m_connect.Name = "m_connect";
 			this.m_connect.Size = new System.Drawing.Size(145, 25);
 			this.m_connect.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_connect.TabIndex = 15;
+			this.m_connect.TabIndex = 16;
 			this.m_connect.Text = "연결하기(&C)";
-			this.m_connect.Click += new System.EventHandler(this.m_connect_Click);
 			// 
 			// m_cancel
 			// 
@@ -467,9 +464,8 @@
 			this.m_cancel.Name = "m_cancel";
 			this.m_cancel.Size = new System.Drawing.Size(145, 25);
 			this.m_cancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_cancel.TabIndex = 16;
+			this.m_cancel.TabIndex = 17;
 			this.m_cancel.Text = "취소(&L)";
-			this.m_cancel.Click += new System.EventHandler(this.m_cancel_Click);
 			// 
 			// m_connectTest
 			// 
@@ -480,9 +476,8 @@
 			this.m_connectTest.Name = "m_connectTest";
 			this.m_connectTest.Size = new System.Drawing.Size(145, 25);
 			this.m_connectTest.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_connectTest.TabIndex = 17;
+			this.m_connectTest.TabIndex = 18;
 			this.m_connectTest.Text = "연결테스트(&T)";
-			this.m_connectTest.Click += new System.EventHandler(this.m_connectTest_Click);
 			// 
 			// m_titleLabel
 			// 
@@ -490,7 +485,7 @@
 			// 
 			// 
 			this.m_titleLabel.BackgroundStyle.Class = "";
-			this.m_titleLabel.Location = new System.Drawing.Point(86, 18);
+			this.m_titleLabel.Location = new System.Drawing.Point(78, 18);
 			this.m_titleLabel.Name = "m_titleLabel";
 			this.m_titleLabel.Size = new System.Drawing.Size(199, 50);
 			this.m_titleLabel.TabIndex = 19;
@@ -503,7 +498,7 @@
 			// 
 			// 
 			this.m_titleImgLabel.BackgroundStyle.Class = "";
-			this.m_titleImgLabel.Image = global::Easy2.Properties.Resources.NewConnect;
+			this.m_titleImgLabel.Image = global::Easy2.Properties.Resources.ConnectDatabaseL;
 			this.m_titleImgLabel.Location = new System.Drawing.Point(8, 4);
 			this.m_titleImgLabel.Name = "m_titleImgLabel";
 			this.m_titleImgLabel.Size = new System.Drawing.Size(64, 64);

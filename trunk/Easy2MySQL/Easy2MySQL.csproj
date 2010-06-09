@@ -81,6 +81,7 @@
     <Compile Include="src\ConnectForm.Designer.cs">
       <DependentUpon>ConnectForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\ControlManager.cs" />
     <Compile Include="src\DockablePane.cs">
       <SubType>Component</SubType>
     </Compile>

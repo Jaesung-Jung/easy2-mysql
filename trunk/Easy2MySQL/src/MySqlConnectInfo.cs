@@ -48,7 +48,7 @@ namespace Easy2
 		/// <summary>
 		/// 포트번호를 나타냅니다.
 		/// </summary>
-		public int Port
+		public string Port
 		{
 			get { return this.m_port; }
 			set { this.m_port = value; }
@@ -66,7 +66,7 @@ namespace Easy2
 		/// <summary>
 		/// 연결대기시간을 나타냅니다.
 		/// </summary>
-		public int ConnectTimeout
+		public string ConnectTimeout
 		{
 			get { return this.m_timeout; }
 			set { this.m_timeout = value; }
@@ -76,8 +76,8 @@ namespace Easy2
 		private string m_host = "localhost";
 		private string m_username = "";
 		private string m_password = "";
-		private int m_port = 3306;
+		private string m_port = "3306";
 		private string m_database = "";
-		private int m_timeout = 15;
+		private string m_timeout = "15";
 	}
 }

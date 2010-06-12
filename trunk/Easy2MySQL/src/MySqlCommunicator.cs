@@ -12,7 +12,7 @@ namespace Easy2
 	/// <summary>
 	/// MySQL 데이터베이스와 통신을 수행하는 클래스입니다.
 	/// </summary>
-	public class MySqlCommunicator
+	public class MySqlCommunicator : IDisposable
 	{
 		/// <summary>
 		/// 생성자입니다.
@@ -26,6 +26,15 @@ namespace Easy2
 		public MySqlCommunicator(MySqlConnectInfo connectInfo)
 		{
 			this.m_connectInfo = connectInfo;
+		}
+
+		/// <summary>
+		/// IDisposable 인터페이스의 구현입니다.
+		/// </summary>
+		public void Dispose()
+		{
+			if(this.m_connection != null)
+				this.m_connection.Dispose();
 		}
 
 		/// <summary>
@@ -107,8 +116,11 @@ namespace Easy2
 		public void Disconnect()
 		{
 			Program.CoummunicatorList.Remove(this);
-			this.m_connection.Close();
-			this.m_connection = null;
+			if(this.m_connection != null)
+			{
+				this.m_connection.Dispose();
+				this.m_connection = null;
+			}
 		}
 
 		/// <summary>
@@ -119,8 +131,18 @@ namespace Easy2
 		public MySqlDataReader ExecuteReader(string query)
 		{
 			System.Console.WriteLine(query);
-			MySqlCommand command = new MySqlCommand(query, this.m_connection);
-			return command.ExecuteReader();
+			MySqlCommand command = null;
+			MySqlDataReader reader = null;
+			try
+			{
+				command = new MySqlCommand(query, this.m_connection);
+				reader = command.ExecuteReader();
+			}
+			finally
+			{
+				command.Dispose();
+			}
+			return reader;
 		}
 
 		/// <summary>
@@ -131,8 +153,18 @@ namespace Easy2
 		public int Execute(string query)
 		{
 			System.Console.WriteLine(query);
-			MySqlCommand command = new MySqlCommand(query, this.m_connection);
-			return command.ExecuteNonQuery();
+			MySqlCommand command = null;
+			int affectedRow = 0;
+			try
+			{
+				command = new MySqlCommand(query, this.m_connection);
+				affectedRow = command.ExecuteNonQuery();
+			}
+			finally
+			{
+				command.Dispose();
+			}
+			return affectedRow;
 		}
 
 		/// <summary>

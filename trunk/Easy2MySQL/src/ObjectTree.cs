@@ -126,7 +126,6 @@ namespace Easy2
 						{
 							reader = Program.ActivateCommunicator.ExecuteReader(new MySqlGenerator().ShowColumns(tableNode.Text));
 							this.ReadColumns(tableNode.Nodes[0], reader);
-							reader.Close();
 						}
 						if(tableNode.Nodes[1].Nodes.Count == 0)
 						{
@@ -140,9 +139,11 @@ namespace Easy2
 			{
 				EasyToMySqlError.Show(Program.MainFormHandle, ex.Message, Properties.Resources.Easy2MsgExecuteFail, ex.Number);
 			}
-
-			if(reader != null)
-				reader.Close();
+			finally
+			{
+				if(reader != null)
+					reader.Dispose();
+			}
 		}
 
 		/// <summary>
@@ -173,26 +174,30 @@ namespace Easy2
 					try
 					{
 						reader = communicator.ExecuteReader(generator.ShowDatabases());
+						while(reader.Read())
+							databaseList.Add(reader.GetString(0));
 					}
 					catch(MySqlException ex)
 					{
 						EasyToMySqlError.Show(Program.MainFormHandle, ex.Message, Properties.Resources.Easy2MsgExecuteFail, ex.Number);
 					}
-					while(reader.Read())
-						databaseList.Add(reader.GetString(0));
-					reader.Close();
+					finally
+					{
+						if(reader != null)
+							reader.Dispose();
+					}
 				}
 				else
 					databaseList.Add(communicator.ConnectInfo.Database);
 
 				ObjectNode serverNode = new ObjectNode(null, communicator.ConnectInfo.Username + "@" + communicator.ConnectInfo.Host, ObjectNodeType.MySqlServer);
 				this.Nodes.Add(serverNode);
+
+				string[] folderList = { "테이블", "뷰", "저장 프로시저", "함수", "트리거", "이벤트" };
 				foreach(string databaseName in databaseList)
 				{
 					ObjectNode databaseNode = new ObjectNode(serverNode, databaseName, ObjectNodeType.MySqlDatabase);
 					serverNode.Nodes.Add(databaseNode);
-
-					string[] folderList = { "테이블", "뷰", "저장 프로시저", "함수", "트리거", "이벤트" };
 
 					foreach(string folder in folderList)
 					{

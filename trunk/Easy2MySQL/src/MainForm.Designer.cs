@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.m_ribbonControl = new DevComponents.DotNetBar.RibbonControl();
 			this.m_homePanel = new DevComponents.DotNetBar.RibbonPanel();
@@ -58,15 +59,6 @@
 			this.m_copySelection = new DevComponents.DotNetBar.ButtonItem();
 			this.m_refreshBar = new DevComponents.DotNetBar.RibbonBar();
 			this.m_refreshObjectBrowser = new DevComponents.DotNetBar.ButtonItem();
-			this.m_toolPanel = new DevComponents.DotNetBar.RibbonPanel();
-			this.m_externalBar = new DevComponents.DotNetBar.RibbonBar();
-			this.m_importExternal = new DevComponents.DotNetBar.ButtonItem();
-			this.m_exportExternal = new DevComponents.DotNetBar.ButtonItem();
-			this.m_bakupBar = new DevComponents.DotNetBar.RibbonBar();
-			this.m_backupDatabase = new DevComponents.DotNetBar.ButtonItem();
-			this.m_restoreDatabase = new DevComponents.DotNetBar.ButtonItem();
-			this.m_openBar = new DevComponents.DotNetBar.RibbonBar();
-			this.m_openObject = new DevComponents.DotNetBar.ButtonItem();
 			this.m_createPanel = new DevComponents.DotNetBar.RibbonPanel();
 			this.m_objectBar = new DevComponents.DotNetBar.RibbonBar();
 			this.m_dropColumn = new DevComponents.DotNetBar.ButtonItem();
@@ -110,6 +102,15 @@
 			this.m_addUser = new DevComponents.DotNetBar.ButtonItem();
 			this.m_alterUser = new DevComponents.DotNetBar.ButtonItem();
 			this.m_privilegeUser = new DevComponents.DotNetBar.ButtonItem();
+			this.m_toolPanel = new DevComponents.DotNetBar.RibbonPanel();
+			this.m_externalBar = new DevComponents.DotNetBar.RibbonBar();
+			this.m_importExternal = new DevComponents.DotNetBar.ButtonItem();
+			this.m_exportExternal = new DevComponents.DotNetBar.ButtonItem();
+			this.m_bakupBar = new DevComponents.DotNetBar.RibbonBar();
+			this.m_backupDatabase = new DevComponents.DotNetBar.ButtonItem();
+			this.m_restoreDatabase = new DevComponents.DotNetBar.ButtonItem();
+			this.m_openBar = new DevComponents.DotNetBar.RibbonBar();
+			this.m_openObject = new DevComponents.DotNetBar.ButtonItem();
 			this.m_startButton = new DevComponents.DotNetBar.Office2007StartButton();
 			this.m_fileItemContainer = new DevComponents.DotNetBar.ItemContainer();
 			this.m_fileMenuItemContainer = new DevComponents.DotNetBar.ItemContainer();
@@ -137,22 +138,19 @@
 			this.m_appSettings = new DevComponents.DotNetBar.ButtonItem();
 			this.m_formTheme = new DevComponents.DotNetBar.ButtonItem();
 			this.m_aeroSilverTheme = new DevComponents.DotNetBar.ButtonItem();
-			this.m_themeCommand = new DevComponents.DotNetBar.Command();
-			this.m_aeroBlueTheme = new DevComponents.DotNetBar.ButtonItem();
+			this.m_themeCommand = new DevComponents.DotNetBar.Command(this.components);
 			this.m_officeBlueTheme = new DevComponents.DotNetBar.ButtonItem();
 			this.m_officeBlackTheme = new DevComponents.DotNetBar.ButtonItem();
-			this.m_officeSilverTheme = new DevComponents.DotNetBar.ButtonItem();
-			this.m_officeNavyTheme = new DevComponents.DotNetBar.ButtonItem();
 			this.m_helpGroup = new DevComponents.DotNetBar.ButtonItem();
 			this.m_helpDocument = new DevComponents.DotNetBar.ButtonItem();
 			this.m_updateCheck = new DevComponents.DotNetBar.ButtonItem();
 			this.m_showAbout = new DevComponents.DotNetBar.ButtonItem();
-			this.m_styleManager = new DevComponents.DotNetBar.StyleManager();
+			this.m_styleManager = new DevComponents.DotNetBar.StyleManager(this.components);
 			this.m_statusBar = new DevComponents.DotNetBar.Bar();
 			this.m_ribbonControl.SuspendLayout();
 			this.m_homePanel.SuspendLayout();
-			this.m_toolPanel.SuspendLayout();
 			this.m_createPanel.SuspendLayout();
+			this.m_toolPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_statusBar)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -162,6 +160,7 @@
 			// 
 			// 
 			this.m_ribbonControl.BackgroundStyle.Class = "";
+			this.m_ribbonControl.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_ribbonControl.CaptionVisible = true;
 			this.m_ribbonControl.Controls.Add(this.m_homePanel);
 			this.m_ribbonControl.Controls.Add(this.m_createPanel);
@@ -175,10 +174,10 @@
             this.m_configGroup,
             this.m_helpGroup});
 			this.m_ribbonControl.KeyTipsFont = new System.Drawing.Font("Tahoma", 7F);
-			this.m_ribbonControl.Location = new System.Drawing.Point(4, 1);
+			this.m_ribbonControl.Location = new System.Drawing.Point(5, 1);
 			this.m_ribbonControl.Name = "m_ribbonControl";
 			this.m_ribbonControl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
-			this.m_ribbonControl.Size = new System.Drawing.Size(1106, 180);
+			this.m_ribbonControl.Size = new System.Drawing.Size(1104, 180);
 			this.m_ribbonControl.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_ribbonControl.TabGroupHeight = 14;
 			this.m_ribbonControl.TabIndex = 0;
@@ -196,19 +195,22 @@
 			this.m_homePanel.Location = new System.Drawing.Point(0, 56);
 			this.m_homePanel.Name = "m_homePanel";
 			this.m_homePanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-			this.m_homePanel.Size = new System.Drawing.Size(1106, 122);
+			this.m_homePanel.Size = new System.Drawing.Size(1104, 122);
 			// 
 			// 
 			// 
 			this.m_homePanel.Style.Class = "";
+			this.m_homePanel.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// 
 			// 
 			this.m_homePanel.StyleMouseDown.Class = "";
+			this.m_homePanel.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// 
 			// 
 			this.m_homePanel.StyleMouseOver.Class = "";
+			this.m_homePanel.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_homePanel.TabIndex = 1;
 			// 
 			// m_tabBar
@@ -218,10 +220,12 @@
 			// 
 			// 
 			this.m_tabBar.BackgroundMouseOverStyle.Class = "";
+			this.m_tabBar.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// 
 			// 
 			this.m_tabBar.BackgroundStyle.Class = "";
+			this.m_tabBar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_tabBar.ContainerControlProcessDialogKey = true;
 			this.m_tabBar.Dock = System.Windows.Forms.DockStyle.Left;
 			this.m_tabBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -237,10 +241,12 @@
 			// 
 			// 
 			this.m_tabBar.TitleStyle.Class = "";
+			this.m_tabBar.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// 
 			// 
 			this.m_tabBar.TitleStyleMouseOver.Class = "";
+			this.m_tabBar.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// m_switchPreviousTab
 			// 
@@ -267,10 +273,12 @@
 			// 
 			// 
 			this.m_executeBar.BackgroundMouseOverStyle.Class = "";
+			this.m_executeBar.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// 
 			// 
 			this.m_executeBar.BackgroundStyle.Class = "";
+			this.m_executeBar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_executeBar.ContainerControlProcessDialogKey = true;
 			this.m_executeBar.Dock = System.Windows.Forms.DockStyle.Left;
 			this.m_executeBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -287,10 +295,12 @@
 			// 
 			// 
 			this.m_executeBar.TitleStyle.Class = "";
+			this.m_executeBar.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// 
 			// 
 			this.m_executeBar.TitleStyleMouseOver.Class = "";
+			this.m_executeBar.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// m_executeQuery
 			// 
@@ -326,10 +336,12 @@
 			// 
 			// 
 			this.m_editBar.BackgroundMouseOverStyle.Class = "";
+			this.m_editBar.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// 
 			// 
 			this.m_editBar.BackgroundStyle.Class = "";
+			this.m_editBar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_editBar.ContainerControlProcessDialogKey = true;
 			this.m_editBar.Dock = System.Windows.Forms.DockStyle.Left;
 			this.m_editBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -347,10 +359,12 @@
 			// 
 			// 
 			this.m_editBar.TitleStyle.Class = "";
+			this.m_editBar.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// 
 			// 
 			this.m_editBar.TitleStyleMouseOver.Class = "";
+			this.m_editBar.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// m_findData
 			// 
@@ -367,6 +381,7 @@
 			// 
 			// 
 			this.m_editItemContainer1.BackgroundStyle.Class = "";
+			this.m_editItemContainer1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_editItemContainer1.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
 			this.m_editItemContainer1.Name = "m_editItemContainer1";
 			this.m_editItemContainer1.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -405,6 +420,7 @@
 			// 
 			// 
 			this.m_editItemContainer2.BackgroundStyle.Class = "";
+			this.m_editItemContainer2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_editItemContainer2.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
 			this.m_editItemContainer2.Name = "m_editItemContainer2";
 			this.m_editItemContainer2.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -443,6 +459,7 @@
 			// 
 			// 
 			this.m_editItemContainer3.BackgroundStyle.Class = "";
+			this.m_editItemContainer3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_editItemContainer3.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
 			this.m_editItemContainer3.Name = "m_editItemContainer3";
 			this.m_editItemContainer3.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -473,10 +490,12 @@
 			// 
 			// 
 			this.m_clipboardBar.BackgroundMouseOverStyle.Class = "";
+			this.m_clipboardBar.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// 
 			// 
 			this.m_clipboardBar.BackgroundStyle.Class = "";
+			this.m_clipboardBar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_clipboardBar.ContainerControlProcessDialogKey = true;
 			this.m_clipboardBar.Dock = System.Windows.Forms.DockStyle.Left;
 			this.m_clipboardBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -492,10 +511,12 @@
 			// 
 			// 
 			this.m_clipboardBar.TitleStyle.Class = "";
+			this.m_clipboardBar.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// 
 			// 
 			this.m_clipboardBar.TitleStyleMouseOver.Class = "";
+			this.m_clipboardBar.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// m_pasteToClipboard
 			// 
@@ -512,6 +533,7 @@
 			// 
 			// 
 			this.m_clipboardItemContainer.BackgroundStyle.Class = "";
+			this.m_clipboardItemContainer.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_clipboardItemContainer.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
 			this.m_clipboardItemContainer.Name = "m_clipboardItemContainer";
 			this.m_clipboardItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -542,10 +564,12 @@
 			// 
 			// 
 			this.m_refreshBar.BackgroundMouseOverStyle.Class = "";
+			this.m_refreshBar.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// 
 			// 
 			this.m_refreshBar.BackgroundStyle.Class = "";
+			this.m_refreshBar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_refreshBar.ContainerControlProcessDialogKey = true;
 			this.m_refreshBar.Dock = System.Windows.Forms.DockStyle.Left;
 			this.m_refreshBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -560,10 +584,12 @@
 			// 
 			// 
 			this.m_refreshBar.TitleStyle.Class = "";
+			this.m_refreshBar.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// 
 			// 
 			this.m_refreshBar.TitleStyleMouseOver.Class = "";
+			this.m_refreshBar.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// m_refreshObjectBrowser
 			// 
@@ -574,169 +600,6 @@
 			this.m_refreshObjectBrowser.SubItemsExpandWidth = 14;
 			this.m_refreshObjectBrowser.Text = "새로고침";
 			this.m_refreshObjectBrowser.Click += new System.EventHandler(this.m_refreshObjectBrowser_Click);
-			// 
-			// m_toolPanel
-			// 
-			this.m_toolPanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_toolPanel.Controls.Add(this.m_externalBar);
-			this.m_toolPanel.Controls.Add(this.m_bakupBar);
-			this.m_toolPanel.Controls.Add(this.m_openBar);
-			this.m_toolPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_toolPanel.Location = new System.Drawing.Point(0, 56);
-			this.m_toolPanel.Name = "m_toolPanel";
-			this.m_toolPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-			this.m_toolPanel.Size = new System.Drawing.Size(1106, 122);
-			// 
-			// 
-			// 
-			this.m_toolPanel.Style.Class = "";
-			// 
-			// 
-			// 
-			this.m_toolPanel.StyleMouseDown.Class = "";
-			// 
-			// 
-			// 
-			this.m_toolPanel.StyleMouseOver.Class = "";
-			this.m_toolPanel.TabIndex = 3;
-			this.m_toolPanel.Visible = false;
-			// 
-			// m_externalBar
-			// 
-			this.m_externalBar.AutoOverflowEnabled = true;
-			// 
-			// 
-			// 
-			this.m_externalBar.BackgroundMouseOverStyle.Class = "";
-			// 
-			// 
-			// 
-			this.m_externalBar.BackgroundStyle.Class = "";
-			this.m_externalBar.ContainerControlProcessDialogKey = true;
-			this.m_externalBar.Dock = System.Windows.Forms.DockStyle.Left;
-			this.m_externalBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_importExternal,
-            this.m_exportExternal});
-			this.m_externalBar.Location = new System.Drawing.Point(198, 0);
-			this.m_externalBar.Name = "m_externalBar";
-			this.m_externalBar.Size = new System.Drawing.Size(140, 119);
-			this.m_externalBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_externalBar.TabIndex = 2;
-			this.m_externalBar.Text = "가져오기/내보내기";
-			// 
-			// 
-			// 
-			this.m_externalBar.TitleStyle.Class = "";
-			// 
-			// 
-			// 
-			this.m_externalBar.TitleStyleMouseOver.Class = "";
-			// 
-			// m_importExternal
-			// 
-			this.m_importExternal.Image = global::Easy2.Properties.Resources.ImportDatabase;
-			this.m_importExternal.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-			this.m_importExternal.KeyTips = "I";
-			this.m_importExternal.Name = "m_importExternal";
-			this.m_importExternal.SubItemsExpandWidth = 14;
-			this.m_importExternal.Text = "가져오기";
-			// 
-			// m_exportExternal
-			// 
-			this.m_exportExternal.Image = global::Easy2.Properties.Resources.ExportDatabase;
-			this.m_exportExternal.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-			this.m_exportExternal.KeyTips = "E";
-			this.m_exportExternal.Name = "m_exportExternal";
-			this.m_exportExternal.SubItemsExpandWidth = 14;
-			this.m_exportExternal.Text = "내보내기";
-			// 
-			// m_bakupBar
-			// 
-			this.m_bakupBar.AutoOverflowEnabled = true;
-			// 
-			// 
-			// 
-			this.m_bakupBar.BackgroundMouseOverStyle.Class = "";
-			// 
-			// 
-			// 
-			this.m_bakupBar.BackgroundStyle.Class = "";
-			this.m_bakupBar.ContainerControlProcessDialogKey = true;
-			this.m_bakupBar.Dock = System.Windows.Forms.DockStyle.Left;
-			this.m_bakupBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_backupDatabase,
-            this.m_restoreDatabase});
-			this.m_bakupBar.Location = new System.Drawing.Point(70, 0);
-			this.m_bakupBar.Name = "m_bakupBar";
-			this.m_bakupBar.Size = new System.Drawing.Size(128, 119);
-			this.m_bakupBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_bakupBar.TabIndex = 1;
-			this.m_bakupBar.Text = "백업/복구";
-			// 
-			// 
-			// 
-			this.m_bakupBar.TitleStyle.Class = "";
-			// 
-			// 
-			// 
-			this.m_bakupBar.TitleStyleMouseOver.Class = "";
-			// 
-			// m_backupDatabase
-			// 
-			this.m_backupDatabase.Image = global::Easy2.Properties.Resources.CopyDatabase;
-			this.m_backupDatabase.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-			this.m_backupDatabase.KeyTips = "DB";
-			this.m_backupDatabase.Name = "m_backupDatabase";
-			this.m_backupDatabase.SubItemsExpandWidth = 14;
-			this.m_backupDatabase.Text = "<div align=\"center\">DB<br/>백업하기</div>";
-			// 
-			// m_restoreDatabase
-			// 
-			this.m_restoreDatabase.Image = global::Easy2.Properties.Resources.RestoreDatabase;
-			this.m_restoreDatabase.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-			this.m_restoreDatabase.KeyTips = "DR";
-			this.m_restoreDatabase.Name = "m_restoreDatabase";
-			this.m_restoreDatabase.SubItemsExpandWidth = 14;
-			this.m_restoreDatabase.Text = "<div align=\"center\">DB<br/>복원하기</div>";
-			// 
-			// m_openBar
-			// 
-			this.m_openBar.AutoOverflowEnabled = true;
-			// 
-			// 
-			// 
-			this.m_openBar.BackgroundMouseOverStyle.Class = "";
-			// 
-			// 
-			// 
-			this.m_openBar.BackgroundStyle.Class = "";
-			this.m_openBar.ContainerControlProcessDialogKey = true;
-			this.m_openBar.Dock = System.Windows.Forms.DockStyle.Left;
-			this.m_openBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_openObject});
-			this.m_openBar.Location = new System.Drawing.Point(3, 0);
-			this.m_openBar.Name = "m_openBar";
-			this.m_openBar.Size = new System.Drawing.Size(67, 119);
-			this.m_openBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_openBar.TabIndex = 0;
-			this.m_openBar.Text = "열기";
-			// 
-			// 
-			// 
-			this.m_openBar.TitleStyle.Class = "";
-			// 
-			// 
-			// 
-			this.m_openBar.TitleStyleMouseOver.Class = "";
-			// 
-			// m_openObject
-			// 
-			this.m_openObject.Image = global::Easy2.Properties.Resources.OpenObject;
-			this.m_openObject.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-			this.m_openObject.KeyTips = "O";
-			this.m_openObject.Name = "m_openObject";
-			this.m_openObject.SubItemsExpandWidth = 14;
-			this.m_openObject.Text = "<div align=\"center\">오브젝트<br/>열기</div>";
 			// 
 			// m_createPanel
 			// 
@@ -754,14 +617,17 @@
 			// 
 			// 
 			this.m_createPanel.Style.Class = "";
+			this.m_createPanel.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// 
 			// 
 			this.m_createPanel.StyleMouseDown.Class = "";
+			this.m_createPanel.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// 
 			// 
 			this.m_createPanel.StyleMouseOver.Class = "";
+			this.m_createPanel.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_createPanel.TabIndex = 2;
 			this.m_createPanel.Visible = false;
 			// 
@@ -772,10 +638,12 @@
 			// 
 			// 
 			this.m_objectBar.BackgroundMouseOverStyle.Class = "";
+			this.m_objectBar.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// 
 			// 
 			this.m_objectBar.BackgroundStyle.Class = "";
+			this.m_objectBar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_objectBar.ContainerControlProcessDialogKey = true;
 			this.m_objectBar.Dock = System.Windows.Forms.DockStyle.Left;
 			this.m_objectBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -796,10 +664,12 @@
 			// 
 			// 
 			this.m_objectBar.TitleStyle.Class = "";
+			this.m_objectBar.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// 
 			// 
 			this.m_objectBar.TitleStyleMouseOver.Class = "";
+			this.m_objectBar.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// m_dropColumn
 			// 
@@ -828,6 +698,7 @@
 			// 
 			// 
 			this.m_indexItemContainer.BackgroundStyle.Class = "";
+			this.m_indexItemContainer.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_indexItemContainer.Name = "m_indexItemContainer";
 			this.m_indexItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.m_alterIndex,
@@ -867,6 +738,7 @@
 			// 
 			// 
 			this.m_viewItemContainer.BackgroundStyle.Class = "";
+			this.m_viewItemContainer.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_viewItemContainer.Name = "m_viewItemContainer";
 			this.m_viewItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.m_alterView,
@@ -906,6 +778,7 @@
 			// 
 			// 
 			this.m_storedProcItemContainer.BackgroundStyle.Class = "";
+			this.m_storedProcItemContainer.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_storedProcItemContainer.Name = "m_storedProcItemContainer";
 			this.m_storedProcItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.m_alterStoredProc,
@@ -945,6 +818,7 @@
 			// 
 			// 
 			this.m_functionitemContainer.BackgroundStyle.Class = "";
+			this.m_functionitemContainer.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_functionitemContainer.Name = "m_functionitemContainer";
 			this.m_functionitemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.m_alterFunction,
@@ -984,6 +858,7 @@
 			// 
 			// 
 			this.m_triggerItemContainer.BackgroundStyle.Class = "";
+			this.m_triggerItemContainer.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_triggerItemContainer.Name = "m_triggerItemContainer";
 			this.m_triggerItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.m_alterTrigger,
@@ -1023,6 +898,7 @@
 			// 
 			// 
 			this.m_eventItemContainer.BackgroundStyle.Class = "";
+			this.m_eventItemContainer.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_eventItemContainer.Name = "m_eventItemContainer";
 			this.m_eventItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.m_alterEvent,
@@ -1051,10 +927,12 @@
 			// 
 			// 
 			this.m_tableBar.BackgroundMouseOverStyle.Class = "";
+			this.m_tableBar.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// 
 			// 
 			this.m_tableBar.BackgroundStyle.Class = "";
+			this.m_tableBar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_tableBar.ContainerControlProcessDialogKey = true;
 			this.m_tableBar.Dock = System.Windows.Forms.DockStyle.Left;
 			this.m_tableBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -1070,10 +948,12 @@
 			// 
 			// 
 			this.m_tableBar.TitleStyle.Class = "";
+			this.m_tableBar.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// 
 			// 
 			this.m_tableBar.TitleStyleMouseOver.Class = "";
+			this.m_tableBar.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// m_createTable
 			// 
@@ -1090,6 +970,7 @@
 			// 
 			// 
 			this.m_tableItemContainer.BackgroundStyle.Class = "";
+			this.m_tableItemContainer.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_tableItemContainer.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
 			this.m_tableItemContainer.Name = "m_tableItemContainer";
 			this.m_tableItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -1129,10 +1010,12 @@
 			// 
 			// 
 			this.m_databaseBar.BackgroundMouseOverStyle.Class = "";
+			this.m_databaseBar.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// 
 			// 
 			this.m_databaseBar.BackgroundStyle.Class = "";
+			this.m_databaseBar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_databaseBar.ContainerControlProcessDialogKey = true;
 			this.m_databaseBar.Dock = System.Windows.Forms.DockStyle.Left;
 			this.m_databaseBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -1148,10 +1031,12 @@
 			// 
 			// 
 			this.m_databaseBar.TitleStyle.Class = "";
+			this.m_databaseBar.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// 
 			// 
 			this.m_databaseBar.TitleStyleMouseOver.Class = "";
+			this.m_databaseBar.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// m_createDatabase
 			// 
@@ -1168,6 +1053,7 @@
 			// 
 			// 
 			this.m_databaseItemContainer.BackgroundStyle.Class = "";
+			this.m_databaseItemContainer.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_databaseItemContainer.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
 			this.m_databaseItemContainer.Name = "m_databaseItemContainer";
 			this.m_databaseItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -1207,10 +1093,12 @@
 			// 
 			// 
 			this.m_userBar.BackgroundMouseOverStyle.Class = "";
+			this.m_userBar.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// 
 			// 
 			this.m_userBar.BackgroundStyle.Class = "";
+			this.m_userBar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_userBar.ContainerControlProcessDialogKey = true;
 			this.m_userBar.Dock = System.Windows.Forms.DockStyle.Left;
 			this.m_userBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -1227,10 +1115,12 @@
 			// 
 			// 
 			this.m_userBar.TitleStyle.Class = "";
+			this.m_userBar.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// 
 			// 
 			this.m_userBar.TitleStyleMouseOver.Class = "";
+			this.m_userBar.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// m_addUser
 			// 
@@ -1260,6 +1150,184 @@
 			this.m_privilegeUser.SubItemsExpandWidth = 14;
 			this.m_privilegeUser.Text = "<div align=\"center\">권한<br/>설정하기</div>";
 			// 
+			// m_toolPanel
+			// 
+			this.m_toolPanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_toolPanel.Controls.Add(this.m_externalBar);
+			this.m_toolPanel.Controls.Add(this.m_bakupBar);
+			this.m_toolPanel.Controls.Add(this.m_openBar);
+			this.m_toolPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.m_toolPanel.Location = new System.Drawing.Point(0, 56);
+			this.m_toolPanel.Name = "m_toolPanel";
+			this.m_toolPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+			this.m_toolPanel.Size = new System.Drawing.Size(1106, 122);
+			// 
+			// 
+			// 
+			this.m_toolPanel.Style.Class = "";
+			this.m_toolPanel.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			// 
+			// 
+			// 
+			this.m_toolPanel.StyleMouseDown.Class = "";
+			this.m_toolPanel.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			// 
+			// 
+			// 
+			this.m_toolPanel.StyleMouseOver.Class = "";
+			this.m_toolPanel.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			this.m_toolPanel.TabIndex = 3;
+			this.m_toolPanel.Visible = false;
+			// 
+			// m_externalBar
+			// 
+			this.m_externalBar.AutoOverflowEnabled = true;
+			// 
+			// 
+			// 
+			this.m_externalBar.BackgroundMouseOverStyle.Class = "";
+			this.m_externalBar.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			// 
+			// 
+			// 
+			this.m_externalBar.BackgroundStyle.Class = "";
+			this.m_externalBar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			this.m_externalBar.ContainerControlProcessDialogKey = true;
+			this.m_externalBar.Dock = System.Windows.Forms.DockStyle.Left;
+			this.m_externalBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_importExternal,
+            this.m_exportExternal});
+			this.m_externalBar.Location = new System.Drawing.Point(198, 0);
+			this.m_externalBar.Name = "m_externalBar";
+			this.m_externalBar.Size = new System.Drawing.Size(140, 119);
+			this.m_externalBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_externalBar.TabIndex = 2;
+			this.m_externalBar.Text = "가져오기/내보내기";
+			// 
+			// 
+			// 
+			this.m_externalBar.TitleStyle.Class = "";
+			this.m_externalBar.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			// 
+			// 
+			// 
+			this.m_externalBar.TitleStyleMouseOver.Class = "";
+			this.m_externalBar.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			// 
+			// m_importExternal
+			// 
+			this.m_importExternal.Image = global::Easy2.Properties.Resources.ImportDatabase;
+			this.m_importExternal.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+			this.m_importExternal.KeyTips = "I";
+			this.m_importExternal.Name = "m_importExternal";
+			this.m_importExternal.SubItemsExpandWidth = 14;
+			this.m_importExternal.Text = "가져오기";
+			// 
+			// m_exportExternal
+			// 
+			this.m_exportExternal.Image = global::Easy2.Properties.Resources.ExportDatabase;
+			this.m_exportExternal.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+			this.m_exportExternal.KeyTips = "E";
+			this.m_exportExternal.Name = "m_exportExternal";
+			this.m_exportExternal.SubItemsExpandWidth = 14;
+			this.m_exportExternal.Text = "내보내기";
+			// 
+			// m_bakupBar
+			// 
+			this.m_bakupBar.AutoOverflowEnabled = true;
+			// 
+			// 
+			// 
+			this.m_bakupBar.BackgroundMouseOverStyle.Class = "";
+			this.m_bakupBar.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			// 
+			// 
+			// 
+			this.m_bakupBar.BackgroundStyle.Class = "";
+			this.m_bakupBar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			this.m_bakupBar.ContainerControlProcessDialogKey = true;
+			this.m_bakupBar.Dock = System.Windows.Forms.DockStyle.Left;
+			this.m_bakupBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_backupDatabase,
+            this.m_restoreDatabase});
+			this.m_bakupBar.Location = new System.Drawing.Point(70, 0);
+			this.m_bakupBar.Name = "m_bakupBar";
+			this.m_bakupBar.Size = new System.Drawing.Size(128, 119);
+			this.m_bakupBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_bakupBar.TabIndex = 1;
+			this.m_bakupBar.Text = "백업/복구";
+			// 
+			// 
+			// 
+			this.m_bakupBar.TitleStyle.Class = "";
+			this.m_bakupBar.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			// 
+			// 
+			// 
+			this.m_bakupBar.TitleStyleMouseOver.Class = "";
+			this.m_bakupBar.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			// 
+			// m_backupDatabase
+			// 
+			this.m_backupDatabase.Image = global::Easy2.Properties.Resources.CopyDatabase;
+			this.m_backupDatabase.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+			this.m_backupDatabase.KeyTips = "DB";
+			this.m_backupDatabase.Name = "m_backupDatabase";
+			this.m_backupDatabase.SubItemsExpandWidth = 14;
+			this.m_backupDatabase.Text = "<div align=\"center\">DB<br/>백업하기</div>";
+			// 
+			// m_restoreDatabase
+			// 
+			this.m_restoreDatabase.Image = global::Easy2.Properties.Resources.RestoreDatabase;
+			this.m_restoreDatabase.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+			this.m_restoreDatabase.KeyTips = "DR";
+			this.m_restoreDatabase.Name = "m_restoreDatabase";
+			this.m_restoreDatabase.SubItemsExpandWidth = 14;
+			this.m_restoreDatabase.Text = "<div align=\"center\">DB<br/>복원하기</div>";
+			// 
+			// m_openBar
+			// 
+			this.m_openBar.AutoOverflowEnabled = true;
+			// 
+			// 
+			// 
+			this.m_openBar.BackgroundMouseOverStyle.Class = "";
+			this.m_openBar.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			// 
+			// 
+			// 
+			this.m_openBar.BackgroundStyle.Class = "";
+			this.m_openBar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			this.m_openBar.ContainerControlProcessDialogKey = true;
+			this.m_openBar.Dock = System.Windows.Forms.DockStyle.Left;
+			this.m_openBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_openObject});
+			this.m_openBar.Location = new System.Drawing.Point(3, 0);
+			this.m_openBar.Name = "m_openBar";
+			this.m_openBar.Size = new System.Drawing.Size(67, 119);
+			this.m_openBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_openBar.TabIndex = 0;
+			this.m_openBar.Text = "열기";
+			// 
+			// 
+			// 
+			this.m_openBar.TitleStyle.Class = "";
+			this.m_openBar.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			// 
+			// 
+			// 
+			this.m_openBar.TitleStyleMouseOver.Class = "";
+			this.m_openBar.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			// 
+			// m_openObject
+			// 
+			this.m_openObject.Image = global::Easy2.Properties.Resources.OpenObject;
+			this.m_openObject.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+			this.m_openObject.KeyTips = "O";
+			this.m_openObject.Name = "m_openObject";
+			this.m_openObject.SubItemsExpandWidth = 14;
+			this.m_openObject.Text = "<div align=\"center\">오브젝트<br/>열기</div>";
+			// 
 			// m_startButton
 			// 
 			this.m_startButton.AutoExpandOnClick = true;
@@ -1280,6 +1348,7 @@
 			// 
 			// 
 			this.m_fileItemContainer.BackgroundStyle.Class = "RibbonFileMenuContainer";
+			this.m_fileItemContainer.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_fileItemContainer.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
 			this.m_fileItemContainer.Name = "m_fileItemContainer";
 			this.m_fileItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -1292,6 +1361,7 @@
 			// 
 			// 
 			this.m_fileMenuItemContainer.BackgroundStyle.Class = "RibbonFileMenuTwoColumnContainer";
+			this.m_fileMenuItemContainer.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_fileMenuItemContainer.ItemSpacing = 0;
 			this.m_fileMenuItemContainer.Name = "m_fileMenuItemContainer";
 			this.m_fileMenuItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -1304,6 +1374,7 @@
 			// 
 			// 
 			this.m_leftItemContainer.BackgroundStyle.Class = "RibbonFileMenuColumnOneContainer";
+			this.m_leftItemContainer.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_leftItemContainer.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
 			this.m_leftItemContainer.MinimumSize = new System.Drawing.Size(120, 0);
 			this.m_leftItemContainer.Name = "m_leftItemContainer";
@@ -1424,6 +1495,7 @@
 			// 
 			// 
 			this.m_rightItemContainer.BackgroundStyle.Class = "RibbonFileMenuColumnTwoContainer";
+			this.m_rightItemContainer.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_rightItemContainer.EnableGalleryPopup = false;
 			this.m_rightItemContainer.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
 			this.m_rightItemContainer.MinimumSize = new System.Drawing.Size(180, 240);
@@ -1444,6 +1516,7 @@
 			// 
 			// 
 			this.m_botomItemContainer.BackgroundStyle.Class = "RibbonFileMenuBottomContainer";
+			this.m_botomItemContainer.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_botomItemContainer.HorizontalItemAlignment = DevComponents.DotNetBar.eHorizontalItemsAlignment.Right;
 			this.m_botomItemContainer.Name = "m_botomItemContainer";
 			this.m_botomItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -1506,11 +1579,8 @@
 			this.m_formTheme.OptionGroup = "theme";
 			this.m_formTheme.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.m_aeroSilverTheme,
-            this.m_aeroBlueTheme,
             this.m_officeBlueTheme,
-            this.m_officeBlackTheme,
-            this.m_officeSilverTheme,
-            this.m_officeNavyTheme});
+            this.m_officeBlackTheme});
 			this.m_formTheme.Text = "테마(&T)";
 			// 
 			// m_aeroSilverTheme
@@ -1524,47 +1594,24 @@
 			// 
 			// m_themeCommand
 			// 
+			this.m_themeCommand.Name = "m_themeCommand";
 			this.m_themeCommand.Executed += new System.EventHandler(this.OnExecutedThemeCommand);
-			// 
-			// m_aeroBlueTheme
-			// 
-			this.m_aeroBlueTheme.Command = this.m_themeCommand;
-			this.m_aeroBlueTheme.CommandParameter = "Windows7Blue";
-			this.m_aeroBlueTheme.Name = "m_aeroBlueTheme";
-			this.m_aeroBlueTheme.OptionGroup = "theme";
-			this.m_aeroBlueTheme.Text = "Aero Blue";
 			// 
 			// m_officeBlueTheme
 			// 
 			this.m_officeBlueTheme.Command = this.m_themeCommand;
-			this.m_officeBlueTheme.CommandParameter = "Office2007Blue";
+			this.m_officeBlueTheme.CommandParameter = "Office2010Blue";
 			this.m_officeBlueTheme.Name = "m_officeBlueTheme";
 			this.m_officeBlueTheme.OptionGroup = "theme";
-			this.m_officeBlueTheme.Text = "Office Blue";
+			this.m_officeBlueTheme.Text = "Aero Blue";
 			// 
 			// m_officeBlackTheme
 			// 
 			this.m_officeBlackTheme.Command = this.m_themeCommand;
-			this.m_officeBlackTheme.CommandParameter = "Office2007Black";
+			this.m_officeBlackTheme.CommandParameter = "Office2010Black";
 			this.m_officeBlackTheme.Name = "m_officeBlackTheme";
 			this.m_officeBlackTheme.OptionGroup = "theme";
-			this.m_officeBlackTheme.Text = "Office Black";
-			// 
-			// m_officeSilverTheme
-			// 
-			this.m_officeSilverTheme.Command = this.m_themeCommand;
-			this.m_officeSilverTheme.CommandParameter = "Office2007Silver";
-			this.m_officeSilverTheme.Name = "m_officeSilverTheme";
-			this.m_officeSilverTheme.OptionGroup = "theme";
-			this.m_officeSilverTheme.Text = "Office Silver";
-			// 
-			// m_officeNavyTheme
-			// 
-			this.m_officeNavyTheme.Command = this.m_themeCommand;
-			this.m_officeNavyTheme.CommandParameter = "Office2007VistaGlass";
-			this.m_officeNavyTheme.Name = "m_officeNavyTheme";
-			this.m_officeNavyTheme.OptionGroup = "theme";
-			this.m_officeNavyTheme.Text = "Office Navy";
+			this.m_officeBlackTheme.Text = "Aero Black";
 			// 
 			// m_helpGroup
 			// 
@@ -1607,9 +1654,9 @@
 			this.m_statusBar.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
 			this.m_statusBar.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.m_statusBar.GrabHandleStyle = DevComponents.DotNetBar.eGrabHandleStyle.ResizeHandle;
-			this.m_statusBar.Location = new System.Drawing.Point(4, 605);
+			this.m_statusBar.Location = new System.Drawing.Point(5, 605);
 			this.m_statusBar.Name = "m_statusBar";
-			this.m_statusBar.Size = new System.Drawing.Size(1106, 25);
+			this.m_statusBar.Size = new System.Drawing.Size(1104, 25);
 			this.m_statusBar.Stretch = true;
 			this.m_statusBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_statusBar.TabIndex = 1;
@@ -1630,8 +1677,8 @@
 			this.m_ribbonControl.ResumeLayout(false);
 			this.m_ribbonControl.PerformLayout();
 			this.m_homePanel.ResumeLayout(false);
-			this.m_toolPanel.ResumeLayout(false);
 			this.m_createPanel.ResumeLayout(false);
+			this.m_toolPanel.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.m_statusBar)).EndInit();
 			this.ResumeLayout(false);
 
@@ -1753,11 +1800,8 @@
 		private DevComponents.DotNetBar.ButtonItem m_appSettings;
 		private DevComponents.DotNetBar.ButtonItem m_formTheme;
 		private DevComponents.DotNetBar.ButtonItem m_aeroSilverTheme;
-		private DevComponents.DotNetBar.ButtonItem m_aeroBlueTheme;
 		private DevComponents.DotNetBar.ButtonItem m_officeBlueTheme;
 		private DevComponents.DotNetBar.ButtonItem m_officeBlackTheme;
-		private DevComponents.DotNetBar.ButtonItem m_officeSilverTheme;
-		private DevComponents.DotNetBar.ButtonItem m_officeNavyTheme;
 		private DevComponents.DotNetBar.Command m_themeCommand;
 	}
 }

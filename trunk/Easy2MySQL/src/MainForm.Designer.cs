@@ -1340,7 +1340,7 @@
 			this.m_startButton.ShowSubItems = false;
 			this.m_startButton.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.m_fileItemContainer});
-			this.m_startButton.Text = "&File";
+			this.m_startButton.Text = "파일";
 			// 
 			// m_fileItemContainer
 			// 

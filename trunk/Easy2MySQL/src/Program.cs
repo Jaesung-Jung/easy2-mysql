@@ -3,6 +3,7 @@
 //
 using System;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace Easy2
 {
@@ -17,6 +18,16 @@ namespace Easy2
 			Program.m_mainForm = new MainForm();
 			Application.EnableVisualStyles();
 			Application.Run(Program.m_mainForm);
+		}
+
+		/// <summary>
+		/// 문자열을 MD5 암/복호화합니다.
+		/// </summary>
+		/// <param name="s">암/복호화 대상 문자열입니다.</param>
+		/// <returns>암/복호화 결과 문자열입니다.</returns>
+		public static string MD5Crypt(string s)
+		{
+			return s;
 		}
 
 		/// <summary>

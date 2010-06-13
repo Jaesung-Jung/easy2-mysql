@@ -41,6 +41,7 @@
 			// 
 			// 
 			this.m_imgLabel.BackgroundStyle.Class = "";
+			this.m_imgLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_imgLabel.Image = global::Easy2.Properties.Resources.ConnectDatabaseL;
 			this.m_imgLabel.Location = new System.Drawing.Point(2, 16);
 			this.m_imgLabel.Name = "m_imgLabel";
@@ -54,6 +55,7 @@
 			// 
 			// 
 			this.m_connectNameLabel.BackgroundStyle.Class = "";
+			this.m_connectNameLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_connectNameLabel.Location = new System.Drawing.Point(72, 12);
 			this.m_connectNameLabel.Name = "m_connectNameLabel";
 			this.m_connectNameLabel.Size = new System.Drawing.Size(90, 21);
@@ -66,6 +68,7 @@
 			// 
 			// 
 			this.m_connectNameText.Border.Class = "TextBoxBorder";
+			this.m_connectNameText.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_connectNameText.Location = new System.Drawing.Point(72, 39);
 			this.m_connectNameText.MaxLength = 20;
 			this.m_connectNameText.Name = "m_connectNameText";
@@ -108,6 +111,7 @@
 			this.Controls.Add(this.m_connectNameText);
 			this.Controls.Add(this.m_connectNameLabel);
 			this.Controls.Add(this.m_imgLabel);
+			this.DoubleBuffered = true;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "NewConnectForm";
@@ -120,10 +124,10 @@
 
 		#endregion
 
-		private DevComponents.DotNetBar.LabelX m_imgLabel;
 		private DevComponents.DotNetBar.LabelX m_connectNameLabel;
-		private DevComponents.DotNetBar.Controls.TextBoxX m_connectNameText;
 		private DevComponents.DotNetBar.ButtonX m_commitButton;
 		private DevComponents.DotNetBar.ButtonX m_cancelButton;
+		protected DevComponents.DotNetBar.Controls.TextBoxX m_connectNameText;
+		protected DevComponents.DotNetBar.LabelX m_imgLabel;
 	}
 }

@@ -179,15 +179,6 @@ namespace Easy2.Properties {
             }
         }
         
-        /// <summary>
-        ///   ..\\..\\dat\\connection.dat과(와) 유사한 지역화된 문자열을 찾습니다.
-        /// </summary>
-        internal static string ConnectionDataFilePath {
-            get {
-                return ResourceManager.GetString("ConnectionDataFilePath", resourceCulture);
-            }
-        }
-        
         internal static System.Drawing.Bitmap CopyDatabase {
             get {
                 object obj = ResourceManager.GetObject("CopyDatabase", resourceCulture);
@@ -350,83 +341,137 @@ namespace Easy2.Properties {
         }
         
         /// <summary>
-        ///   MySQL 서버 연결에 실패하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   예외가 발생하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static string Easy2MsgConnectFail {
+        internal static string Easy2Exception {
             get {
-                return ResourceManager.GetString("Easy2MsgConnectFail", resourceCulture);
+                return ResourceManager.GetString("Easy2Exception", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   MySQL 서버 연결에 성공하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   MySQL 서버 연결에 실패하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static string Easy2MsgConnectSuccess {
+        internal static string Easy2Exception_Connect {
             get {
-                return ResourceManager.GetString("Easy2MsgConnectSuccess", resourceCulture);
+                return ResourceManager.GetString("Easy2Exception_Connect", resourceCulture);
             }
         }
         
         /// <summary>
         ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;DELETE&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static string Easy2MsgDeleteCommandDenied {
+        internal static string Easy2Exception_DeleteCommandDenied {
             get {
-                return ResourceManager.GetString("Easy2MsgDeleteCommandDenied", resourceCulture);
+                return ResourceManager.GetString("Easy2Exception_DeleteCommandDenied", resourceCulture);
             }
         }
         
         /// <summary>
         ///   쿼리문 실행을 실패하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static string Easy2MsgExecuteFail {
+        internal static string Easy2Exception_ExecuteQuery {
             get {
-                return ResourceManager.GetString("Easy2MsgExecuteFail", resourceCulture);
+                return ResourceManager.GetString("Easy2Exception_ExecuteQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   파일을 읽는 중 예외가 발생하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2Exception_FileRead {
+            get {
+                return ResourceManager.GetString("Easy2Exception_FileRead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   파일을 쓰는 중 예외가 발생하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2Exception_FileWrite {
+            get {
+                return ResourceManager.GetString("Easy2Exception_FileWrite", resourceCulture);
             }
         }
         
         /// <summary>
         ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;INSERT&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static string Easy2MsgInsertCommandDenied {
+        internal static string Easy2Exception_InsertCommandDenied {
             get {
-                return ResourceManager.GetString("Easy2MsgInsertCommandDenied", resourceCulture);
+                return ResourceManager.GetString("Easy2Exception_InsertCommandDenied", resourceCulture);
             }
         }
         
         /// <summary>
         ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;SELECT&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static string Easy2MsgSelectCommandDenied {
+        internal static string Easy2Exception_SelectCommandDenied {
             get {
-                return ResourceManager.GetString("Easy2MsgSelectCommandDenied", resourceCulture);
+                return ResourceManager.GetString("Easy2Exception_SelectCommandDenied", resourceCulture);
             }
         }
         
         /// <summary>
         ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;SHOW&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static string Easy2MsgShowCommandDenied {
+        internal static string Easy2Exception_ShowCommandDenied {
             get {
-                return ResourceManager.GetString("Easy2MsgShowCommandDenied", resourceCulture);
+                return ResourceManager.GetString("Easy2Exception_ShowCommandDenied", resourceCulture);
             }
         }
         
         /// <summary>
         ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;UPDATE&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static string Easy2MsgUpdateCommandDenied {
+        internal static string Easy2Exception_UpdateCommandDenied {
             get {
-                return ResourceManager.GetString("Easy2MsgUpdateCommandDenied", resourceCulture);
+                return ResourceManager.GetString("Easy2Exception_UpdateCommandDenied", resourceCulture);
             }
         }
         
         /// <summary>
         ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;USE&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static string Easy2MSgUseCommanDenied {
+        internal static string Easy2Exception_UseCommanDenied {
             get {
-                return ResourceManager.GetString("Easy2MSgUseCommanDenied", resourceCulture);
+                return ResourceManager.GetString("Easy2Exception_UseCommanDenied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   MySQL 서버 연결에 성공하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2Message_ConnectSuccess {
+            get {
+                return ResourceManager.GetString("Easy2Message_ConnectSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   연결테스트과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2Message_ConnectTest {
+            get {
+                return ResourceManager.GetString("Easy2Message_ConnectTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   객체를 삭제하시겠습니까?과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2Message_DeleteQuestion {
+            get {
+                return ResourceManager.GetString("Easy2Message_DeleteQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   질문과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2Message_Question {
+            get {
+                return ResourceManager.GetString("Easy2Message_Question", resourceCulture);
             }
         }
         
@@ -466,11 +511,11 @@ namespace Easy2.Properties {
         }
         
         /// <summary>
-        ///   지정된 파일을 찾을 수 없습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   ..\\..\\dat\\connection.dat과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static string FileNotFound {
+        internal static string FilePath_ConnectionData {
             get {
-                return ResourceManager.GetString("FileNotFound", resourceCulture);
+                return ResourceManager.GetString("FilePath_ConnectionData", resourceCulture);
             }
         }
         
@@ -603,6 +648,13 @@ namespace Easy2.Properties {
         internal static System.Drawing.Bitmap RefreshObjectBrowser {
             get {
                 object obj = ResourceManager.GetObject("RefreshObjectBrowser", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap RenameL {
+            get {
+                object obj = ResourceManager.GetObject("RenameL", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

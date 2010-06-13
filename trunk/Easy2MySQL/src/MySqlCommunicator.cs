@@ -89,7 +89,6 @@ namespace Easy2
 		/// <returns>연결성공 메세지입니다.</returns>
 		public string ConnectTest(MySqlConnectInfo connectInfo)
 		{
-			this.m_connectInfo = connectInfo;
 			return ConnectTest((new MySqlGenerator()).ConnectionString(connectInfo));
 		}
 
@@ -105,7 +104,7 @@ namespace Easy2
 
 			string message = String.Format("MySQL Server {0}", testConnection.ServerVersion);
 
-			testConnection.Close();
+			testConnection.Dispose();
 
 			return message;
 		}

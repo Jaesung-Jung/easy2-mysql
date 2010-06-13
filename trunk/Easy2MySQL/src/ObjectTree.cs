@@ -1,6 +1,7 @@
 ﻿
 // ObjectTree.cs
 //
+using Easy2.Properties;
 using System;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
@@ -39,9 +40,9 @@ namespace Easy2
 				header = header.Parent;
 
 			foreach(Node n in this.Nodes)
-				n.Image = Properties.Resources.TreeServerDeactivate;
+				n.Image = Resources.TreeServerDeactivate;
 
-			header.Image = Properties.Resources.TreeServerActivate;
+			header.Image = Resources.TreeServerActivate;
 			Program.ActivateCommunicator = Program.CoummunicatorList[header.Index];
 
 			Node databaseNode = this.SelectedNode;
@@ -61,7 +62,7 @@ namespace Easy2
 			}
 			catch(MySqlException ex)
 			{
-				EasyToMySqlError.Show(Program.MainFormHandle, ex.Message, Properties.Resources.Easy2MsgExecuteFail, ex.Number);
+				EasyToMySqlError.Show(Program.MainFormHandle, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
 			}
 		}
 
@@ -137,7 +138,7 @@ namespace Easy2
 			}
 			catch(MySqlException ex)
 			{
-				EasyToMySqlError.Show(Program.MainFormHandle, ex.Message, Properties.Resources.Easy2MsgExecuteFail, ex.Number);
+				EasyToMySqlError.Show(Program.MainFormHandle, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
 			}
 			finally
 			{
@@ -179,7 +180,7 @@ namespace Easy2
 					}
 					catch(MySqlException ex)
 					{
-						EasyToMySqlError.Show(Program.MainFormHandle, ex.Message, Properties.Resources.Easy2MsgExecuteFail, ex.Number);
+						EasyToMySqlError.Show(Program.MainFormHandle, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
 					}
 					finally
 					{

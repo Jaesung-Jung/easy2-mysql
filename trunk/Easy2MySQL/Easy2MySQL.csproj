@@ -135,6 +135,12 @@
     <Compile Include="src\QueryEditor.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="src\RenameConnectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\RenameConnectForm.Designer.cs">
+      <DependentUpon>RenameConnectForm.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="src\BaseForm.resx">
@@ -155,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\NewConnectForm.resx">
       <DependentUpon>NewConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\RenameConnectForm.resx">
+      <DependentUpon>RenameConnectForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -471,5 +480,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="img\png\NewConnect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\RenameL.png" />
   </ItemGroup>
 </Project>

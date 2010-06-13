@@ -1,6 +1,7 @@
 ﻿
 // ObjectNode.cs
 //
+using Easy2.Properties;
 using DevComponents.AdvTree;
 
 namespace Easy2
@@ -24,55 +25,55 @@ namespace Easy2
 			switch(type)
 			{
 				case ObjectNodeType.MySqlServer:
-					this.Image = Properties.Resources.TreeServerDeactivate;
+					this.Image = Resources.TreeServerDeactivate;
 					break;
 					
 				case ObjectNodeType.MySqlDatabase:
-					this.Image = Properties.Resources.TreeDatabase;
+					this.Image = Resources.TreeDatabase;
 					break;
 
 				case ObjectNodeType.MySqlTable:
-					this.Image = Properties.Resources.TreeTable;
+					this.Image = Resources.TreeTable;
 					break;
 
 				case ObjectNodeType.MySqlView:
-					this.Image = Properties.Resources.TreeView;
+					this.Image = Resources.TreeView;
 					break;
 
 				case ObjectNodeType.MySqlStoredProcs:
-					this.Image = Properties.Resources.TreeStoredProc;
+					this.Image = Resources.TreeStoredProc;
 					break;
 
 				case ObjectNodeType.MySqlFunction:
-					this.Image = Properties.Resources.TreeFunction;
+					this.Image = Resources.TreeFunction;
 					break;
 
 				case ObjectNodeType.MySqlTrigger:
-					this.Image = Properties.Resources.TreeTrigger;
+					this.Image = Resources.TreeTrigger;
 					break;
 
 				case ObjectNodeType.MySqlEvent:
-					this.Image = Properties.Resources.TreeEvent;
+					this.Image = Resources.TreeEvent;
 					break;
 
 				case ObjectNodeType.MySqlColumn:
-					this.Image = Properties.Resources.TreeColumn;
+					this.Image = Resources.TreeColumn;
 					break;
 
 				case ObjectNodeType.MySqlPkColumn:
-					this.Image = Properties.Resources.TreePrimaryKey;
+					this.Image = Resources.TreePrimaryKey;
 					break;
 
 				case ObjectNodeType.MySqlIndex:
-					this.Image = Properties.Resources.TreeIndex;
+					this.Image = Resources.TreeIndex;
 					break;
 
 				case ObjectNodeType.MySqlPkIndex:
-					this.Image = Properties.Resources.TreePkIndex;
+					this.Image = Resources.TreePkIndex;
 					break;
 
 				case ObjectNodeType.Folder:
-					this.Image = Properties.Resources.FolderClose;
+					this.Image = Resources.FolderClose;
 					break;
 			}
 		}

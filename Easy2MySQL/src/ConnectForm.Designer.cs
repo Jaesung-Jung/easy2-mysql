@@ -47,17 +47,17 @@
 			this.m_mysqlPortLabel = new DevComponents.DotNetBar.LabelX();
 			this.m_mysqlPasswordText = new DevComponents.DotNetBar.Controls.TextBoxX();
 			this.m_mysqlPasswordLabel = new DevComponents.DotNetBar.LabelX();
-			this.m_mysqlUserText = new DevComponents.DotNetBar.Controls.TextBoxX();
+			this.m_mysqlUsernameText = new DevComponents.DotNetBar.Controls.TextBoxX();
 			this.m_mysqlUserLabel = new DevComponents.DotNetBar.LabelX();
 			this.m_mysqlHostText = new DevComponents.DotNetBar.Controls.TextBoxX();
 			this.m_mysqlHostLabel = new DevComponents.DotNetBar.LabelX();
 			this.m_mysqlTab = new DevComponents.DotNetBar.TabItem(this.components);
 			this.m_httpTabPanel = new DevComponents.DotNetBar.TabControlPanel();
 			this.m_httpTab = new DevComponents.DotNetBar.TabItem(this.components);
-			this.m_sshTabPanel = new DevComponents.DotNetBar.TabControlPanel();
-			this.m_sshTab = new DevComponents.DotNetBar.TabItem(this.components);
 			this.m_sslTabPanel = new DevComponents.DotNetBar.TabControlPanel();
 			this.m_sslTab = new DevComponents.DotNetBar.TabItem(this.components);
+			this.m_sshTabPanel = new DevComponents.DotNetBar.TabControlPanel();
+			this.m_sshTab = new DevComponents.DotNetBar.TabItem(this.components);
 			this.m_connect = new DevComponents.DotNetBar.ButtonX();
 			this.m_cancel = new DevComponents.DotNetBar.ButtonX();
 			this.m_connectTest = new DevComponents.DotNetBar.ButtonX();
@@ -88,6 +88,7 @@
 			// 
 			// 
 			this.m_savedConnectionLabel.BackgroundStyle.Class = "";
+			this.m_savedConnectionLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_savedConnectionLabel.Location = new System.Drawing.Point(21, 78);
 			this.m_savedConnectionLabel.Name = "m_savedConnectionLabel";
 			this.m_savedConnectionLabel.Size = new System.Drawing.Size(105, 21);
@@ -105,6 +106,7 @@
 			this.m_deleteConnection.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_deleteConnection.TabIndex = 22;
 			this.m_deleteConnection.Text = "지우기(&D)...";
+			this.m_deleteConnection.Click += new System.EventHandler(this.m_deleteConnection_Click);
 			// 
 			// m_renameConnection
 			// 
@@ -117,6 +119,7 @@
 			this.m_renameConnection.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_renameConnection.TabIndex = 21;
 			this.m_renameConnection.Text = "바꾸기(&R)...";
+			this.m_renameConnection.Click += new System.EventHandler(this.m_renameConnection_Click);
 			// 
 			// m_saveConnection
 			// 
@@ -129,6 +132,7 @@
 			this.m_saveConnection.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_saveConnection.TabIndex = 20;
 			this.m_saveConnection.Text = "저장(&S)";
+			this.m_saveConnection.Click += new System.EventHandler(this.m_saveConnection_Click);
 			// 
 			// m_newConnection
 			// 
@@ -141,6 +145,7 @@
 			this.m_newConnection.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_newConnection.TabIndex = 19;
 			this.m_newConnection.Text = "새 연결(&N)...";
+			this.m_newConnection.Click += new System.EventHandler(this.m_newConnection_Click);
 			// 
 			// m_tabControl
 			// 
@@ -148,8 +153,9 @@
 			this.m_tabControl.CanReorderTabs = true;
 			this.m_tabControl.Controls.Add(this.m_mysqlTabPanel);
 			this.m_tabControl.Controls.Add(this.m_httpTabPanel);
-			this.m_tabControl.Controls.Add(this.m_sshTabPanel);
 			this.m_tabControl.Controls.Add(this.m_sslTabPanel);
+			this.m_tabControl.Controls.Add(this.m_sshTabPanel);
+			this.m_tabControl.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.m_tabControl.Location = new System.Drawing.Point(8, 142);
 			this.m_tabControl.Name = "m_tabControl";
 			this.m_tabControl.SelectedTabFont = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
@@ -177,7 +183,7 @@
 			this.m_mysqlTabPanel.Controls.Add(this.m_mysqlPortLabel);
 			this.m_mysqlTabPanel.Controls.Add(this.m_mysqlPasswordText);
 			this.m_mysqlTabPanel.Controls.Add(this.m_mysqlPasswordLabel);
-			this.m_mysqlTabPanel.Controls.Add(this.m_mysqlUserText);
+			this.m_mysqlTabPanel.Controls.Add(this.m_mysqlUsernameText);
 			this.m_mysqlTabPanel.Controls.Add(this.m_mysqlUserLabel);
 			this.m_mysqlTabPanel.Controls.Add(this.m_mysqlHostText);
 			this.m_mysqlTabPanel.Controls.Add(this.m_mysqlHostLabel);
@@ -186,9 +192,10 @@
 			this.m_mysqlTabPanel.Name = "m_mysqlTabPanel";
 			this.m_mysqlTabPanel.Padding = new System.Windows.Forms.Padding(1);
 			this.m_mysqlTabPanel.Size = new System.Drawing.Size(462, 223);
-			this.m_mysqlTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.m_mysqlTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
+			this.m_mysqlTabPanel.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
 			this.m_mysqlTabPanel.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-			this.m_mysqlTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(83)))), ((int)(((byte)(89)))));
+			this.m_mysqlTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
 			this.m_mysqlTabPanel.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
 						| DevComponents.DotNetBar.eBorderSide.Bottom)));
 			this.m_mysqlTabPanel.Style.GradientAngle = 90;
@@ -202,6 +209,7 @@
 			// 
 			// 
 			this.m_secondLabel.BackgroundStyle.Class = "";
+			this.m_secondLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_secondLabel.Location = new System.Drawing.Point(234, 174);
 			this.m_secondLabel.Name = "m_secondLabel";
 			this.m_secondLabel.Size = new System.Drawing.Size(20, 21);
@@ -214,6 +222,7 @@
 			// 
 			// 
 			this.m_mysqlTimeoutText.Border.Class = "TextBoxBorder";
+			this.m_mysqlTimeoutText.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_mysqlTimeoutText.Location = new System.Drawing.Point(126, 170);
 			this.m_mysqlTimeoutText.Name = "m_mysqlTimeoutText";
 			this.m_mysqlTimeoutText.Size = new System.Drawing.Size(102, 25);
@@ -228,6 +237,7 @@
 			// 
 			// 
 			this.m_mysqlTimeoutLabel.BackgroundStyle.Class = "";
+			this.m_mysqlTimeoutLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_mysqlTimeoutLabel.Location = new System.Drawing.Point(13, 174);
 			this.m_mysqlTimeoutLabel.Name = "m_mysqlTimeoutLabel";
 			this.m_mysqlTimeoutLabel.Size = new System.Drawing.Size(92, 21);
@@ -241,6 +251,7 @@
 			// 
 			// 
 			this.m_savePasswordCheck.BackgroundStyle.Class = "";
+			this.m_savePasswordCheck.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_savePasswordCheck.Location = new System.Drawing.Point(347, 78);
 			this.m_savePasswordCheck.Name = "m_savePasswordCheck";
 			this.m_savePasswordCheck.Size = new System.Drawing.Size(85, 21);
@@ -254,6 +265,7 @@
 			// 
 			// 
 			this.m_mysqlDatabaseText.Border.Class = "TextBoxBorder";
+			this.m_mysqlDatabaseText.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_mysqlDatabaseText.Location = new System.Drawing.Point(126, 138);
 			this.m_mysqlDatabaseText.Name = "m_mysqlDatabaseText";
 			this.m_mysqlDatabaseText.Size = new System.Drawing.Size(313, 25);
@@ -266,6 +278,7 @@
 			// 
 			// 
 			this.m_mysqlDatabaseLabel.BackgroundStyle.Class = "";
+			this.m_mysqlDatabaseLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_mysqlDatabaseLabel.Location = new System.Drawing.Point(13, 142);
 			this.m_mysqlDatabaseLabel.Name = "m_mysqlDatabaseLabel";
 			this.m_mysqlDatabaseLabel.Size = new System.Drawing.Size(114, 21);
@@ -278,6 +291,7 @@
 			// 
 			// 
 			this.m_mysqlPortText.Border.Class = "TextBoxBorder";
+			this.m_mysqlPortText.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_mysqlPortText.Location = new System.Drawing.Point(126, 107);
 			this.m_mysqlPortText.Name = "m_mysqlPortText";
 			this.m_mysqlPortText.Size = new System.Drawing.Size(215, 25);
@@ -291,6 +305,7 @@
 			// 
 			// 
 			this.m_mysqlPortLabel.BackgroundStyle.Class = "";
+			this.m_mysqlPortLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_mysqlPortLabel.Location = new System.Drawing.Point(13, 111);
 			this.m_mysqlPortLabel.Name = "m_mysqlPortLabel";
 			this.m_mysqlPortLabel.Size = new System.Drawing.Size(63, 21);
@@ -303,6 +318,7 @@
 			// 
 			// 
 			this.m_mysqlPasswordText.Border.Class = "TextBoxBorder";
+			this.m_mysqlPasswordText.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_mysqlPasswordText.Location = new System.Drawing.Point(126, 76);
 			this.m_mysqlPasswordText.Name = "m_mysqlPasswordText";
 			this.m_mysqlPasswordText.PasswordChar = '●';
@@ -316,22 +332,24 @@
 			// 
 			// 
 			this.m_mysqlPasswordLabel.BackgroundStyle.Class = "";
+			this.m_mysqlPasswordLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_mysqlPasswordLabel.Location = new System.Drawing.Point(13, 80);
 			this.m_mysqlPasswordLabel.Name = "m_mysqlPasswordLabel";
 			this.m_mysqlPasswordLabel.Size = new System.Drawing.Size(87, 21);
 			this.m_mysqlPasswordLabel.TabIndex = 6;
 			this.m_mysqlPasswordLabel.Text = "비밀번호(&P)";
 			// 
-			// m_mysqlUserText
+			// m_mysqlUsernameText
 			// 
 			// 
 			// 
 			// 
-			this.m_mysqlUserText.Border.Class = "TextBoxBorder";
-			this.m_mysqlUserText.Location = new System.Drawing.Point(126, 45);
-			this.m_mysqlUserText.Name = "m_mysqlUserText";
-			this.m_mysqlUserText.Size = new System.Drawing.Size(313, 25);
-			this.m_mysqlUserText.TabIndex = 5;
+			this.m_mysqlUsernameText.Border.Class = "TextBoxBorder";
+			this.m_mysqlUsernameText.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			this.m_mysqlUsernameText.Location = new System.Drawing.Point(126, 45);
+			this.m_mysqlUsernameText.Name = "m_mysqlUsernameText";
+			this.m_mysqlUsernameText.Size = new System.Drawing.Size(313, 25);
+			this.m_mysqlUsernameText.TabIndex = 5;
 			// 
 			// m_mysqlUserLabel
 			// 
@@ -340,6 +358,7 @@
 			// 
 			// 
 			this.m_mysqlUserLabel.BackgroundStyle.Class = "";
+			this.m_mysqlUserLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_mysqlUserLabel.Location = new System.Drawing.Point(13, 49);
 			this.m_mysqlUserLabel.Name = "m_mysqlUserLabel";
 			this.m_mysqlUserLabel.Size = new System.Drawing.Size(76, 21);
@@ -352,6 +371,7 @@
 			// 
 			// 
 			this.m_mysqlHostText.Border.Class = "TextBoxBorder";
+			this.m_mysqlHostText.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_mysqlHostText.Location = new System.Drawing.Point(126, 14);
 			this.m_mysqlHostText.Name = "m_mysqlHostText";
 			this.m_mysqlHostText.Size = new System.Drawing.Size(313, 25);
@@ -365,6 +385,7 @@
 			// 
 			// 
 			this.m_mysqlHostLabel.BackgroundStyle.Class = "";
+			this.m_mysqlHostLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_mysqlHostLabel.Location = new System.Drawing.Point(13, 18);
 			this.m_mysqlHostLabel.Name = "m_mysqlHostLabel";
 			this.m_mysqlHostLabel.Size = new System.Drawing.Size(107, 21);
@@ -384,9 +405,10 @@
 			this.m_httpTabPanel.Name = "m_httpTabPanel";
 			this.m_httpTabPanel.Padding = new System.Windows.Forms.Padding(1);
 			this.m_httpTabPanel.Size = new System.Drawing.Size(462, 223);
-			this.m_httpTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.m_httpTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
+			this.m_httpTabPanel.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
 			this.m_httpTabPanel.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-			this.m_httpTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(83)))), ((int)(((byte)(89)))));
+			this.m_httpTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
 			this.m_httpTabPanel.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
 						| DevComponents.DotNetBar.eBorderSide.Bottom)));
 			this.m_httpTabPanel.Style.GradientAngle = 90;
@@ -399,28 +421,6 @@
 			this.m_httpTab.Name = "m_httpTab";
 			this.m_httpTab.Text = "HTTP";
 			// 
-			// m_sshTabPanel
-			// 
-			this.m_sshTabPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_sshTabPanel.Location = new System.Drawing.Point(0, 28);
-			this.m_sshTabPanel.Name = "m_sshTabPanel";
-			this.m_sshTabPanel.Padding = new System.Windows.Forms.Padding(1);
-			this.m_sshTabPanel.Size = new System.Drawing.Size(462, 223);
-			this.m_sshTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.m_sshTabPanel.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-			this.m_sshTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(83)))), ((int)(((byte)(89)))));
-			this.m_sshTabPanel.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
-						| DevComponents.DotNetBar.eBorderSide.Bottom)));
-			this.m_sshTabPanel.Style.GradientAngle = 90;
-			this.m_sshTabPanel.TabIndex = 3;
-			this.m_sshTabPanel.TabItem = this.m_sshTab;
-			// 
-			// m_sshTab
-			// 
-			this.m_sshTab.AttachedControl = this.m_sshTabPanel;
-			this.m_sshTab.Name = "m_sshTab";
-			this.m_sshTab.Text = "SSH";
-			// 
 			// m_sslTabPanel
 			// 
 			this.m_sslTabPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -428,9 +428,10 @@
 			this.m_sslTabPanel.Name = "m_sslTabPanel";
 			this.m_sslTabPanel.Padding = new System.Windows.Forms.Padding(1);
 			this.m_sslTabPanel.Size = new System.Drawing.Size(462, 223);
-			this.m_sslTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.m_sslTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
+			this.m_sslTabPanel.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
 			this.m_sslTabPanel.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-			this.m_sslTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(83)))), ((int)(((byte)(89)))));
+			this.m_sslTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
 			this.m_sslTabPanel.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
 						| DevComponents.DotNetBar.eBorderSide.Bottom)));
 			this.m_sslTabPanel.Style.GradientAngle = 90;
@@ -443,6 +444,29 @@
 			this.m_sslTab.Name = "m_sslTab";
 			this.m_sslTab.Text = "SSL";
 			// 
+			// m_sshTabPanel
+			// 
+			this.m_sshTabPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.m_sshTabPanel.Location = new System.Drawing.Point(0, 28);
+			this.m_sshTabPanel.Name = "m_sshTabPanel";
+			this.m_sshTabPanel.Padding = new System.Windows.Forms.Padding(1);
+			this.m_sshTabPanel.Size = new System.Drawing.Size(462, 223);
+			this.m_sshTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
+			this.m_sshTabPanel.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
+			this.m_sshTabPanel.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+			this.m_sshTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
+			this.m_sshTabPanel.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
+						| DevComponents.DotNetBar.eBorderSide.Bottom)));
+			this.m_sshTabPanel.Style.GradientAngle = 90;
+			this.m_sshTabPanel.TabIndex = 3;
+			this.m_sshTabPanel.TabItem = this.m_sshTab;
+			// 
+			// m_sshTab
+			// 
+			this.m_sshTab.AttachedControl = this.m_sshTabPanel;
+			this.m_sshTab.Name = "m_sshTab";
+			this.m_sshTab.Text = "SSH";
+			// 
 			// m_connect
 			// 
 			this.m_connect.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -454,6 +478,7 @@
 			this.m_connect.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_connect.TabIndex = 16;
 			this.m_connect.Text = "연결하기(&C)";
+			this.m_connect.Click += new System.EventHandler(this.m_connect_Click);
 			// 
 			// m_cancel
 			// 
@@ -466,6 +491,7 @@
 			this.m_cancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_cancel.TabIndex = 17;
 			this.m_cancel.Text = "취소(&L)";
+			this.m_cancel.Click += new System.EventHandler(this.m_cancel_Click);
 			// 
 			// m_connectTest
 			// 
@@ -478,6 +504,7 @@
 			this.m_connectTest.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_connectTest.TabIndex = 18;
 			this.m_connectTest.Text = "연결테스트(&T)";
+			this.m_connectTest.Click += new System.EventHandler(this.m_connectTest_Click);
 			// 
 			// m_titleLabel
 			// 
@@ -485,6 +512,7 @@
 			// 
 			// 
 			this.m_titleLabel.BackgroundStyle.Class = "";
+			this.m_titleLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_titleLabel.Location = new System.Drawing.Point(78, 18);
 			this.m_titleLabel.Name = "m_titleLabel";
 			this.m_titleLabel.Size = new System.Drawing.Size(199, 50);
@@ -498,6 +526,7 @@
 			// 
 			// 
 			this.m_titleImgLabel.BackgroundStyle.Class = "";
+			this.m_titleImgLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_titleImgLabel.Image = global::Easy2.Properties.Resources.ConnectDatabaseL;
 			this.m_titleImgLabel.Location = new System.Drawing.Point(8, 4);
 			this.m_titleImgLabel.Name = "m_titleImgLabel";
@@ -521,6 +550,7 @@
 			this.Controls.Add(this.m_savedConnectionLabel);
 			this.Controls.Add(this.m_deleteConnection);
 			this.Controls.Add(this.m_renameConnection);
+			this.DoubleBuffered = true;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
@@ -556,7 +586,7 @@
 		private DevComponents.DotNetBar.TabItem m_sslTab;
 		private DevComponents.DotNetBar.LabelX m_mysqlHostLabel;
 		private DevComponents.DotNetBar.LabelX m_mysqlPasswordLabel;
-		private DevComponents.DotNetBar.Controls.TextBoxX m_mysqlUserText;
+		private DevComponents.DotNetBar.Controls.TextBoxX m_mysqlUsernameText;
 		private DevComponents.DotNetBar.LabelX m_mysqlUserLabel;
 		private DevComponents.DotNetBar.Controls.TextBoxX m_mysqlHostText;
 		private DevComponents.DotNetBar.Controls.TextBoxX m_mysqlPasswordText;

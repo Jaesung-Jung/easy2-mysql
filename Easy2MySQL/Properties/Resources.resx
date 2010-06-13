@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="AddUser" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\png\AddUser.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -280,25 +280,25 @@
   <data name="ImportDatabase" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\png\ImportDatabase.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Easy2MsgConnectFail" xml:space="preserve">
+  <data name="Easy2Exception_Connect" xml:space="preserve">
     <value>MySQL 서버 연결에 실패하였습니다.</value>
   </data>
-  <data name="Easy2MsgConnectSuccess" xml:space="preserve">
+  <data name="Easy2Message_ConnectSuccess" xml:space="preserve">
     <value>MySQL 서버 연결에 성공하였습니다.</value>
   </data>
   <data name="TreeDatabase" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\png\TreeDatabase.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Easy2MsgDeleteCommandDenied" xml:space="preserve">
+  <data name="Easy2Exception_DeleteCommandDenied" xml:space="preserve">
     <value>서버에서 &lt;font color=\"#FF0000\"&gt;DELETE&lt;/font&gt; 명령을 거부하였습니다.</value>
   </data>
-  <data name="Easy2MsgExecuteFail" xml:space="preserve">
+  <data name="Easy2Exception_ExecuteQuery" xml:space="preserve">
     <value>쿼리문 실행을 실패하였습니다.</value>
   </data>
-  <data name="Easy2MsgInsertCommandDenied" xml:space="preserve">
+  <data name="Easy2Exception_InsertCommandDenied" xml:space="preserve">
     <value>서버에서 &lt;font color=\"#FF0000\"&gt;INSERT&lt;/font&gt; 명령을 거부하였습니다.</value>
   </data>
-  <data name="Easy2MsgSelectCommandDenied" xml:space="preserve">
+  <data name="Easy2Exception_SelectCommandDenied" xml:space="preserve">
     <value>서버에서 &lt;font color=\"#FF0000\"&gt;SELECT&lt;/font&gt; 명령을 거부하였습니다.</value>
   </data>
   <data name="TreeServerActivate" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -307,16 +307,16 @@
   <data name="TreeServerDeactivate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\png\TreeServerDeactivate.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Easy2MsgShowCommandDenied" xml:space="preserve">
+  <data name="Easy2Exception_ShowCommandDenied" xml:space="preserve">
     <value>서버에서 &lt;font color=\"#FF0000\"&gt;SHOW&lt;/font&gt; 명령을 거부하였습니다.</value>
   </data>
   <data name="TreeTable" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\png\TreeTable.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Easy2MsgUpdateCommandDenied" xml:space="preserve">
+  <data name="Easy2Exception_UpdateCommandDenied" xml:space="preserve">
     <value>서버에서 &lt;font color=\"#FF0000\"&gt;UPDATE&lt;/font&gt; 명령을 거부하였습니다.</value>
   </data>
-  <data name="Easy2MSgUseCommanDenied" xml:space="preserve">
+  <data name="Easy2Exception_UseCommanDenied" xml:space="preserve">
     <value>서버에서 &lt;font color=\"#FF0000\"&gt;USE&lt;/font&gt; 명령을 거부하였습니다.</value>
   </data>
   <data name="OpenFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -415,10 +415,28 @@
   <data name="TreePkIndex" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\png\TreePkIndex.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ConnectionDataFilePath" xml:space="preserve">
+  <data name="FilePath_ConnectionData" xml:space="preserve">
     <value>..\\..\\dat\\connection.dat</value>
   </data>
-  <data name="FileNotFound" xml:space="preserve">
-    <value>지정된 파일을 찾을 수 없습니다.</value>
+  <data name="Easy2Exception_FileRead" xml:space="preserve">
+    <value>파일을 읽는 중 예외가 발생하였습니다.</value>
+  </data>
+  <data name="Easy2Exception_FileWrite" xml:space="preserve">
+    <value>파일을 쓰는 중 예외가 발생하였습니다.</value>
+  </data>
+  <data name="Easy2Exception" xml:space="preserve">
+    <value>예외가 발생하였습니다.</value>
+  </data>
+  <data name="RenameL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\png\RenameL.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Easy2Message_DeleteQuestion" xml:space="preserve">
+    <value>객체를 삭제하시겠습니까?</value>
+  </data>
+  <data name="Easy2Message_Question" xml:space="preserve">
+    <value>질문</value>
+  </data>
+  <data name="Easy2Message_ConnectTest" xml:space="preserve">
+    <value>연결테스트</value>
   </data>
 </root>

@@ -74,6 +74,12 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\AlterUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\AlterUserForm.Designer.cs">
+      <DependentUpon>AlterUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,12 @@
     </Compile>
     <Compile Include="src\ConnectForm.Designer.cs">
       <DependentUpon>ConnectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\CreateUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\CreateUserForm.Designer.cs">
+      <DependentUpon>CreateUserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="src\DockablePane.cs">
       <SubType>Component</SubType>
@@ -149,11 +161,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="src\AlterUserForm.resx">
+      <DependentUpon>AlterUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\ConnectForm.resx">
       <DependentUpon>ConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\CreateUserForm.resx">
+      <DependentUpon>CreateUserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\ErrorMessageForm.resx">
       <DependentUpon>ErrorMessageForm.cs</DependentUpon>
@@ -273,9 +291,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="img\png\SwitchPreviousTab.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\png\AddUser.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="img\png\AlterUser.png" />
@@ -437,9 +452,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="img\png\ConnectDatabase64.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="img\png\Error.png" />
   </ItemGroup>
   <ItemGroup>
@@ -449,48 +461,9 @@
     <None Include="img\png\FolderOpen.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="img\png\MySqlDatabase.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\png\MySqlServerActivate.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\png\MySqlServerDeactivate.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\png\MysqlTable.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\png\MySqlColumn.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\png\MySqlPrimaryKey.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\png\MySqlView.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\png\MySqlStoredProc.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\png\MySqlTrigger.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\png\MySqlEvent.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\png\MySqlFunction.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\png\MySqlPkIndex.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\png\MySqlIndex.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\png\NewConnect.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="img\png\RenameL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\png\CreateUser.png" />
   </ItemGroup>
 </Project>

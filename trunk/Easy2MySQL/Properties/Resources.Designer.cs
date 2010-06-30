@@ -60,13 +60,6 @@ namespace Easy2.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap AddUser {
-            get {
-                object obj = ResourceManager.GetObject("AddUser", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap AlterDatabase {
             get {
                 object obj = ResourceManager.GetObject("AlterDatabase", resourceCulture);
@@ -238,6 +231,13 @@ namespace Easy2.Properties {
         internal static System.Drawing.Bitmap CreateTrigger {
             get {
                 object obj = ResourceManager.GetObject("CreateTrigger", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap CreateUser {
+            get {
+                object obj = ResourceManager.GetObject("CreateUser", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

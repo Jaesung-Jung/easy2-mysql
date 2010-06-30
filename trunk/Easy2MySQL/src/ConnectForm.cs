@@ -358,7 +358,7 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
-		private void m_cancel_Click(object sender, EventArgs e)
+		private void m_close_Click(object sender, EventArgs e)
 		{
 			this.Close();
 		}

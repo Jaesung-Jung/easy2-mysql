@@ -65,6 +65,7 @@ namespace Easy2
 			{
 				this.m_connection = new MySqlConnection(connectionString);
 				this.m_connection.Open();
+				this.m_serverVersion = new MySqlGenerator().VersionNumber(this.m_connection.ServerVersion);
 				Program.CoummunicatorList.Add(this);
 			}
 			catch(MySqlException ex)
@@ -184,8 +185,17 @@ namespace Easy2
 			set { this.m_useDatabaseName = value; }
 		}
 
+		/// <summary>
+		/// 연결된 데이터베이스 서버의 버전을 나타냅니다.
+		/// </summary>
+		public double ServerVersion
+		{
+			get { return this.m_serverVersion; }
+		}
+
 		private MySqlConnection m_connection;
 		private MySqlConnectInfo m_connectInfo;
 		private string m_useDatabaseName;
+		private double m_serverVersion;
 	}
 }

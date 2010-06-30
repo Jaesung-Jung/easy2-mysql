@@ -127,6 +127,7 @@ namespace Easy2
 						{
 							reader = Program.ActivateCommunicator.ExecuteReader(new MySqlGenerator().ShowColumns(tableNode.Text));
 							this.ReadColumns(tableNode.Nodes[0], reader);
+							reader.Close();
 						}
 						if(tableNode.Nodes[1].Nodes.Count == 0)
 						{

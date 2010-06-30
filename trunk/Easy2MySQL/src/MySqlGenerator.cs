@@ -32,6 +32,19 @@ namespace Easy2
 		}
 
 		/// <summary>
+		/// 연결된 서버의 버전정보를 정수로 변환합니다.
+		/// </summary>
+		/// <param name="serverVersion">서버의 버전정보입니다.</param>
+		/// <returns>정수형으로 변환된 버전정보입니다.</returns>
+		public double VersionNumber(string serverVersion)
+		{
+			string[] token = serverVersion.Split(new char[] { '.', '-' });
+			double version = Double.Parse(String.Format("{0}.{1}", token[0], token[1]));
+
+			return version;
+		}
+
+		/// <summary>
 		/// 사용할 데이터베이스를 지정하는 쿼리문을 생성합니다.
 		/// </summary>
 		/// <param name="databaseName">사용할 데이터베이스의 이름입니다.</param>

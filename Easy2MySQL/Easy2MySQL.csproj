@@ -141,6 +141,12 @@
     <Compile Include="src\RenameConnectForm.Designer.cs">
       <DependentUpon>RenameConnectForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="src\BaseForm.resx">
@@ -164,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\RenameConnectForm.resx">
       <DependentUpon>RenameConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\UserForm.resx">
+      <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

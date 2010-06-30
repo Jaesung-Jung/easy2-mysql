@@ -98,7 +98,7 @@ namespace Easy2
 		{
 			base.OnClosed(e);
 			if(Program.MySqlConnector != null)
-				Program.MySqlConnector.Dispose();
+				Program.MySqlConnector = null;
 			this.Dispose();
 		}
 

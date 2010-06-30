@@ -59,7 +59,7 @@
 			this.m_sshTabPanel = new DevComponents.DotNetBar.TabControlPanel();
 			this.m_sshTab = new DevComponents.DotNetBar.TabItem(this.components);
 			this.m_connect = new DevComponents.DotNetBar.ButtonX();
-			this.m_cancel = new DevComponents.DotNetBar.ButtonX();
+			this.m_close = new DevComponents.DotNetBar.ButtonX();
 			this.m_connectTest = new DevComponents.DotNetBar.ButtonX();
 			this.m_titleLabel = new DevComponents.DotNetBar.Controls.ReflectionLabel();
 			this.m_titleImgLabel = new DevComponents.DotNetBar.LabelX();
@@ -75,7 +75,7 @@
 			this.m_connectionListCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.m_connectionListCombo.FormattingEnabled = true;
 			this.m_connectionListCombo.ItemHeight = 19;
-			this.m_connectionListCombo.Location = new System.Drawing.Point(134, 78);
+			this.m_connectionListCombo.Location = new System.Drawing.Point(134, 61);
 			this.m_connectionListCombo.Name = "m_connectionListCombo";
 			this.m_connectionListCombo.Size = new System.Drawing.Size(336, 25);
 			this.m_connectionListCombo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -89,7 +89,7 @@
 			// 
 			this.m_savedConnectionLabel.BackgroundStyle.Class = "";
 			this.m_savedConnectionLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-			this.m_savedConnectionLabel.Location = new System.Drawing.Point(21, 78);
+			this.m_savedConnectionLabel.Location = new System.Drawing.Point(21, 62);
 			this.m_savedConnectionLabel.Name = "m_savedConnectionLabel";
 			this.m_savedConnectionLabel.Size = new System.Drawing.Size(105, 21);
 			this.m_savedConnectionLabel.TabIndex = 0;
@@ -99,7 +99,7 @@
 			// 
 			this.m_deleteConnection.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.m_deleteConnection.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-			this.m_deleteConnection.Location = new System.Drawing.Point(359, 110);
+			this.m_deleteConnection.Location = new System.Drawing.Point(359, 93);
 			this.m_deleteConnection.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.m_deleteConnection.Name = "m_deleteConnection";
 			this.m_deleteConnection.Size = new System.Drawing.Size(111, 25);
@@ -112,7 +112,7 @@
 			// 
 			this.m_renameConnection.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.m_renameConnection.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-			this.m_renameConnection.Location = new System.Drawing.Point(242, 110);
+			this.m_renameConnection.Location = new System.Drawing.Point(242, 93);
 			this.m_renameConnection.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.m_renameConnection.Name = "m_renameConnection";
 			this.m_renameConnection.Size = new System.Drawing.Size(111, 25);
@@ -125,7 +125,7 @@
 			// 
 			this.m_saveConnection.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.m_saveConnection.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-			this.m_saveConnection.Location = new System.Drawing.Point(125, 110);
+			this.m_saveConnection.Location = new System.Drawing.Point(125, 93);
 			this.m_saveConnection.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.m_saveConnection.Name = "m_saveConnection";
 			this.m_saveConnection.Size = new System.Drawing.Size(111, 25);
@@ -138,7 +138,7 @@
 			// 
 			this.m_newConnection.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.m_newConnection.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-			this.m_newConnection.Location = new System.Drawing.Point(8, 110);
+			this.m_newConnection.Location = new System.Drawing.Point(8, 93);
 			this.m_newConnection.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.m_newConnection.Name = "m_newConnection";
 			this.m_newConnection.Size = new System.Drawing.Size(111, 25);
@@ -156,7 +156,7 @@
 			this.m_tabControl.Controls.Add(this.m_sslTabPanel);
 			this.m_tabControl.Controls.Add(this.m_sshTabPanel);
 			this.m_tabControl.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.m_tabControl.Location = new System.Drawing.Point(8, 142);
+			this.m_tabControl.Location = new System.Drawing.Point(8, 125);
 			this.m_tabControl.Name = "m_tabControl";
 			this.m_tabControl.SelectedTabFont = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
 			this.m_tabControl.SelectedTabIndex = 0;
@@ -192,10 +192,9 @@
 			this.m_mysqlTabPanel.Name = "m_mysqlTabPanel";
 			this.m_mysqlTabPanel.Padding = new System.Windows.Forms.Padding(1);
 			this.m_mysqlTabPanel.Size = new System.Drawing.Size(462, 223);
-			this.m_mysqlTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
-			this.m_mysqlTabPanel.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
+			this.m_mysqlTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.m_mysqlTabPanel.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-			this.m_mysqlTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
+			this.m_mysqlTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(83)))), ((int)(((byte)(89)))));
 			this.m_mysqlTabPanel.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
 						| DevComponents.DotNetBar.eBorderSide.Bottom)));
 			this.m_mysqlTabPanel.Style.GradientAngle = 90;
@@ -321,9 +320,9 @@
 			this.m_mysqlPasswordText.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_mysqlPasswordText.Location = new System.Drawing.Point(126, 76);
 			this.m_mysqlPasswordText.Name = "m_mysqlPasswordText";
-			this.m_mysqlPasswordText.PasswordChar = '●';
 			this.m_mysqlPasswordText.Size = new System.Drawing.Size(215, 25);
 			this.m_mysqlPasswordText.TabIndex = 7;
+			this.m_mysqlPasswordText.UseSystemPasswordChar = true;
 			// 
 			// m_mysqlPasswordLabel
 			// 
@@ -388,9 +387,9 @@
 			this.m_mysqlHostLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_mysqlHostLabel.Location = new System.Drawing.Point(13, 18);
 			this.m_mysqlHostLabel.Name = "m_mysqlHostLabel";
-			this.m_mysqlHostLabel.Size = new System.Drawing.Size(107, 21);
+			this.m_mysqlHostLabel.Size = new System.Drawing.Size(76, 21);
 			this.m_mysqlHostLabel.TabIndex = 2;
-			this.m_mysqlHostLabel.Text = "호스트 주소(&H)";
+			this.m_mysqlHostLabel.Text = "호스트(&H)";
 			// 
 			// m_mysqlTab
 			// 
@@ -405,10 +404,9 @@
 			this.m_httpTabPanel.Name = "m_httpTabPanel";
 			this.m_httpTabPanel.Padding = new System.Windows.Forms.Padding(1);
 			this.m_httpTabPanel.Size = new System.Drawing.Size(462, 223);
-			this.m_httpTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
-			this.m_httpTabPanel.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
+			this.m_httpTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.m_httpTabPanel.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-			this.m_httpTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
+			this.m_httpTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(83)))), ((int)(((byte)(89)))));
 			this.m_httpTabPanel.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
 						| DevComponents.DotNetBar.eBorderSide.Bottom)));
 			this.m_httpTabPanel.Style.GradientAngle = 90;
@@ -428,10 +426,9 @@
 			this.m_sslTabPanel.Name = "m_sslTabPanel";
 			this.m_sslTabPanel.Padding = new System.Windows.Forms.Padding(1);
 			this.m_sslTabPanel.Size = new System.Drawing.Size(462, 223);
-			this.m_sslTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
-			this.m_sslTabPanel.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
+			this.m_sslTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.m_sslTabPanel.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-			this.m_sslTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
+			this.m_sslTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(83)))), ((int)(((byte)(89)))));
 			this.m_sslTabPanel.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
 						| DevComponents.DotNetBar.eBorderSide.Bottom)));
 			this.m_sslTabPanel.Style.GradientAngle = 90;
@@ -451,10 +448,9 @@
 			this.m_sshTabPanel.Name = "m_sshTabPanel";
 			this.m_sshTabPanel.Padding = new System.Windows.Forms.Padding(1);
 			this.m_sshTabPanel.Size = new System.Drawing.Size(462, 223);
-			this.m_sshTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
-			this.m_sshTabPanel.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
+			this.m_sshTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.m_sshTabPanel.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-			this.m_sshTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
+			this.m_sshTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(83)))), ((int)(((byte)(89)))));
 			this.m_sshTabPanel.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
 						| DevComponents.DotNetBar.eBorderSide.Bottom)));
 			this.m_sshTabPanel.Style.GradientAngle = 90;
@@ -471,7 +467,7 @@
 			// 
 			this.m_connect.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.m_connect.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-			this.m_connect.Location = new System.Drawing.Point(8, 403);
+			this.m_connect.Location = new System.Drawing.Point(8, 386);
 			this.m_connect.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.m_connect.Name = "m_connect";
 			this.m_connect.Size = new System.Drawing.Size(145, 25);
@@ -480,24 +476,24 @@
 			this.m_connect.Text = "연결하기(&C)";
 			this.m_connect.Click += new System.EventHandler(this.m_connect_Click);
 			// 
-			// m_cancel
+			// m_close
 			// 
-			this.m_cancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.m_cancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-			this.m_cancel.Location = new System.Drawing.Point(167, 403);
-			this.m_cancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.m_cancel.Name = "m_cancel";
-			this.m_cancel.Size = new System.Drawing.Size(145, 25);
-			this.m_cancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_cancel.TabIndex = 17;
-			this.m_cancel.Text = "취소(&L)";
-			this.m_cancel.Click += new System.EventHandler(this.m_cancel_Click);
+			this.m_close.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.m_close.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_close.Location = new System.Drawing.Point(167, 386);
+			this.m_close.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.m_close.Name = "m_close";
+			this.m_close.Size = new System.Drawing.Size(145, 25);
+			this.m_close.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_close.TabIndex = 17;
+			this.m_close.Text = "닫기(&L)";
+			this.m_close.Click += new System.EventHandler(this.m_close_Click);
 			// 
 			// m_connectTest
 			// 
 			this.m_connectTest.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.m_connectTest.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-			this.m_connectTest.Location = new System.Drawing.Point(325, 403);
+			this.m_connectTest.Location = new System.Drawing.Point(325, 386);
 			this.m_connectTest.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.m_connectTest.Name = "m_connectTest";
 			this.m_connectTest.Size = new System.Drawing.Size(145, 25);
@@ -513,12 +509,12 @@
 			// 
 			this.m_titleLabel.BackgroundStyle.Class = "";
 			this.m_titleLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-			this.m_titleLabel.Location = new System.Drawing.Point(78, 18);
+			this.m_titleLabel.Location = new System.Drawing.Point(63, 4);
 			this.m_titleLabel.Name = "m_titleLabel";
 			this.m_titleLabel.Size = new System.Drawing.Size(199, 50);
 			this.m_titleLabel.TabIndex = 19;
-			this.m_titleLabel.Text = "<b><font size=\"+6\">Connect to <font color=\"#015A84\">My<font color=\"#E97B00\">SQL</" +
-				"font></font></font></b>";
+			this.m_titleLabel.Text = "<b><font size=\"+6\"><font color=\"#015A84\">My</font><font color=\"#E97B00\">SQL</font" +
+				"><font color=\"#000000\"> 연결하기</font></font></b>";
 			// 
 			// m_titleImgLabel
 			// 
@@ -528,22 +524,22 @@
 			this.m_titleImgLabel.BackgroundStyle.Class = "";
 			this.m_titleImgLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_titleImgLabel.Image = global::Easy2.Properties.Resources.ConnectDatabaseL;
-			this.m_titleImgLabel.Location = new System.Drawing.Point(8, 4);
+			this.m_titleImgLabel.Location = new System.Drawing.Point(4, 4);
 			this.m_titleImgLabel.Name = "m_titleImgLabel";
-			this.m_titleImgLabel.Size = new System.Drawing.Size(64, 64);
+			this.m_titleImgLabel.Size = new System.Drawing.Size(48, 48);
 			this.m_titleImgLabel.TabIndex = 20;
 			// 
 			// ConnectForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(480, 440);
+			this.ClientSize = new System.Drawing.Size(480, 423);
 			this.Controls.Add(this.m_titleLabel);
 			this.Controls.Add(this.m_titleImgLabel);
 			this.Controls.Add(this.m_connectionListCombo);
 			this.Controls.Add(this.m_connect);
 			this.Controls.Add(this.m_connectTest);
-			this.Controls.Add(this.m_cancel);
+			this.Controls.Add(this.m_close);
 			this.Controls.Add(this.m_newConnection);
 			this.Controls.Add(this.m_tabControl);
 			this.Controls.Add(this.m_saveConnection);
@@ -596,7 +592,7 @@
 		private DevComponents.DotNetBar.Controls.TextBoxX m_mysqlDatabaseText;
 		private DevComponents.DotNetBar.Controls.CheckBoxX m_savePasswordCheck;
 		private DevComponents.DotNetBar.ButtonX m_connect;
-		private DevComponents.DotNetBar.ButtonX m_cancel;
+		private DevComponents.DotNetBar.ButtonX m_close;
 		private DevComponents.DotNetBar.ButtonX m_connectTest;
 		private DevComponents.DotNetBar.Controls.ReflectionLabel m_titleLabel;
 		private DevComponents.DotNetBar.LabelX m_titleImgLabel;

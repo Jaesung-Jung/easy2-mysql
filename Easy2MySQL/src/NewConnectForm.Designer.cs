@@ -32,7 +32,7 @@
 			this.m_connectNameLabel = new DevComponents.DotNetBar.LabelX();
 			this.m_connectNameText = new DevComponents.DotNetBar.Controls.TextBoxX();
 			this.m_commitButton = new DevComponents.DotNetBar.ButtonX();
-			this.m_cancelButton = new DevComponents.DotNetBar.ButtonX();
+			this.m_closeButton = new DevComponents.DotNetBar.ButtonX();
 			this.SuspendLayout();
 			// 
 			// m_imgLabel
@@ -89,24 +89,24 @@
 			this.m_commitButton.Text = "확인(&O)";
 			this.m_commitButton.Click += new System.EventHandler(this.m_commitButton_Click);
 			// 
-			// m_cancelButton
+			// m_closeButton
 			// 
-			this.m_cancelButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.m_cancelButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-			this.m_cancelButton.Location = new System.Drawing.Point(168, 70);
-			this.m_cancelButton.Name = "m_cancelButton";
-			this.m_cancelButton.Size = new System.Drawing.Size(92, 23);
-			this.m_cancelButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_cancelButton.TabIndex = 4;
-			this.m_cancelButton.Text = "취소(&L)";
-			this.m_cancelButton.Click += new System.EventHandler(this.m_cancelButton_Click);
+			this.m_closeButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.m_closeButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_closeButton.Location = new System.Drawing.Point(168, 70);
+			this.m_closeButton.Name = "m_closeButton";
+			this.m_closeButton.Size = new System.Drawing.Size(92, 23);
+			this.m_closeButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_closeButton.TabIndex = 4;
+			this.m_closeButton.Text = "닫기(&L)";
+			this.m_closeButton.Click += new System.EventHandler(this.m_closeButton_Click);
 			// 
 			// NewConnectForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(272, 106);
-			this.Controls.Add(this.m_cancelButton);
+			this.Controls.Add(this.m_closeButton);
 			this.Controls.Add(this.m_commitButton);
 			this.Controls.Add(this.m_connectNameText);
 			this.Controls.Add(this.m_connectNameLabel);
@@ -126,7 +126,7 @@
 
 		private DevComponents.DotNetBar.LabelX m_connectNameLabel;
 		private DevComponents.DotNetBar.ButtonX m_commitButton;
-		private DevComponents.DotNetBar.ButtonX m_cancelButton;
+		private DevComponents.DotNetBar.ButtonX m_closeButton;
 		protected DevComponents.DotNetBar.Controls.TextBoxX m_connectNameText;
 		protected DevComponents.DotNetBar.LabelX m_imgLabel;
 	}

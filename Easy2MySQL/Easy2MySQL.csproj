@@ -63,11 +63,18 @@
   </Target>
   -->
   <ItemGroup>
-    <Reference Include="DevComponents.DotNetBar2, Version=8.2.0.2, Culture=neutral, PublicKeyToken=5fd520d36328f741, processorArchitecture=MSIL">
+    <Reference Include="DevComponents.DotNetBar2, Version=8.7.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files\DotNetBar for Windows Forms\DevComponents.DotNetBar2.dll</HintPath>
+      <HintPath>lib\DevComponents.DotNetBar2.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.2.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.2.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="ScintillaNet, Version=2.0.3138.25704, Culture=neutral, PublicKeyToken=948d6c9751444115, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\ScintillaNet.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -467,5 +474,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="img\png\CreateUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\DevComponents.DotNetBar.Design.dll" />
+    <Content Include="lib\DevComponents.DotNetBar2.dll" />
+    <Content Include="lib\MySql.Data.CF.dll" />
+    <Content Include="lib\MySql.Data.dll" />
+    <Content Include="lib\SciLexer.dll" />
+    <Content Include="lib\ScintillaNet.dll" />
   </ItemGroup>
 </Project>

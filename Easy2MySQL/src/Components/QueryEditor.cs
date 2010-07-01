@@ -4,13 +4,14 @@
 using System;
 using System.Xml;
 using System.Windows.Forms;
+using ScintillaNet;
 
 namespace Easy2
 {
 	/// <summary>
 	/// 쿼리에디터 클래스입니다.
 	/// </summary>
-	public class QueryEditor : SyntaxHighlightTextBox
+	public class QueryEditor : Scintilla
 	{
 		/// <summary>
 		/// 생성자입니다.
@@ -18,38 +19,6 @@ namespace Easy2
 		public QueryEditor()
 		{
 			InitializeComponent();
-
-			if(!(QueryEditor.m_compiledHighlightWord))
-			{
-				// 속도 문제로 잠시 보류
-// 				try
-// 				{
-// 					string highlightWordXmlFilePath = @"..\..\xml\HighlightWords.xml";
-// 					XmlDocument xmlDocument = new XmlDocument();
-// 					xmlDocument.Load(highlightWordXmlFilePath);
-// 
-// 					XmlElement xmlElement = xmlDocument.DocumentElement;
-// 					XmlNodeList highlightWordList = xmlElement.ChildNodes;
-// 
-// 					foreach(XmlElement word in xmlElement)
-// 					{
-// 						if(word.Name == "KEYWORD")
-// 						{
-// 							this.Keywords.Add(word.InnerText);
-// 						}
-// 						else if(word.Name == "FUNCTION")
-// 						{
-// 							this.Functions.Add(word.InnerText);
-// 						}
-// 					}
-// 
-// 				}
-// 				catch(Exception ex)
-// 				{
-// 					MessageBox.Show(ex.ToString());
-// 				}
-// 				this.CompileHighlightWord();
-			}
 		}
 
 		/// <summary>
@@ -57,9 +26,8 @@ namespace Easy2
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.Font = new System.Drawing.Font("Courier New", 11);
+			this.Styles[0].Font = new System.Drawing.Font("Courier New", 11);
+			this.Margins[0].Width = 22;
 		}
-
-		private static bool m_compiledHighlightWord = false;
 	}
 }

@@ -32,7 +32,7 @@
 			this.comboBoxEx1 = new DevComponents.DotNetBar.Controls.ComboBoxEx();
 			this.m_deleteUserButton = new DevComponents.DotNetBar.ButtonX();
 			this.m_closeButton = new DevComponents.DotNetBar.ButtonX();
-			this.m_createButton = new DevComponents.DotNetBar.ButtonX();
+			this.m_commitButton = new DevComponents.DotNetBar.ButtonX();
 			this.m_deselectAllButton = new DevComponents.DotNetBar.ButtonX();
 			this.m_selectAllButton = new DevComponents.DotNetBar.ButtonX();
 			this.m_allVersionGroupBox.SuspendLayout();
@@ -438,17 +438,17 @@
 			this.m_closeButton.TabIndex = 20;
 			this.m_closeButton.Text = "닫기(&L)";
 			// 
-			// m_createButton
+			// m_commitButton
 			// 
-			this.m_createButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.m_createButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-			this.m_createButton.Location = new System.Drawing.Point(267, 455);
-			this.m_createButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.m_createButton.Name = "m_createButton";
-			this.m_createButton.Size = new System.Drawing.Size(116, 25);
-			this.m_createButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_createButton.TabIndex = 19;
-			this.m_createButton.Text = "만들기(&C)";
+			this.m_commitButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.m_commitButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_commitButton.Location = new System.Drawing.Point(267, 455);
+			this.m_commitButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.m_commitButton.Name = "m_commitButton";
+			this.m_commitButton.Size = new System.Drawing.Size(116, 25);
+			this.m_commitButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_commitButton.TabIndex = 19;
+			this.m_commitButton.Text = "확인(&C)";
 			// 
 			// m_deselectAllButton
 			// 
@@ -480,7 +480,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(525, 492);
 			this.Controls.Add(this.m_closeButton);
-			this.Controls.Add(this.m_createButton);
+			this.Controls.Add(this.m_commitButton);
 			this.Controls.Add(this.m_deselectAllButton);
 			this.Controls.Add(this.m_selectAllButton);
 			this.Controls.Add(this.m_userListLabel);
@@ -508,7 +508,7 @@
 			this.Controls.SetChildIndex(this.m_51VersionGroupBox, 0);
 			this.Controls.SetChildIndex(this.m_selectAllButton, 0);
 			this.Controls.SetChildIndex(this.m_deselectAllButton, 0);
-			this.Controls.SetChildIndex(this.m_createButton, 0);
+			this.Controls.SetChildIndex(this.m_commitButton, 0);
 			this.Controls.SetChildIndex(this.m_closeButton, 0);
 			this.m_allVersionGroupBox.ResumeLayout(false);
 			this.m_allVersionGroupBox.PerformLayout();
@@ -529,7 +529,7 @@
 		private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxEx1;
 		private DevComponents.DotNetBar.ButtonX m_deleteUserButton;
 		private DevComponents.DotNetBar.ButtonX m_closeButton;
-		private DevComponents.DotNetBar.ButtonX m_createButton;
+		private DevComponents.DotNetBar.ButtonX m_commitButton;
 		private DevComponents.DotNetBar.ButtonX m_deselectAllButton;
 		private DevComponents.DotNetBar.ButtonX m_selectAllButton;
 	}

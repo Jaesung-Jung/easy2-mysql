@@ -75,122 +75,122 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\AlterUserForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="src\AlterUserForm.Designer.cs">
-      <DependentUpon>AlterUserForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="src\BaseForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="src\BaseForm.Designer.cs">
-      <DependentUpon>BaseForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="src\CommunicatorCollection.cs" />
-    <Compile Include="src\ConnectForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="src\ConnectForm.Designer.cs">
-      <DependentUpon>ConnectForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="src\CreateUserForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="src\CreateUserForm.Designer.cs">
-      <DependentUpon>CreateUserForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="src\DockablePane.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="src\DockingManager.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="src\ErrorMessageForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="src\ErrorMessageForm.Designer.cs">
-      <DependentUpon>ErrorMessageForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="src\MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="src\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="src\MessageWindow.cs">
+    <Compile Include="src\Components\DockablePane.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="src\Components\DockingManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="src\Components\MessageWindow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="src\Components\ObjectBrowser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="src\Components\ObjectNode.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="src\Components\ObjectTree.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="src\Components\QueryEditor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="src\Forms\AlterUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\AlterUserForm.Designer.cs">
+      <DependentUpon>AlterUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\ConnectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\ConnectForm.Designer.cs">
+      <DependentUpon>ConnectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\CreateUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\CreateUserForm.Designer.cs">
+      <DependentUpon>CreateUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\ErrorMessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\ErrorMessageForm.Designer.cs">
+      <DependentUpon>ErrorMessageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\NewConnectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\NewConnectForm.Designer.cs">
+      <DependentUpon>NewConnectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\RenameConnectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\RenameConnectForm.Designer.cs">
+      <DependentUpon>RenameConnectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="src\MySqlCommunicator.cs" />
     <Compile Include="src\MySqlConnectInfo.cs" />
     <Compile Include="src\MySqlGenerator.cs" />
-    <Compile Include="src\NewConnectForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="src\NewConnectForm.Designer.cs">
-      <DependentUpon>NewConnectForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="src\ObjectBrowser.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="src\ObjectNode.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="src\ObjectTree.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="src\Program.cs" />
-    <Compile Include="src\QueryEditor.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="src\RenameConnectForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="src\RenameConnectForm.Designer.cs">
-      <DependentUpon>RenameConnectForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="src\UserForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="src\UserForm.Designer.cs">
-      <DependentUpon>UserForm.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="src\AlterUserForm.resx">
-      <DependentUpon>AlterUserForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="src\BaseForm.resx">
-      <DependentUpon>BaseForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="src\ConnectForm.resx">
-      <DependentUpon>ConnectForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="src\CreateUserForm.resx">
-      <DependentUpon>CreateUserForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="src\ErrorMessageForm.resx">
-      <DependentUpon>ErrorMessageForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="src\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\NewConnectForm.resx">
+    <EmbeddedResource Include="src\Forms\AlterUserForm.resx">
+      <DependentUpon>AlterUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\ConnectForm.resx">
+      <DependentUpon>ConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\CreateUserForm.resx">
+      <DependentUpon>CreateUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\ErrorMessageForm.resx">
+      <DependentUpon>ErrorMessageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\NewConnectForm.resx">
       <DependentUpon>NewConnectForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\RenameConnectForm.resx">
+    <EmbeddedResource Include="src\Forms\RenameConnectForm.resx">
       <DependentUpon>RenameConnectForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\UserForm.resx">
+    <EmbeddedResource Include="src\Forms\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

@@ -1,9 +1,7 @@
 ﻿
 // QueryEditor.cs
 //
-using System;
-using System.Xml;
-using System.Windows.Forms;
+using System.Drawing;
 using ScintillaNet;
 
 namespace Easy2
@@ -26,8 +24,16 @@ namespace Easy2
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.Styles[0].Font = new System.Drawing.Font("Courier New", 11);
-			this.Margins[0].Width = 22;
+			this.ConfigurationManager.CustomLocation = "..\\..\\xml";
+			this.ConfigurationManager.Language = "mysql";
+
+			this.Margins.Margin0.Type = MarginType.Symbol;
+			this.Margins.Margin0.Width = 10;
+			this.Margins.Margin1.Type = MarginType.Number;
+			
+			this.Styles.LineNumber.BackColor = Color.White;
+
+			this.LineWrap.Mode = WrapMode.Word;
 		}
 	}
 }

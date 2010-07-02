@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ScintillaNET>
+	<Language Name="default">
+		<Styles>
+			<Style Name="Default" FontName="Consolas" Size="11"/>
+		</Styles>
+	</Language>
+</ScintillaNET>

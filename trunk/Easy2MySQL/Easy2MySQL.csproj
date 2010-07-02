@@ -423,10 +423,6 @@
       <Project>{B3BDAB9E-9D3A-46DF-9BD5-CA47F3C558B4}</Project>
       <Name>ReadonlyTextBox</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SyntaxHighlightTextBox\SyntaxHighlightTextBox.csproj">
-      <Project>{C96CC618-BB0F-4492-9F0D-5F4DC0CD2C63}</Project>
-      <Name>SyntaxHighlightTextBox</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

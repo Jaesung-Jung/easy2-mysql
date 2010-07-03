@@ -27,7 +27,7 @@ namespace Easy2
 		/// 선택된 노드가 변경될 때 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생한 객체입니다.</param>
-		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void OnSelectionChanged(object sender, EventArgs e)
 		{
 			MySqlGenerator generator = new MySqlGenerator();
@@ -70,7 +70,7 @@ namespace Easy2
 		/// 노드가 펼쳐질 때 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생한 객체입니다.</param>
-		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void OnBeforeExpand(object sender, AdvTreeNodeCancelEventArgs e)
 		{
 			this.SelectedNode = e.Node;

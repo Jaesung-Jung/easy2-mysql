@@ -75,7 +75,7 @@ namespace Easy2
 		/// <summary>
 		/// OnLoad 재정의입니다.
 		/// </summary>
-		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		protected override void OnLoad(System.EventArgs e)
 		{
 			base.OnLoad(e);
@@ -106,7 +106,7 @@ namespace Easy2
 		/// 콤보리스트의 선택인덱스가 변경되면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
-		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		void  m_connectionListCombo_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			try
@@ -241,7 +241,7 @@ namespace Easy2
 		/// 새 연결 버튼을 클릭했을 때 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
-		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void m_newConnection_Click(object sender, EventArgs e)
 		{
 			NewConnectForm frm = new NewConnectForm();
@@ -259,7 +259,7 @@ namespace Easy2
 		/// 저장 버튼을 클릭했을 때 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
-		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void m_saveConnection_Click(object sender, EventArgs e)
 		{
 			UpdateData(true);
@@ -272,7 +272,7 @@ namespace Easy2
 		/// 바꾸기 버튼을 클릭했을 때 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
-		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void m_renameConnection_Click(object sender, EventArgs e)
 		{
 			RenameConnectForm frm = new RenameConnectForm(this.m_connectionListCombo.SelectedItem.ToString());
@@ -315,7 +315,7 @@ namespace Easy2
 		/// 연결하기 버튼을 클릭했을 때 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
-		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void m_connect_Click(object sender, EventArgs e)
 		{
 			UpdateData(true);
@@ -338,7 +338,7 @@ namespace Easy2
 		/// 연결테스트 버튼을 클릭했을 때 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
-		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void m_connectTest_Click(object sender, EventArgs e)
 		{
 			UpdateData(true);
@@ -357,7 +357,7 @@ namespace Easy2
 		/// 취소 버튼을 클릭했을 때 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
-		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void m_close_Click(object sender, EventArgs e)
 		{
 			this.Close();

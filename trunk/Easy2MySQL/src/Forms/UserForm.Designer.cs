@@ -68,8 +68,8 @@
 			this.m_create_routine = new DevComponents.DotNetBar.Controls.CheckBoxX();
 			this.m_create_view = new DevComponents.DotNetBar.Controls.CheckBoxX();
 			this.m_51VersionGroupBox = new System.Windows.Forms.GroupBox();
-			this.checkBoxX2 = new DevComponents.DotNetBar.Controls.CheckBoxX();
-			this.checkBoxX1 = new DevComponents.DotNetBar.Controls.CheckBoxX();
+			this.m_event = new DevComponents.DotNetBar.Controls.CheckBoxX();
+			this.m_trigger = new DevComponents.DotNetBar.Controls.CheckBoxX();
 			this.m_allVersionGroupBox.SuspendLayout();
 			this.m_402VersionGroupBox.SuspendLayout();
 			this.m_50VersionGroupBox.SuspendLayout();
@@ -564,7 +564,7 @@
 			this.m_repl_slave.Size = new System.Drawing.Size(94, 20);
 			this.m_repl_slave.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_repl_slave.TabIndex = 1;
-			this.m_repl_slave.Text = "REPL_SALVE";
+			this.m_repl_slave.Text = "REPL_SLAVE";
 			// 
 			// m_execute
 			// 
@@ -678,8 +678,8 @@
 			// 
 			// m_51VersionGroupBox
 			// 
-			this.m_51VersionGroupBox.Controls.Add(this.checkBoxX2);
-			this.m_51VersionGroupBox.Controls.Add(this.checkBoxX1);
+			this.m_51VersionGroupBox.Controls.Add(this.m_event);
+			this.m_51VersionGroupBox.Controls.Add(this.m_trigger);
 			this.m_51VersionGroupBox.Location = new System.Drawing.Point(267, 358);
 			this.m_51VersionGroupBox.Name = "m_51VersionGroupBox";
 			this.m_51VersionGroupBox.Size = new System.Drawing.Size(245, 54);
@@ -687,37 +687,37 @@
 			this.m_51VersionGroupBox.TabStop = false;
 			this.m_51VersionGroupBox.Text = "MySQL 5.1 Version";
 			// 
-			// checkBoxX2
+			// m_event
 			// 
-			this.checkBoxX2.AutoSize = true;
-			// 
-			// 
-			// 
-			this.checkBoxX2.BackgroundStyle.Class = "";
-			this.checkBoxX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-			this.checkBoxX2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-			this.checkBoxX2.Location = new System.Drawing.Point(116, 24);
-			this.checkBoxX2.Name = "checkBoxX2";
-			this.checkBoxX2.Size = new System.Drawing.Size(63, 20);
-			this.checkBoxX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.checkBoxX2.TabIndex = 1;
-			this.checkBoxX2.Text = "EVENT";
-			// 
-			// checkBoxX1
-			// 
-			this.checkBoxX1.AutoSize = true;
+			this.m_event.AutoSize = true;
 			// 
 			// 
 			// 
-			this.checkBoxX1.BackgroundStyle.Class = "";
-			this.checkBoxX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-			this.checkBoxX1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-			this.checkBoxX1.Location = new System.Drawing.Point(6, 24);
-			this.checkBoxX1.Name = "checkBoxX1";
-			this.checkBoxX1.Size = new System.Drawing.Size(75, 20);
-			this.checkBoxX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.checkBoxX1.TabIndex = 0;
-			this.checkBoxX1.Text = "TRIGGER";
+			this.m_event.BackgroundStyle.Class = "";
+			this.m_event.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			this.m_event.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.m_event.Location = new System.Drawing.Point(116, 24);
+			this.m_event.Name = "m_event";
+			this.m_event.Size = new System.Drawing.Size(63, 20);
+			this.m_event.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_event.TabIndex = 1;
+			this.m_event.Text = "EVENT";
+			// 
+			// m_trigger
+			// 
+			this.m_trigger.AutoSize = true;
+			// 
+			// 
+			// 
+			this.m_trigger.BackgroundStyle.Class = "";
+			this.m_trigger.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			this.m_trigger.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.m_trigger.Location = new System.Drawing.Point(6, 24);
+			this.m_trigger.Name = "m_trigger";
+			this.m_trigger.Size = new System.Drawing.Size(75, 20);
+			this.m_trigger.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_trigger.TabIndex = 0;
+			this.m_trigger.Text = "TRIGGER";
 			// 
 			// UserForm
 			// 
@@ -771,7 +771,7 @@
 		protected DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
 		protected System.Windows.Forms.GroupBox m_allVersionGroupBox;
 		protected DevComponents.DotNetBar.Controls.CheckBoxX m_grant;
-		protected DevComponents.DotNetBar.Controls.CheckBoxX checkBoxX1;
+		protected DevComponents.DotNetBar.Controls.CheckBoxX m_trigger;
 		protected DevComponents.DotNetBar.Controls.CheckBoxX m_alter;
 		protected DevComponents.DotNetBar.Controls.CheckBoxX m_index;
 		protected DevComponents.DotNetBar.Controls.CheckBoxX m_reference;
@@ -800,6 +800,6 @@
 		protected DevComponents.DotNetBar.Controls.CheckBoxX m_create_routine;
 		protected DevComponents.DotNetBar.Controls.CheckBoxX m_create_view;
 		protected System.Windows.Forms.GroupBox m_51VersionGroupBox;
-		protected DevComponents.DotNetBar.Controls.CheckBoxX checkBoxX2;
+		protected DevComponents.DotNetBar.Controls.CheckBoxX m_event;
 	}
 }

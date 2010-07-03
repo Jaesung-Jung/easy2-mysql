@@ -162,8 +162,8 @@
 			// 
 			// 
 			// 
-			this.checkBoxX1.BackgroundStyle.Class = "";
-			this.checkBoxX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			this.m_trigger.BackgroundStyle.Class = "";
+			this.m_trigger.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// m_alter
 			// 
@@ -385,8 +385,8 @@
 			// 
 			// 
 			// 
-			this.checkBoxX2.BackgroundStyle.Class = "";
-			this.checkBoxX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			this.m_event.BackgroundStyle.Class = "";
+			this.m_event.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// m_userListLabel
 			// 

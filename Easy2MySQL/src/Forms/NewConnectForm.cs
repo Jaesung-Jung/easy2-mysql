@@ -22,7 +22,7 @@ namespace Easy2
 		/// 연결명을 입력하는 텍스트박스의 텍스트가 변경될 때 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
-		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void m_connectNameText_TextChanged(object sender, System.EventArgs e)
 		{
 			this.m_commitButton.Enabled = this.m_connectNameText.TextLength == 0 ? false : true;
@@ -32,7 +32,7 @@ namespace Easy2
 		/// 취소버튼을 눌렀을 때 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
-		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void m_closeButton_Click(object sender, System.EventArgs e)
 		{
 			this.DialogResult = DialogResult.Cancel;
@@ -43,7 +43,7 @@ namespace Easy2
 		/// 확인버튼을 눌렀을 때 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
-		/// <param name="e">이벤트 정보를 가진 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void m_commitButton_Click(object sender, System.EventArgs e)
 		{
 			this.m_connectionName = this.m_connectNameText.Text;

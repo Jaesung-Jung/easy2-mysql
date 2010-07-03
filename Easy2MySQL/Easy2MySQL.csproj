@@ -167,6 +167,7 @@
     <Compile Include="src\MySqlConnectInfo.cs" />
     <Compile Include="src\MySqlGenerator.cs" />
     <Compile Include="src\Program.cs" />
+    <Compile Include="src\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -133,13 +133,13 @@
 			this.m_grant.BackgroundStyle.Class = "";
 			this.m_grant.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
-			// checkBoxX1
+			// m_trigger
 			// 
 			// 
 			// 
 			// 
-			this.checkBoxX1.BackgroundStyle.Class = "";
-			this.checkBoxX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			this.m_trigger.BackgroundStyle.Class = "";
+			this.m_trigger.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// m_alter
 			// 
@@ -341,13 +341,13 @@
 			this.m_create_view.BackgroundStyle.Class = "";
 			this.m_create_view.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
-			// checkBoxX2
+			// m_event
 			// 
 			// 
 			// 
 			// 
-			this.checkBoxX2.BackgroundStyle.Class = "";
-			this.checkBoxX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			this.m_event.BackgroundStyle.Class = "";
+			this.m_event.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// m_selectAllButton
 			// 
@@ -360,6 +360,7 @@
 			this.m_selectAllButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_selectAllButton.TabIndex = 14;
 			this.m_selectAllButton.Text = "모두선택(&A)";
+			this.m_selectAllButton.Click += new System.EventHandler(this.m_selectAllButton_Click);
 			// 
 			// m_deselectAllButton
 			// 
@@ -372,6 +373,7 @@
 			this.m_deselectAllButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_deselectAllButton.TabIndex = 15;
 			this.m_deselectAllButton.Text = "선택해제(&D)";
+			this.m_deselectAllButton.Click += new System.EventHandler(this.m_deselectAllButton_Click);
 			// 
 			// m_createButton
 			// 

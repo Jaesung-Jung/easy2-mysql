@@ -6,7 +6,7 @@ using DevComponents.DotNetBar.Controls;
 
 namespace Easy2
 {
-	public partial class CreateUserForm : UserForm
+	public partial class CreateUserForm : UserBaseForm
 	{
 		/// <summary>
 		/// 생성자입니다.

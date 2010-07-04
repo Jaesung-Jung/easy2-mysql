@@ -65,7 +65,21 @@ namespace Easy2
 			{
 				this.m_connection = new MySqlConnection(connectionString);
 				this.m_connection.Open();
-				this.m_serverVersion = new MySqlGenerator().VersionNumber(this.m_connection.ServerVersion);
+				string serverVersion = (this.m_connection.ServerVersion.Split('-'))[0];
+
+				if(!(serverVersion.CompareTo("4.0.2") < 0))
+				{
+					this.m_402version = true;
+				}
+				if(!(serverVersion.CompareTo("5.0") < 0))
+				{
+					this.m_500version = true;
+				}
+				if(!(serverVersion.CompareTo("5.1") < 0))
+				{
+					this.m_510version = true;
+				}
+
 				Program.CoummunicatorList.Add(this);
 			}
 			catch(MySqlException ex)
@@ -186,16 +200,34 @@ namespace Easy2
 		}
 
 		/// <summary>
-		/// 연결된 데이터베이스 서버의 버전을 나타냅니다.
+		/// 4.0.2버전 이후의 기능을 지원할지 여부입니다.
 		/// </summary>
-		public double ServerVersion
+		public bool v402
 		{
-			get { return this.m_serverVersion; }
+			get { return this.m_402version; }
+		}
+
+		/// <summary>
+		/// 5.0버전 이후의 기능을 지원할지 여부입니다.
+		/// </summary>
+		public bool v500
+		{
+			get { return this.m_500version; }
+		}
+
+		/// <summary>
+		/// 5.1버전 이후의 기능을 지원할지 여부입니다.
+		/// </summary>
+		public bool v510
+		{
+			get { return this.m_510version; }
 		}
 
 		private MySqlConnection m_connection;
 		private MySqlConnectInfo m_connectInfo;
 		private string m_useDatabaseName;
-		private double m_serverVersion;
+		private bool m_402version = false;
+		private bool m_500version = false;
+		private bool m_510version = false;
 	}
 }

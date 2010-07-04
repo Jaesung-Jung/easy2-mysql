@@ -4,9 +4,9 @@
 
 namespace Easy2
 {
-	public partial class UserForm : BaseForm
+	public partial class UserBaseForm : BaseForm
 	{
-		public UserForm()
+		public UserBaseForm()
 		{
 			InitializeComponent();
 		}

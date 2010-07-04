@@ -1,6 +1,6 @@
 ﻿namespace Easy2
 {
-	partial class UserForm
+	partial class UserBaseForm
 	{
 		/// <summary>
 		/// Required designer variable.

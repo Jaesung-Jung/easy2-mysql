@@ -34,8 +34,8 @@
 			this.m_closeButton = new DevComponents.DotNetBar.ButtonX();
 			this.m_allVersionGroupBox.SuspendLayout();
 			this.m_402VersionGroupBox.SuspendLayout();
-			this.m_50VersionGroupBox.SuspendLayout();
-			this.m_51VersionGroupBox.SuspendLayout();
+			this.m_500VersionGroupBox.SuspendLayout();
+			this.m_510VersionGroupBox.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// m_titleImgLabel
@@ -117,13 +117,13 @@
 			this.m_retypePasswordLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_retypePasswordLabel.Size = new System.Drawing.Size(133, 21);
 			// 
-			// textBoxX1
+			// m_PasswordText2
 			// 
 			// 
 			// 
 			// 
-			this.textBoxX1.Border.Class = "TextBoxBorder";
-			this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			this.m_PasswordText2.Border.Class = "TextBoxBorder";
+			this.m_PasswordText2.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			// 
 			// m_grant
 			// 
@@ -386,6 +386,7 @@
 			this.m_createButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_createButton.TabIndex = 16;
 			this.m_createButton.Text = "만들기(&C)";
+			this.m_createButton.Click += new System.EventHandler(this.m_createButton_Click);
 			// 
 			// m_closeButton
 			// 
@@ -398,6 +399,7 @@
 			this.m_closeButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_closeButton.TabIndex = 17;
 			this.m_closeButton.Text = "닫기(&L)";
+			this.m_closeButton.Click += new System.EventHandler(this.m_closeButton_Click);
 			// 
 			// CreateUserForm
 			// 
@@ -422,21 +424,21 @@
 			this.Controls.SetChildIndex(this.m_PasswordLabel, 0);
 			this.Controls.SetChildIndex(this.m_PasswordText1, 0);
 			this.Controls.SetChildIndex(this.m_retypePasswordLabel, 0);
-			this.Controls.SetChildIndex(this.textBoxX1, 0);
+			this.Controls.SetChildIndex(this.m_PasswordText2, 0);
 			this.Controls.SetChildIndex(this.m_allVersionGroupBox, 0);
 			this.Controls.SetChildIndex(this.m_402VersionGroupBox, 0);
-			this.Controls.SetChildIndex(this.m_50VersionGroupBox, 0);
-			this.Controls.SetChildIndex(this.m_51VersionGroupBox, 0);
+			this.Controls.SetChildIndex(this.m_500VersionGroupBox, 0);
+			this.Controls.SetChildIndex(this.m_510VersionGroupBox, 0);
 			this.Controls.SetChildIndex(this.m_createButton, 0);
 			this.Controls.SetChildIndex(this.m_closeButton, 0);
 			this.m_allVersionGroupBox.ResumeLayout(false);
 			this.m_allVersionGroupBox.PerformLayout();
 			this.m_402VersionGroupBox.ResumeLayout(false);
 			this.m_402VersionGroupBox.PerformLayout();
-			this.m_50VersionGroupBox.ResumeLayout(false);
-			this.m_50VersionGroupBox.PerformLayout();
-			this.m_51VersionGroupBox.ResumeLayout(false);
-			this.m_51VersionGroupBox.PerformLayout();
+			this.m_500VersionGroupBox.ResumeLayout(false);
+			this.m_500VersionGroupBox.PerformLayout();
+			this.m_510VersionGroupBox.ResumeLayout(false);
+			this.m_510VersionGroupBox.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

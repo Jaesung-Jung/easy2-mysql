@@ -176,6 +176,7 @@ namespace Easy2
 				return;
 
 			this.m_objectBrowser.Tree.UpdateTree();
+			this.m_objectBrowser.Tree.ActivateConnection = Program.CoummunicatorList.Count - 1;
 		}
 
 		/// <summary>

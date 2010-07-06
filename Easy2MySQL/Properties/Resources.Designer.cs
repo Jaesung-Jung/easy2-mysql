@@ -467,11 +467,47 @@ namespace Easy2.Properties {
         }
         
         /// <summary>
+        ///   입력한 비밀번호가 서로 일치하지 않습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2Message_DoNotMatchPassword {
+            get {
+                return ResourceManager.GetString("Easy2Message_DoNotMatchPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0} 항목이 입력되지 않았습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2Message_EmptyItem {
+            get {
+                return ResourceManager.GetString("Easy2Message_EmptyItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   질문과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string Easy2Message_Question {
             get {
                 return ResourceManager.GetString("Easy2Message_Question", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Easy To MySQL과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2Message_Title {
+            get {
+                return ResourceManager.GetString("Easy2Message_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0} 사용자가 만들어졌습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2Message_UserCreatedSuccessfully {
+            get {
+                return ResourceManager.GetString("Easy2Message_UserCreatedSuccessfully", resourceCulture);
             }
         }
         

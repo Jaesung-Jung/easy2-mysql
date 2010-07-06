@@ -190,6 +190,24 @@ namespace Easy2
 		}
 
 		/// <summary>
+		/// Repl_client권한 여부입니다.
+		/// </summary>
+		public bool Repl_client
+		{
+			get { return this.m_repl_client; }
+			set { this.m_repl_client = value; }
+		}
+
+		/// <summary>
+		/// Super권한 여부입니다.
+		/// </summary>
+		public bool Super
+		{
+			get { return this.m_super; }
+			set { this.m_super = value; }
+		}
+
+		/// <summary>
 		/// Lock_tables권한 여부입니다. 
 		/// </summary>
 		public bool Lock_tables
@@ -292,6 +310,8 @@ namespace Easy2
 		private bool m_execute;
 		private bool m_repl_slave;
 		private bool m_show_db;
+		private bool m_repl_client;
+		private bool m_super;
 		private bool m_lock_tables;
 		private bool m_create_tmp_tables;
 		// 5.0 version

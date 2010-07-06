@@ -42,7 +42,7 @@ namespace Easy2
 		/// </summary>
 		public void Connect()
 		{
-			Connect((new MySqlGenerator()).ConnectionString(this.m_connectInfo));
+			Connect(MySqlGenerator.ConnectionString(this.m_connectInfo));
 		}
 
 		/// <summary>
@@ -52,7 +52,7 @@ namespace Easy2
 		public void Connect(MySqlConnectInfo connectInfo)
 		{
 			this.m_connectInfo = connectInfo;
-			Connect((new MySqlGenerator()).ConnectionString(connectInfo));
+			Connect(MySqlGenerator.ConnectionString(connectInfo));
 		}
 
 		/// <summary>
@@ -79,8 +79,8 @@ namespace Easy2
 				{
 					this.m_510version = true;
 				}
-
 				Program.CoummunicatorList.Add(this);
+				Program.ActivateCommunicator = this;
 			}
 			catch(MySqlException ex)
 			{
@@ -94,7 +94,7 @@ namespace Easy2
 		/// <returns>연결성공 메세지입니다.</returns>
 		public string ConnectTest()
 		{
-			return ConnectTest((new MySqlGenerator()).ConnectionString(this.m_connectInfo));
+			return ConnectTest(MySqlGenerator.ConnectionString(this.m_connectInfo));
 		}
 
 		/// <summary>
@@ -104,7 +104,7 @@ namespace Easy2
 		/// <returns>연결성공 메세지입니다.</returns>
 		public string ConnectTest(MySqlConnectInfo connectInfo)
 		{
-			return ConnectTest((new MySqlGenerator()).ConnectionString(connectInfo));
+			return ConnectTest(MySqlGenerator.ConnectionString(connectInfo));
 		}
 
 		/// <summary>
@@ -179,6 +179,12 @@ namespace Easy2
 				command.Dispose();
 			}
 			return affectedRow;
+		}
+
+		public void CreateUser(User userInfo)
+		{
+			Program.ActivateCommunicator.Execute(MySqlGenerator.CreateUser(userInfo));
+			this.Execute("FLUSH PRIVILEGES");
 		}
 
 		/// <summary>

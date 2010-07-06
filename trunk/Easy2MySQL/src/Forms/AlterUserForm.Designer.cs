@@ -37,8 +37,8 @@
 			this.m_selectAllButton = new DevComponents.DotNetBar.ButtonX();
 			this.m_allVersionGroupBox.SuspendLayout();
 			this.m_402VersionGroupBox.SuspendLayout();
-			this.m_50VersionGroupBox.SuspendLayout();
-			this.m_51VersionGroupBox.SuspendLayout();
+			this.m_500VersionGroupBox.SuspendLayout();
+			this.m_510VersionGroupBox.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// m_titleImgLabel
@@ -139,10 +139,10 @@
 			// 
 			// 
 			// 
-			this.textBoxX1.Border.Class = "TextBoxBorder";
-			this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-			this.textBoxX1.Location = new System.Drawing.Point(377, 130);
-			this.textBoxX1.TabIndex = 12;
+			this.m_PasswordText2.Border.Class = "TextBoxBorder";
+			this.m_PasswordText2.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			this.m_PasswordText2.Location = new System.Drawing.Point(377, 130);
+			this.m_PasswordText2.TabIndex = 12;
 			// 
 			// m_allVersionGroupBox
 			// 
@@ -332,8 +332,8 @@
 			// 
 			// m_50VersionGroupBox
 			// 
-			this.m_50VersionGroupBox.Location = new System.Drawing.Point(267, 277);
-			this.m_50VersionGroupBox.TabIndex = 15;
+			this.m_500VersionGroupBox.Location = new System.Drawing.Point(267, 277);
+			this.m_500VersionGroupBox.TabIndex = 15;
 			// 
 			// m_create_user
 			// 
@@ -377,8 +377,8 @@
 			// 
 			// m_51VersionGroupBox
 			// 
-			this.m_51VersionGroupBox.Location = new System.Drawing.Point(267, 389);
-			this.m_51VersionGroupBox.TabIndex = 16;
+			this.m_510VersionGroupBox.Location = new System.Drawing.Point(267, 389);
+			this.m_510VersionGroupBox.TabIndex = 16;
 			// 
 			// checkBoxX2
 			// 
@@ -501,11 +501,11 @@
 			this.Controls.SetChildIndex(this.m_PasswordLabel, 0);
 			this.Controls.SetChildIndex(this.m_PasswordText1, 0);
 			this.Controls.SetChildIndex(this.m_retypePasswordLabel, 0);
-			this.Controls.SetChildIndex(this.textBoxX1, 0);
+			this.Controls.SetChildIndex(this.m_PasswordText2, 0);
 			this.Controls.SetChildIndex(this.m_allVersionGroupBox, 0);
 			this.Controls.SetChildIndex(this.m_402VersionGroupBox, 0);
-			this.Controls.SetChildIndex(this.m_50VersionGroupBox, 0);
-			this.Controls.SetChildIndex(this.m_51VersionGroupBox, 0);
+			this.Controls.SetChildIndex(this.m_500VersionGroupBox, 0);
+			this.Controls.SetChildIndex(this.m_510VersionGroupBox, 0);
 			this.Controls.SetChildIndex(this.m_selectAllButton, 0);
 			this.Controls.SetChildIndex(this.m_deselectAllButton, 0);
 			this.Controls.SetChildIndex(this.m_commitButton, 0);
@@ -514,10 +514,10 @@
 			this.m_allVersionGroupBox.PerformLayout();
 			this.m_402VersionGroupBox.ResumeLayout(false);
 			this.m_402VersionGroupBox.PerformLayout();
-			this.m_50VersionGroupBox.ResumeLayout(false);
-			this.m_50VersionGroupBox.PerformLayout();
-			this.m_51VersionGroupBox.ResumeLayout(false);
-			this.m_51VersionGroupBox.PerformLayout();
+			this.m_500VersionGroupBox.ResumeLayout(false);
+			this.m_500VersionGroupBox.PerformLayout();
+			this.m_510VersionGroupBox.ResumeLayout(false);
+			this.m_510VersionGroupBox.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

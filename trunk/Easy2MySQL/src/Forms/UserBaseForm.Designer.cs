@@ -37,7 +37,7 @@
 			this.m_PasswordLabel = new DevComponents.DotNetBar.LabelX();
 			this.m_PasswordText1 = new DevComponents.DotNetBar.Controls.TextBoxX();
 			this.m_retypePasswordLabel = new DevComponents.DotNetBar.LabelX();
-			this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
+			this.m_PasswordText2 = new DevComponents.DotNetBar.Controls.TextBoxX();
 			this.m_allVersionGroupBox = new System.Windows.Forms.GroupBox();
 			this.m_grant = new DevComponents.DotNetBar.Controls.CheckBoxX();
 			this.m_alter = new DevComponents.DotNetBar.Controls.CheckBoxX();
@@ -61,19 +61,19 @@
 			this.m_show_db = new DevComponents.DotNetBar.Controls.CheckBoxX();
 			this.m_repl_slave = new DevComponents.DotNetBar.Controls.CheckBoxX();
 			this.m_execute = new DevComponents.DotNetBar.Controls.CheckBoxX();
-			this.m_50VersionGroupBox = new System.Windows.Forms.GroupBox();
+			this.m_500VersionGroupBox = new System.Windows.Forms.GroupBox();
 			this.m_create_user = new DevComponents.DotNetBar.Controls.CheckBoxX();
 			this.m_alter_routine = new DevComponents.DotNetBar.Controls.CheckBoxX();
 			this.m_show_view = new DevComponents.DotNetBar.Controls.CheckBoxX();
 			this.m_create_routine = new DevComponents.DotNetBar.Controls.CheckBoxX();
 			this.m_create_view = new DevComponents.DotNetBar.Controls.CheckBoxX();
-			this.m_51VersionGroupBox = new System.Windows.Forms.GroupBox();
+			this.m_510VersionGroupBox = new System.Windows.Forms.GroupBox();
 			this.m_event = new DevComponents.DotNetBar.Controls.CheckBoxX();
 			this.m_trigger = new DevComponents.DotNetBar.Controls.CheckBoxX();
 			this.m_allVersionGroupBox.SuspendLayout();
 			this.m_402VersionGroupBox.SuspendLayout();
-			this.m_50VersionGroupBox.SuspendLayout();
-			this.m_51VersionGroupBox.SuspendLayout();
+			this.m_500VersionGroupBox.SuspendLayout();
+			this.m_510VersionGroupBox.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// m_titleImgLabel
@@ -194,18 +194,18 @@
 			this.m_retypePasswordLabel.TabIndex = 8;
 			this.m_retypePasswordLabel.Text = "비밀번호 재입력(&R)";
 			// 
-			// textBoxX1
+			// m_PasswordText2
 			// 
 			// 
 			// 
 			// 
-			this.textBoxX1.Border.Class = "TextBoxBorder";
-			this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-			this.textBoxX1.Location = new System.Drawing.Point(377, 99);
-			this.textBoxX1.Name = "textBoxX1";
-			this.textBoxX1.Size = new System.Drawing.Size(135, 25);
-			this.textBoxX1.TabIndex = 9;
-			this.textBoxX1.UseSystemPasswordChar = true;
+			this.m_PasswordText2.Border.Class = "TextBoxBorder";
+			this.m_PasswordText2.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			this.m_PasswordText2.Location = new System.Drawing.Point(377, 99);
+			this.m_PasswordText2.Name = "m_PasswordText2";
+			this.m_PasswordText2.Size = new System.Drawing.Size(135, 25);
+			this.m_PasswordText2.TabIndex = 9;
+			this.m_PasswordText2.UseSystemPasswordChar = true;
 			// 
 			// m_allVersionGroupBox
 			// 
@@ -582,19 +582,19 @@
 			this.m_execute.TabIndex = 0;
 			this.m_execute.Text = "EXECUTE";
 			// 
-			// m_50VersionGroupBox
+			// m_500VersionGroupBox
 			// 
-			this.m_50VersionGroupBox.Controls.Add(this.m_create_user);
-			this.m_50VersionGroupBox.Controls.Add(this.m_alter_routine);
-			this.m_50VersionGroupBox.Controls.Add(this.m_show_view);
-			this.m_50VersionGroupBox.Controls.Add(this.m_create_routine);
-			this.m_50VersionGroupBox.Controls.Add(this.m_create_view);
-			this.m_50VersionGroupBox.Location = new System.Drawing.Point(267, 246);
-			this.m_50VersionGroupBox.Name = "m_50VersionGroupBox";
-			this.m_50VersionGroupBox.Size = new System.Drawing.Size(245, 106);
-			this.m_50VersionGroupBox.TabIndex = 12;
-			this.m_50VersionGroupBox.TabStop = false;
-			this.m_50VersionGroupBox.Text = "MySQL 5.0 Version";
+			this.m_500VersionGroupBox.Controls.Add(this.m_create_user);
+			this.m_500VersionGroupBox.Controls.Add(this.m_alter_routine);
+			this.m_500VersionGroupBox.Controls.Add(this.m_show_view);
+			this.m_500VersionGroupBox.Controls.Add(this.m_create_routine);
+			this.m_500VersionGroupBox.Controls.Add(this.m_create_view);
+			this.m_500VersionGroupBox.Location = new System.Drawing.Point(267, 246);
+			this.m_500VersionGroupBox.Name = "m_500VersionGroupBox";
+			this.m_500VersionGroupBox.Size = new System.Drawing.Size(245, 106);
+			this.m_500VersionGroupBox.TabIndex = 12;
+			this.m_500VersionGroupBox.TabStop = false;
+			this.m_500VersionGroupBox.Text = "MySQL 5.0 Version";
 			// 
 			// m_create_user
 			// 
@@ -676,16 +676,16 @@
 			this.m_create_view.TabIndex = 0;
 			this.m_create_view.Text = "CREATE_VIEW";
 			// 
-			// m_51VersionGroupBox
+			// m_510VersionGroupBox
 			// 
-			this.m_51VersionGroupBox.Controls.Add(this.m_event);
-			this.m_51VersionGroupBox.Controls.Add(this.m_trigger);
-			this.m_51VersionGroupBox.Location = new System.Drawing.Point(267, 358);
-			this.m_51VersionGroupBox.Name = "m_51VersionGroupBox";
-			this.m_51VersionGroupBox.Size = new System.Drawing.Size(245, 54);
-			this.m_51VersionGroupBox.TabIndex = 13;
-			this.m_51VersionGroupBox.TabStop = false;
-			this.m_51VersionGroupBox.Text = "MySQL 5.1 Version";
+			this.m_510VersionGroupBox.Controls.Add(this.m_event);
+			this.m_510VersionGroupBox.Controls.Add(this.m_trigger);
+			this.m_510VersionGroupBox.Location = new System.Drawing.Point(267, 358);
+			this.m_510VersionGroupBox.Name = "m_510VersionGroupBox";
+			this.m_510VersionGroupBox.Size = new System.Drawing.Size(245, 54);
+			this.m_510VersionGroupBox.TabIndex = 13;
+			this.m_510VersionGroupBox.TabStop = false;
+			this.m_510VersionGroupBox.Text = "MySQL 5.1 Version";
 			// 
 			// m_event
 			// 
@@ -719,16 +719,16 @@
 			this.m_trigger.TabIndex = 0;
 			this.m_trigger.Text = "TRIGGER";
 			// 
-			// UserForm
+			// UserBaseForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(525, 464);
-			this.Controls.Add(this.m_51VersionGroupBox);
-			this.Controls.Add(this.m_50VersionGroupBox);
+			this.Controls.Add(this.m_510VersionGroupBox);
+			this.Controls.Add(this.m_500VersionGroupBox);
 			this.Controls.Add(this.m_402VersionGroupBox);
 			this.Controls.Add(this.m_allVersionGroupBox);
-			this.Controls.Add(this.textBoxX1);
+			this.Controls.Add(this.m_PasswordText2);
 			this.Controls.Add(this.m_retypePasswordLabel);
 			this.Controls.Add(this.m_PasswordText1);
 			this.Controls.Add(this.m_PasswordLabel);
@@ -742,16 +742,16 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.Name = "UserForm";
+			this.Name = "UserBaseForm";
 			this.Text = "UserForm";
 			this.m_allVersionGroupBox.ResumeLayout(false);
 			this.m_allVersionGroupBox.PerformLayout();
 			this.m_402VersionGroupBox.ResumeLayout(false);
 			this.m_402VersionGroupBox.PerformLayout();
-			this.m_50VersionGroupBox.ResumeLayout(false);
-			this.m_50VersionGroupBox.PerformLayout();
-			this.m_51VersionGroupBox.ResumeLayout(false);
-			this.m_51VersionGroupBox.PerformLayout();
+			this.m_500VersionGroupBox.ResumeLayout(false);
+			this.m_500VersionGroupBox.PerformLayout();
+			this.m_510VersionGroupBox.ResumeLayout(false);
+			this.m_510VersionGroupBox.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -768,7 +768,7 @@
 		protected DevComponents.DotNetBar.Controls.TextBoxX m_hostText;
 		protected DevComponents.DotNetBar.LabelX m_PasswordLabel;
 		protected DevComponents.DotNetBar.LabelX m_retypePasswordLabel;
-		protected DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
+		protected DevComponents.DotNetBar.Controls.TextBoxX m_PasswordText2;
 		protected System.Windows.Forms.GroupBox m_allVersionGroupBox;
 		protected DevComponents.DotNetBar.Controls.CheckBoxX m_grant;
 		protected DevComponents.DotNetBar.Controls.CheckBoxX m_trigger;
@@ -793,13 +793,13 @@
 		protected DevComponents.DotNetBar.Controls.CheckBoxX m_show_db;
 		protected DevComponents.DotNetBar.Controls.CheckBoxX m_repl_slave;
 		protected DevComponents.DotNetBar.Controls.CheckBoxX m_execute;
-		protected System.Windows.Forms.GroupBox m_50VersionGroupBox;
+		protected System.Windows.Forms.GroupBox m_500VersionGroupBox;
 		protected DevComponents.DotNetBar.Controls.CheckBoxX m_create_user;
 		protected DevComponents.DotNetBar.Controls.CheckBoxX m_alter_routine;
 		protected DevComponents.DotNetBar.Controls.CheckBoxX m_show_view;
 		protected DevComponents.DotNetBar.Controls.CheckBoxX m_create_routine;
 		protected DevComponents.DotNetBar.Controls.CheckBoxX m_create_view;
-		protected System.Windows.Forms.GroupBox m_51VersionGroupBox;
+		protected System.Windows.Forms.GroupBox m_510VersionGroupBox;
 		protected DevComponents.DotNetBar.Controls.CheckBoxX m_event;
 	}
 }

@@ -56,7 +56,7 @@ namespace Easy2
 			{
 				if(Program.ActivateCommunicator.UseDatabaseName != databaseNode.Text)
 				{
-					Program.ActivateCommunicator.Execute(new MySqlGenerator().UseDatabase(databaseNode.Text));
+					Program.ActivateCommunicator.Execute(MySqlGenerator.UseDatabase(databaseNode.Text));
 					Program.ActivateCommunicator.UseDatabaseName = databaseNode.Text;
 				}
 			}
@@ -90,32 +90,32 @@ namespace Easy2
 							folderNode.Nodes.Clear();
 							if(folderNode.Text == "테이블")
 							{
-								reader = Program.ActivateCommunicator.ExecuteReader(new MySqlGenerator().ShowTables(Program.ActivateCommunicator.UseDatabaseName));
+								reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowTables(Program.ActivateCommunicator.UseDatabaseName));
 								this.ReadTables(folderNode, reader);
 							}
 							else if(folderNode.Text == "뷰")
 							{
-								reader = Program.ActivateCommunicator.ExecuteReader(new MySqlGenerator().ShowViews(Program.ActivateCommunicator.UseDatabaseName));
+								reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowViews(Program.ActivateCommunicator.UseDatabaseName));
 								this.ReadObject(folderNode, reader);
 							}
 							else if(folderNode.Text == "저장 프로시저")
 							{
-								reader = Program.ActivateCommunicator.ExecuteReader(new MySqlGenerator().ShowStoredProcs(Program.ActivateCommunicator.UseDatabaseName));
+								reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowStoredProcs(Program.ActivateCommunicator.UseDatabaseName));
 								this.ReadObject(folderNode, reader);
 							}
 							else if(folderNode.Text == "함수")
 							{
-								reader = Program.ActivateCommunicator.ExecuteReader(new MySqlGenerator().ShowFunctions(Program.ActivateCommunicator.UseDatabaseName));
+								reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowFunctions(Program.ActivateCommunicator.UseDatabaseName));
 								this.ReadObject(folderNode, reader);
 							}
 							else if(folderNode.Text == "트리거")
 							{
-								reader = Program.ActivateCommunicator.ExecuteReader(new MySqlGenerator().ShowTriggers(Program.ActivateCommunicator.UseDatabaseName));
+								reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowTriggers(Program.ActivateCommunicator.UseDatabaseName));
 								this.ReadObject(folderNode, reader);
 							}
 							else if(folderNode.Text == "이벤트")
 							{
-								reader = Program.ActivateCommunicator.ExecuteReader(new MySqlGenerator().ShowEvents(Program.ActivateCommunicator.UseDatabaseName));
+								reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowEvents(Program.ActivateCommunicator.UseDatabaseName));
 								this.ReadObject(folderNode, reader);
 							}
 						}
@@ -125,13 +125,13 @@ namespace Easy2
 						Node tableNode = e.Node;
 						if(tableNode.Nodes[0].Nodes.Count == 0)
 						{
-							reader = Program.ActivateCommunicator.ExecuteReader(new MySqlGenerator().ShowColumns(tableNode.Text));
+							reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowColumns(tableNode.Text));
 							this.ReadColumns(tableNode.Nodes[0], reader);
 							reader.Close();
 						}
 						if(tableNode.Nodes[1].Nodes.Count == 0)
 						{
-							reader = Program.ActivateCommunicator.ExecuteReader(new MySqlGenerator().ShowIndexes(tableNode.Text));
+							reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowIndexes(tableNode.Text));
 							this.ReadIndexes(tableNode.Nodes[1], reader);
 						}
 						break;
@@ -172,10 +172,9 @@ namespace Easy2
 				List<string> databaseList = new List<string>();
 				if(communicator.ConnectInfo.Database.Length == 0)
 				{
-					MySqlGenerator generator = new MySqlGenerator();
 					try
 					{
-						reader = communicator.ExecuteReader(generator.ShowDatabases());
+						reader = communicator.ExecuteReader(MySqlGenerator.ShowDatabases());
 						while(reader.Read())
 							databaseList.Add(reader.GetString(0));
 					}
@@ -237,7 +236,7 @@ namespace Easy2
 			while(reader.Read())
 			{
 				string[] columnData = { reader["field"].ToString(), reader["type"].ToString(), reader["null"].ToString(), reader["key"].ToString() };
-				string columnText = new MySqlGenerator().MakeColumnInfo(columnData);
+				string columnText = MySqlGenerator.MakeColumnInfo(columnData);
 				if(reader["key"].ToString() == "PRI")
 					folderNode.Nodes.Add(new ObjectNode((ObjectNode)folderNode, columnText, ObjectNodeType.MySqlPkColumn));
 				else
@@ -254,7 +253,7 @@ namespace Easy2
 		{
 			while(reader.Read())
 			{
-				string indexText = new MySqlGenerator().MakeIndexInfo(reader["Key_name"].ToString(), reader["Column_name"].ToString());
+				string indexText = MySqlGenerator.MakeIndexInfo(reader["Key_name"].ToString(), reader["Column_name"].ToString());
 				if(reader["Key_name"].ToString() == "PRIMARY")
 					folderNode.Nodes.Add(new ObjectNode((ObjectNode)folderNode, indexText, ObjectNodeType.MySqlPkIndex));
 				else
@@ -273,6 +272,17 @@ namespace Easy2
 			{
 				folderNode.Nodes.Add(new ObjectNode((ObjectNode)folderNode, reader.GetString(0), ObjectNodeType.MySqlView));
  			}
+		}
+
+		/// <summary>
+		/// 현재 활성화된 연결의 인덱스를 나타냅니다.
+		/// </summary>
+		public int ActivateConnection
+		{
+			set
+			{
+				this.SelectedNode = this.Nodes[value];
+			}
 		}
 	}
 }

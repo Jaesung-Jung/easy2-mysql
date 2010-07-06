@@ -236,13 +236,17 @@ namespace Easy2
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void m_createUser_Click(object sender, EventArgs e)
 		{
-			CreateUserForm createUserForm = new CreateUserForm();
-			DialogResult dlgResult = createUserForm.ShowDialog(this);
-			if(dlgResult == DialogResult.OK)
-			{
-			}
-			else if(dlgResult == DialogResult.Cancel)
-				return;
+			new CreateUserForm().ShowDialog(this);
+		}
+
+		/// <summary>
+		/// 사용자수정 버튼을 클릭하였을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void m_alterUser_Click(object sender, EventArgs e)
+		{
+			new AlterUserForm().ShowDialog(this);
 		}
 
 		private int m_queryEditorsCount;

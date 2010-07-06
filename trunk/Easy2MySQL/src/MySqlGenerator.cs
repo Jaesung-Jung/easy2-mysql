@@ -134,6 +134,16 @@ namespace Easy2
 			return String.Format("SHOW INDEX FROM {0}", tableName);
 		}
 
+		public static string SelectMysqlUser()
+		{
+			return "SELECT user, host FROM mysql.user";
+		}
+
+		public static string SelectMysqlUser(string username, string host)
+		{
+			return String.Format("SELECT * FROM mysql.user WHERE user='{0}' AND host='{1}'", username, host);
+		}
+
 		/// <summary>
 		/// 트리에 표시할 행문자열을 생성합니다.
 		/// </summary>

@@ -70,6 +70,10 @@
 			this.m_510VersionGroupBox = new System.Windows.Forms.GroupBox();
 			this.m_event = new DevComponents.DotNetBar.Controls.CheckBoxX();
 			this.m_trigger = new DevComponents.DotNetBar.Controls.CheckBoxX();
+			this.m_closeButton = new DevComponents.DotNetBar.ButtonX();
+			this.m_commitButton = new DevComponents.DotNetBar.ButtonX();
+			this.m_deselectAllButton = new DevComponents.DotNetBar.ButtonX();
+			this.m_selectAllButton = new DevComponents.DotNetBar.ButtonX();
 			this.m_allVersionGroupBox.SuspendLayout();
 			this.m_402VersionGroupBox.SuspendLayout();
 			this.m_500VersionGroupBox.SuspendLayout();
@@ -719,11 +723,67 @@
 			this.m_trigger.TabIndex = 0;
 			this.m_trigger.Text = "TRIGGER";
 			// 
+			// m_closeButton
+			// 
+			this.m_closeButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.m_closeButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_closeButton.Location = new System.Drawing.Point(396, 426);
+			this.m_closeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.m_closeButton.Name = "m_closeButton";
+			this.m_closeButton.Size = new System.Drawing.Size(116, 25);
+			this.m_closeButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_closeButton.TabIndex = 24;
+			this.m_closeButton.Text = "닫기(&L)";
+			this.m_closeButton.Click += new System.EventHandler(this.m_closeButton_Click);
+			// 
+			// m_commitButton
+			// 
+			this.m_commitButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.m_commitButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_commitButton.Location = new System.Drawing.Point(267, 426);
+			this.m_commitButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.m_commitButton.Name = "m_commitButton";
+			this.m_commitButton.Size = new System.Drawing.Size(116, 25);
+			this.m_commitButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_commitButton.TabIndex = 23;
+			this.m_commitButton.Text = "확인(&C)";
+			this.m_commitButton.Click += new System.EventHandler(this.OnCommitButtonClick);
+			// 
+			// m_deselectAllButton
+			// 
+			this.m_deselectAllButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.m_deselectAllButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_deselectAllButton.Location = new System.Drawing.Point(141, 426);
+			this.m_deselectAllButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.m_deselectAllButton.Name = "m_deselectAllButton";
+			this.m_deselectAllButton.Size = new System.Drawing.Size(116, 25);
+			this.m_deselectAllButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_deselectAllButton.TabIndex = 22;
+			this.m_deselectAllButton.Text = "선택해제(&D)";
+			this.m_deselectAllButton.Click += new System.EventHandler(this.m_deselectAllButton_Click);
+			// 
+			// m_selectAllButton
+			// 
+			this.m_selectAllButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.m_selectAllButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_selectAllButton.Location = new System.Drawing.Point(12, 426);
+			this.m_selectAllButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.m_selectAllButton.Name = "m_selectAllButton";
+			this.m_selectAllButton.Size = new System.Drawing.Size(116, 25);
+			this.m_selectAllButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_selectAllButton.TabIndex = 21;
+			this.m_selectAllButton.Text = "모두선택(&A)";
+			this.m_selectAllButton.Click += new System.EventHandler(this.m_selectAllButton_Click);
+			// 
 			// UserBaseForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(525, 464);
+			this.Controls.Add(this.m_closeButton);
+			this.Controls.Add(this.m_commitButton);
+			this.Controls.Add(this.m_deselectAllButton);
+			this.Controls.Add(this.m_selectAllButton);
 			this.Controls.Add(this.m_510VersionGroupBox);
 			this.Controls.Add(this.m_500VersionGroupBox);
 			this.Controls.Add(this.m_402VersionGroupBox);
@@ -801,5 +861,9 @@
 		protected DevComponents.DotNetBar.Controls.CheckBoxX m_create_view;
 		protected System.Windows.Forms.GroupBox m_510VersionGroupBox;
 		protected DevComponents.DotNetBar.Controls.CheckBoxX m_event;
+		protected DevComponents.DotNetBar.ButtonX m_closeButton;
+		protected DevComponents.DotNetBar.ButtonX m_commitButton;
+		protected DevComponents.DotNetBar.ButtonX m_deselectAllButton;
+		protected DevComponents.DotNetBar.ButtonX m_selectAllButton;
 	}
 }

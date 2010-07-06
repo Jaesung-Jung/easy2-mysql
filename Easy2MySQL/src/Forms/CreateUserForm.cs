@@ -8,6 +8,9 @@ using MySql.Data.MySqlClient;
 
 namespace Easy2
 {
+	/// <summary>
+	/// CreateUserForm 클래스입니다.
+	/// </summary>
 	public partial class CreateUserForm : UserBaseForm
 	{
 		/// <summary>
@@ -32,6 +35,8 @@ namespace Easy2
 				this.m_500VersionGroupBox.Enabled = false;
 			if(Program.ActivateCommunicator.v510 == false)
 				this.m_510VersionGroupBox.Enabled = false;
+
+			this.m_usernameText.Focus();
 		}
 
 		/// <summary>

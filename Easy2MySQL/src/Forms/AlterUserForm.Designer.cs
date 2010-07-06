@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.m_userListLabel = new DevComponents.DotNetBar.LabelX();
-			this.comboBoxEx1 = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+			this.m_userListCombo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
 			this.m_deleteUserButton = new DevComponents.DotNetBar.ButtonX();
 			this.m_allVersionGroupBox.SuspendLayout();
 			this.m_402VersionGroupBox.SuspendLayout();
@@ -414,18 +414,19 @@
 			this.m_userListLabel.TabIndex = 2;
 			this.m_userListLabel.Text = "사용자";
 			// 
-			// comboBoxEx1
+			// m_userListCombo
 			// 
-			this.comboBoxEx1.DisplayMember = "Text";
-			this.comboBoxEx1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-			this.comboBoxEx1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBoxEx1.FormattingEnabled = true;
-			this.comboBoxEx1.ItemHeight = 19;
-			this.comboBoxEx1.Location = new System.Drawing.Point(96, 67);
-			this.comboBoxEx1.Name = "comboBoxEx1";
-			this.comboBoxEx1.Size = new System.Drawing.Size(192, 25);
-			this.comboBoxEx1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.comboBoxEx1.TabIndex = 3;
+			this.m_userListCombo.DisplayMember = "Text";
+			this.m_userListCombo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+			this.m_userListCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.m_userListCombo.FormattingEnabled = true;
+			this.m_userListCombo.ItemHeight = 19;
+			this.m_userListCombo.Location = new System.Drawing.Point(96, 67);
+			this.m_userListCombo.Name = "m_userListCombo";
+			this.m_userListCombo.Size = new System.Drawing.Size(192, 25);
+			this.m_userListCombo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_userListCombo.TabIndex = 3;
+			this.m_userListCombo.SelectedIndexChanged += new System.EventHandler(this.m_userListCombo_SelectedIndexChanged);
 			// 
 			// m_deleteUserButton
 			// 
@@ -444,7 +445,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(525, 492);
 			this.Controls.Add(this.m_userListLabel);
-			this.Controls.Add(this.comboBoxEx1);
+			this.Controls.Add(this.m_userListCombo);
 			this.Controls.Add(this.m_deleteUserButton);
 			this.DoubleBuffered = true;
 			this.Name = "AlterUserForm";
@@ -454,7 +455,7 @@
 			this.Controls.SetChildIndex(this.m_deselectAllButton, 0);
 			this.Controls.SetChildIndex(this.m_selectAllButton, 0);
 			this.Controls.SetChildIndex(this.m_deleteUserButton, 0);
-			this.Controls.SetChildIndex(this.comboBoxEx1, 0);
+			this.Controls.SetChildIndex(this.m_userListCombo, 0);
 			this.Controls.SetChildIndex(this.m_userListLabel, 0);
 			this.Controls.SetChildIndex(this.m_titleImgLabel, 0);
 			this.Controls.SetChildIndex(this.m_titleLabel, 0);
@@ -486,7 +487,7 @@
 		#endregion
 
 		private DevComponents.DotNetBar.LabelX m_userListLabel;
-		private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxEx1;
+		private DevComponents.DotNetBar.Controls.ComboBoxEx m_userListCombo;
 		private DevComponents.DotNetBar.ButtonX m_deleteUserButton;
 	}
 }

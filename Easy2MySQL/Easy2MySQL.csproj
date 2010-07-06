@@ -88,6 +88,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="src\Components\CheckBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="src\Components\DockablePane.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -107,6 +110,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="src\Components\QueryEditor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="src\Components\TextBoxEx.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="src\Forms\AlterUserForm.cs">

@@ -426,7 +426,7 @@
 			this.m_userListCombo.Size = new System.Drawing.Size(192, 25);
 			this.m_userListCombo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_userListCombo.TabIndex = 3;
-			this.m_userListCombo.SelectedIndexChanged += new System.EventHandler(this.m_userListCombo_SelectedIndexChanged);
+			this.m_userListCombo.SelectedIndexChanged += new System.EventHandler(this.OnUserListComboSelectedIndexChanged);
 			// 
 			// m_deleteUserButton
 			// 

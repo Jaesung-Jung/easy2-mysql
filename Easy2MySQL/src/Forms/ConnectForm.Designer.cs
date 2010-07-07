@@ -106,7 +106,7 @@
 			this.m_deleteConnection.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_deleteConnection.TabIndex = 22;
 			this.m_deleteConnection.Text = "지우기(&D)...";
-			this.m_deleteConnection.Click += new System.EventHandler(this.m_deleteConnection_Click);
+			this.m_deleteConnection.Click += new System.EventHandler(this.OnDeleteConnectionClick);
 			// 
 			// m_renameConnection
 			// 
@@ -119,7 +119,7 @@
 			this.m_renameConnection.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_renameConnection.TabIndex = 21;
 			this.m_renameConnection.Text = "바꾸기(&R)...";
-			this.m_renameConnection.Click += new System.EventHandler(this.m_renameConnection_Click);
+			this.m_renameConnection.Click += new System.EventHandler(this.OnRenameConnectionClick);
 			// 
 			// m_saveConnection
 			// 
@@ -132,7 +132,7 @@
 			this.m_saveConnection.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_saveConnection.TabIndex = 20;
 			this.m_saveConnection.Text = "저장(&S)";
-			this.m_saveConnection.Click += new System.EventHandler(this.m_saveConnection_Click);
+			this.m_saveConnection.Click += new System.EventHandler(this.OnSaveConnectionClick);
 			// 
 			// m_newConnection
 			// 
@@ -145,7 +145,7 @@
 			this.m_newConnection.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_newConnection.TabIndex = 19;
 			this.m_newConnection.Text = "새 연결(&N)...";
-			this.m_newConnection.Click += new System.EventHandler(this.m_newConnection_Click);
+			this.m_newConnection.Click += new System.EventHandler(this.OnNewConnectionClick);
 			// 
 			// m_tabControl
 			// 
@@ -474,7 +474,7 @@
 			this.m_connect.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_connect.TabIndex = 16;
 			this.m_connect.Text = "연결하기(&C)";
-			this.m_connect.Click += new System.EventHandler(this.m_connect_Click);
+			this.m_connect.Click += new System.EventHandler(this.OnConnectClick);
 			// 
 			// m_close
 			// 
@@ -487,7 +487,7 @@
 			this.m_close.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_close.TabIndex = 17;
 			this.m_close.Text = "닫기(&L)";
-			this.m_close.Click += new System.EventHandler(this.m_close_Click);
+			this.m_close.Click += new System.EventHandler(this.OnCloseClick);
 			// 
 			// m_connectTest
 			// 
@@ -500,7 +500,7 @@
 			this.m_connectTest.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_connectTest.TabIndex = 18;
 			this.m_connectTest.Text = "연결테스트(&T)";
-			this.m_connectTest.Click += new System.EventHandler(this.m_connectTest_Click);
+			this.m_connectTest.Click += new System.EventHandler(this.OnConnectTestClick);
 			// 
 			// m_titleLabel
 			// 

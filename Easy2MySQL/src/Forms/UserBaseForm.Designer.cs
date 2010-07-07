@@ -734,7 +734,7 @@
 			this.m_closeButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_closeButton.TabIndex = 24;
 			this.m_closeButton.Text = "닫기(&L)";
-			this.m_closeButton.Click += new System.EventHandler(this.m_closeButton_Click);
+			this.m_closeButton.Click += new System.EventHandler(this.OnCloseButtonClick);
 			// 
 			// m_commitButton
 			// 
@@ -760,7 +760,7 @@
 			this.m_deselectAllButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_deselectAllButton.TabIndex = 22;
 			this.m_deselectAllButton.Text = "선택해제(&D)";
-			this.m_deselectAllButton.Click += new System.EventHandler(this.m_deselectAllButton_Click);
+			this.m_deselectAllButton.Click += new System.EventHandler(this.OnDeselectAllButtonClick);
 			// 
 			// m_selectAllButton
 			// 
@@ -773,7 +773,7 @@
 			this.m_selectAllButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_selectAllButton.TabIndex = 21;
 			this.m_selectAllButton.Text = "모두선택(&A)";
-			this.m_selectAllButton.Click += new System.EventHandler(this.m_selectAllButton_Click);
+			this.m_selectAllButton.Click += new System.EventHandler(this.OnSelectAllButtonClick);
 			// 
 			// UserBaseForm
 			// 

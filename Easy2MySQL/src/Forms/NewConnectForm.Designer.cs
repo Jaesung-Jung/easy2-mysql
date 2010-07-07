@@ -75,7 +75,7 @@
 			this.m_connectNameText.Size = new System.Drawing.Size(188, 25);
 			this.m_connectNameText.TabIndex = 2;
 			this.m_connectNameText.Text = "New Connection";
-			this.m_connectNameText.TextChanged += new System.EventHandler(this.m_connectNameText_TextChanged);
+			this.m_connectNameText.TextChanged += new System.EventHandler(this.OnConnectNameTextChanged);
 			// 
 			// m_commitButton
 			// 
@@ -87,7 +87,7 @@
 			this.m_commitButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_commitButton.TabIndex = 3;
 			this.m_commitButton.Text = "확인(&O)";
-			this.m_commitButton.Click += new System.EventHandler(this.m_commitButton_Click);
+			this.m_commitButton.Click += new System.EventHandler(this.OnCommitButtonClick);
 			// 
 			// m_closeButton
 			// 
@@ -99,7 +99,7 @@
 			this.m_closeButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_closeButton.TabIndex = 4;
 			this.m_closeButton.Text = "닫기(&L)";
-			this.m_closeButton.Click += new System.EventHandler(this.m_closeButton_Click);
+			this.m_closeButton.Click += new System.EventHandler(this.OnCloseButtonClick);
 			// 
 			// NewConnectForm
 			// 

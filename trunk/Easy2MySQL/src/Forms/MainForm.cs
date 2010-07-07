@@ -107,7 +107,7 @@ namespace Easy2
 		protected override void OnShown(EventArgs e)
 		{
 			base.OnShown(e);
-			this.m_newConnection_Click(this, null);
+			this.OnNewConnectionClick(this, null);
 		}
 
 		/// <summary>
@@ -125,7 +125,7 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void m_quitApplication_Click(object sender, EventArgs e)
+		private void OnQuitApplicationClick(object sender, EventArgs e)
 		{
 		}
 
@@ -162,7 +162,7 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void m_newConnection_Click(object sender, EventArgs e)
+		private void OnNewConnectionClick(object sender, EventArgs e)
 		{
 			ConnectForm connectForm = new ConnectForm();
 			DialogResult dlgResult = connectForm.ShowDialog(this);
@@ -184,7 +184,7 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void m_disconnectMySql_Click(object sender, EventArgs e)
+		private void OnDisconnectMySqlClick(object sender, EventArgs e)
 		{
 			if(Program.ActivateCommunicator != null)
 			{
@@ -203,7 +203,7 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void m_disconnectAllMySql_Click(object sender, EventArgs e)
+		private void OnDisconnectAllMySqlClick(object sender, EventArgs e)
 		{
 			Program.CoummunicatorList.DisconnectAll();
 			this.m_dockingManager.Bars.Clear();
@@ -214,7 +214,7 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void m_refreshObjectBrowser_Click(object sender, EventArgs e)
+		private void OnRefreshObjectBrowserClick(object sender, EventArgs e)
 		{
 			this.m_objectBrowser.Tree.UpdateTree();
 		}
@@ -224,7 +224,7 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void m_newQueryEditor_Click(object sender, EventArgs e)
+		private void OnNewQueryEditorClick(object sender, EventArgs e)
 		{
 			CreateNewDocument(DocumentType.QueryEditor);
 		}
@@ -234,7 +234,7 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void m_createUser_Click(object sender, EventArgs e)
+		private void OnCreateUserClick(object sender, EventArgs e)
 		{
 			new CreateUserForm().ShowDialog(this);
 		}
@@ -244,7 +244,7 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void m_alterUser_Click(object sender, EventArgs e)
+		private void OnAlterUserClick(object sender, EventArgs e)
 		{
 			new AlterUserForm().ShowDialog(this);
 		}

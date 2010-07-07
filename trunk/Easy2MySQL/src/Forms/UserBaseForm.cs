@@ -23,7 +23,7 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void m_closeButton_Click(object sender, EventArgs e)
+		private void OnCloseButtonClick(object sender, EventArgs e)
 		{
 			this.Dispose(true);
 		}
@@ -33,9 +33,9 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void m_selectAllButton_Click(object sender, System.EventArgs e)
+		private void OnSelectAllButtonClick(object sender, System.EventArgs e)
 		{
-			this.selectCheckBox(true);
+			this.SelectCheckBox(true);
 		}
 
 		/// <summary>
@@ -43,16 +43,16 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void m_deselectAllButton_Click(object sender, System.EventArgs e)
+		private void OnDeselectAllButtonClick(object sender, System.EventArgs e)
 		{
-			this.selectCheckBox(false);
+			this.SelectCheckBox(false);
 		}
 
 		/// <summary>
 		/// 체크박스 상태를 조정 합니다.
 		/// </summary>
 		/// <param name="b">true면 체크, false면 언체크</param>
-		private void selectCheckBox(bool b)
+		private void SelectCheckBox(bool b)
 		{
 			foreach(CheckBoxX check in this.m_allVersionGroupBox.Controls)
 			{

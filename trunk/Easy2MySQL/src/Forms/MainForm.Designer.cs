@@ -710,7 +710,7 @@
 			this.m_createUser.Name = "m_createUser";
 			this.m_createUser.SubItemsExpandWidth = 14;
 			this.m_createUser.Text = "<div align=\"center\">사용자<br/>추가하기</div>";
-			this.m_createUser.Click += new System.EventHandler(this.m_createUser_Click);
+			this.m_createUser.Click += new System.EventHandler(this.OnCreateUserClick);
 			// 
 			// m_alterUser
 			// 
@@ -720,7 +720,7 @@
 			this.m_alterUser.Name = "m_alterUser";
 			this.m_alterUser.SubItemsExpandWidth = 14;
 			this.m_alterUser.Text = "<div align=\"center\">사용자<br/>수정하기</div>";
-			this.m_alterUser.Click += new System.EventHandler(this.m_alterUser_Click);
+			this.m_alterUser.Click += new System.EventHandler(this.OnAlterUserClick);
 			// 
 			// m_privilegeUser
 			// 
@@ -1148,7 +1148,7 @@
 			this.m_refreshObjectBrowser.Name = "m_refreshObjectBrowser";
 			this.m_refreshObjectBrowser.SubItemsExpandWidth = 14;
 			this.m_refreshObjectBrowser.Text = "새로고침";
-			this.m_refreshObjectBrowser.Click += new System.EventHandler(this.m_refreshObjectBrowser_Click);
+			this.m_refreshObjectBrowser.Click += new System.EventHandler(this.OnRefreshObjectBrowserClick);
 			// 
 			// m_toolPanel
 			// 
@@ -1399,7 +1399,7 @@
 			this.m_newConnection.Name = "m_newConnection";
 			this.m_newConnection.SubItemsExpandWidth = 24;
 			this.m_newConnection.Text = "새로운 연결(&C)...";
-			this.m_newConnection.Click += new System.EventHandler(this.m_newConnection_Click);
+			this.m_newConnection.Click += new System.EventHandler(this.OnNewConnectionClick);
 			// 
 			// m_newConnectionUsingCurrentSettings
 			// 
@@ -1417,7 +1417,7 @@
 			this.m_newQueryEditor.Name = "m_newQueryEditor";
 			this.m_newQueryEditor.SubItemsExpandWidth = 24;
 			this.m_newQueryEditor.Text = "새 쿼리 에디터(&Q)";
-			this.m_newQueryEditor.Click += new System.EventHandler(this.m_newQueryEditor_Click);
+			this.m_newQueryEditor.Click += new System.EventHandler(this.OnNewQueryEditorClick);
 			// 
 			// m_newQueryWizard
 			// 
@@ -1450,7 +1450,7 @@
 			this.m_disconnectMySql.Image = global::Easy2.Properties.Resources.Disconnect;
 			this.m_disconnectMySql.Name = "m_disconnectMySql";
 			this.m_disconnectMySql.Text = "연결종료(&D)";
-			this.m_disconnectMySql.Click += new System.EventHandler(this.m_disconnectMySql_Click);
+			this.m_disconnectMySql.Click += new System.EventHandler(this.OnDisconnectMySqlClick);
 			// 
 			// m_disconnectAllMySql
 			// 
@@ -1458,7 +1458,7 @@
 			this.m_disconnectAllMySql.Image = global::Easy2.Properties.Resources.DisconnectAll;
 			this.m_disconnectAllMySql.Name = "m_disconnectAllMySql";
 			this.m_disconnectAllMySql.Text = "모든 연결종료(&L)";
-			this.m_disconnectAllMySql.Click += new System.EventHandler(this.m_disconnectAllMySql_Click);
+			this.m_disconnectAllMySql.Click += new System.EventHandler(this.OnDisconnectAllMySqlClick);
 			// 
 			// m_openFileInSameTab
 			// 
@@ -1530,7 +1530,7 @@
 			this.m_quitApplication.Name = "m_quitApplication";
 			this.m_quitApplication.SubItemsExpandWidth = 24;
 			this.m_quitApplication.Text = "종료하기(&X)";
-			this.m_quitApplication.Click += new System.EventHandler(this.m_quitApplication_Click);
+			this.m_quitApplication.Click += new System.EventHandler(this.OnQuitApplicationClick);
 			// 
 			// m_homeTab
 			// 

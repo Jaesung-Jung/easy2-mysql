@@ -94,7 +94,7 @@
 			this.m_closeButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_closeButton.TabIndex = 6;
 			this.m_closeButton.Text = "닫기";
-			this.m_closeButton.Click += new System.EventHandler(this.m_closeButton_Click);
+			this.m_closeButton.Click += new System.EventHandler(this.OnCloseButtonClick);
 			// 
 			// m_copyButton
 			// 
@@ -106,7 +106,7 @@
 			this.m_copyButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_copyButton.TabIndex = 7;
 			this.m_copyButton.Text = "복사하기(&C)";
-			this.m_copyButton.Click += new System.EventHandler(this.m_copyButton_Click);
+			this.m_copyButton.Click += new System.EventHandler(this.OnCopyButtonClick);
 			// 
 			// ErrorMessageForm
 			// 

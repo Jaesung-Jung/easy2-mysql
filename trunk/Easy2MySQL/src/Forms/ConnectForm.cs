@@ -79,7 +79,7 @@ namespace Easy2
 		protected override void OnLoad(System.EventArgs e)
 		{
 			base.OnLoad(e);
-			this.m_connectionListCombo.SelectedIndexChanged += new EventHandler(m_connectionListCombo_SelectedIndexChanged);
+			this.m_connectionListCombo.SelectedIndexChanged += new EventHandler(this.OnConnectionListComboSelectedIndexChanged);
 			this.m_tabControl.ColorScheme.TabBackground = this.BackColor;
 			this.m_tabControl.ColorScheme.TabBackground2 = this.BackColor;
 			InitializeTabPanelBackColor();
@@ -107,7 +107,7 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		void  m_connectionListCombo_SelectedIndexChanged(object sender, EventArgs e)
+		void OnConnectionListComboSelectedIndexChanged(object sender, EventArgs e)
 		{
 			try
 			{
@@ -242,7 +242,7 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void m_newConnection_Click(object sender, EventArgs e)
+		private void OnNewConnectionClick(object sender, EventArgs e)
 		{
 			NewConnectForm frm = new NewConnectForm();
 			DialogResult result = frm.ShowDialog(this);
@@ -260,7 +260,7 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void m_saveConnection_Click(object sender, EventArgs e)
+		private void OnSaveConnectionClick(object sender, EventArgs e)
 		{
 			UpdateData(true);
 			if(this.m_savePasswordCheck.Checked)
@@ -273,7 +273,7 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void m_renameConnection_Click(object sender, EventArgs e)
+		private void OnRenameConnectionClick(object sender, EventArgs e)
 		{
 			RenameConnectForm frm = new RenameConnectForm(this.m_connectionListCombo.SelectedItem.ToString());
 			DialogResult result = frm.ShowDialog(this);
@@ -290,7 +290,7 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void m_deleteConnection_Click(object sender, EventArgs e)
+		private void OnDeleteConnectionClick(object sender, EventArgs e)
 		{
 			DialogResult result = MessageBox.Show(
 				this, Resources.Easy2Message_DeleteQuestion,
@@ -316,7 +316,7 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void m_connect_Click(object sender, EventArgs e)
+		private void OnConnectClick(object sender, EventArgs e)
 		{
 			UpdateData(true);
 			try
@@ -339,7 +339,7 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void m_connectTest_Click(object sender, EventArgs e)
+		private void OnConnectTestClick(object sender, EventArgs e)
 		{
 			UpdateData(true);
 			try
@@ -354,11 +354,11 @@ namespace Easy2
 		}
 
 		/// <summary>
-		/// 취소 버튼을 클릭했을 때 호출됩니다.
+		/// 닫기 버튼을 클릭했을 때 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void m_close_Click(object sender, EventArgs e)
+		private void OnCloseClick(object sender, EventArgs e)
 		{
 			this.Close();
 		}

@@ -1674,6 +1674,7 @@
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "MainForm";
 			this.Text = "Easy To MySQL";
+			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.m_ribbonControl.ResumeLayout(false);
 			this.m_ribbonControl.PerformLayout();
 			this.m_createPanel.ResumeLayout(false);

@@ -503,6 +503,15 @@ namespace Easy2.Properties {
         }
         
         /// <summary>
+        ///   {0} 사용자의 데이터가 수정되었습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2Message_UserAlterSuccessfully {
+            get {
+                return ResourceManager.GetString("Easy2Message_UserAlterSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   {0} 사용자가 만들어졌습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string Easy2Message_UserCreatedSuccessfully {

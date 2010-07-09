@@ -170,9 +170,96 @@ namespace Easy2
 		}
 
 		/// <summary>
+		/// 사용자를 수정하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="targetUsername">수정대상의 사용자이름입니다.</param>
+		/// <param name="targetHost">수정대상의 호스트명입니다.</param>
+		/// <param name="userInfo">사용자정보를 가진 객체입니다.</param>
+		/// <returns>사용자를 수정하는 쿼리문입니다.</returns>
+		public static string AlterUser(string targetUsername, string targetHost, User userInfo)
+		{
+			StringBuilder queryBuilder = new StringBuilder();
+
+			queryBuilder.Append(
+				"UPDATE mysql.user SET "
+				);
+
+			if(userInfo.Password.CompareTo("\n\n\n\n") != 0)
+			{
+				queryBuilder.Append(String.Format(
+					"password=PASSWORD('{0}'), ",
+					userInfo.Password
+					));
+			}
+
+			queryBuilder.Append(String.Format(
+				"user='{0}', host='{1}', select_priv='{2}', insert_priv='{3}', update_priv='{4}', delete_priv='{5}', create_priv='{6}', drop_priv='{7}', reload_priv='{8}', shutdown_priv='{9}', process_priv='{10}', file_priv='{11}', grant_priv='{12}', references_priv='{13}', index_priv='{14}', alter_priv='{15}'",
+				userInfo.Username,
+				userInfo.Host,
+				userInfo.Select ? 'Y' : 'N',
+				userInfo.Insert ? 'Y' : 'N',
+				userInfo.Update ? 'Y' : 'N',
+				userInfo.Delete ? 'Y' : 'N',
+				userInfo.Create ? 'Y' : 'N',
+				userInfo.Drop ? 'Y' : 'N',
+				userInfo.Reload ? 'Y' : 'N',
+				userInfo.Shutdown ? 'Y' : 'N',
+				userInfo.Process ? 'Y' : 'N',
+				userInfo.File ? 'Y' : 'N',
+				userInfo.Grant ? 'Y' : 'N',
+				userInfo.Reference ? 'Y' : 'N',
+				userInfo.Index ? 'Y' : 'N',
+				userInfo.Alter ? 'Y' : 'N'
+				));
+
+			if(Program.ActivateCommunicator.v402 == true)
+			{
+				queryBuilder.Append(String.Format(
+					", show_db_priv='{0}', super_priv='{1}', create_tmp_table_priv='{2}', lock_tables_priv='{3}', execute_priv='{4}', repl_slave_priv='{5}', repl_client_priv='{6}'",
+					userInfo.Show_db ? 'Y' : 'N',
+					userInfo.Super ? 'Y' : 'N',
+					userInfo.Create_tmp_tables ? 'Y' : 'N',
+					userInfo.Lock_tables ? 'Y' : 'N',
+					userInfo.Execute ? 'Y' : 'N',
+					userInfo.Repl_slave ? 'Y' : 'N',
+					userInfo.Repl_client ? 'Y' : 'N'
+					));
+			}
+
+			if(Program.ActivateCommunicator.v500 == true)
+			{
+				queryBuilder.Append(String.Format(
+					", create_view_priv='{0}', show_view_priv='{1}', create_routine_priv='{2}', alter_routine_priv='{3}', create_user_priv='{4}', ssl_cipher='', x509_issuer='', x509_subject=''",
+					userInfo.Create_view ? 'Y' : 'N',
+					userInfo.Show_view ? 'Y' : 'N',
+					userInfo.Create_routine ? 'Y' : 'N',
+					userInfo.Alter_routine ? 'Y' : 'N',
+					userInfo.Create_user ? 'Y' : 'N'
+					));
+			}
+
+			if(Program.ActivateCommunicator.v510 == true)
+			{
+				queryBuilder.Append(String.Format(
+					", event_priv='{0}', trigger_priv='{1}'",
+					userInfo.Event ? 'Y' : 'N',
+					userInfo.Trigger ? 'Y' : 'N'
+					));
+			}
+
+			queryBuilder.Append(String.Format(
+				" WHERE user='{0}' AND host='{1}'",
+				targetUsername,
+				targetHost
+				));
+
+			return queryBuilder.ToString();
+		}
+
+		/// <summary>
 		/// 사용자를 생성하는 쿼리문을 생성합니다.
 		/// </summary>
-		/// <param name="userInfo">사용자정보를 가지는 클래스입니다.</param>
+		/// <param name="userInfo">사용자정보를 가진 객체입니다.</param>
 		/// <returns>사용자를 생성하는 쿼리문입니다.</returns>
 		public static string CreateUser(User userInfo)
 		{

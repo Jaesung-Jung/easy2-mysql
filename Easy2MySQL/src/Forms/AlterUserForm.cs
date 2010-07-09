@@ -21,8 +21,58 @@ namespace Easy2
 		public AlterUserForm()
 		{
 			InitializeComponent();
+			InitializeChangedEvent();
 		}
 
+		/// <summary>
+		/// 컨트롤러의 이벤트를 초기화합니다.
+		/// </summary>
+		public void InitializeChangedEvent()
+		{
+			this.m_usernameText.TextChanged += new EventHandler(this.OnDataChanged);
+			this.m_hostText.TextChanged += new EventHandler(this.OnDataChanged);
+			this.m_PasswordText1.TextChanged += new EventHandler(this.OnDataChanged);
+			this.m_PasswordText2.TextChanged += new EventHandler(this.OnDataChanged);
+			this.m_select.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_insert.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_update.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_delete.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_create.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_drop.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_shutdown.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_process.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_file.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_reference.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_index.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_alter.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_grant.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_execute.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_repl_slave.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_show_db.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_repl_client.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_super.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_lock_tables.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_create_tmp_tables.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_create_view.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_create_routine.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_show_view.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_alter_routine.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_create_view.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_trigger.CheckedChanged += new EventHandler(this.OnDataChanged);
+			this.m_event.CheckedChanged += new EventHandler(this.OnDataChanged);
+		}
+
+		/// <summary>
+		/// 데이터가 변화되었을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnDataChanged(object sender, EventArgs e)
+		{
+			if(this.m_commitButton.Enabled == false)
+				this.m_commitButton.Enabled = true;
+		}
+		
 		/// <summary>
 		/// OnShown 재정의입니다.
 		/// </summary>
@@ -37,8 +87,6 @@ namespace Easy2
 				this.m_500VersionGroupBox.Enabled = false;
 			if(Program.ActivateCommunicator.v510 == false)
 				this.m_510VersionGroupBox.Enabled = false;
-
-			this.m_commitButton.Enabled = false;
 
 			if(this.LoadUserList() > 0)
 			{
@@ -102,7 +150,7 @@ namespace Easy2
 				{
 					this.UserInfo.Host = reader.GetString(0);
 					this.UserInfo.Username = reader.GetString(1);
-					this.UserInfo.Password = "     ";
+					this.UserInfo.Password = "\n\n\n\n";
 					this.UserInfo.Select = reader.GetChar(3) == 'Y' ? true : false;
 					this.UserInfo.Insert = reader.GetChar(4) == 'Y' ? true : false;
 					this.UserInfo.Update = reader.GetChar(5) == 'Y' ? true : false;
@@ -133,6 +181,7 @@ namespace Easy2
 					this.UserInfo.Trigger = reader.GetChar(30) == 'Y' ? true : false;
 				}
 				UpdateData(false);
+				this.m_commitButton.Enabled = false;
 			}
 			catch(MySqlException ex)
 			{

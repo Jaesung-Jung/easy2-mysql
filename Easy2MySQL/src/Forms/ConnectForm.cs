@@ -24,6 +24,32 @@ namespace Easy2
 		public ConnectForm()
 		{
 			InitializeComponent();
+			InitializeChangedEvent();
+		}
+
+		/// <summary>
+		/// 컨트롤러의 이벤트를 초기화합니다.
+		/// </summary>
+		public void InitializeChangedEvent()
+		{
+			this.m_mysqlHostText.TextChanged += new EventHandler(this.OnDataChanged);
+			this.m_mysqlUsernameText.TextChanged += new EventHandler(this.OnDataChanged);
+			this.m_mysqlPasswordText.TextChanged += new EventHandler(this.OnDataChanged);
+			this.m_mysqlPortText.TextChanged += new EventHandler(this.OnDataChanged);
+			this.m_mysqlDatabaseText.TextChanged += new EventHandler(this.OnDataChanged);
+			this.m_mysqlTimeoutText.TextChanged += new EventHandler(this.OnDataChanged);
+			this.m_savePasswordCheck.CheckedChanged += new EventHandler(this.OnDataChanged);
+		}
+
+		/// <summary>
+		/// 데이터가 변화되었을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnDataChanged(object sender, EventArgs e)
+		{
+			if(this.m_saveConnection.Enabled == false)
+				this.m_saveConnection.Enabled = true;
 		}
 
 		/// <summary>
@@ -82,6 +108,12 @@ namespace Easy2
 			this.m_connectionListCombo.SelectedIndexChanged += new EventHandler(this.OnConnectionListComboSelectedIndexChanged);
 			this.m_tabControl.ColorScheme.TabBackground = this.BackColor;
 			this.m_tabControl.ColorScheme.TabBackground2 = this.BackColor;
+			this.m_saveConnection.Enabled = false;
+			this.m_connect.Enabled = false;
+			this.m_connectTest.Enabled = false;
+			this.m_renameConnection.Enabled = false;
+			this.m_deleteConnection.Enabled = false;
+
 			InitializeTabPanelBackColor();
 			InitializeLabelBackColor();
 			ReadConnectInfo();
@@ -114,6 +146,11 @@ namespace Easy2
 				int selectedIndex = this.m_connectionListCombo.SelectedIndex;
 				this.m_selectedInfo = this.m_connectInfoList[selectedIndex];
 				UpdateData(false);
+				this.m_saveConnection.Enabled = false;
+				this.m_connect.Enabled = true;
+				this.m_connectTest.Enabled = true;
+				this.m_renameConnection.Enabled = true;
+				this.m_deleteConnection.Enabled = true;
 			}
 			catch(Exception ex)
 			{
@@ -266,6 +303,7 @@ namespace Easy2
 			if(this.m_savePasswordCheck.Checked)
 				this.m_selectedInfo.Password = "";
 			WriteConnectInfo();
+			this.m_saveConnection.Enabled = false;
 		}
 
 		/// <summary>

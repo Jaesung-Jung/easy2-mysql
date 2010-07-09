@@ -181,9 +181,25 @@ namespace Easy2
 			return affectedRow;
 		}
 
+		/// <summary>
+		/// 사용자를 생성합니다.
+		/// </summary>
+		/// <param name="userInfo">생성할 사용자정보를 가진 객체입니다.</param>
 		public void CreateUser(User userInfo)
 		{
 			Program.ActivateCommunicator.Execute(MySqlGenerator.CreateUser(userInfo));
+			this.Execute("FLUSH PRIVILEGES");
+		}
+
+		/// <summary>
+		/// 사용자를 수정합니다.
+		/// </summary>
+		/// <param name="targetUsername">수정대상의 사용자이름입니다.</param>
+		/// <param name="targetHost">수정대상의 호스트명입니다.</param>
+		/// <param name="userInfo">사용자정보를 가진 객체입니다.</param>
+		public void AlterUser(string targetUsername, string targetHost, User userInfo)
+		{
+			Program.ActivateCommunicator.Execute(MySqlGenerator.AlterUser(targetUsername, targetHost, userInfo));
 			this.Execute("FLUSH PRIVILEGES");
 		}
 

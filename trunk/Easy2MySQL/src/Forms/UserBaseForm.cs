@@ -96,7 +96,9 @@ namespace Easy2
 			if(this.m_usernameText.Text.Trim().Length == 0)
 			{
 				MessageBox.Show(
-					this, String.Format(Resources.Easy2Message_EmptyItem, m_usernameLabel.Text),
+					this, String.Format(
+						Resources.Easy2Message_EmptyItem,
+						this.m_usernameLabel.Text.Substring(0, this.m_usernameLabel.Text.Length - 4)),
 					Resources.Easy2Message_Title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
 				this.m_usernameText.Focus();
@@ -106,40 +108,49 @@ namespace Easy2
 			if(this.m_hostText.Text.Trim().Length == 0)
 			{
 				MessageBox.Show(
-					this, String.Format(Resources.Easy2Message_EmptyItem, m_hostLabel.Text),
+					this, String.Format(
+						Resources.Easy2Message_EmptyItem,
+						this.m_hostLabel.Text.Substring(0, this.m_hostLabel.Text.Length - 4)),
 					Resources.Easy2Message_Title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
 				this.m_hostText.Focus();
 				return;
 			}
 
-			if(this.m_PasswordText1.TextLength == 0)
-			{
-				MessageBox.Show(
-					this, String.Format(Resources.Easy2Message_EmptyItem, m_PasswordLabel.Text),
-					Resources.Easy2Message_Title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-				this.m_PasswordText1.Focus();
-				return;
-			}
-
-			if(this.m_PasswordText2.TextLength == 0)
-			{
-				MessageBox.Show(
-					this, String.Format(Resources.Easy2Message_EmptyItem, m_retypePasswordLabel.Text),
-					Resources.Easy2Message_Title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-				this.m_PasswordText2.Focus();
-				return;
-			}
-
-			if(this.m_PasswordText1.Text.CompareTo(this.m_PasswordText2.Text) != 0)
+			if(
+				this.m_PasswordText1.TextLength != 0 && this.m_PasswordText2.TextLength != 0 &&
+				(this.m_PasswordText1.Text.CompareTo(this.m_PasswordText2.Text) != 0)
+				)
 			{
 				MessageBox.Show(
 					this, Resources.Easy2Message_DoNotMatchPassword,
 					Resources.Easy2Message_Title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
 				this.m_PasswordText1.Focus();
+				return;
+			}
+
+			if((this.m_PasswordText1.TextLength == 0 || this.m_PasswordText2.TextLength == 0) &&
+				this.m_PasswordText1.TextLength != this.m_PasswordText2.TextLength)
+			{
+				if(this.m_PasswordText1.TextLength == 0)
+				{
+					MessageBox.Show(
+					this, String.Format(
+						Resources.Easy2Message_EmptyItem,
+						this.m_PasswordLabel.Text.Substring(0, this.m_PasswordLabel.Text.Length - 4)),
+					Resources.Easy2Message_Title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					this.m_PasswordText1.Focus();
+				}
+				else
+				{
+					MessageBox.Show(
+					this, String.Format(
+						Resources.Easy2Message_EmptyItem,
+						this.m_retypePasswordLabel.Text.Substring(0, this.m_retypePasswordLabel.Text.Length - 4)),
+					Resources.Easy2Message_Title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					this.m_PasswordText2.Focus();
+				}
 				return;
 			}
 

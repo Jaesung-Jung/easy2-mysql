@@ -451,4 +451,7 @@
   <data name="Easy2Message_UserCreatedSuccessfully" xml:space="preserve">
     <value>{0} 사용자가 만들어졌습니다.</value>
   </data>
+  <data name="Easy2Message_UserAlterSuccessfully" xml:space="preserve">
+    <value>{0} 사용자의 데이터가 수정되었습니다.</value>
+  </data>
 </root>

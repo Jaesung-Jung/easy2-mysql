@@ -194,5 +194,36 @@ namespace Easy2
 					reader.Close();
 			}
 		}
+
+		/// <summary>
+		/// 확인버튼을 눌렀을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		protected override void OnCommitButtonClick(object sender, EventArgs e)
+		{
+			string targetUsername = this.UserInfo.Username;
+			string targetHost = this.UserInfo.Host;
+
+			base.OnCommitButtonClick(sender, e);
+			if(this.RunNetxJob)
+			{
+				try
+				{
+					Program.ActivateCommunicator.AlterUser(targetUsername, targetHost, this.UserInfo);
+					MessageBox.Show(
+						this,
+						String.Format(Resources.Easy2Message_UserAlterSuccessfully, this.UserInfo.Username),
+						Resources.Easy2Message_Title,
+						MessageBoxButtons.OK,
+						MessageBoxIcon.Information
+						);
+				}
+				catch(MySqlException ex)
+				{
+					EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
+				}
+			}
+		}
 	}
 }

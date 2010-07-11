@@ -249,6 +249,11 @@ namespace Easy2
 			new AlterUserForm().ShowDialog(this);
 		}
 
+		private void OnCreateDatabaseClick(object sender, EventArgs e)
+		{
+			new DatabaseBaseForm().ShowDialog(this);
+		}
+
 		private int m_queryEditorsCount;
 		private DockingManager m_dockingManager;
 		private ObjectBrowser m_objectBrowser;

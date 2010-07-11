@@ -23,7 +23,7 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void OnCloseButtonClick(object sender, EventArgs e)
+		protected virtual void OnCloseButtonClick(object sender, EventArgs e)
 		{
 			this.Dispose(true);
 		}
@@ -33,7 +33,7 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void OnSelectAllButtonClick(object sender, System.EventArgs e)
+		protected virtual void OnSelectAllButtonClick(object sender, System.EventArgs e)
 		{
 			this.SelectCheckBox(true);
 		}
@@ -43,7 +43,7 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void OnDeselectAllButtonClick(object sender, System.EventArgs e)
+		protected virtual void OnDeselectAllButtonClick(object sender, System.EventArgs e)
 		{
 			this.SelectCheckBox(false);
 		}
@@ -91,7 +91,7 @@ namespace Easy2
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		protected virtual void OnCommitButtonClick(object sender, EventArgs e)
 		{
-			this.m_runNextJob = false;
+			this.m_dataEffectiveness = false;
 
 			if(this.m_usernameText.Text.Trim().Length == 0)
 			{
@@ -156,7 +156,7 @@ namespace Easy2
 
 			UpdateData(true);
 
-			this.m_runNextJob = true;
+			this.m_dataEffectiveness = true;
 		}
 
 		/// <summary>
@@ -264,12 +264,12 @@ namespace Easy2
 		/// <summary>
 		/// 확인버튼을 눌렀을 때, UserBaseForm에서 데이터유효성을 검사하여 다음작업을 수행해도 될지 여부입니다.
 		/// </summary>
-		protected bool RunNetxJob
+		protected bool DataEffectiveness
 		{
-			get { return this.m_runNextJob; }
+			get { return this.m_dataEffectiveness; }
 		}
 
 		private User m_userInfo = new User();
-		private bool m_runNextJob = false;
+		private bool m_dataEffectiveness = false;
 	}
 }

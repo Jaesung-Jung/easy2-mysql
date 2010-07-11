@@ -449,7 +449,7 @@
 			this.Controls.Add(this.m_deleteUserButton);
 			this.DoubleBuffered = true;
 			this.Name = "AlterUserForm";
-			this.Text = "AlterUserForm";
+			this.Text = "사용자 수정하기";
 			this.Controls.SetChildIndex(this.m_closeButton, 0);
 			this.Controls.SetChildIndex(this.m_commitButton, 0);
 			this.Controls.SetChildIndex(this.m_deselectAllButton, 0);

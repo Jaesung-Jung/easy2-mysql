@@ -134,6 +134,34 @@ namespace Easy2
 			return String.Format("SHOW INDEX FROM {0}", tableName);
 		}
 
+		/// <summary>
+		/// 문자셋을 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <returns>문자셋을 조회하는 쿼리문입니다.</returns>
+		public static string ShowCharset()
+		{
+			return "SHOW CHARSET";
+		}
+
+		/// <summary>
+		/// 모든 컬레션을 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <returns>모든 컬레션을 조회하는 쿼리문입니다.</returns>
+		public static string ShowCollation()
+		{
+			return "SHOW COLLATION";
+		}
+
+		/// <summary>
+		/// 문자셋에 해당되는 컬레션을 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="charset">조회할 컬레션의 문자셋입니다.</param>
+		/// <returns>문자셋에 해당되는 컬레션을 조회하는 쿼리문을 생성합니다.</returns>
+		public static string ShowCollation(string charset)
+		{
+			return String.Format("SHOW COLLATION WHERE charset='{0}'", charset);
+		}
+
 		public static string SelectMysqlUser()
 		{
 			return "SELECT user, host FROM mysql.user";

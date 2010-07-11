@@ -1,6 +1,7 @@
 ﻿
 // MySqlCommunicator.cs
 //
+using Easy2.Properties;
 using System;
 using System.Data;
 using System.Collections.Generic;
@@ -154,7 +155,8 @@ namespace Easy2
 			}
 			finally
 			{
-				command.Dispose();
+				if(command != null)
+					command.Dispose();
 			}
 			return reader;
 		}
@@ -176,7 +178,8 @@ namespace Easy2
 			}
 			finally
 			{
-				command.Dispose();
+				if(command != null)
+					command.Dispose();
 			}
 			return affectedRow;
 		}

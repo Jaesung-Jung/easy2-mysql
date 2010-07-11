@@ -36,6 +36,7 @@
 			this.m_collationCombo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
 			this.m_commitButton = new DevComponents.DotNetBar.ButtonX();
 			this.m_closeButton = new DevComponents.DotNetBar.ButtonX();
+			this.m_descriptionLabel = new DevComponents.DotNetBar.LabelX();
 			this.SuspendLayout();
 			// 
 			// m_nameLabel
@@ -88,6 +89,7 @@
 			this.m_charsetCombo.Size = new System.Drawing.Size(188, 25);
 			this.m_charsetCombo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_charsetCombo.TabIndex = 3;
+			this.m_charsetCombo.SelectedIndexChanged += new System.EventHandler(this.OnCharsetComboSelectedIndexChanged);
 			// 
 			// labelX2
 			// 
@@ -119,7 +121,7 @@
 			// 
 			this.m_commitButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.m_commitButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-			this.m_commitButton.Location = new System.Drawing.Point(117, 164);
+			this.m_commitButton.Location = new System.Drawing.Point(117, 189);
 			this.m_commitButton.Name = "m_commitButton";
 			this.m_commitButton.Size = new System.Drawing.Size(116, 25);
 			this.m_commitButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -131,7 +133,7 @@
 			// 
 			this.m_closeButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.m_closeButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-			this.m_closeButton.Location = new System.Drawing.Point(239, 164);
+			this.m_closeButton.Location = new System.Drawing.Point(239, 189);
 			this.m_closeButton.Name = "m_closeButton";
 			this.m_closeButton.Size = new System.Drawing.Size(116, 25);
 			this.m_closeButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -139,11 +141,25 @@
 			this.m_closeButton.Text = "닫기(&L)";
 			this.m_closeButton.Click += new System.EventHandler(this.OnCloseButtonClick);
 			// 
+			// m_descriptionLabel
+			// 
+			// 
+			// 
+			// 
+			this.m_descriptionLabel.BackgroundStyle.Class = "";
+			this.m_descriptionLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			this.m_descriptionLabel.Location = new System.Drawing.Point(12, 157);
+			this.m_descriptionLabel.Name = "m_descriptionLabel";
+			this.m_descriptionLabel.Size = new System.Drawing.Size(343, 23);
+			this.m_descriptionLabel.TabIndex = 9;
+			this.m_descriptionLabel.TextAlignment = System.Drawing.StringAlignment.Far;
+			// 
 			// DatabaseBaseForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(371, 209);
+			this.ClientSize = new System.Drawing.Size(371, 232);
+			this.Controls.Add(this.m_descriptionLabel);
 			this.Controls.Add(this.m_closeButton);
 			this.Controls.Add(this.m_commitButton);
 			this.Controls.Add(this.m_collationCombo);
@@ -169,5 +185,6 @@
 		private DevComponents.DotNetBar.Controls.ComboBoxEx m_collationCombo;
 		private DevComponents.DotNetBar.ButtonX m_commitButton;
 		private DevComponents.DotNetBar.ButtonX m_closeButton;
+		private DevComponents.DotNetBar.LabelX m_descriptionLabel;
 	}
 }

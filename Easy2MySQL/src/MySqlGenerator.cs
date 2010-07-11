@@ -135,28 +135,38 @@ namespace Easy2
 		}
 
 		/// <summary>
-		/// 문자셋을 조회하는 쿼리문을 생성합니다.
+		/// 모든 문자셋의 정보를 조회하는 쿼리문을 생성합니다.
 		/// </summary>
-		/// <returns>문자셋을 조회하는 쿼리문입니다.</returns>
+		/// <returns>모든 문자셋의 정보를 조회하는 쿼리문입니다.</returns>
 		public static string ShowCharset()
 		{
 			return "SHOW CHARSET";
 		}
 
 		/// <summary>
-		/// 모든 컬레션을 조회하는 쿼리문을 생성합니다.
+		/// 문자셋의 정보를 조회하는 쿼리문을 생성합니다.
 		/// </summary>
-		/// <returns>모든 컬레션을 조회하는 쿼리문입니다.</returns>
+		/// <param name="where">조회할 문자셋입니다.</param>
+		/// <returns>문자셋의 정보를 조회하는 쿼리문을 생성합니다.</returns>
+		public static string ShowCharset(string where)
+		{
+			return String.Format("SHOW CHARSET WHERE charset='{0}'", where);
+		}
+
+		/// <summary>
+		/// 모든 컬레션의 정보를 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <returns>모든 컬레션의 정보를 조회하는 쿼리문입니다.</returns>
 		public static string ShowCollation()
 		{
 			return "SHOW COLLATION";
 		}
 
 		/// <summary>
-		/// 문자셋에 해당되는 컬레션을 조회하는 쿼리문을 생성합니다.
+		/// 문자셋에 해당되는 컬레션의 정보를 조회하는 쿼리문을 생성합니다.
 		/// </summary>
 		/// <param name="charset">조회할 컬레션의 문자셋입니다.</param>
-		/// <returns>문자셋에 해당되는 컬레션을 조회하는 쿼리문을 생성합니다.</returns>
+		/// <returns>문자셋에 해당되는 컬레션의 정보를 조회하는 쿼리문을 생성합니다.</returns>
 		public static string ShowCollation(string charset)
 		{
 			return String.Format("SHOW COLLATION WHERE charset='{0}'", charset);

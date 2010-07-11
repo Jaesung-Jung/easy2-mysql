@@ -47,7 +47,7 @@ namespace Easy2
 		protected override void OnCommitButtonClick(object sender, EventArgs e)
 		{
 			base.OnCommitButtonClick(sender, e);
-			if(this.RunNetxJob)
+			if(this.DataEffectiveness)
 			{
 				try
 				{

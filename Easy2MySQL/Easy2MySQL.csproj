@@ -133,6 +133,12 @@
     <Compile Include="src\Forms\CreateUserForm.Designer.cs">
       <DependentUpon>CreateUserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\Forms\DatabaseBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\DatabaseBaseForm.Designer.cs">
+      <DependentUpon>DatabaseBaseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\Forms\ErrorMessageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\CreateUserForm.resx">
       <DependentUpon>CreateUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\DatabaseBaseForm.resx">
+      <DependentUpon>DatabaseBaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\ErrorMessageForm.resx">
       <DependentUpon>ErrorMessageForm.cs</DependentUpon>

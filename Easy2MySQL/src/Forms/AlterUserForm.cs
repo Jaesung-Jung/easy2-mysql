@@ -206,7 +206,7 @@ namespace Easy2
 			string targetHost = this.UserInfo.Host;
 
 			base.OnCommitButtonClick(sender, e);
-			if(this.RunNetxJob)
+			if(this.DataEffectiveness)
 			{
 				try
 				{

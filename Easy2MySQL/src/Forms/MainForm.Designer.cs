@@ -626,6 +626,7 @@
 			this.m_createDatabase.Name = "m_createDatabase";
 			this.m_createDatabase.SubItemsExpandWidth = 14;
 			this.m_createDatabase.Text = "<div align=\"center\">DB<br/>만들기</div>";
+			this.m_createDatabase.Click += new System.EventHandler(this.OnCreateDatabaseClick);
 			// 
 			// m_databaseItemContainer
 			// 

@@ -5,6 +5,7 @@ using Easy2.Properties;
 using System;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Collections.Generic;
 
 namespace Easy2
 {
@@ -31,28 +32,33 @@ namespace Easy2
 
 			this.m_charsetCombo.Items.Add("기본값");
 			this.m_collationCombo.Items.Add("기본값");
+			this.m_charsetCombo.SelectedIndex = 0;
+			this.m_collationCombo.SelectedIndex = 0;
 
+			MySqlDataReader reader = null;
 			try
 			{
-				MySqlDataReader reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowCharset());
+				reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowCharset());
+				SortedSet<string> readerSet = new SortedSet<string>();
 				while(reader.Read())
 				{
-					this.m_charsetCombo.Items.Add(reader.GetString(0));
+					readerSet.Add(reader.GetString(0));
 				}
-				this.m_charsetCombo.SelectedIndex = 0;
-				reader.Close();
-
-				reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowCollation());
-				while(reader.Read())
+				foreach(string s in readerSet)
 				{
-					this.m_collationCombo.Items.Add(reader.GetString(0));
+					this.m_charsetCombo.Items.Add(s);
 				}
-				this.m_collationCombo.SelectedIndex = 0;
+				readerSet.Clear();
 				reader.Close();
 			}
 			catch(MySqlException ex)
 			{
 				EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
+			}
+			finally
+			{
+				if(reader != null)
+					reader.Close();
 			}
 		}
 
@@ -87,6 +93,53 @@ namespace Easy2
 		protected virtual void OnCloseButtonClick(object sender, System.EventArgs e)
 		{
 			this.Dispose(true);
+		}
+
+		/// <summary>
+		/// 문자셋 콤보박스 인덱스가 변경될 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnCharsetComboSelectedIndexChanged(object sender, EventArgs e)
+		{
+			if(this.m_charsetCombo.SelectedIndex != 0)
+			{
+				string charset = this.m_charsetCombo.SelectedItem.ToString();
+
+				MySqlDataReader reader = null;
+				try
+				{
+					reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowCharset(charset));
+					reader.Read();
+					this.m_descriptionLabel.Text = reader.GetString(1);
+					reader.Close();
+
+					this.m_collationCombo.Items.Clear();
+					reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowCollation(charset));
+					while(reader.Read())
+					{
+						this.m_collationCombo.Items.Add(reader.GetString(0));
+					}
+					this.m_collationCombo.SelectedIndex = 0;
+					reader.Close();
+				}
+				catch(MySqlException ex)
+				{
+					EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
+				}
+				finally
+				{
+					if(reader != null)
+						reader.Close();
+				}
+			}
+			else
+			{
+				this.m_collationCombo.Items.Clear();
+				this.m_collationCombo.Items.Add("기본값");
+				this.m_collationCombo.SelectedIndex = 0;
+				this.m_descriptionLabel.Text = "Default Charset";
+			}
 		}
 
 		/// <summary>

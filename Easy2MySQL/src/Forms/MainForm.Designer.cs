@@ -650,6 +650,7 @@
 			this.m_alterDatabase.KeyTips = "DA";
 			this.m_alterDatabase.Name = "m_alterDatabase";
 			this.m_alterDatabase.Text = "DB 수정하기";
+			this.m_alterDatabase.Click += new System.EventHandler(this.OnAlterDatabaseClick);
 			// 
 			// m_truncateDatabase
 			// 

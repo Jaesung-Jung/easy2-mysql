@@ -172,11 +172,57 @@ namespace Easy2
 			return String.Format("SHOW COLLATION WHERE charset='{0}'", charset);
 		}
 
+		/// <summary>
+		/// 사용중인 데이터베이스의 문자셋을 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <returns>사용중인 데이터베이스의 문자셋을 조회하는 쿼리문입니다.</returns>
+		public static string ShowCharsetForUseDatabase()
+		{
+			return "SHOW VARIABLES LIKE 'character_set_database'";
+		}
+
+		/// <summary>
+		/// 사용중인 데이터베이스의 콜레이션을 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <returns>사용중인 데이터베이스의 콜레이션을 조회하는 쿼리문입니다.</returns>
+		public static string ShowCollationForUseDatabase()
+		{
+			return "SHOW VARIABLES LIKE 'collation_database'";
+		}
+
+		/// <summary>
+		/// 서버의 문자셋을 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <returns>서버의 문자셋을 조회하는 쿼리문입니다.</returns>
+		public static string ShowCharsetServer()
+		{
+			return "SHOW VARIABLES LIKE 'character_set_server'";
+		}
+
+		/// <summary>
+		/// 서버의 콜레이션을 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <returns>서버의 콜레이션을 조회하는 쿼리문입니다.</returns>
+		public static string ShowCollationServer()
+		{
+			return "SHOW VARIABLES LIKE 'collation_server'";
+		}
+
+		/// <summary>
+		/// MySQL 데이터베이스의 사용자들을 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <returns>MySQL 데이터베이스의 사용자들을 조회하는 쿼리문입니다.</returns>
 		public static string SelectMysqlUser()
 		{
 			return "SELECT user, host FROM mysql.user";
 		}
 
+		/// <summary>
+		/// MySQL 데이터베이스의 사용자의 정보를 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="username">사용자이름입니다.</param>
+		/// <param name="host">호스트명입니다.</param>
+		/// <returns>MySQL 데이터베이스의 사용자의 정보를 조회하는 쿼리문입니다.</returns>
 		public static string SelectMysqlUser(string username, string host)
 		{
 			return String.Format("SELECT * FROM mysql.user WHERE user='{0}' AND host='{1}'", username, host);
@@ -382,6 +428,18 @@ namespace Easy2
 		public static string CreateDatabase(string dbname, string charset, string collation)
 		{
 			return String.Format("CREATE DATABASE {0} CHARACTER SET {1} COLLATE {2}", dbname, charset, collation);
+		}
+
+		/// <summary>
+		/// 데이터베이스를 수정하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="dbname">데이터베이스 이름입니다.</param>
+		/// <param name="charset">문자셋입니다.</param>
+		/// <param name="collation">콜레이션입니다.</param>
+		/// <return>데이터베이스를 수정하는 쿼리문입니다.</return>
+		public static string AlterDatabase(string dbname, string charset, string collation)
+		{
+			return String.Format("ALTER DATABASE {0} CHARACTER SET {1} COLLATE {2}", dbname, charset, collation);
 		}
 	}
 }

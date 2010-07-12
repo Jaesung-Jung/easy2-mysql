@@ -30,8 +30,6 @@ namespace Easy2
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void OnSelectionChanged(object sender, EventArgs e)
 		{
-			MySqlGenerator generator = new MySqlGenerator();
-
 			Node header = this.SelectedNode;
 			if(header == null)
 				return;
@@ -42,6 +40,7 @@ namespace Easy2
 			foreach(Node n in this.Nodes)
 				n.Image = Resources.TreeServerDeactivate;
 
+			this.m_activateNode = (ObjectNode)header;
 			header.Image = Resources.TreeServerActivate;
 			Program.ActivateCommunicator = Program.CoummunicatorList[header.Index];
 
@@ -274,6 +273,20 @@ namespace Easy2
  			}
 		}
 
+		public void AddDatabase(string dbname)
+		{
+			ObjectNode databaseNode = new ObjectNode(this.m_activateNode, dbname, ObjectNodeType.MySqlDatabase);
+			string[] folderList = { "테이블", "뷰", "저장 프로시저", "함수", "트리거", "이벤트" };
+			m_activateNode.Nodes.Add(databaseNode);
+
+			foreach(string folder in folderList)
+			{
+				ObjectNode folderNode = new ObjectNode(databaseNode, folder, ObjectNodeType.Folder);
+				databaseNode.Nodes.Add(folderNode);
+				folderNode.Nodes.Add(new ObjectNode(folderNode, "null", ObjectNodeType.MySqlTable));
+			}
+		}
+
 		/// <summary>
 		/// 현재 활성화된 연결의 인덱스를 나타냅니다.
 		/// </summary>
@@ -284,5 +297,15 @@ namespace Easy2
 				this.SelectedNode = this.Nodes[value];
 			}
 		}
+
+		public Node ActivateNode
+		{
+			get
+			{
+				return this.m_activateNode;
+			}
+		}
+
+		private ObjectNode m_activateNode = null;
 	}
 }

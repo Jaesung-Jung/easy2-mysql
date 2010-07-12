@@ -262,11 +262,25 @@ namespace Easy2
 			createDatabaseForm.ShowDialog(this);
 			if(createDatabaseForm.DialogResult == DialogResult.Yes)
 			{
-				int selecteIndex = this.m_objectBrowser.Tree.SelectedIndex;
-				this.m_objectBrowser.Tree.UpdateTree();
-				this.m_objectBrowser.Tree.SelectedIndex = selecteIndex;
-				this.m_objectBrowser.Tree.SelectedNode.Expand();
+				this.m_objectBrowser.Tree.AddDatabase(createDatabaseForm.CreatedDatabaseName);
 			}
+		}
+
+		/// <summary>
+		/// 데이터베이스 수정하기기 버튼을 클릭하였을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnAlterDatabaseClick(object sender, EventArgs e)
+		{
+			ObjectNode node = (ObjectNode)(this.m_objectBrowser.Tree.SelectedNode);
+			if(node.NodeType != ObjectNodeType.MySqlDatabase)
+				return;
+
+			string dbname = this.m_objectBrowser.Tree.SelectedNode.Text;
+
+			AlterDatabaseForm alterDatabaseForm = new AlterDatabaseForm(dbname);
+			alterDatabaseForm.ShowDialog(this);
 		}
 
 		private int m_queryEditorsCount;

@@ -154,19 +154,19 @@ namespace Easy2
 		}
 
 		/// <summary>
-		/// 모든 컬레션의 정보를 조회하는 쿼리문을 생성합니다.
+		/// 모든 콜레이션의 정보를 조회하는 쿼리문을 생성합니다.
 		/// </summary>
-		/// <returns>모든 컬레션의 정보를 조회하는 쿼리문입니다.</returns>
+		/// <returns>모든 콜레이션의 정보를 조회하는 쿼리문입니다.</returns>
 		public static string ShowCollation()
 		{
 			return "SHOW COLLATION";
 		}
 
 		/// <summary>
-		/// 문자셋에 해당되는 컬레션의 정보를 조회하는 쿼리문을 생성합니다.
+		/// 문자셋에 해당되는 콜레이션의 정보를 조회하는 쿼리문을 생성합니다.
 		/// </summary>
-		/// <param name="charset">조회할 컬레션의 문자셋입니다.</param>
-		/// <returns>문자셋에 해당되는 컬레션의 정보를 조회하는 쿼리문을 생성합니다.</returns>
+		/// <param name="charset">조회할 콜레이션의 문자셋입니다.</param>
+		/// <returns>문자셋에 해당되는 의 정보를 조회하는 쿼리문을 생성합니다.</returns>
 		public static string ShowCollation(string charset)
 		{
 			return String.Format("SHOW COLLATION WHERE charset='{0}'", charset);
@@ -360,6 +360,28 @@ namespace Easy2
 			queryBuilder.Append(")");
 
 			return queryBuilder.ToString();
+		}
+
+		/// <summary>
+		/// 데이터베이스를 생성하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="dbname">데이터베이스 이름입니다.</param>
+		/// <return>데이터베이스를 생성하는 쿼리문입니다.</return>
+		public static string CreateDatabase(string dbname)
+		{
+			return String.Format("CREATE DATABASE {0}", dbname);
+		}
+
+		/// <summary>
+		/// 데이터베이스를 생성하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="dbname">데이터베이스 이름입니다.</param>
+		/// <param name="charset">문자셋입니다.</param>
+		/// <param name="collation">콜레이션입니다.</param>
+		/// <return>데이터베이스를 생성하는 쿼리문입니다.</return>
+		public static string CreateDatabase(string dbname, string charset, string collation)
+		{
+			return String.Format("CREATE DATABASE {0} CHARACTER SET {1} COLLATE {2}", dbname, charset, collation);
 		}
 	}
 }

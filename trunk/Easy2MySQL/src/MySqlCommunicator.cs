@@ -226,6 +226,11 @@ namespace Easy2
 			Program.ActivateCommunicator.Execute(MySqlGenerator.CreateDatabase(dbname, charset, collation));
 		}
 
+		public void AlterDatabase(string dbname, string charset, string collation)
+		{
+			Program.ActivateCommunicator.Execute(MySqlGenerator.AlterDatabase(dbname, charset, collation));
+		}
+
 		/// <summary>
 		/// 연결정보를 나타냅니다.
 		/// </summary>

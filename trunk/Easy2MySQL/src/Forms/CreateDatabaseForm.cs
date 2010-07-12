@@ -65,5 +65,10 @@ namespace Easy2
 				}
 			}
 		}
+
+		public string CreatedDatabaseName
+		{
+			get { return this.m_nameText.Text; }
+		}
 	}
 }

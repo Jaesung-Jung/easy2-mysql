@@ -1,6 +1,6 @@
 ﻿namespace Easy2
 {
-	partial class CreateDatabaseForm
+	partial class AlterDatabaseForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.m_titleImgLabel = new DevComponents.DotNetBar.LabelX();
-			this.m_titleLabel = new DevComponents.DotNetBar.Controls.ReflectionLabel();
+			this.reflectionLabel1 = new DevComponents.DotNetBar.Controls.ReflectionLabel();
 			this.SuspendLayout();
 			// 
 			// m_nameText
@@ -53,35 +53,35 @@
 			this.m_titleImgLabel.Size = new System.Drawing.Size(48, 48);
 			this.m_titleImgLabel.TabIndex = 10;
 			// 
-			// m_titleLabel
+			// reflectionLabel1
 			// 
 			// 
 			// 
 			// 
-			this.m_titleLabel.BackgroundStyle.Class = "";
-			this.m_titleLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-			this.m_titleLabel.Location = new System.Drawing.Point(63, 4);
-			this.m_titleLabel.Name = "m_titleLabel";
-			this.m_titleLabel.Size = new System.Drawing.Size(296, 50);
-			this.m_titleLabel.TabIndex = 11;
-			this.m_titleLabel.Text = "<b><font size=\"+6\"><font color=\"#015A84\">My</font><font color=\"#E97B00\">SQL</font" +
-				"><font color=\"#000000\"> 데이터베이스 만들기</font></font></b>";
+			this.reflectionLabel1.BackgroundStyle.Class = "";
+			this.reflectionLabel1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			this.reflectionLabel1.Location = new System.Drawing.Point(63, 4);
+			this.reflectionLabel1.Name = "reflectionLabel1";
+			this.reflectionLabel1.Size = new System.Drawing.Size(296, 50);
+			this.reflectionLabel1.TabIndex = 11;
+			this.reflectionLabel1.Text = "<b><font size=\"+6\"><font color=\"#015A84\">My</font><font color=\"#E97B00\">SQL</font" +
+				"><font color=\"#000000\"> 데이터베이스 수정하기</font></font></b>";
 			// 
-			// CreateDatabaseForm
+			// AlterDatabaseForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(371, 232);
+			this.Controls.Add(this.reflectionLabel1);
 			this.Controls.Add(this.m_titleImgLabel);
-			this.Controls.Add(this.m_titleLabel);
 			this.DoubleBuffered = true;
-			this.Name = "CreateDatabaseForm";
-			this.Text = "CreateDatabaseForm";
+			this.Name = "AlterDatabaseForm";
+			this.Text = "AlterDatabaseForm";
+			this.Controls.SetChildIndex(this.m_titleImgLabel, 0);
+			this.Controls.SetChildIndex(this.reflectionLabel1, 0);
 			this.Controls.SetChildIndex(this.m_nameText, 0);
 			this.Controls.SetChildIndex(this.m_charsetCombo, 0);
 			this.Controls.SetChildIndex(this.m_collationCombo, 0);
-			this.Controls.SetChildIndex(this.m_titleLabel, 0);
-			this.Controls.SetChildIndex(this.m_titleImgLabel, 0);
 			this.ResumeLayout(false);
 
 		}
@@ -89,6 +89,6 @@
 		#endregion
 
 		private DevComponents.DotNetBar.LabelX m_titleImgLabel;
-		private DevComponents.DotNetBar.Controls.ReflectionLabel m_titleLabel;
+		private DevComponents.DotNetBar.Controls.ReflectionLabel reflectionLabel1;
 	}
 }

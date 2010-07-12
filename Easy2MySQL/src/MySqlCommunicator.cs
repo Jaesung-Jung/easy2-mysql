@@ -207,6 +207,26 @@ namespace Easy2
 		}
 
 		/// <summary>
+		/// 데이터베이스를 생성합니다.
+		/// </summary>
+		/// <param name="dbname">데이터베이스 이름입니다.</param>
+		public void CreateDatabase(string dbname)
+		{
+			Program.ActivateCommunicator.Execute(MySqlGenerator.CreateDatabase(dbname));
+		}
+
+		/// <summary>
+		/// 데이터베이스를 생성합니다.
+		/// </summary>
+		/// <param name="dbname">데이터베이스 이름입니다.</param>
+		/// <param name="charset">문자셋입니다.</param>
+		/// <param name="collation">콜레이션입니다.</param>
+		public void CreateDatabase(string dbname, string charset, string collation)
+		{
+			Program.ActivateCommunicator.Execute(MySqlGenerator.CreateDatabase(dbname, charset, collation));
+		}
+
+		/// <summary>
 		/// 연결정보를 나타냅니다.
 		/// </summary>
 		public MySqlConnectInfo ConnectInfo

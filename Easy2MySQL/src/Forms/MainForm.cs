@@ -4,8 +4,9 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using DevComponents.DotNetBar;
 using System.Collections.Generic;
+using DevComponents.AdvTree;
+using DevComponents.DotNetBar;
 
 namespace Easy2
 {
@@ -177,6 +178,7 @@ namespace Easy2
 
 			this.m_objectBrowser.Tree.UpdateTree();
 			this.m_objectBrowser.Tree.ActivateConnection = Program.CoummunicatorList.Count - 1;
+			this.m_objectBrowser.Tree.SelectedNode.Expand();
 		}
 
 		/// <summary>
@@ -249,9 +251,22 @@ namespace Easy2
 			new AlterUserForm().ShowDialog(this);
 		}
 
+		/// <summary>
+		/// 데이터베이스 만들기 버튼을 클릭하였을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void OnCreateDatabaseClick(object sender, EventArgs e)
 		{
-			new DatabaseBaseForm().ShowDialog(this);
+			CreateDatabaseForm createDatabaseForm = new CreateDatabaseForm();
+			createDatabaseForm.ShowDialog(this);
+			if(createDatabaseForm.DialogResult == DialogResult.Yes)
+			{
+				int selecteIndex = this.m_objectBrowser.Tree.SelectedIndex;
+				this.m_objectBrowser.Tree.UpdateTree();
+				this.m_objectBrowser.Tree.SelectedIndex = selecteIndex;
+				this.m_objectBrowser.Tree.SelectedNode.Expand();
+			}
 		}
 
 		private int m_queryEditorsCount;

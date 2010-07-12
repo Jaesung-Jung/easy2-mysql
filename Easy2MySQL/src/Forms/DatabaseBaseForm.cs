@@ -23,13 +23,10 @@ namespace Easy2
 		}
 
 		/// <summary>
-		/// OnLoad의 재정의입니다.
+		/// 문자셋의 콤보박스를 초기화합니다.
 		/// </summary>
-		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		protected override void OnLoad(EventArgs e)
+		protected void InitializeCharset()
 		{
-			base.OnLoad(e);
-
 			this.m_charsetCombo.Items.Add("기본값");
 			this.m_collationCombo.Items.Add("기본값");
 			this.m_charsetCombo.SelectedIndex = 0;

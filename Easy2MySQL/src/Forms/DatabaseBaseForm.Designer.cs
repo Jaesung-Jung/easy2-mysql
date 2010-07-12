@@ -102,7 +102,7 @@
 			this.labelX2.Name = "labelX2";
 			this.labelX2.Size = new System.Drawing.Size(151, 21);
 			this.labelX2.TabIndex = 4;
-			this.labelX2.Text = "데이터베이스 컬레션(&O)";
+			this.labelX2.Text = "문자셋 콜레이션(&O)";
 			// 
 			// m_collationCombo
 			// 
@@ -169,6 +169,9 @@
 			this.Controls.Add(this.m_nameText);
 			this.Controls.Add(this.m_nameLabel);
 			this.DoubleBuffered = true;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "DatabaseBaseForm";
 			this.Text = "DatabaseBaseForm";
 			this.ResumeLayout(false);
@@ -179,12 +182,12 @@
 
 		private DevComponents.DotNetBar.LabelX m_nameLabel;
 		private DevComponents.DotNetBar.LabelX labelX1;
-		private DevComponents.DotNetBar.Controls.TextBoxX m_nameText;
-		private DevComponents.DotNetBar.Controls.ComboBoxEx m_charsetCombo;
 		private DevComponents.DotNetBar.LabelX labelX2;
-		private DevComponents.DotNetBar.Controls.ComboBoxEx m_collationCombo;
 		private DevComponents.DotNetBar.ButtonX m_commitButton;
 		private DevComponents.DotNetBar.ButtonX m_closeButton;
 		private DevComponents.DotNetBar.LabelX m_descriptionLabel;
+		protected DevComponents.DotNetBar.Controls.TextBoxX m_nameText;
+		protected DevComponents.DotNetBar.Controls.ComboBoxEx m_charsetCombo;
+		protected DevComponents.DotNetBar.Controls.ComboBoxEx m_collationCombo;
 	}
 }

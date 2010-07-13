@@ -289,6 +289,7 @@ namespace Easy2
 				this.m_connectInfoList.Add(info);
 				this.m_connectionListCombo.Items.Add(frm.ConnectionName);
 				this.m_connectionListCombo.SelectedIndex = this.m_connectionListCombo.Items.Count - 1;
+				this.OnDataChanged(null, null);
 			}
 		}
 
@@ -320,6 +321,7 @@ namespace Easy2
 				int index = this.m_connectionListCombo.SelectedIndex;
 				this.m_connectionListCombo.Items[index] = frm.ConnectionName;
 				this.m_connectInfoList[index].ConnectName = frm.ConnectionName;
+				this.OnDataChanged(null, null);
 			}
 		}
 

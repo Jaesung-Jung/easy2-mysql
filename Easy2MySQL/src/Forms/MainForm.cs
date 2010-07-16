@@ -62,13 +62,14 @@ namespace Easy2
 			{
 				case DocumentType.QueryEditor:
 					this.m_queryEditorsCount++;
-					documentItem.Control = new QueryEditor();
+					QueryEditor queryEditor = new QueryEditor();
+					documentItem.Control = queryEditor;
 					documentItem.Text = "QueryEditor" + this.m_queryEditorsCount.ToString();
 					break;
 
-				case DocumentType.QueryBuilder:
-//					documentItem.Control = new QueryBuilder();
-					break;
+// 				case DocumentType.QueryBuilder:
+// 					documentItem.Control = new QueryBuilder();
+// 					break;
 			}
 
 			Bar bar = GetFirstDocumentBar();
@@ -95,7 +96,8 @@ namespace Easy2
 					return b;
 			}
 			Bar bar = BarUtilities.CreateDocumentBar();
-			bar.DockTabClosing += new DockTabClosingEventHandler(DockableTabClosing);
+			bar.DockTabClosing += new DockTabClosingEventHandler(OnDockableTabClosing);
+			bar.DockTabChange += new DotNetBarManager.DockTabChangeEventHandler(OnDockTabChange);
 			this.m_dockingManager.FillDockSite.GetDocumentUIManager().Dock(bar);
 
 			return bar;
@@ -151,11 +153,21 @@ namespace Easy2
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void DockableTabClosing(object sender, DockTabClosingEventArgs e)
+		private void OnDockableTabClosing(object sender, DockTabClosingEventArgs e)
 		{
 			e.RemoveDockTab = true;
 			if(((Bar)sender).Items.Count == 1)
 				this.m_dockingManager.Bars.Remove((Bar)sender);
+		}
+
+		/// <summary>
+		/// 탭이 변경될 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		void OnDockTabChange(object sender, DockTabChangeEventArgs e)
+		{
+			this.m_selectedQueryEditor = (QueryEditor)(((DockContainerItem)(e.NewTab)).Control);
 		}
 
 		/// <summary>
@@ -212,6 +224,16 @@ namespace Easy2
 		}
 
 		/// <summary>
+		/// 새 쿼리에디터 만들기 버튼을 클릭하였을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnNewQueryEditorClick(object sender, EventArgs e)
+		{
+			CreateNewDocument(DocumentType.QueryEditor);
+		}
+
+		/// <summary>
 		/// 새로고침 버튼을 클릭했을 때 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
@@ -222,13 +244,83 @@ namespace Easy2
 		}
 
 		/// <summary>
-		/// 새 쿼리에디터 만들기 버튼을 클릭하였을 때 호출됩니다.
+		/// 붙여넣기 버튼을 클릭했을 때 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void OnNewQueryEditorClick(object sender, EventArgs e)
+		private void OnPasteToClipboardClick(object sender, EventArgs e)
 		{
-			CreateNewDocument(DocumentType.QueryEditor);
+			this.m_selectedQueryEditor.Clipboard.Paste();
+		}
+
+		/// <summary>
+		/// 잘라내기 버튼을 클릭했을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnCutSelectionClick(object sender, EventArgs e)
+		{
+			this.m_selectedQueryEditor.Clipboard.Cut();
+		}
+
+		/// <summary>
+		/// 복사하기 버튼을 클릭했을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnCopySelectionClick(object sender, EventArgs e)
+		{
+			this.m_selectedQueryEditor.Clipboard.Copy();
+		}
+
+		/// <summary>
+		/// 모두선택 버튼을 클릭했을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnSelectAllClick(object sender, EventArgs e)
+		{
+			this.m_selectedQueryEditor.Selection.SelectAll();
+		}
+
+		/// <summary>
+		/// 선택취소 버튼을 클릭했을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnCancelSelectionClick(object sender, EventArgs e)
+		{
+			this.m_selectedQueryEditor.Selection.SelectNone();
+		}
+
+		/// <summary>
+		/// 지우기 버튼을 클릭했을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnClearSelectionClick(object sender, EventArgs e)
+		{
+			this.m_selectedQueryEditor.Selection.Clear();
+		}
+
+		/// <summary>
+		/// 입력취소 버튼을 클릭했을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnUndoActionClick(object sender, EventArgs e)
+		{
+			this.m_selectedQueryEditor.UndoRedo.Undo();
+		}
+
+		/// <summary>
+		/// 다시입력 버튼을 클릭했을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnRedoActionClick(object sender, EventArgs e)
+		{
+			this.m_selectedQueryEditor.UndoRedo.Redo();
 		}
 
 		/// <summary>
@@ -284,6 +376,7 @@ namespace Easy2
 		}
 
 		private int m_queryEditorsCount;
+		private QueryEditor m_selectedQueryEditor;
 		private DockingManager m_dockingManager;
 		private ObjectBrowser m_objectBrowser;
 		private MessageWindow m_messageWindow;

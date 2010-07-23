@@ -146,6 +146,7 @@
 			this.m_showAbout = new DevComponents.DotNetBar.ButtonItem();
 			this.m_styleManager = new DevComponents.DotNetBar.StyleManager(this.components);
 			this.m_statusBar = new DevComponents.DotNetBar.Bar();
+			this.m_zoomSlider = new Easy2.ZoomSliderBinder();
 			this.m_ribbonControl.SuspendLayout();
 			this.m_homePanel.SuspendLayout();
 			this.m_createPanel.SuspendLayout();
@@ -1664,14 +1665,28 @@
 			this.m_statusBar.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
 			this.m_statusBar.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.m_statusBar.GrabHandleStyle = DevComponents.DotNetBar.eGrabHandleStyle.ResizeHandle;
-			this.m_statusBar.Location = new System.Drawing.Point(5, 605);
+			this.m_statusBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.m_zoomSlider});
+			this.m_statusBar.Location = new System.Drawing.Point(5, 609);
 			this.m_statusBar.Name = "m_statusBar";
-			this.m_statusBar.Size = new System.Drawing.Size(1104, 25);
+			this.m_statusBar.Size = new System.Drawing.Size(1104, 21);
 			this.m_statusBar.Stretch = true;
 			this.m_statusBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_statusBar.TabIndex = 1;
 			this.m_statusBar.TabStop = false;
 			this.m_statusBar.Text = "statusBar";
+			// 
+			// m_zoomSlider
+			// 
+			this.m_zoomSlider.IncreaseTooltip = "slider bar";
+			this.m_zoomSlider.ItemAlignment = DevComponents.DotNetBar.eItemAlignment.Far;
+			this.m_zoomSlider.LeftStep = 2;
+			this.m_zoomSlider.Maximum = 20;
+			this.m_zoomSlider.Minimum = -20;
+			this.m_zoomSlider.Name = "m_zoomSlider";
+			this.m_zoomSlider.Text = "100%";
+			this.m_zoomSlider.Value = 0;
+			this.m_zoomSlider.ValueChanged += new System.EventHandler(this.OnZoomSliderValueChanged);
 			// 
 			// MainForm
 			// 
@@ -1814,5 +1829,6 @@
 		private DevComponents.DotNetBar.ItemContainer m_editItemContainer3;
 		private DevComponents.DotNetBar.ButtonItem m_undoAction;
 		private DevComponents.DotNetBar.ButtonItem m_redoAction;
+		private Easy2.ZoomSliderBinder m_zoomSlider;
 	}
 }

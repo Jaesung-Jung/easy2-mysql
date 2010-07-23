@@ -29,6 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.m_ribbonControl = new DevComponents.DotNetBar.RibbonControl();
 			this.m_homePanel = new DevComponents.DotNetBar.RibbonPanel();
 			this.m_tabBar = new DevComponents.DotNetBar.RibbonBar();
@@ -250,7 +251,7 @@
 			// 
 			// m_switchPreviousTab
 			// 
-			this.m_switchPreviousTab.Image = global::Easy2.Properties.Resources.SwitchPreviousTab;
+			this.m_switchPreviousTab.Image = ((System.Drawing.Image)(resources.GetObject("m_switchPreviousTab.Image")));
 			this.m_switchPreviousTab.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_switchPreviousTab.KeyTips = "TP";
 			this.m_switchPreviousTab.Name = "m_switchPreviousTab";
@@ -259,7 +260,7 @@
 			// 
 			// m_switchNextTab
 			// 
-			this.m_switchNextTab.Image = global::Easy2.Properties.Resources.SwitchNextTab;
+			this.m_switchNextTab.Image = ((System.Drawing.Image)(resources.GetObject("m_switchNextTab.Image")));
 			this.m_switchNextTab.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_switchNextTab.KeyTips = "TN";
 			this.m_switchNextTab.Name = "m_switchNextTab";
@@ -304,7 +305,7 @@
 			// 
 			// m_executeQuery
 			// 
-			this.m_executeQuery.Image = global::Easy2.Properties.Resources.ExecuteQuery;
+			this.m_executeQuery.Image = ((System.Drawing.Image)(resources.GetObject("m_executeQuery.Image")));
 			this.m_executeQuery.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_executeQuery.KeyTips = "QE";
 			this.m_executeQuery.Name = "m_executeQuery";
@@ -313,7 +314,7 @@
 			// 
 			// m_executeSelectQuery
 			// 
-			this.m_executeSelectQuery.Image = global::Easy2.Properties.Resources.ExecuteSelectQuery;
+			this.m_executeSelectQuery.Image = ((System.Drawing.Image)(resources.GetObject("m_executeSelectQuery.Image")));
 			this.m_executeSelectQuery.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_executeSelectQuery.KeyTips = "QS";
 			this.m_executeSelectQuery.Name = "m_executeSelectQuery";
@@ -322,7 +323,7 @@
 			// 
 			// m_execyteAllQuery
 			// 
-			this.m_execyteAllQuery.Image = global::Easy2.Properties.Resources.ExecuteAllQuery;
+			this.m_execyteAllQuery.Image = ((System.Drawing.Image)(resources.GetObject("m_execyteAllQuery.Image")));
 			this.m_execyteAllQuery.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_execyteAllQuery.KeyTips = "QA";
 			this.m_execyteAllQuery.Name = "m_execyteAllQuery";
@@ -368,12 +369,13 @@
 			// 
 			// m_findData
 			// 
-			this.m_findData.Image = global::Easy2.Properties.Resources.FindData;
+			this.m_findData.Image = ((System.Drawing.Image)(resources.GetObject("m_findData.Image")));
 			this.m_findData.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_findData.KeyTips = "F";
 			this.m_findData.Name = "m_findData";
 			this.m_findData.SubItemsExpandWidth = 14;
 			this.m_findData.Text = "찾기";
+			this.m_findData.Click += new System.EventHandler(this.OnFindDataClick);
 			// 
 			// m_editItemContainer1
 			// 
@@ -393,7 +395,7 @@
 			// m_findNextData
 			// 
 			this.m_findNextData.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_findNextData.Image = global::Easy2.Properties.Resources.FindNextData;
+			this.m_findNextData.Image = ((System.Drawing.Image)(resources.GetObject("m_findNextData.Image")));
 			this.m_findNextData.KeyTips = "N";
 			this.m_findNextData.Name = "m_findNextData";
 			this.m_findNextData.Text = "다음찾기";
@@ -401,7 +403,7 @@
 			// m_replaceData
 			// 
 			this.m_replaceData.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_replaceData.Image = global::Easy2.Properties.Resources.ReplaceData;
+			this.m_replaceData.Image = ((System.Drawing.Image)(resources.GetObject("m_replaceData.Image")));
 			this.m_replaceData.KeyTips = "E";
 			this.m_replaceData.Name = "m_replaceData";
 			this.m_replaceData.Text = "바꾸기";
@@ -409,7 +411,7 @@
 			// m_goToLine
 			// 
 			this.m_goToLine.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_goToLine.Image = global::Easy2.Properties.Resources.GoToLine;
+			this.m_goToLine.Image = ((System.Drawing.Image)(resources.GetObject("m_goToLine.Image")));
 			this.m_goToLine.KeyTips = "G";
 			this.m_goToLine.Name = "m_goToLine";
 			this.m_goToLine.Text = "바로가기";
@@ -432,7 +434,7 @@
 			// m_selectAll
 			// 
 			this.m_selectAll.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_selectAll.Image = global::Easy2.Properties.Resources.SelectAll;
+			this.m_selectAll.Image = ((System.Drawing.Image)(resources.GetObject("m_selectAll.Image")));
 			this.m_selectAll.KeyTips = "A";
 			this.m_selectAll.Name = "m_selectAll";
 			this.m_selectAll.Text = "모두선택";
@@ -441,7 +443,7 @@
 			// m_cancelSelection
 			// 
 			this.m_cancelSelection.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_cancelSelection.Image = global::Easy2.Properties.Resources.CancelSelection;
+			this.m_cancelSelection.Image = ((System.Drawing.Image)(resources.GetObject("m_cancelSelection.Image")));
 			this.m_cancelSelection.KeyTips = "X";
 			this.m_cancelSelection.Name = "m_cancelSelection";
 			this.m_cancelSelection.Text = "선택취소";
@@ -450,7 +452,7 @@
 			// m_clearSelection
 			// 
 			this.m_clearSelection.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_clearSelection.Image = global::Easy2.Properties.Resources.DeleteSelection;
+			this.m_clearSelection.Image = ((System.Drawing.Image)(resources.GetObject("m_clearSelection.Image")));
 			this.m_clearSelection.KeyTips = "L";
 			this.m_clearSelection.Name = "m_clearSelection";
 			this.m_clearSelection.Text = "지우기";
@@ -473,7 +475,7 @@
 			// m_undoAction
 			// 
 			this.m_undoAction.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_undoAction.Image = global::Easy2.Properties.Resources.UndoAction;
+			this.m_undoAction.Image = ((System.Drawing.Image)(resources.GetObject("m_undoAction.Image")));
 			this.m_undoAction.KeyTips = "U";
 			this.m_undoAction.Name = "m_undoAction";
 			this.m_undoAction.Text = "입력취소";
@@ -482,7 +484,7 @@
 			// m_redoAction
 			// 
 			this.m_redoAction.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_redoAction.Image = global::Easy2.Properties.Resources.RedoAction;
+			this.m_redoAction.Image = ((System.Drawing.Image)(resources.GetObject("m_redoAction.Image")));
 			this.m_redoAction.KeyTips = "O";
 			this.m_redoAction.Name = "m_redoAction";
 			this.m_redoAction.Text = "다시입력";
@@ -525,7 +527,7 @@
 			// 
 			// m_pasteToClipboard
 			// 
-			this.m_pasteToClipboard.Image = global::Easy2.Properties.Resources.PasteToClipboard;
+			this.m_pasteToClipboard.Image = ((System.Drawing.Image)(resources.GetObject("m_pasteToClipboard.Image")));
 			this.m_pasteToClipboard.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_pasteToClipboard.KeyTips = "P";
 			this.m_pasteToClipboard.Name = "m_pasteToClipboard";
@@ -550,7 +552,7 @@
 			// m_cutSelection
 			// 
 			this.m_cutSelection.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_cutSelection.Image = global::Easy2.Properties.Resources.CutSelection;
+			this.m_cutSelection.Image = ((System.Drawing.Image)(resources.GetObject("m_cutSelection.Image")));
 			this.m_cutSelection.KeyTips = "T";
 			this.m_cutSelection.Name = "m_cutSelection";
 			this.m_cutSelection.Text = "잘라내기";
@@ -559,7 +561,7 @@
 			// m_copySelection
 			// 
 			this.m_copySelection.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_copySelection.Image = global::Easy2.Properties.Resources.CopySelection;
+			this.m_copySelection.Image = ((System.Drawing.Image)(resources.GetObject("m_copySelection.Image")));
 			this.m_copySelection.KeyTips = "C";
 			this.m_copySelection.Name = "m_copySelection";
 			this.m_copySelection.Text = "복사하기";
@@ -601,7 +603,7 @@
 			// 
 			// m_refreshObjectBrowser
 			// 
-			this.m_refreshObjectBrowser.Image = global::Easy2.Properties.Resources.RefreshObjectBrowser;
+			this.m_refreshObjectBrowser.Image = ((System.Drawing.Image)(resources.GetObject("m_refreshObjectBrowser.Image")));
 			this.m_refreshObjectBrowser.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_refreshObjectBrowser.KeyTips = "R";
 			this.m_refreshObjectBrowser.Name = "m_refreshObjectBrowser";
@@ -681,7 +683,7 @@
 			// 
 			// m_dropColumn
 			// 
-			this.m_dropColumn.Image = global::Easy2.Properties.Resources.DropColumn;
+			this.m_dropColumn.Image = ((System.Drawing.Image)(resources.GetObject("m_dropColumn.Image")));
 			this.m_dropColumn.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_dropColumn.KeyTips = "C";
 			this.m_dropColumn.Name = "m_dropColumn";
@@ -690,7 +692,7 @@
 			// 
 			// m_createIndex
 			// 
-			this.m_createIndex.Image = global::Easy2.Properties.Resources.CreateIndex;
+			this.m_createIndex.Image = ((System.Drawing.Image)(resources.GetObject("m_createIndex.Image")));
 			this.m_createIndex.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_createIndex.KeyTips = "I";
 			this.m_createIndex.Name = "m_createIndex";
@@ -714,7 +716,7 @@
 			// 
 			// m_alterIndex
 			// 
-			this.m_alterIndex.Image = global::Easy2.Properties.Resources.AlterIndex;
+			this.m_alterIndex.Image = ((System.Drawing.Image)(resources.GetObject("m_alterIndex.Image")));
 			this.m_alterIndex.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_alterIndex.KeyTips = "A";
 			this.m_alterIndex.Name = "m_alterIndex";
@@ -722,7 +724,7 @@
 			// 
 			// m_dropIndex
 			// 
-			this.m_dropIndex.Image = global::Easy2.Properties.Resources.DropIndex;
+			this.m_dropIndex.Image = ((System.Drawing.Image)(resources.GetObject("m_dropIndex.Image")));
 			this.m_dropIndex.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_dropIndex.KeyTips = "D";
 			this.m_dropIndex.Name = "m_dropIndex";
@@ -730,7 +732,7 @@
 			// 
 			// m_createView
 			// 
-			this.m_createView.Image = global::Easy2.Properties.Resources.CreateView;
+			this.m_createView.Image = ((System.Drawing.Image)(resources.GetObject("m_createView.Image")));
 			this.m_createView.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_createView.KeyTips = "V";
 			this.m_createView.Name = "m_createView";
@@ -754,7 +756,7 @@
 			// 
 			// m_alterView
 			// 
-			this.m_alterView.Image = global::Easy2.Properties.Resources.AlterView;
+			this.m_alterView.Image = ((System.Drawing.Image)(resources.GetObject("m_alterView.Image")));
 			this.m_alterView.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_alterView.KeyTips = "A";
 			this.m_alterView.Name = "m_alterView";
@@ -762,7 +764,7 @@
 			// 
 			// m_dropView
 			// 
-			this.m_dropView.Image = global::Easy2.Properties.Resources.DropView;
+			this.m_dropView.Image = ((System.Drawing.Image)(resources.GetObject("m_dropView.Image")));
 			this.m_dropView.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_dropView.KeyTips = "D";
 			this.m_dropView.Name = "m_dropView";
@@ -770,7 +772,7 @@
 			// 
 			// m_createStoredProc
 			// 
-			this.m_createStoredProc.Image = global::Easy2.Properties.Resources.CreateStoredProcedure;
+			this.m_createStoredProc.Image = ((System.Drawing.Image)(resources.GetObject("m_createStoredProc.Image")));
 			this.m_createStoredProc.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_createStoredProc.KeyTips = "P";
 			this.m_createStoredProc.Name = "m_createStoredProc";
@@ -794,7 +796,7 @@
 			// 
 			// m_alterStoredProc
 			// 
-			this.m_alterStoredProc.Image = global::Easy2.Properties.Resources.AlterStoredProcedure;
+			this.m_alterStoredProc.Image = ((System.Drawing.Image)(resources.GetObject("m_alterStoredProc.Image")));
 			this.m_alterStoredProc.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_alterStoredProc.KeyTips = "A";
 			this.m_alterStoredProc.Name = "m_alterStoredProc";
@@ -802,7 +804,7 @@
 			// 
 			// m_dropStoredProc
 			// 
-			this.m_dropStoredProc.Image = global::Easy2.Properties.Resources.DropStoredProcedure;
+			this.m_dropStoredProc.Image = ((System.Drawing.Image)(resources.GetObject("m_dropStoredProc.Image")));
 			this.m_dropStoredProc.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_dropStoredProc.KeyTips = "D";
 			this.m_dropStoredProc.Name = "m_dropStoredProc";
@@ -810,7 +812,7 @@
 			// 
 			// m_createFunction
 			// 
-			this.m_createFunction.Image = global::Easy2.Properties.Resources.CreateFunction;
+			this.m_createFunction.Image = ((System.Drawing.Image)(resources.GetObject("m_createFunction.Image")));
 			this.m_createFunction.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_createFunction.KeyTips = "F";
 			this.m_createFunction.Name = "m_createFunction";
@@ -834,7 +836,7 @@
 			// 
 			// m_alterFunction
 			// 
-			this.m_alterFunction.Image = global::Easy2.Properties.Resources.AlterFunction;
+			this.m_alterFunction.Image = ((System.Drawing.Image)(resources.GetObject("m_alterFunction.Image")));
 			this.m_alterFunction.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_alterFunction.KeyTips = "A";
 			this.m_alterFunction.Name = "m_alterFunction";
@@ -842,7 +844,7 @@
 			// 
 			// m_dropFunction
 			// 
-			this.m_dropFunction.Image = global::Easy2.Properties.Resources.DropFunction;
+			this.m_dropFunction.Image = ((System.Drawing.Image)(resources.GetObject("m_dropFunction.Image")));
 			this.m_dropFunction.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_dropFunction.KeyTips = "D";
 			this.m_dropFunction.Name = "m_dropFunction";
@@ -850,7 +852,7 @@
 			// 
 			// m_createTrigger
 			// 
-			this.m_createTrigger.Image = global::Easy2.Properties.Resources.CreateTrigger;
+			this.m_createTrigger.Image = ((System.Drawing.Image)(resources.GetObject("m_createTrigger.Image")));
 			this.m_createTrigger.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_createTrigger.KeyTips = "G";
 			this.m_createTrigger.Name = "m_createTrigger";
@@ -874,7 +876,7 @@
 			// 
 			// m_alterTrigger
 			// 
-			this.m_alterTrigger.Image = global::Easy2.Properties.Resources.AlterTrigger;
+			this.m_alterTrigger.Image = ((System.Drawing.Image)(resources.GetObject("m_alterTrigger.Image")));
 			this.m_alterTrigger.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_alterTrigger.KeyTips = "A";
 			this.m_alterTrigger.Name = "m_alterTrigger";
@@ -882,7 +884,7 @@
 			// 
 			// m_dropTrigger
 			// 
-			this.m_dropTrigger.Image = global::Easy2.Properties.Resources.DropTrigger;
+			this.m_dropTrigger.Image = ((System.Drawing.Image)(resources.GetObject("m_dropTrigger.Image")));
 			this.m_dropTrigger.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_dropTrigger.KeyTips = "D";
 			this.m_dropTrigger.Name = "m_dropTrigger";
@@ -890,7 +892,7 @@
 			// 
 			// m_createEvent
 			// 
-			this.m_createEvent.Image = global::Easy2.Properties.Resources.CreateEvent;
+			this.m_createEvent.Image = ((System.Drawing.Image)(resources.GetObject("m_createEvent.Image")));
 			this.m_createEvent.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_createEvent.KeyTips = "E";
 			this.m_createEvent.Name = "m_createEvent";
@@ -914,7 +916,7 @@
 			// 
 			// m_alterEvent
 			// 
-			this.m_alterEvent.Image = global::Easy2.Properties.Resources.AlterEvent;
+			this.m_alterEvent.Image = ((System.Drawing.Image)(resources.GetObject("m_alterEvent.Image")));
 			this.m_alterEvent.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_alterEvent.KeyTips = "A";
 			this.m_alterEvent.Name = "m_alterEvent";
@@ -922,7 +924,7 @@
 			// 
 			// m_dropEvent
 			// 
-			this.m_dropEvent.Image = global::Easy2.Properties.Resources.DropEvent;
+			this.m_dropEvent.Image = ((System.Drawing.Image)(resources.GetObject("m_dropEvent.Image")));
 			this.m_dropEvent.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_dropEvent.KeyTips = "D";
 			this.m_dropEvent.Name = "m_dropEvent";
@@ -965,7 +967,7 @@
 			// 
 			// m_createTable
 			// 
-			this.m_createTable.Image = global::Easy2.Properties.Resources.CreateTable;
+			this.m_createTable.Image = ((System.Drawing.Image)(resources.GetObject("m_createTable.Image")));
 			this.m_createTable.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_createTable.KeyTips = "TC";
 			this.m_createTable.Name = "m_createTable";
@@ -990,7 +992,7 @@
 			// m_alterTable
 			// 
 			this.m_alterTable.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_alterTable.Image = global::Easy2.Properties.Resources.AlterTable;
+			this.m_alterTable.Image = ((System.Drawing.Image)(resources.GetObject("m_alterTable.Image")));
 			this.m_alterTable.KeyTips = "TA";
 			this.m_alterTable.Name = "m_alterTable";
 			this.m_alterTable.Text = "테이블 수정하기";
@@ -998,7 +1000,7 @@
 			// m_truncateTable
 			// 
 			this.m_truncateTable.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_truncateTable.Image = global::Easy2.Properties.Resources.TruncateTable;
+			this.m_truncateTable.Image = ((System.Drawing.Image)(resources.GetObject("m_truncateTable.Image")));
 			this.m_truncateTable.KeyTips = "TT";
 			this.m_truncateTable.Name = "m_truncateTable";
 			this.m_truncateTable.Text = "테이블 비우기";
@@ -1006,7 +1008,7 @@
 			// m_dropTable
 			// 
 			this.m_dropTable.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_dropTable.Image = global::Easy2.Properties.Resources.DropTable;
+			this.m_dropTable.Image = ((System.Drawing.Image)(resources.GetObject("m_dropTable.Image")));
 			this.m_dropTable.KeyTips = "TD";
 			this.m_dropTable.Name = "m_dropTable";
 			this.m_dropTable.Text = "테이블 제거하기";
@@ -1048,7 +1050,7 @@
 			// 
 			// m_createDatabase
 			// 
-			this.m_createDatabase.Image = global::Easy2.Properties.Resources.CreateDatabase;
+			this.m_createDatabase.Image = ((System.Drawing.Image)(resources.GetObject("m_createDatabase.Image")));
 			this.m_createDatabase.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_createDatabase.KeyTips = "DC";
 			this.m_createDatabase.Name = "m_createDatabase";
@@ -1074,7 +1076,7 @@
 			// m_alterDatabase
 			// 
 			this.m_alterDatabase.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_alterDatabase.Image = global::Easy2.Properties.Resources.AlterDatabase;
+			this.m_alterDatabase.Image = ((System.Drawing.Image)(resources.GetObject("m_alterDatabase.Image")));
 			this.m_alterDatabase.KeyTips = "DA";
 			this.m_alterDatabase.Name = "m_alterDatabase";
 			this.m_alterDatabase.Text = "DB 수정하기";
@@ -1083,7 +1085,7 @@
 			// m_truncateDatabase
 			// 
 			this.m_truncateDatabase.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_truncateDatabase.Image = global::Easy2.Properties.Resources.TruncateDatabase;
+			this.m_truncateDatabase.Image = ((System.Drawing.Image)(resources.GetObject("m_truncateDatabase.Image")));
 			this.m_truncateDatabase.KeyTips = "DT";
 			this.m_truncateDatabase.Name = "m_truncateDatabase";
 			this.m_truncateDatabase.Text = "DB 비우기";
@@ -1091,7 +1093,7 @@
 			// m_dropDatabase
 			// 
 			this.m_dropDatabase.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_dropDatabase.Image = global::Easy2.Properties.Resources.DropDatabase;
+			this.m_dropDatabase.Image = ((System.Drawing.Image)(resources.GetObject("m_dropDatabase.Image")));
 			this.m_dropDatabase.KeyTips = "DD";
 			this.m_dropDatabase.Name = "m_dropDatabase";
 			this.m_dropDatabase.Text = "DB 제거하기";
@@ -1134,7 +1136,7 @@
 			// 
 			// m_createUser
 			// 
-			this.m_createUser.Image = global::Easy2.Properties.Resources.CreateUser;
+			this.m_createUser.Image = ((System.Drawing.Image)(resources.GetObject("m_createUser.Image")));
 			this.m_createUser.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_createUser.KeyTips = "UA";
 			this.m_createUser.Name = "m_createUser";
@@ -1144,7 +1146,7 @@
 			// 
 			// m_alterUser
 			// 
-			this.m_alterUser.Image = global::Easy2.Properties.Resources.AlterUser;
+			this.m_alterUser.Image = ((System.Drawing.Image)(resources.GetObject("m_alterUser.Image")));
 			this.m_alterUser.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_alterUser.KeyTips = "UE";
 			this.m_alterUser.Name = "m_alterUser";
@@ -1154,7 +1156,7 @@
 			// 
 			// m_privilegeUser
 			// 
-			this.m_privilegeUser.Image = global::Easy2.Properties.Resources.PrivilegeUser;
+			this.m_privilegeUser.Image = ((System.Drawing.Image)(resources.GetObject("m_privilegeUser.Image")));
 			this.m_privilegeUser.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_privilegeUser.KeyTips = "UP";
 			this.m_privilegeUser.Name = "m_privilegeUser";
@@ -1227,7 +1229,7 @@
 			// 
 			// m_importExternal
 			// 
-			this.m_importExternal.Image = global::Easy2.Properties.Resources.ImportDatabase;
+			this.m_importExternal.Image = ((System.Drawing.Image)(resources.GetObject("m_importExternal.Image")));
 			this.m_importExternal.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_importExternal.KeyTips = "I";
 			this.m_importExternal.Name = "m_importExternal";
@@ -1236,7 +1238,7 @@
 			// 
 			// m_exportExternal
 			// 
-			this.m_exportExternal.Image = global::Easy2.Properties.Resources.ExportDatabase;
+			this.m_exportExternal.Image = ((System.Drawing.Image)(resources.GetObject("m_exportExternal.Image")));
 			this.m_exportExternal.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_exportExternal.KeyTips = "E";
 			this.m_exportExternal.Name = "m_exportExternal";
@@ -1280,7 +1282,7 @@
 			// 
 			// m_backupDatabase
 			// 
-			this.m_backupDatabase.Image = global::Easy2.Properties.Resources.CopyDatabase;
+			this.m_backupDatabase.Image = ((System.Drawing.Image)(resources.GetObject("m_backupDatabase.Image")));
 			this.m_backupDatabase.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_backupDatabase.KeyTips = "DB";
 			this.m_backupDatabase.Name = "m_backupDatabase";
@@ -1289,7 +1291,7 @@
 			// 
 			// m_restoreDatabase
 			// 
-			this.m_restoreDatabase.Image = global::Easy2.Properties.Resources.RestoreDatabase;
+			this.m_restoreDatabase.Image = ((System.Drawing.Image)(resources.GetObject("m_restoreDatabase.Image")));
 			this.m_restoreDatabase.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_restoreDatabase.KeyTips = "DR";
 			this.m_restoreDatabase.Name = "m_restoreDatabase";
@@ -1332,7 +1334,7 @@
 			// 
 			// m_openObject
 			// 
-			this.m_openObject.Image = global::Easy2.Properties.Resources.OpenObject;
+			this.m_openObject.Image = ((System.Drawing.Image)(resources.GetObject("m_openObject.Image")));
 			this.m_openObject.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_openObject.KeyTips = "O";
 			this.m_openObject.Name = "m_openObject";
@@ -1406,7 +1408,7 @@
 			// m_newConnection
 			// 
 			this.m_newConnection.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_newConnection.Image = global::Easy2.Properties.Resources.ConnectDatabase;
+			this.m_newConnection.Image = ((System.Drawing.Image)(resources.GetObject("m_newConnection.Image")));
 			this.m_newConnection.Name = "m_newConnection";
 			this.m_newConnection.SubItemsExpandWidth = 24;
 			this.m_newConnection.Text = "새로운 연결(&C)...";
@@ -1415,7 +1417,7 @@
 			// m_newConnectionUsingCurrentSettings
 			// 
 			this.m_newConnectionUsingCurrentSettings.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_newConnectionUsingCurrentSettings.Image = global::Easy2.Properties.Resources.ConnectDatabaseCurrentSetting;
+			this.m_newConnectionUsingCurrentSettings.Image = ((System.Drawing.Image)(resources.GetObject("m_newConnectionUsingCurrentSettings.Image")));
 			this.m_newConnectionUsingCurrentSettings.Name = "m_newConnectionUsingCurrentSettings";
 			this.m_newConnectionUsingCurrentSettings.SubItemsExpandWidth = 24;
 			this.m_newConnectionUsingCurrentSettings.Text = "기존 설정 연결(&N)";
@@ -1424,7 +1426,7 @@
 			// 
 			this.m_newQueryEditor.BeginGroup = true;
 			this.m_newQueryEditor.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_newQueryEditor.Image = global::Easy2.Properties.Resources.QueryEditor;
+			this.m_newQueryEditor.Image = ((System.Drawing.Image)(resources.GetObject("m_newQueryEditor.Image")));
 			this.m_newQueryEditor.Name = "m_newQueryEditor";
 			this.m_newQueryEditor.SubItemsExpandWidth = 24;
 			this.m_newQueryEditor.Text = "새 쿼리 에디터(&Q)";
@@ -1433,7 +1435,7 @@
 			// m_newQueryWizard
 			// 
 			this.m_newQueryWizard.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_newQueryWizard.Image = global::Easy2.Properties.Resources.QueryWizard;
+			this.m_newQueryWizard.Image = ((System.Drawing.Image)(resources.GetObject("m_newQueryWizard.Image")));
 			this.m_newQueryWizard.Name = "m_newQueryWizard";
 			this.m_newQueryWizard.SubItemsExpandWidth = 24;
 			this.m_newQueryWizard.Text = "새 쿼리 마법사(&W)";
@@ -1441,7 +1443,7 @@
 			// m_newSchemaDesigner
 			// 
 			this.m_newSchemaDesigner.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_newSchemaDesigner.Image = global::Easy2.Properties.Resources.SchemaDesigner;
+			this.m_newSchemaDesigner.Image = ((System.Drawing.Image)(resources.GetObject("m_newSchemaDesigner.Image")));
 			this.m_newSchemaDesigner.Name = "m_newSchemaDesigner";
 			this.m_newSchemaDesigner.SubItemsExpandWidth = 24;
 			this.m_newSchemaDesigner.Text = "새 스키마 디자이너(&H)";
@@ -1450,7 +1452,7 @@
 			// 
 			this.m_closeTab.BeginGroup = true;
 			this.m_closeTab.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_closeTab.Image = global::Easy2.Properties.Resources.CloseTab;
+			this.m_closeTab.Image = ((System.Drawing.Image)(resources.GetObject("m_closeTab.Image")));
 			this.m_closeTab.Name = "m_closeTab";
 			this.m_closeTab.SubItemsExpandWidth = 24;
 			this.m_closeTab.Text = "댑 닫기(&T)";
@@ -1458,7 +1460,7 @@
 			// m_disconnectMySql
 			// 
 			this.m_disconnectMySql.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_disconnectMySql.Image = global::Easy2.Properties.Resources.Disconnect;
+			this.m_disconnectMySql.Image = ((System.Drawing.Image)(resources.GetObject("m_disconnectMySql.Image")));
 			this.m_disconnectMySql.Name = "m_disconnectMySql";
 			this.m_disconnectMySql.Text = "연결종료(&D)";
 			this.m_disconnectMySql.Click += new System.EventHandler(this.OnDisconnectMySqlClick);
@@ -1466,7 +1468,7 @@
 			// m_disconnectAllMySql
 			// 
 			this.m_disconnectAllMySql.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_disconnectAllMySql.Image = global::Easy2.Properties.Resources.DisconnectAll;
+			this.m_disconnectAllMySql.Image = ((System.Drawing.Image)(resources.GetObject("m_disconnectAllMySql.Image")));
 			this.m_disconnectAllMySql.Name = "m_disconnectAllMySql";
 			this.m_disconnectAllMySql.Text = "모든 연결종료(&L)";
 			this.m_disconnectAllMySql.Click += new System.EventHandler(this.OnDisconnectAllMySqlClick);
@@ -1475,28 +1477,28 @@
 			// 
 			this.m_openFileInSameTab.BeginGroup = true;
 			this.m_openFileInSameTab.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_openFileInSameTab.Image = global::Easy2.Properties.Resources.OpenFile;
+			this.m_openFileInSameTab.Image = ((System.Drawing.Image)(resources.GetObject("m_openFileInSameTab.Image")));
 			this.m_openFileInSameTab.Name = "m_openFileInSameTab";
 			this.m_openFileInSameTab.Text = "불러오기(&O)...";
 			// 
 			// m_openFileInNewTab
 			// 
 			this.m_openFileInNewTab.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_openFileInNewTab.Image = global::Easy2.Properties.Resources.OpenFileNewTab;
+			this.m_openFileInNewTab.Image = ((System.Drawing.Image)(resources.GetObject("m_openFileInNewTab.Image")));
 			this.m_openFileInNewTab.Name = "m_openFileInNewTab";
 			this.m_openFileInNewTab.Text = "새 탭에 불러오기(&F)...";
 			// 
 			// m_saveFile
 			// 
 			this.m_saveFile.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_saveFile.Image = global::Easy2.Properties.Resources.SaveFile;
+			this.m_saveFile.Image = ((System.Drawing.Image)(resources.GetObject("m_saveFile.Image")));
 			this.m_saveFile.Name = "m_saveFile";
 			this.m_saveFile.Text = "저장하기(&S)...";
 			// 
 			// m_saveAs
 			// 
 			this.m_saveAs.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_saveAs.Image = global::Easy2.Properties.Resources.SaveAsFile;
+			this.m_saveAs.Image = ((System.Drawing.Image)(resources.GetObject("m_saveAs.Image")));
 			this.m_saveAs.Name = "m_saveAs";
 			this.m_saveAs.Text = "다른 이름으로 저장하기(&A)...";
 			// 
@@ -1537,7 +1539,7 @@
 			// 
 			this.m_quitApplication.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
 			this.m_quitApplication.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-			this.m_quitApplication.Image = global::Easy2.Properties.Resources.QuitApplication;
+			this.m_quitApplication.Image = ((System.Drawing.Image)(resources.GetObject("m_quitApplication.Image")));
 			this.m_quitApplication.Name = "m_quitApplication";
 			this.m_quitApplication.SubItemsExpandWidth = 24;
 			this.m_quitApplication.Text = "종료하기(&X)";
@@ -1568,7 +1570,7 @@
 			// m_configGroup
 			// 
 			this.m_configGroup.AutoExpandOnClick = true;
-			this.m_configGroup.Image = global::Easy2.Properties.Resources.Config;
+			this.m_configGroup.Image = ((System.Drawing.Image)(resources.GetObject("m_configGroup.Image")));
 			this.m_configGroup.ItemAlignment = DevComponents.DotNetBar.eItemAlignment.Far;
 			this.m_configGroup.Name = "m_configGroup";
 			this.m_configGroup.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -1577,7 +1579,7 @@
 			// 
 			// m_appSettings
 			// 
-			this.m_appSettings.Image = global::Easy2.Properties.Resources.Settings;
+			this.m_appSettings.Image = ((System.Drawing.Image)(resources.GetObject("m_appSettings.Image")));
 			this.m_appSettings.Name = "m_appSettings";
 			this.m_appSettings.Text = "환경설정(&U)...";
 			// 
@@ -1585,7 +1587,7 @@
 			// 
 			this.m_formTheme.AutoExpandOnClick = true;
 			this.m_formTheme.BeginGroup = true;
-			this.m_formTheme.Image = global::Easy2.Properties.Resources.FormStyle;
+			this.m_formTheme.Image = ((System.Drawing.Image)(resources.GetObject("m_formTheme.Image")));
 			this.m_formTheme.Name = "m_formTheme";
 			this.m_formTheme.OptionGroup = "theme";
 			this.m_formTheme.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -1627,7 +1629,7 @@
 			// m_helpGroup
 			// 
 			this.m_helpGroup.AutoExpandOnClick = true;
-			this.m_helpGroup.Image = global::Easy2.Properties.Resources.Help;
+			this.m_helpGroup.Image = ((System.Drawing.Image)(resources.GetObject("m_helpGroup.Image")));
 			this.m_helpGroup.ItemAlignment = DevComponents.DotNetBar.eItemAlignment.Far;
 			this.m_helpGroup.Name = "m_helpGroup";
 			this.m_helpGroup.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -1637,14 +1639,14 @@
 			// 
 			// m_helpDocument
 			// 
-			this.m_helpDocument.Image = global::Easy2.Properties.Resources.HelpDocument;
+			this.m_helpDocument.Image = ((System.Drawing.Image)(resources.GetObject("m_helpDocument.Image")));
 			this.m_helpDocument.Name = "m_helpDocument";
 			this.m_helpDocument.Text = "도움말(&H)...";
 			// 
 			// m_updateCheck
 			// 
 			this.m_updateCheck.BeginGroup = true;
-			this.m_updateCheck.Image = global::Easy2.Properties.Resources.UpdateCheck;
+			this.m_updateCheck.Image = ((System.Drawing.Image)(resources.GetObject("m_updateCheck.Image")));
 			this.m_updateCheck.Name = "m_updateCheck";
 			this.m_updateCheck.Text = "업데이트 확인(&U)...";
 			// 
@@ -1678,6 +1680,7 @@
 			// 
 			// m_zoomSlider
 			// 
+			this.m_zoomSlider.BaseValue = 0;
 			this.m_zoomSlider.IncreaseTooltip = "slider bar";
 			this.m_zoomSlider.ItemAlignment = DevComponents.DotNetBar.eItemAlignment.Far;
 			this.m_zoomSlider.LeftStep = 2;
@@ -1829,6 +1832,6 @@
 		private DevComponents.DotNetBar.ItemContainer m_editItemContainer3;
 		private DevComponents.DotNetBar.ButtonItem m_undoAction;
 		private DevComponents.DotNetBar.ButtonItem m_redoAction;
-		private Easy2.ZoomSliderBinder m_zoomSlider;
+		private ZoomSliderBinder m_zoomSlider;
 	}
 }

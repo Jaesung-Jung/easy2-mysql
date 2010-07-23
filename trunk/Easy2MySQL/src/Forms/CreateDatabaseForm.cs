@@ -39,28 +39,25 @@ namespace Easy2
 		{
 			base.OnCommitButtonClick(sender, e);
 
-			if(this.DataEffectiveness)
+			try
 			{
-				try
+				if(this.m_charsetCombo.SelectedIndex == 0)
 				{
-					if(this.m_charsetCombo.SelectedIndex == 0)
-					{
-						string dbname = this.m_nameText.Text;
-						Program.ActivateCommunicator.CreateDatabase(dbname);
-					}
-					else
-					{
-						string dbname = this.m_nameText.Text;
-						string charset = this.m_charsetCombo.SelectedItem.ToString();
-						string collation = this.m_collationCombo.SelectedItem.ToString();
-						Program.ActivateCommunicator.CreateDatabase(dbname, charset, collation);
-					}
-					this.DialogResult = DialogResult.Yes;
+					string dbname = this.m_nameText.Text;
+					Program.ActivateCommunicator.CreateDatabase(dbname);
 				}
-				catch(MySqlException ex)
+				else
 				{
-					EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
+					string dbname = this.m_nameText.Text;
+					string charset = this.m_charsetCombo.SelectedItem.ToString();
+					string collation = this.m_collationCombo.SelectedItem.ToString();
+					Program.ActivateCommunicator.CreateDatabase(dbname, charset, collation);
 				}
+				this.DialogResult = DialogResult.Yes;
+			}
+			catch(MySqlException ex)
+			{
+				EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
 			}
 		}
 

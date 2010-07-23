@@ -129,6 +129,7 @@
 			this.m_usernameText.Name = "m_usernameText";
 			this.m_usernameText.Size = new System.Drawing.Size(161, 25);
 			this.m_usernameText.TabIndex = 3;
+			this.m_usernameText.TextChanged += new System.EventHandler(this.OnTextChanged);
 			// 
 			// m_hostLabel
 			// 
@@ -156,6 +157,7 @@
 			this.m_hostText.Size = new System.Drawing.Size(161, 25);
 			this.m_hostText.TabIndex = 5;
 			this.m_hostText.Text = "%";
+			this.m_hostText.TextChanged += new System.EventHandler(this.OnTextChanged);
 			// 
 			// m_PasswordLabel
 			// 
@@ -741,6 +743,7 @@
 			// 
 			this.m_commitButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.m_commitButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_commitButton.Enabled = false;
 			this.m_commitButton.Location = new System.Drawing.Point(267, 426);
 			this.m_commitButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.m_commitButton.Name = "m_commitButton";

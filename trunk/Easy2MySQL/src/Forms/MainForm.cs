@@ -174,6 +174,14 @@ namespace Easy2
  			this.m_zoomSlider.DataBindings.Add("Value", this.m_selectedQueryEditor, "Zoom");
 		}
 
+		/// <summary>
+		/// 슬라이더의 값이 변경될 때 호출됩니다.
+		/// </summary>
+		/// <remarks>
+		/// 슬라이더의 현재값을 Percentage형태로 나타냅니다.
+		/// </remarks>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		void OnZoomSliderValueChanged(object sender, EventArgs e)
 		{
  			int pecentage = 100 + ((this.m_zoomSlider.BaseValue / this.m_zoomSlider.Step) * 10);
@@ -285,6 +293,16 @@ namespace Easy2
 		private void OnCopySelectionClick(object sender, EventArgs e)
 		{
 			this.m_selectedQueryEditor.Clipboard.Copy();
+		}
+
+		/// <summary>
+		/// 찾기 버튼을 클릭했을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnFindDataClick(object sender, EventArgs e)
+		{
+			new FindStringForm().ShowDialog(this);
 		}
 
 		/// <summary>

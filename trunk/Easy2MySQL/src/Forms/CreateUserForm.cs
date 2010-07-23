@@ -48,21 +48,24 @@ namespace Easy2
 		{
 			base.OnCommitButtonClick(sender, e);
 
-			try
+			if(this.DataEffectiveness)
 			{
-				Program.ActivateCommunicator.CreateUser(this.UserInfo);
-				MessageBox.Show(
-					this,
-					String.Format(Resources.Easy2Message_UserCreatedSuccessfully, this.UserInfo.Username),
-					Resources.Easy2Message_Title,
-					MessageBoxButtons.OK,
-					MessageBoxIcon.Information
-					);
-				this.Dispose(true);
-			}
-			catch(MySqlException ex)
-			{
-				EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
+				try
+				{
+					Program.ActivateCommunicator.CreateUser(this.UserInfo);
+					MessageBox.Show(
+						this,
+						String.Format(Resources.Easy2Message_UserCreatedSuccessfully, this.UserInfo.Username),
+						Resources.Easy2Message_Title,
+						MessageBoxButtons.OK,
+						MessageBoxIcon.Information
+						);
+					this.Dispose(true);
+				}
+				catch(MySqlException ex)
+				{
+					EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
+				}
 			}
 		}
 	}

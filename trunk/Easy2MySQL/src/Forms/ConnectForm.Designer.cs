@@ -192,9 +192,10 @@
 			this.m_mysqlTabPanel.Name = "m_mysqlTabPanel";
 			this.m_mysqlTabPanel.Padding = new System.Windows.Forms.Padding(1);
 			this.m_mysqlTabPanel.Size = new System.Drawing.Size(462, 223);
-			this.m_mysqlTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.m_mysqlTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
+			this.m_mysqlTabPanel.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
 			this.m_mysqlTabPanel.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-			this.m_mysqlTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(83)))), ((int)(((byte)(89)))));
+			this.m_mysqlTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
 			this.m_mysqlTabPanel.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
 						| DevComponents.DotNetBar.eBorderSide.Bottom)));
 			this.m_mysqlTabPanel.Style.GradientAngle = 90;
@@ -404,9 +405,10 @@
 			this.m_httpTabPanel.Name = "m_httpTabPanel";
 			this.m_httpTabPanel.Padding = new System.Windows.Forms.Padding(1);
 			this.m_httpTabPanel.Size = new System.Drawing.Size(462, 223);
-			this.m_httpTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.m_httpTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
+			this.m_httpTabPanel.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
 			this.m_httpTabPanel.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-			this.m_httpTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(83)))), ((int)(((byte)(89)))));
+			this.m_httpTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
 			this.m_httpTabPanel.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
 						| DevComponents.DotNetBar.eBorderSide.Bottom)));
 			this.m_httpTabPanel.Style.GradientAngle = 90;
@@ -426,9 +428,10 @@
 			this.m_sslTabPanel.Name = "m_sslTabPanel";
 			this.m_sslTabPanel.Padding = new System.Windows.Forms.Padding(1);
 			this.m_sslTabPanel.Size = new System.Drawing.Size(462, 223);
-			this.m_sslTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.m_sslTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
+			this.m_sslTabPanel.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
 			this.m_sslTabPanel.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-			this.m_sslTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(83)))), ((int)(((byte)(89)))));
+			this.m_sslTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
 			this.m_sslTabPanel.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
 						| DevComponents.DotNetBar.eBorderSide.Bottom)));
 			this.m_sslTabPanel.Style.GradientAngle = 90;
@@ -448,9 +451,10 @@
 			this.m_sshTabPanel.Name = "m_sshTabPanel";
 			this.m_sshTabPanel.Padding = new System.Windows.Forms.Padding(1);
 			this.m_sshTabPanel.Size = new System.Drawing.Size(462, 223);
-			this.m_sshTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.m_sshTabPanel.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
+			this.m_sshTabPanel.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
 			this.m_sshTabPanel.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-			this.m_sshTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(83)))), ((int)(((byte)(89)))));
+			this.m_sshTabPanel.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
 			this.m_sshTabPanel.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
 						| DevComponents.DotNetBar.eBorderSide.Bottom)));
 			this.m_sshTabPanel.Style.GradientAngle = 90;
@@ -480,6 +484,7 @@
 			// 
 			this.m_close.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.m_close.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.m_close.Location = new System.Drawing.Point(167, 386);
 			this.m_close.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.m_close.Name = "m_close";
@@ -531,8 +536,10 @@
 			// 
 			// ConnectForm
 			// 
+			this.AcceptButton = this.m_connect;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.CancelButton = this.m_close;
 			this.ClientSize = new System.Drawing.Size(480, 423);
 			this.Controls.Add(this.m_titleLabel);
 			this.Controls.Add(this.m_titleImgLabel);
@@ -548,11 +555,11 @@
 			this.Controls.Add(this.m_renameConnection);
 			this.DoubleBuffered = true;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+			this.KeyPreview = true;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "ConnectForm";
 			this.ShowInTaskbar = false;
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Connect to MySQL";
 			((System.ComponentModel.ISupportInitialize)(this.m_tabControl)).EndInit();
 			this.m_tabControl.ResumeLayout(false);

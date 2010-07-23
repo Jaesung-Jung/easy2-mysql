@@ -727,6 +727,7 @@
 			// 
 			this.m_closeButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.m_closeButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_closeButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.m_closeButton.Location = new System.Drawing.Point(396, 426);
 			this.m_closeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.m_closeButton.Name = "m_closeButton";
@@ -777,8 +778,10 @@
 			// 
 			// UserBaseForm
 			// 
+			this.AcceptButton = this.m_commitButton;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.CancelButton = this.m_closeButton;
 			this.ClientSize = new System.Drawing.Size(525, 464);
 			this.Controls.Add(this.m_closeButton);
 			this.Controls.Add(this.m_commitButton);
@@ -800,6 +803,7 @@
 			this.Controls.Add(this.m_titleImgLabel);
 			this.DoubleBuffered = true;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+			this.KeyPreview = true;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "UserBaseForm";

@@ -39,8 +39,6 @@ namespace Easy2
 		{
 			base.OnCommitButtonClick(sender, e);
 
-			this.DialogResult = DialogResult.No;
-
 			if(this.DataEffectiveness)
 			{
 				try

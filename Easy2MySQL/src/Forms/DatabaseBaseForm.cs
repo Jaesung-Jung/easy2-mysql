@@ -23,6 +23,16 @@ namespace Easy2
 		}
 
 		/// <summary>
+		/// 텍스트박스에 값이 입력되었는지 검사하여 버튼을 활성/비활성화 시킵니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnTextChanged(object sender, EventArgs e)
+		{
+			this.m_commitButton.Enabled = this.m_nameText.TextLength != 0 ? true : false;
+		}
+
+		/// <summary>
 		/// 문자셋의 콤보박스를 초기화합니다.
 		/// </summary>
 		protected void InitializeCharset()
@@ -66,20 +76,20 @@ namespace Easy2
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		protected virtual void OnCommitButtonClick(object sender, System.EventArgs e)
 		{
-			this.m_dataEffectiveness = false;
-
-			if(this.m_nameText.Text.Trim().Length == 0)
-			{
-				MessageBox.Show(
-					this, String.Format(
-						Resources.Easy2Message_EmptyItem,
-						this.m_nameLabel.Text.Substring(0, this.m_nameLabel.Text.Length - 4)),
-					Resources.Easy2Message_Title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-				this.m_nameText.Focus();
-				return;
-			}
-			this.m_dataEffectiveness = true;
+// 			this.m_dataEffectiveness = false;
+// 
+// 			if(this.m_nameText.Text.Trim().Length == 0)
+// 			{
+// 				MessageBox.Show(
+// 					this, String.Format(
+// 						Resources.Easy2Message_EmptyItem,
+// 						this.m_nameLabel.Text.Substring(0, this.m_nameLabel.Text.Length - 4)),
+// 					Resources.Easy2Message_Title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+// 
+// 				this.m_nameText.Focus();
+// 				return;
+// 			}
+// 			this.m_dataEffectiveness = true;
 		}
 
 		/// <summary>
@@ -138,15 +148,5 @@ namespace Easy2
 				this.m_descriptionLabel.Text = "Default Charset";
 			}
 		}
-
-		/// <summary>
-		/// 확인버튼을 눌렀을 때, UserBaseForm에서 데이터유효성을 검사하여 다음작업을 수행해도 될지 여부입니다.
-		/// </summary>
-		protected bool DataEffectiveness
-		{
-			get { return this.m_dataEffectiveness; }
-		}
-
-		private bool m_dataEffectiveness;
 	}
 }

@@ -56,43 +56,40 @@ namespace Easy2
 
 			this.DialogResult = DialogResult.No;
 
-			if(this.DataEffectiveness)
+			MySqlDataReader reader = null;
+			try
 			{
-				MySqlDataReader reader = null;
-				try
+				if(this.m_charsetCombo.SelectedIndex == 0)
 				{
-					if(this.m_charsetCombo.SelectedIndex == 0)
-					{
-						reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowCharsetServer());
-						reader.Read();
-						string charset = reader.GetString(1);
-						reader.Close();
+					reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowCharsetServer());
+					reader.Read();
+					string charset = reader.GetString(1);
+					reader.Close();
 
-						reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowCollationServer());
-						reader.Read();
-						string collation = reader.GetString(1);
-						reader.Close();
+					reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowCollationServer());
+					reader.Read();
+					string collation = reader.GetString(1);
+					reader.Close();
 
-						Program.ActivateCommunicator.AlterDatabase(this.m_dbname, charset, collation);
-					}
-					else
-					{
-						string dbname = this.m_nameText.Text;
-						string charset = this.m_charsetCombo.SelectedItem.ToString();
-						string collation = this.m_collationCombo.SelectedItem.ToString();
-						Program.ActivateCommunicator.AlterDatabase(dbname, charset, collation);
-					}
-					this.DialogResult = DialogResult.Yes;
+					Program.ActivateCommunicator.AlterDatabase(this.m_dbname, charset, collation);
 				}
-				catch(MySqlException ex)
+				else
 				{
-					EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
+					string dbname = this.m_nameText.Text;
+					string charset = this.m_charsetCombo.SelectedItem.ToString();
+					string collation = this.m_collationCombo.SelectedItem.ToString();
+					Program.ActivateCommunicator.AlterDatabase(dbname, charset, collation);
 				}
-				finally
-				{
-					if(reader != null)
-						reader.Close();
-				}
+				this.DialogResult = DialogResult.Yes;
+			}
+			catch(MySqlException ex)
+			{
+				EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
+			}
+			finally
+			{
+				if(reader != null)
+					reader.Close();
 			}
 		}
 

@@ -63,6 +63,7 @@
 			this.m_nameText.Name = "m_nameText";
 			this.m_nameText.Size = new System.Drawing.Size(188, 25);
 			this.m_nameText.TabIndex = 1;
+			this.m_nameText.TextChanged += new System.EventHandler(this.OnTextChanged);
 			// 
 			// labelX1
 			// 
@@ -121,6 +122,7 @@
 			// 
 			this.m_commitButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.m_commitButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_commitButton.Enabled = false;
 			this.m_commitButton.Location = new System.Drawing.Point(117, 189);
 			this.m_commitButton.Name = "m_commitButton";
 			this.m_commitButton.Size = new System.Drawing.Size(116, 25);

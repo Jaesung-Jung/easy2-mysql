@@ -18,6 +18,12 @@ namespace Easy2
 			InitializeComponent();
 		}
 
+		private void OnTextChanged(object sender, EventArgs e)
+		{
+			this.m_commitButton.Enabled =
+				(this.m_usernameText.TextLength != 0) && (this.m_hostText.TextLength != 0) ? true : false;
+		}
+
 		/// <summary>
 		/// 닫기 버튼을 눌렀을 때 호출됩니다.
 		/// </summary>
@@ -91,32 +97,6 @@ namespace Easy2
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		protected virtual void OnCommitButtonClick(object sender, EventArgs e)
 		{
-			this.m_dataEffectiveness = false;
-
-			if(this.m_usernameText.Text.Trim().Length == 0)
-			{
-				MessageBox.Show(
-					this, String.Format(
-						Resources.Easy2Message_EmptyItem,
-						this.m_usernameLabel.Text.Substring(0, this.m_usernameLabel.Text.Length - 4)),
-					Resources.Easy2Message_Title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-				this.m_usernameText.Focus();
-				return;
-			}
-
-			if(this.m_hostText.Text.Trim().Length == 0)
-			{
-				MessageBox.Show(
-					this, String.Format(
-						Resources.Easy2Message_EmptyItem,
-						this.m_hostLabel.Text.Substring(0, this.m_hostLabel.Text.Length - 4)),
-					Resources.Easy2Message_Title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-				this.m_hostText.Focus();
-				return;
-			}
-
 			if(
 				this.m_PasswordText1.TextLength != 0 && this.m_PasswordText2.TextLength != 0 &&
 				(this.m_PasswordText1.Text.CompareTo(this.m_PasswordText2.Text) != 0)
@@ -155,8 +135,6 @@ namespace Easy2
 			}
 
 			UpdateData(true);
-
-			this.m_dataEffectiveness = true;
 		}
 
 		/// <summary>
@@ -261,15 +239,6 @@ namespace Easy2
 			set { this.m_userInfo = value; }
 		}
 
-		/// <summary>
-		/// 확인버튼을 눌렀을 때, UserBaseForm에서 데이터유효성을 검사하여 다음작업을 수행해도 될지 여부입니다.
-		/// </summary>
-		protected bool DataEffectiveness
-		{
-			get { return this.m_dataEffectiveness; }
-		}
-
 		private User m_userInfo = new User();
-		private bool m_dataEffectiveness = false;
 	}
 }

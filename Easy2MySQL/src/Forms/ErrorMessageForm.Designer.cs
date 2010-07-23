@@ -53,6 +53,7 @@
 			// 
 			// 
 			this.m_subjectLabel.BackgroundStyle.Class = "";
+			this.m_subjectLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_subjectLabel.Location = new System.Drawing.Point(75, 29);
 			this.m_subjectLabel.Name = "m_subjectLabel";
 			this.m_subjectLabel.Size = new System.Drawing.Size(148, 21);
@@ -65,6 +66,7 @@
 			// 
 			// 
 			this.m_errorNumberLabel.BackgroundStyle.Class = "";
+			this.m_errorNumberLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_errorNumberLabel.Location = new System.Drawing.Point(229, 51);
 			this.m_errorNumberLabel.Name = "m_errorNumberLabel";
 			this.m_errorNumberLabel.Size = new System.Drawing.Size(215, 19);
@@ -77,6 +79,7 @@
 			// 
 			// 
 			this.m_imgLabel.BackgroundStyle.Class = "";
+			this.m_imgLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_imgLabel.Image = global::Easy2.Properties.Resources.Error;
 			this.m_imgLabel.ImagePosition = DevComponents.DotNetBar.eImagePosition.Bottom;
 			this.m_imgLabel.Location = new System.Drawing.Point(12, 9);
@@ -88,6 +91,7 @@
 			// 
 			this.m_closeButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.m_closeButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_closeButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.m_closeButton.Location = new System.Drawing.Point(362, 196);
 			this.m_closeButton.Name = "m_closeButton";
 			this.m_closeButton.Size = new System.Drawing.Size(84, 26);
@@ -112,6 +116,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.CancelButton = this.m_closeButton;
 			this.ClientSize = new System.Drawing.Size(458, 235);
 			this.Controls.Add(this.m_copyButton);
 			this.Controls.Add(this.m_closeButton);
@@ -119,8 +124,9 @@
 			this.Controls.Add(this.m_errorMessageText);
 			this.Controls.Add(this.m_subjectLabel);
 			this.Controls.Add(this.m_errorNumberLabel);
+			this.DoubleBuffered = true;
+			this.KeyPreview = true;
 			this.Name = "ErrorMessageForm";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Easy To MySQL 오류";
 			this.ResumeLayout(false);
 			this.PerformLayout();

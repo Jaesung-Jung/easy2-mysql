@@ -109,6 +109,8 @@
     <Compile Include="src\Components\QueryEditor.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="src\Components\SliderItemEx.cs" />
+    <Compile Include="src\Components\ZoomSliderBinder.cs" />
     <Compile Include="src\Forms\AlterDatabaseForm.cs">
       <SubType>Form</SubType>
     </Compile>

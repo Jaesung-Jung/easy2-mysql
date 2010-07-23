@@ -168,7 +168,21 @@ namespace Easy2
 		void OnDockTabChange(object sender, DockTabChangeEventArgs e)
 		{
 			this.m_selectedQueryEditor = (QueryEditor)(((DockContainerItem)(e.NewTab)).Control);
+			this.m_selectedQueryEditor.DataBindings.Clear();
+			this.m_selectedQueryEditor.DataBindings.Add("Zoom", this.m_zoomSlider, "Value");
+ 			this.m_zoomSlider.DataBindings.Clear();
+ 			this.m_zoomSlider.DataBindings.Add("Value", this.m_selectedQueryEditor, "Zoom");
 		}
+
+		void OnZoomSliderValueChanged(object sender, EventArgs e)
+		{
+ 			int pecentage = 100 + ((this.m_zoomSlider.BaseValue / this.m_zoomSlider.Step) * 10);
+ 			pecentage = pecentage == 0 ? 5 : pecentage;
+ 
+ 			this.m_zoomSlider.Text = String.Format(@"{0}%", pecentage.ToString());
+		}
+
+
 
 		/// <summary>
 		/// 새로운연결 버튼을 클릭했을 때 호출됩니다.

@@ -5,7 +5,7 @@ using DevComponents.DotNetBar;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace Easy2
+namespace Easy2.Components
 {
 	/// <summary>
 	/// 도킹 매니저 클래스입니다.

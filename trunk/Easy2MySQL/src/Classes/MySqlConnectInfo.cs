@@ -2,7 +2,7 @@
 // MySqlConnectInfo
 //
 
-namespace Easy2
+namespace Easy2.Classes
 {
 	/// <summary>
 	/// 연결정보를 저장하는 클래스입니다.

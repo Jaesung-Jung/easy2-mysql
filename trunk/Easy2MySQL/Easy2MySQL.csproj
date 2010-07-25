@@ -82,12 +82,18 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\CommunicatorCollection.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="src\Classes\CommunicatorCollection.cs" />
+    <Compile Include="src\Classes\MySqlCommunicator.cs" />
+    <Compile Include="src\Classes\MySqlConnectInfo.cs" />
+    <Compile Include="src\Classes\MySqlGenerator.cs" />
+    <Compile Include="src\Classes\Program.cs" />
+    <Compile Include="src\Classes\User.cs" />
+    <Compile Include="src\Classes\ZoomSliderBinder.cs" />
     <Compile Include="src\Components\DockablePane.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -109,8 +115,10 @@
     <Compile Include="src\Components\QueryEditor.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="src\Components\ReadonlyTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="src\Components\SliderItemEx.cs" />
-    <Compile Include="src\Components\ZoomSliderBinder.cs" />
     <Compile Include="src\Forms\AlterDatabaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,11 +197,6 @@
     <Compile Include="src\Forms\UserBaseForm.Designer.cs">
       <DependentUpon>UserBaseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\MySqlCommunicator.cs" />
-    <Compile Include="src\MySqlConnectInfo.cs" />
-    <Compile Include="src\MySqlGenerator.cs" />
-    <Compile Include="src\Program.cs" />
-    <Compile Include="src\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -458,12 +461,6 @@
     <None Include="img\png\ColorTable.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ReadonlyTextBox\ReadonlyTextBox.csproj">
-      <Project>{B3BDAB9E-9D3A-46DF-9BD5-CA47F3C558B4}</Project>
-      <Name>ReadonlyTextBox</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
@@ -518,4 +515,5 @@
     <Content Include="lib\SciLexer.dll" />
     <Content Include="lib\ScintillaNet.dll" />
   </ItemGroup>
+  <ItemGroup />
 </Project>

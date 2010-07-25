@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Easy2
+namespace Easy2.Classes
 {
 	/// <summary>
 	/// MySqlCommunicator 컬렉션입니다.

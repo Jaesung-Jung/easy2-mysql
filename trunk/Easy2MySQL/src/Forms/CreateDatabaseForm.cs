@@ -1,11 +1,12 @@
 ﻿
 // CreateDatabaseForm.cs
 //
+using Easy2.Classes;
 using Easy2.Properties;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
-namespace Easy2
+namespace Easy2.Forms
 {
 	/// <summary>
 	/// CreateDatabaseForm 클래스입니다.

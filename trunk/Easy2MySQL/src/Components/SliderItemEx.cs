@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using DevComponents.DotNetBar;
 
-namespace Easy2
+namespace Easy2.Components
 {
 	/// <summary>
 	/// 슬라이더의 Step의 값을 좌우로 구분할 수 있는 새로운 클래스입니다.

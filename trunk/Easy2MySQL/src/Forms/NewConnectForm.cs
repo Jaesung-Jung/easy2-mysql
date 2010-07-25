@@ -3,7 +3,7 @@
 //
 using System.Windows.Forms;
 
-namespace Easy2
+namespace Easy2.Forms
 {
 	/// <summary>
 	/// 새로운 연결명을 입력하는 폼 클래스입니다.

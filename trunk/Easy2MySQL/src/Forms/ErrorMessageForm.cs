@@ -5,7 +5,7 @@ using System;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 
-namespace Easy2
+namespace Easy2.Forms
 {
 	/// <summary>
 	/// EasyToMySQL 오류를 출력하는 폼 클래스입니다.

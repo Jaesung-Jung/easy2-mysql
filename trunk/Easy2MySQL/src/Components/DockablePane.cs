@@ -4,7 +4,7 @@
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 
-namespace Easy2
+namespace Easy2.Components
 {
 	/// <summary>
 	/// 도킹이 가능한 팬 클래스입니다.

@@ -7,12 +7,12 @@ using ScintillaNet;
 namespace Easy2.Components
 {
 	/// <summary>
-	/// 쿼리에디터 클래스입니다.
+	/// 쿼리문을 입력 및 편집할 수 있는 에디터클래스입니다.
 	/// </summary>
 	public class QueryEditor : Scintilla
 	{
 		/// <summary>
-		/// 생성자입니다.
+		/// QueryEditor 인스턴스를 초기화합니다.
 		/// </summary>
 		public QueryEditor()
 		{

@@ -12,12 +12,12 @@ using DevComponents.AdvTree;
 namespace Easy2.Components
 {
 	/// <summary>
-	/// 오브젝트 트리 뷰 클래스입니다.
+	/// 오브젝트 트리클래스는 MySQL 객체를 트리형태 보여주며, 삽입/삭제가 등의 기능을 지원합니다.
 	/// </summary>
 	public class ObjectTree : AdvTree
 	{
 		/// <summary>
-		/// 생성자입니다.
+		/// ObjectTree 인스턴스를 초기화합니다.
 		/// </summary>
 		public ObjectTree()
 		{
@@ -275,6 +275,10 @@ namespace Easy2.Components
  			}
 		}
 
+		/// <summary>
+		/// 데이터베이스 노드를 추가합니다.
+		/// </summary>
+		/// <param name="dbname">추가될 데이터베이스 노드의 이름입니다.</param>
 		public void AddDatabase(string dbname)
 		{
 			ObjectNode databaseNode = new ObjectNode(this.m_activateNode, dbname, ObjectNodeType.MySqlDatabase);

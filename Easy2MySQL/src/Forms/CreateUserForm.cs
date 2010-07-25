@@ -10,12 +10,12 @@ using MySql.Data.MySqlClient;
 namespace Easy2.Forms
 {
 	/// <summary>
-	/// CreateUserForm 클래스입니다.
+	/// 사용자를 생성하기 위한 폼 클래스입니다.
 	/// </summary>
 	public partial class CreateUserForm : UserBaseForm
 	{
 		/// <summary>
-		/// 생성자입니다.
+		/// CreateUserForm 인스턴스를 초기화합니다.
 		/// </summary>
 		public CreateUserForm()
 		{
@@ -23,7 +23,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// OnShown 재정의입니다.
+		/// 폼이 보여질 때 호출됩니다.
 		/// </summary>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		protected override void OnShown(EventArgs e)
@@ -41,7 +41,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 확인버튼을 눌렀을 때 호출됩니다.
+		/// 확인버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>

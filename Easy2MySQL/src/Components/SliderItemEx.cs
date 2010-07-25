@@ -13,7 +13,7 @@ namespace Easy2.Components
 	public class SliderItemEx : SliderItem
 	{
 		/// <summary>
-		/// OnValueChanging 재정의입니다.
+		/// 컨트롤의 값이 변경중일 때 호출됩니다.
 		/// </summary>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		protected override void OnValueChanging(CancelIntValueEventArgs e)
@@ -47,7 +47,7 @@ namespace Easy2.Components
 		}
 
 		/// <summary>
-		/// OnValueChanged 재정의입니다.
+		/// 컨트롤의 값이 변경되면 호출됩니다.
 		/// </summary>
 		protected override void OnValueChanged()
 		{

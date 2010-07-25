@@ -12,11 +12,17 @@ namespace Easy2.Components
 	/// <summary>
 	/// 오브젝트 브라우저 클래스입니다.
 	/// </summary>
+	/// <remarks>
+	/// 오브젝트 브라우저는 MySQL 개체들을 사용자에게 보여줍니다.
+	/// </remarks>
 	public class ObjectBrowser : DockablePane
 	{
 		/// <summary>
-		/// 생성자입니다.
+		/// 타이틀바에 지정된 문자열을 표시하는 ObjectBrowser 인스턴스를 초기화합니다.
 		/// </summary>
+		/// <param name="s">
+		/// 타이틀바에서 표시할 문자열입니다.
+		/// </param>
 		public ObjectBrowser(string s) : base(s)
 		{
 			this.m_objectTree = new ObjectTree();

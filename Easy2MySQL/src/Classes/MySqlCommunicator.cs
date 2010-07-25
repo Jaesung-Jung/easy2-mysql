@@ -11,17 +11,17 @@ using MySql.Data.MySqlClient;
 namespace Easy2.Classes
 {
 	/// <summary>
-	/// MySQL 데이터베이스와 통신을 수행하는 클래스입니다.
+	/// 데이터베이스와 연결되어 통신을 수행합니다.
 	/// </summary>
 	public class MySqlCommunicator : IDisposable
 	{
 		/// <summary>
-		/// 생성자입니다.
+		/// MySqlCommunicator 클래스의 인스턴스를 초기화합니다.
 		/// </summary>
 		public MySqlCommunicator() {}
 
 		/// <summary>
-		/// 생성자입니다.
+		/// 지정된 연결정보를 가지는 클래스의 인스턴스를 초기화합니다.
 		/// </summary>
 		/// <param name="connectInfo">연결정보 객체입니다.</param>
 		public MySqlCommunicator(MySqlConnectInfo connectInfo)
@@ -30,7 +30,7 @@ namespace Easy2.Classes
 		}
 
 		/// <summary>
-		/// IDisposable 인터페이스의 구현입니다.
+		/// 관리되지 않는 리소스의 확보, 해제 또는 다시 설정과 관련된 응용 프로그램 정의 작업을 수행합니다.
 		/// </summary>
 		public void Dispose()
 		{
@@ -39,17 +39,23 @@ namespace Easy2.Classes
 		}
 
 		/// <summary>
-		/// MySQL 서버에 연결합니다.
+		/// MySQL 데이터베이스에 연결합니다.
 		/// </summary>
+		/// <exception cref="MySqlException">
+		/// 연결에 실패하였을 경우 MySqlException 예외가 발생됩니다.
+		/// </exception>
 		public void Connect()
 		{
 			Connect(MySqlGenerator.ConnectionString(this.m_connectInfo));
 		}
 
 		/// <summary>
-		/// MySQL 서버에 연결합니다.
+		/// 지정된 연결정보로 MySQL 데이터베이스에 연결합니다.
 		/// </summary>
-		/// <param name="connectInfo">연결정보를 담고있는 객체입니다.</param>
+		/// <param name="connectInfo">연결정보 객체입니다.</param>
+		/// <exception cref="MySqlException">
+		/// 연결에 실패하였을 경우 MySqlException 예외가 발생됩니다.
+		/// </exception>
 		public void Connect(MySqlConnectInfo connectInfo)
 		{
 			this.m_connectInfo = connectInfo;
@@ -57,9 +63,12 @@ namespace Easy2.Classes
 		}
 
 		/// <summary>
-		/// MySQL 서버에 연결합니다.
+		/// 지정된 연결정보 문자열로 MySQL 데이터베이스 연결합니다.
 		/// </summary>
-		/// <param name="connectionString">연결정보를 담고있는 문자열입니다.</param>
+		/// <param name="connectionString">연결정보 문자열입니다.</param>
+		/// <exception cref="MySqlException">
+		/// 연결에 실패하였을 경우 MySqlException 예외가 발생됩니다.
+		/// </exception>
 		public void Connect(string connectionString)
 		{
 			try
@@ -90,29 +99,38 @@ namespace Easy2.Classes
 		}
 
 		/// <summary>
-		/// MySQL 서버의 연결상태를 테스트합니다.
+		/// MySQL 서버에 연결이 가능한지 여부를 테스트합니다.
 		/// </summary>
-		/// <returns>연결성공 메세지입니다.</returns>
+		/// <returns>연결테스트를 한 데이터베이스의 서버이름과 버전정보입니다.</returns>
+		/// <exception cref="MySqlException">
+		/// 연결에 실패하였을 경우 MySqlException 예외가 발생됩니다.
+		/// </exception>
 		public string ConnectTest()
 		{
 			return ConnectTest(MySqlGenerator.ConnectionString(this.m_connectInfo));
 		}
 
 		/// <summary>
-		/// MySQL 서버의 연결상태를 테스트합니다.
+		/// 지정된 연결정보로 MySQL 서버에 연결이 가능한지 여부를 테스트합니다.생
 		/// </summary>
-		/// <param name="connectInfo">연결 정보를 담고있는 객체입니다.</param>
-		/// <returns>연결성공 메세지입니다.</returns>
+		/// <param name="connectInfo">연결정보 객체입니다.</param>
+		/// <returns>연결테스트를 한 데이터베이스의 서버이름과 버전정보입니다.</returns>
+		/// <exception cref="MySqlException">
+		/// 연결에 실패하였을 경우 MySqlException 예외가 발생됩니다.
+		/// </exception>
 		public string ConnectTest(MySqlConnectInfo connectInfo)
 		{
 			return ConnectTest(MySqlGenerator.ConnectionString(connectInfo));
 		}
 
 		/// <summary>
-		/// MySQL 서버의 연결상태를 테스트합니다.
+		/// 지정된 연결문자열로 MySQL 서버에 연결이 가능한지 여부를 테스트합니다.
 		/// </summary>
-		/// <param name="connectionString">연결정보를 담고있는 문자열입니다.</param>
-		/// <returns>연결성공 메세지입니다.</returns>
+		/// <param name="connectionString">연결정보 문자열입니다.</param>
+		/// <returns>연결테스트를 한 데이터베이스의 서버이름과 버전정보입니다.</returns>
+		/// <exception cref="MySqlException">
+		/// 연결에 실패하였을 경우 MySqlException 예외가 발생됩니다.
+		/// </exception>
 		public string ConnectTest(string connectionString)
 		{
 			MySqlConnection testConnection = new MySqlConnection(connectionString);
@@ -139,9 +157,9 @@ namespace Easy2.Classes
 		}
 
 		/// <summary>
-		/// 결과값이 있는 쿼리를 실행합니다.
+		/// 결과값이 있는 쿼리문을 실행합니다.
 		/// </summary>
-		/// <param name="query">쿼리문입니다.</param>
+		/// <param name="query">실행할 쿼리문입니다.</param>
 		/// <returns>쿼리문의 실행결과 객체입니다.</returns>
 		public MySqlDataReader ExecuteReader(string query)
 		{
@@ -162,7 +180,7 @@ namespace Easy2.Classes
 		}
 
 		/// <summary>
-		/// 쿼리를 실행합니다.
+		/// 쿼리문을 실행합니다.
 		/// </summary>
 		/// <param name="query">쿼리문입니다.</param>
 		/// <returns>영향을 받은 행 갯수입니다.</returns>
@@ -199,7 +217,7 @@ namespace Easy2.Classes
 		/// </summary>
 		/// <param name="targetUsername">수정대상의 사용자이름입니다.</param>
 		/// <param name="targetHost">수정대상의 호스트명입니다.</param>
-		/// <param name="userInfo">사용자정보를 가진 객체입니다.</param>
+		/// <param name="userInfo">새로운 사용자정보를 가진 객체입니다.</param>
 		public void AlterUser(string targetUsername, string targetHost, User userInfo)
 		{
 			Program.ActivateCommunicator.Execute(MySqlGenerator.AlterUser(targetUsername, targetHost, userInfo));
@@ -209,7 +227,7 @@ namespace Easy2.Classes
 		/// <summary>
 		/// 데이터베이스를 생성합니다.
 		/// </summary>
-		/// <param name="dbname">데이터베이스 이름입니다.</param>
+		/// <param name="dbname">생성할 데이터베이스 이름입니다.</param>
 		public void CreateDatabase(string dbname)
 		{
 			Program.ActivateCommunicator.Execute(MySqlGenerator.CreateDatabase(dbname));
@@ -218,7 +236,7 @@ namespace Easy2.Classes
 		/// <summary>
 		/// 데이터베이스를 생성합니다.
 		/// </summary>
-		/// <param name="dbname">데이터베이스 이름입니다.</param>
+		/// <param name="dbname">생성할 데이터베이스 이름입니다.</param>
 		/// <param name="charset">문자셋입니다.</param>
 		/// <param name="collation">콜레이션입니다.</param>
 		public void CreateDatabase(string dbname, string charset, string collation)

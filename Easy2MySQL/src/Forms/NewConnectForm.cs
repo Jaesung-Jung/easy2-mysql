@@ -6,12 +6,12 @@ using System.Windows.Forms;
 namespace Easy2.Forms
 {
 	/// <summary>
-	/// 새로운 연결명을 입력하는 폼 클래스입니다.
+	/// 새로운 연결명을 입력을 위한 폼 클래스입니다.
 	/// </summary>
 	public partial class NewConnectForm : BaseForm
 	{
 		/// <summary>
-		/// 생성자입니다.
+		/// NewConnectForm 인스턴스를 초기화합니다.
 		/// </summary>
 		public NewConnectForm()
 		{
@@ -19,7 +19,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 연결명을 입력하는 텍스트박스의 텍스트가 변경될 때 호출됩니다.
+		/// 연결명 텍스트가 변경되면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -29,7 +29,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 취소버튼을 눌렀을 때 호출됩니다.
+		/// 닫기 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -40,7 +40,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 확인버튼을 눌렀을 때 호출됩니다.
+		/// 확인 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>

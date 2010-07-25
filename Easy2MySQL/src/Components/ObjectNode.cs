@@ -7,12 +7,12 @@ using DevComponents.AdvTree;
 namespace Easy2.Components
 {
 	/// <summary>
-	/// ObjectTree의 노드클래스입니다.
+	/// ObjectTree의 하나의 노드를 나타냅니다.
 	/// </summary>
 	public class ObjectNode : Node
 	{
 		/// <summary>
-		/// 생성자입니다.
+		/// ObjectNode 인스턴스를 초기화합니다.
 		/// </summary>
 		/// <param name="parentNode">부모 노드입니다.</param>
 		/// <param name="text">문자열입니다.</param>

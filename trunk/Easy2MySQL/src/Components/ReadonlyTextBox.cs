@@ -1,6 +1,7 @@
 ﻿
 // ReadonlyTextBox.cs
 //
+using Easy2.Enums;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -23,10 +24,10 @@ namespace Easy2.Components
 		/// <param name="m">윈도우메세지 객체입니다.</param>
 		protected override void WndProc(ref Message m)
 		{
-			switch(m.Msg)
+			switch((WndMsg)(m.Msg))
 			{
-				case 0x0102:	// WM_CHAR
-					if(m.WParam.ToInt32() == 0x0003)
+				case WndMsg.WM_CHAR:
+					if(m.WParam.ToInt32() == 0x0003)	// 0x0003 = Ctrl + C
 						base.WndProc(ref m);
 					break;
 				default:

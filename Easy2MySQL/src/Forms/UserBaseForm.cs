@@ -1,12 +1,13 @@
 ﻿
 // UserForm.cs
 //
+using Easy2.Classes;
 using Easy2.Properties;
 using System;
 using System.Windows.Forms;
 using DevComponents.DotNetBar.Controls;
 
-namespace Easy2
+namespace Easy2.Forms
 {
 	public partial class UserBaseForm : BaseForm
 	{

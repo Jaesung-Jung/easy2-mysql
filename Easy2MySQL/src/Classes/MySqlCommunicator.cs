@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using MySql.Data.Types;
 using MySql.Data.MySqlClient;
 
-namespace Easy2
+namespace Easy2.Classes
 {
 	/// <summary>
 	/// MySQL 데이터베이스와 통신을 수행하는 클래스입니다.

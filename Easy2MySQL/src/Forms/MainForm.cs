@@ -1,6 +1,8 @@
 ﻿
 // MainForm.cs
 //
+using Easy2.Classes;
+using Easy2.Components;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -8,7 +10,7 @@ using System.Collections.Generic;
 using DevComponents.AdvTree;
 using DevComponents.DotNetBar;
 
-namespace Easy2
+namespace Easy2.Forms
 {
 	/// <summary>
 	/// 메인폼 클래스입니다.

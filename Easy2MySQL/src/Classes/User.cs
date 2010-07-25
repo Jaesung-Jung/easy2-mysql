@@ -2,7 +2,7 @@
 // User.cs
 //
 
-namespace Easy2
+namespace Easy2.Classes
 {
 	/// <summary>
 	/// 사용자정보 클래스입니다.

@@ -1,4 +1,4 @@
-﻿namespace Easy2
+﻿namespace Easy2.Forms
 {
 	partial class ErrorMessageForm
 	{
@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.m_errorMessageText = new System.Windows.Forms.ReadonlyTextBox();
+			this.m_errorMessageText = new Easy2.Components.ReadonlyTextBox();
 			this.m_subjectLabel = new DevComponents.DotNetBar.LabelX();
 			this.m_errorNumberLabel = new DevComponents.DotNetBar.LabelX();
 			this.m_imgLabel = new DevComponents.DotNetBar.LabelX();
@@ -135,7 +135,7 @@
 
 		#endregion
 
-		private System.Windows.Forms.ReadonlyTextBox m_errorMessageText;
+		private Easy2.Components.ReadonlyTextBox m_errorMessageText;
 		private DevComponents.DotNetBar.LabelX m_subjectLabel;
 		private DevComponents.DotNetBar.LabelX m_errorNumberLabel;
 		private DevComponents.DotNetBar.LabelX m_imgLabel;

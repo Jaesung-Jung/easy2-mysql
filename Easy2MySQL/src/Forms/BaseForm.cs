@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 
-namespace Easy2
+namespace Easy2.Forms
 {
 	/// <summary>
 	/// 모든 대화상자를 구성하는 베이스폼 클래스입니다.

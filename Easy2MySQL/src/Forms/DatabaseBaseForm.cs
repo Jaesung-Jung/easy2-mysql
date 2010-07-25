@@ -1,13 +1,14 @@
 ﻿
 // DatabaseBaseForm.cs
 //
+using Easy2.Classes;
 using Easy2.Properties;
 using System;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 
-namespace Easy2
+namespace Easy2.Forms
 {
 	/// <summary>
 	/// DatabaseBaseForm 클래스입니다.

@@ -4,7 +4,7 @@
 using System.Drawing;
 using ScintillaNet;
 
-namespace Easy2
+namespace Easy2.Components
 {
 	/// <summary>
 	/// 쿼리에디터 클래스입니다.

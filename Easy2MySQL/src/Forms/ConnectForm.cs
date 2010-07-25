@@ -1,6 +1,7 @@
 ﻿
 // ConnectForm.cs
 //
+using Easy2.Classes;
 using Easy2.Properties;
 using System;
 using System.IO;
@@ -11,7 +12,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using DevComponents.DotNetBar;
 
-namespace Easy2
+namespace Easy2.Forms
 {
 	/// <summary>
 	/// 연결폼 클래스입니다.

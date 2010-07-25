@@ -1,11 +1,12 @@
 ﻿
 // AlterDatabaseForm.cs
 //
+using Easy2.Classes;
 using Easy2.Properties;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
-namespace Easy2
+namespace Easy2.Forms
 {
 	public partial class AlterDatabaseForm : DatabaseBaseForm
 	{

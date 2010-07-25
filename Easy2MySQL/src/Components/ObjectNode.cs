@@ -4,7 +4,7 @@
 using Easy2.Properties;
 using DevComponents.AdvTree;
 
-namespace Easy2
+namespace Easy2.Components
 {
 	/// <summary>
 	/// ObjectTree의 노드클래스입니다.

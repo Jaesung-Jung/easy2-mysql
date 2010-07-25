@@ -1,11 +1,12 @@
 ﻿
 // Program.cs
 //
+using Easy2.Forms;
 using System;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 
-namespace Easy2
+namespace Easy2.Classes
 {
 	public class Program
 	{

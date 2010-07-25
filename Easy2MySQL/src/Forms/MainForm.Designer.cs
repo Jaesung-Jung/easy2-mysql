@@ -1,4 +1,4 @@
-﻿namespace Easy2
+﻿namespace Easy2.Forms
 {
 	partial class MainForm
 	{
@@ -147,7 +147,7 @@
 			this.m_showAbout = new DevComponents.DotNetBar.ButtonItem();
 			this.m_styleManager = new DevComponents.DotNetBar.StyleManager(this.components);
 			this.m_statusBar = new DevComponents.DotNetBar.Bar();
-			this.m_zoomSlider = new Easy2.ZoomSliderBinder();
+			this.m_zoomSlider = new Easy2.Classes.ZoomSliderBinder();
 			this.m_ribbonControl.SuspendLayout();
 			this.m_homePanel.SuspendLayout();
 			this.m_createPanel.SuspendLayout();
@@ -1832,6 +1832,6 @@
 		private DevComponents.DotNetBar.ItemContainer m_editItemContainer3;
 		private DevComponents.DotNetBar.ButtonItem m_undoAction;
 		private DevComponents.DotNetBar.ButtonItem m_redoAction;
-		private ZoomSliderBinder m_zoomSlider;
+		private Easy2.Classes.ZoomSliderBinder m_zoomSlider;
 	}
 }

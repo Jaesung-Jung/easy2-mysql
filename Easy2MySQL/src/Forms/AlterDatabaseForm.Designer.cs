@@ -1,4 +1,4 @@
-﻿namespace Easy2
+﻿namespace Easy2.Forms
 {
 	partial class AlterDatabaseForm
 	{

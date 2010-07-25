@@ -1,6 +1,7 @@
 ﻿
 // AlterUserForm.cs
 //
+using Easy2.Classes;
 using Easy2.Properties;
 using System;
 using System.Windows.Forms;
@@ -8,7 +9,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using DevComponents.Editors;
 
-namespace Easy2
+namespace Easy2.Forms
 {
 	/// <summary>
 	/// AlterUserForm 클래스입니다.

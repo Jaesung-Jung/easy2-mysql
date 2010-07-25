@@ -1,13 +1,15 @@
 ﻿
 // ObjectTree.cs
 //
+using Easy2.Forms;
+using Easy2.Classes;
 using Easy2.Properties;
 using System;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using DevComponents.AdvTree;
 
-namespace Easy2
+namespace Easy2.Components
 {
 	/// <summary>
 	/// 오브젝트 트리 뷰 클래스입니다.

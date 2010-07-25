@@ -4,7 +4,7 @@
 using System;
 using System.Text;
 
-namespace Easy2
+namespace Easy2.Classes
 {
 	/// <summary>
 	/// MySqlCommunicator 클래스와 통신을 수행하는 명령코드를 만드는 클래스입니다.

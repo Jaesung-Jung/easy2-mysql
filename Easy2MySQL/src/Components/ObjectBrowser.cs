@@ -7,7 +7,7 @@ using System.ComponentModel;
 using DevComponents.AdvTree;
 using DevComponents.DotNetBar;
 
-namespace Easy2
+namespace Easy2.Components
 {
 	/// <summary>
 	/// 오브젝트 브라우저 클래스입니다.

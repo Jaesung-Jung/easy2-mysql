@@ -2,7 +2,7 @@
 // RenameConnectForm.cs
 //
 
-namespace Easy2
+namespace Easy2.Forms
 {
 	/// <summary>
 	/// RenameConnectForm 클래스입니다.

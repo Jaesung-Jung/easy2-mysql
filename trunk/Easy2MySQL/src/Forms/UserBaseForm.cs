@@ -9,16 +9,24 @@ using DevComponents.DotNetBar.Controls;
 
 namespace Easy2.Forms
 {
+	/// <summary>
+	/// 사용자 생성 및 수정을 위한 베이스 폼 클래스입니다.
+	/// </summary>
 	public partial class UserBaseForm : BaseForm
 	{
 		/// <summary>
-		/// 생성자입니다.
+		/// UserBaseForm 인스턴스를 초기화합니다.
 		/// </summary>
 		public UserBaseForm()
 		{
 			InitializeComponent();
 		}
 
+		/// <summary>
+		/// 텍스트가 변경되면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void OnTextChanged(object sender, EventArgs e)
 		{
 			this.m_commitButton.Enabled =
@@ -26,7 +34,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 닫기 버튼을 눌렀을 때 호출됩니다.
+		/// 닫기 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -36,7 +44,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 모두선택 버튼을 눌렀을 때 호출됩니다.
+		/// 모두선택 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -46,7 +54,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 선택해제 버튼을 눌렀을 때 호출됩니다.
+		/// 선택해제 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -56,7 +64,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 체크박스 상태를 조정 합니다.
+		/// 체크박스 상태를 조정합니다.
 		/// </summary>
 		/// <param name="b">true면 체크, false면 언체크</param>
 		private void SelectCheckBox(bool b)
@@ -92,7 +100,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 확인버튼을 클릭했을 때 호출됩니다.
+		/// 확인 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -245,7 +253,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 확인버튼을 눌렀을 때, UserBaseForm에서 데이터유효성을 검사하여 다음작업을 수행해도 될지 여부입니다.
+		/// 확인 버튼을 클릭한 뒤, UserBaseForm에서 데이터유효성을 검사하여 다음작업을 수행해도 될지 여부입니다.
 		/// </summary>
 		protected bool DataEffectiveness
 		{

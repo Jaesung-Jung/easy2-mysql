@@ -11,12 +11,12 @@ using System.Collections.Generic;
 namespace Easy2.Forms
 {
 	/// <summary>
-	/// DatabaseBaseForm 클래스입니다.
+	/// 데이터베이스 생성 및 수정을 위한 베이스 폼 클래스입니다.
 	/// </summary>
 	public partial class DatabaseBaseForm : BaseForm
 	{
 		/// <summary>
-		/// 생성자입니다.
+		/// DatabaseBaseForm 인스턴스를 초기화합니다.
 		/// </summary>
 		public DatabaseBaseForm()
 		{
@@ -24,7 +24,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 텍스트박스에 값이 입력되었는지 검사하여 버튼을 활성/비활성화 시킵니다.
+		/// 문자열이 변경되면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -71,30 +71,19 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 확인 버튼을 눌렀을 때 호출됩니다.
+		/// 확인 버튼을 클릭하면 호출됩니다.
 		/// </summary>
+		/// <remarks>
+		/// DatabaseBaseForm을 상속받을 클래스는 이 메소드를 반드시 재정의해야합니다.
+		/// </remarks>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		protected virtual void OnCommitButtonClick(object sender, System.EventArgs e)
 		{
-// 			this.m_dataEffectiveness = false;
-// 
-// 			if(this.m_nameText.Text.Trim().Length == 0)
-// 			{
-// 				MessageBox.Show(
-// 					this, String.Format(
-// 						Resources.Easy2Message_EmptyItem,
-// 						this.m_nameLabel.Text.Substring(0, this.m_nameLabel.Text.Length - 4)),
-// 					Resources.Easy2Message_Title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-// 
-// 				this.m_nameText.Focus();
-// 				return;
-// 			}
-// 			this.m_dataEffectiveness = true;
 		}
 
 		/// <summary>
-		/// 닫기 버튼을 눌렀을 때 호출됩니다.
+		/// 닫기 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -104,7 +93,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 문자셋 콤보박스 인덱스가 변경될 때 호출됩니다.
+		/// 문자셋 콤보박스 인덱스가 변경되면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>

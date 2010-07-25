@@ -4,6 +4,12 @@
 
 namespace Easy2.Enums
 {
+	/// <summary>
+	/// 윈도우메세지 열거형입니다.
+	/// </summary>
+	/// <remarks>
+	/// WIN32 API에 사용되는 윈도우메세지 목록입니다.
+	/// </remarks>
 	public enum WndMsg
 	{
 		WM_NULL = 0x0000,

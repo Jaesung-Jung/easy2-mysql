@@ -7,10 +7,13 @@ using System.Windows.Forms;
 
 namespace Easy2.Components
 {
+	/// <summary>
+	/// 읽기전용의 에디터클래스입니다.
+	/// </summary>
 	public class ReadonlyTextBox : TextBox
 	{
 		/// <summary>
-		/// 생성자입니다.
+		/// ReadonlyTextBox 인스턴스를 초기화합니다.
 		/// </summary>
 		public ReadonlyTextBox()
 		{

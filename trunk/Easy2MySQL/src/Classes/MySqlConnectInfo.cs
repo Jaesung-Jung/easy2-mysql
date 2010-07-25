@@ -10,18 +10,22 @@ namespace Easy2.Classes
 	public class MySqlConnectInfo
 	{
 		/// <summary>
-		/// 생성자입니다.
+		/// MySqlConnectInfo 인스턴스를 초기화합니다.
 		/// </summary>
 		public MySqlConnectInfo()
 			: this("", "localhost", "", "", "3306", "", "15") {}
 
+		/// <summary>
+		/// 지정된 연결이름을 가지는 MySqlConnectInfo 인스턴스를 초기화합니다.
+		/// </summary>
+		/// <param name="connectName"></param>
 		public MySqlConnectInfo(string connectName)
 			: this(connectName, "localhost", "", "", "3306", "", "15") {}
 
 		/// <summary>
 		/// 생성자입니다.
 		/// </summary>
-		/// <param name="connectName">연결이름입니다.</param>
+		/// <param name="connectName">연결명입니다.</param>
 		/// <param name="host">호스트이름입니다.</param>
 		/// <param name="username">사용자이름입니다.</param>
 		/// <param name="password">비밀번호입니다.</param>

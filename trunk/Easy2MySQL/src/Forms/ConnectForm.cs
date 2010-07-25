@@ -15,12 +15,12 @@ using DevComponents.DotNetBar;
 namespace Easy2.Forms
 {
 	/// <summary>
-	/// 연결폼 클래스입니다.
+	/// 데이터베이스 연결을 위한 폼입니다.
 	/// </summary>
-	public partial class ConnectForm : BaseForm//, INotifyPropertyChanged
+	public partial class ConnectForm : BaseForm
 	{
 		/// <summary>
-		/// 생성자입니다.
+		/// ConnectForm 인스턴스를 초기화합니다.
 		/// </summary>
 		public ConnectForm()
 		{
@@ -40,17 +40,6 @@ namespace Easy2.Forms
 			this.m_mysqlDatabaseText.TextChanged += new EventHandler(this.OnDataChanged);
 			this.m_mysqlTimeoutText.TextChanged += new EventHandler(this.OnDataChanged);
 			this.m_savePasswordCheck.CheckedChanged += new EventHandler(this.OnDataChanged);
-		}
-
-		/// <summary>
-		/// 데이터가 변화되었을 때 호출됩니다.
-		/// </summary>
-		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
-		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void OnDataChanged(object sender, EventArgs e)
-		{
-			if(this.m_saveConnection.Enabled == false)
-				this.m_saveConnection.Enabled = true;
 		}
 
 		/// <summary>
@@ -100,7 +89,18 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// OnLoad 재정의입니다.
+		/// 데이터가 변화되었을 때 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnDataChanged(object sender, EventArgs e)
+		{
+			if(this.m_saveConnection.Enabled == false)
+				this.m_saveConnection.Enabled = true;
+		}
+
+		/// <summary>
+		/// 폼이 열릴 때 호출됩니다.
 		/// </summary>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		protected override void OnLoad(System.EventArgs e)
@@ -124,7 +124,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// OnClosed 재정의입니다.
+		/// 폼이 닫힐 때 호출됩니다.
 		/// </summary>
 		/// <param name="e"></param>
 		protected override void OnClosed(EventArgs e)
@@ -276,7 +276,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 새 연결 버튼을 클릭했을 때 호출됩니다.
+		/// 새 연결 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -295,7 +295,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 저장 버튼을 클릭했을 때 호출됩니다.
+		/// 저장 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -309,7 +309,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 바꾸기 버튼을 클릭했을 때 호출됩니다.
+		/// 바꾸기 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -327,7 +327,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 지우기 버튼을 클릭했을 때 호출됩니다.
+		/// 지우기 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -353,7 +353,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 연결하기 버튼을 클릭했을 때 호출됩니다.
+		/// 연결하기 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -376,7 +376,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 연결테스트 버튼을 클릭했을 때 호출됩니다.
+		/// 연결테스트 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -395,7 +395,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 닫기 버튼을 클릭했을 때 호출됩니다.
+		/// 닫기 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>

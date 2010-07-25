@@ -13,7 +13,7 @@ namespace Easy2.Forms
 	public partial class ErrorMessageForm : BaseForm
 	{
 		/// <summary>
-		/// 생성자입니다.
+		/// ErrorMessageForm 인스턴스를 초기화합니다.
 		/// </summary>
 		public ErrorMessageForm()
 		{
@@ -52,7 +52,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 닫기 버튼을 눌렀을 때 호출됩니다.
+		/// 닫기 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -62,7 +62,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 복사버튼을 눌렀을 때 호출됩니다.
+		/// 복사버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>

@@ -13,7 +13,7 @@ namespace Easy2.Components
 	public class DockingManager : DotNetBarManager
 	{
 		/// <summary>
-		/// 생성자입니다.
+		/// DockingManager 인스턴스를 초기화합니다.
 		/// </summary>
 		/// <param name="parentForm">도킹 매니저가 관리할 폼입니다.</param>
 		public DockingManager(Form parentForm)

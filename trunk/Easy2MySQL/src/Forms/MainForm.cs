@@ -18,7 +18,7 @@ namespace Easy2.Forms
 	public partial class MainForm : Office2007RibbonForm
 	{
 		/// <summary>
-		/// 생성자입니다.
+		/// MainForm 인스턴스를 초기화합니다.
 		/// </summary>
 		public MainForm()
 		{
@@ -106,7 +106,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// OnShown 재정의입니다.
+		/// 폼이 보여질 때 호출됩니다.
 		/// </summary>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		protected override void OnShown(EventArgs e)
@@ -116,7 +116,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// OnClose 재정의입니다.
+		/// 폼이 닫힐 때 호출됩니다.
 		/// </summary>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		protected override void OnClosed(EventArgs e)
@@ -126,7 +126,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 종료하기 버튼을 클릭했을 때 호출됩니다.
+		/// 종료하기 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -163,7 +163,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 탭이 변경될 때 호출됩니다.
+		/// 탭이 변경되면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -177,7 +177,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 슬라이더의 값이 변경될 때 호출됩니다.
+		/// 슬라이더의 값이 변경되면 호출됩니다.
 		/// </summary>
 		/// <remarks>
 		/// 슬라이더의 현재값을 Percentage형태로 나타냅니다.
@@ -195,7 +195,7 @@ namespace Easy2.Forms
 
 
 		/// <summary>
-		/// 새로운연결 버튼을 클릭했을 때 호출됩니다.
+		/// 새로운연결 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -218,7 +218,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 연결종료 버튼을 클릭했을 때 호출됩니다.
+		/// 연결종료 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -237,7 +237,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 모든연결종료 버튼을 클릭했을 때 호출됩니다.
+		/// 모든연결종료 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -248,7 +248,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 새 쿼리에디터 만들기 버튼을 클릭하였을 때 호출됩니다.
+		/// 새 쿼리에디터 만들기 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -258,7 +258,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 새로고침 버튼을 클릭했을 때 호출됩니다.
+		/// 새로고침 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -268,7 +268,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 붙여넣기 버튼을 클릭했을 때 호출됩니다.
+		/// 붙여넣기 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -278,7 +278,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 잘라내기 버튼을 클릭했을 때 호출됩니다.
+		/// 잘라내기 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -288,7 +288,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 복사하기 버튼을 클릭했을 때 호출됩니다.
+		/// 복사하기 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -298,7 +298,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 찾기 버튼을 클릭했을 때 호출됩니다.
+		/// 찾기 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -308,7 +308,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 모두선택 버튼을 클릭했을 때 호출됩니다.
+		/// 모두선택 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -318,7 +318,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 선택취소 버튼을 클릭했을 때 호출됩니다.
+		/// 선택취소 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -328,7 +328,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 지우기 버튼을 클릭했을 때 호출됩니다.
+		/// 지우기 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -338,7 +338,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 입력취소 버튼을 클릭했을 때 호출됩니다.
+		/// 입력취소 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -348,7 +348,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 다시입력 버튼을 클릭했을 때 호출됩니다.
+		/// 다시입력 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -358,7 +358,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 사용자추가 버튼을 클릭하였을 때 호출됩니다.
+		/// 사용자추가 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -368,7 +368,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 사용자수정 버튼을 클릭하였을 때 호출됩니다.
+		/// 사용자수정 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -378,7 +378,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 데이터베이스 만들기 버튼을 클릭하였을 때 호출됩니다.
+		/// 데이터베이스 만들기 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -393,7 +393,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 데이터베이스 수정하기기 버튼을 클릭하였을 때 호출됩니다.
+		/// 데이터베이스 수정하기기 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>

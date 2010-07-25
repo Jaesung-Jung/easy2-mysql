@@ -11,7 +11,7 @@ namespace Easy2.Components
 	public class MessageWindow : DockablePane
 	{
 		/// <summary>
-		/// 생성자입니다.
+		/// 타이틀바에 지정된 문자열을 표시하는 MessageWindow를 초기화합니다.
 		/// </summary>
 		/// <param name="s">타이틀바에 표시할 문자열입니다.</param>
 		public MessageWindow(string s) : base(s)

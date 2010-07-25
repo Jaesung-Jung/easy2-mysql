@@ -12,7 +12,7 @@ namespace Easy2.Classes
 	public class MySqlGenerator
 	{
 		/// <summary>
-		/// 생성자입니다.
+		/// MySqlGenerator 인스턴스를 초기화합니다.
 		/// </summary>
 		public MySqlGenerator() { }
 

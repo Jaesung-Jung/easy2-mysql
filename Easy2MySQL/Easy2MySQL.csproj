@@ -119,6 +119,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="src\Components\SliderItemEx.cs" />
+    <Compile Include="src\Enums\WndMsg.cs" />
     <Compile Include="src\Forms\AlterDatabaseForm.cs">
       <SubType>Form</SubType>
     </Compile>

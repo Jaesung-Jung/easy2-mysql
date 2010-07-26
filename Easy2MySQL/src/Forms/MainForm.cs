@@ -137,7 +137,7 @@ namespace Easy2.Forms
 		/// <summary>
 		/// 테마커맨드 이벤트입니다.
 		/// </summary>
-		/// <param name="sender">이벤트를 발생한 객체입니다.</param>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		protected void OnExecutedThemeCommand(object sender, System.EventArgs e)
 		{

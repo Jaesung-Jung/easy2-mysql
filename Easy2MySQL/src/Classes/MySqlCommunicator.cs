@@ -161,6 +161,9 @@ namespace Easy2.Classes
 		/// </summary>
 		/// <param name="query">실행할 쿼리문입니다.</param>
 		/// <returns>쿼리문의 실행결과 객체입니다.</returns>
+		/// <exception cref="MySqlException">
+		/// 쿼리문 실행을 실패하였을 경우 MySqlException 예외가 발생됩니다.
+		/// </exception>
 		public MySqlDataReader ExecuteReader(string query)
 		{
 			System.Console.WriteLine(query);
@@ -184,6 +187,9 @@ namespace Easy2.Classes
 		/// </summary>
 		/// <param name="query">쿼리문입니다.</param>
 		/// <returns>영향을 받은 행 갯수입니다.</returns>
+		/// <exception cref="MySqlException">
+		/// 쿼리문 실행을 실패하였을 경우 MySqlException 예외가 발생됩니다.
+		/// </exception>
 		public int Execute(string query)
 		{
 			System.Console.WriteLine(query);
@@ -206,6 +212,9 @@ namespace Easy2.Classes
 		/// 사용자를 생성합니다.
 		/// </summary>
 		/// <param name="userInfo">생성할 사용자정보를 가진 객체입니다.</param>
+		/// <exception cref="MySqlException">
+		/// 사용자생성을 실패하였을 경우 MySqlException 예외가 발생됩니다.
+		/// </exception>
 		public void CreateUser(User userInfo)
 		{
 			Program.ActivateCommunicator.Execute(MySqlGenerator.CreateUser(userInfo));
@@ -218,6 +227,9 @@ namespace Easy2.Classes
 		/// <param name="targetUsername">수정대상의 사용자이름입니다.</param>
 		/// <param name="targetHost">수정대상의 호스트명입니다.</param>
 		/// <param name="userInfo">새로운 사용자정보를 가진 객체입니다.</param>
+		/// <exception cref="MySqlException">
+		/// 사용자수정을 실패하였을 경우 MySqlException 예외가 발생됩니다.
+		/// </exception>
 		public void AlterUser(string targetUsername, string targetHost, User userInfo)
 		{
 			Program.ActivateCommunicator.Execute(MySqlGenerator.AlterUser(targetUsername, targetHost, userInfo));
@@ -228,6 +240,9 @@ namespace Easy2.Classes
 		/// 데이터베이스를 생성합니다.
 		/// </summary>
 		/// <param name="dbname">생성할 데이터베이스 이름입니다.</param>
+		/// <exception cref="MySqlException">
+		/// 데이터베이스 생성을 실패하였을 경우 MySqlException 예외가 발생됩니다.
+		/// </exception>
 		public void CreateDatabase(string dbname)
 		{
 			Program.ActivateCommunicator.Execute(MySqlGenerator.CreateDatabase(dbname));
@@ -238,12 +253,24 @@ namespace Easy2.Classes
 		/// </summary>
 		/// <param name="dbname">생성할 데이터베이스 이름입니다.</param>
 		/// <param name="charset">문자셋입니다.</param>
-		/// <param name="collation">콜레이션입니다.</param>
+		/// <param name="collation">컬레이션입니다.</param>
+		/// <exception cref="MySqlException">
+		/// 데이터베이스 생성을 실패하였을 경우 MySqlException 예외가 발생됩니다.
+		/// </exception>
 		public void CreateDatabase(string dbname, string charset, string collation)
 		{
 			Program.ActivateCommunicator.Execute(MySqlGenerator.CreateDatabase(dbname, charset, collation));
 		}
 
+		/// <summary>
+		/// 데이터베이스를 수정합니다.
+		/// </summary>
+		/// <param name="dbname">수정할 데이터베이스 이름입니다.</param>
+		/// <param name="charset">문자셋입니다.</param>
+		/// <param name="collation">컬레이션입니다.</param>
+		/// <exception cref="MySqlException">
+		/// 데이터베이스 수정을 실패하였을 경우 MySqlException 예외가 발생됩니다.
+		/// </exception>
 		public void AlterDatabase(string dbname, string charset, string collation)
 		{
 			Program.ActivateCommunicator.Execute(MySqlGenerator.AlterDatabase(dbname, charset, collation));

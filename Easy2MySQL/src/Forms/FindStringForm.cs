@@ -1,6 +1,7 @@
 ﻿
 // FindStringForm.cs
 //
+using System;
 
 namespace Easy2.Forms
 {
@@ -15,6 +16,26 @@ namespace Easy2.Forms
 		public FindStringForm()
 		{
 			InitializeComponent();
+		}
+
+		/// <summary>
+		/// 닫기 버튼을 클릭하면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnCloseButtonClick(object sender, EventArgs e)
+		{
+			this.Hide();
+		}
+
+		/// <summary>
+		/// 찾기 버튼을 클릭하면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnFindNextButtonClick(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

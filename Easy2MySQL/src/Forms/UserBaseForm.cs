@@ -48,7 +48,7 @@ namespace Easy2.Forms
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		protected virtual void OnSelectAllButtonClick(object sender, System.EventArgs e)
+		protected virtual void OnSelectAllButtonClick(object sender, EventArgs e)
 		{
 			this.SelectCheckBox(true);
 		}
@@ -58,7 +58,7 @@ namespace Easy2.Forms
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		protected virtual void OnDeselectAllButtonClick(object sender, System.EventArgs e)
+		protected virtual void OnDeselectAllButtonClick(object sender, EventArgs e)
 		{
 			this.SelectCheckBox(false);
 		}

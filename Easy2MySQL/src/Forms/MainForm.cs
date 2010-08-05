@@ -139,7 +139,7 @@ namespace Easy2.Forms
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		protected void OnExecutedThemeCommand(object sender, System.EventArgs e)
+		protected void OnExecutedThemeCommand(object sender, EventArgs e)
 		{
 			ICommandSource source = sender as ICommandSource;
 			if(source.CommandParameter is string)
@@ -304,7 +304,13 @@ namespace Easy2.Forms
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void OnFindDataClick(object sender, EventArgs e)
 		{
-			new FindStringForm().ShowDialog(this);
+			if(this.m_findStringForm == null)
+			{
+				this.m_findStringForm = new FindStringForm();
+				this.m_findStringForm.Show(this);
+			}
+			else if(this.m_findStringForm.Visible == false)
+				this.m_findStringForm.Visible = true;
 		}
 
 		/// <summary>
@@ -414,6 +420,7 @@ namespace Easy2.Forms
 		private DockingManager m_dockingManager;
 		private ObjectBrowser m_objectBrowser;
 		private MessageWindow m_messageWindow;
+		private FindStringForm m_findStringForm = null;
 	}
 
 	/// <summary>

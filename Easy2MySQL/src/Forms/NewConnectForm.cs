@@ -1,6 +1,7 @@
 ﻿
 // NewConnectForm.cs
 //
+using System;
 using System.Windows.Forms;
 
 namespace Easy2.Forms
@@ -23,7 +24,7 @@ namespace Easy2.Forms
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void OnConnectNameTextChanged(object sender, System.EventArgs e)
+		private void OnConnectNameTextChanged(object sender, EventArgs e)
 		{
 			this.m_commitButton.Enabled = this.m_connectNameText.TextLength == 0 ? false : true;
 		}
@@ -33,7 +34,7 @@ namespace Easy2.Forms
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void OnCloseButtonClick(object sender, System.EventArgs e)
+		private void OnCloseButtonClick(object sender, EventArgs e)
 		{
 			this.DialogResult = DialogResult.Cancel;
 			this.Dispose(true);
@@ -44,7 +45,7 @@ namespace Easy2.Forms
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void OnCommitButtonClick(object sender, System.EventArgs e)
+		private void OnCommitButtonClick(object sender, EventArgs e)
 		{
 			this.m_connectionName = this.m_connectNameText.Text;
  			this.DialogResult = DialogResult.OK;

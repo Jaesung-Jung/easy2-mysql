@@ -103,7 +103,7 @@ namespace Easy2.Forms
 		/// 폼이 열릴 때 호출됩니다.
 		/// </summary>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		protected override void OnLoad(System.EventArgs e)
+		protected override void OnLoad(EventArgs e)
 		{
 			base.OnLoad(e);
 			this.m_connectionListCombo.SelectedIndexChanged += new EventHandler(this.OnConnectionListComboSelectedIndexChanged);

@@ -78,7 +78,7 @@ namespace Easy2.Forms
 		/// </remarks>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		protected virtual void OnCommitButtonClick(object sender, System.EventArgs e)
+		protected virtual void OnCommitButtonClick(object sender, EventArgs e)
 		{
 		}
 
@@ -87,7 +87,7 @@ namespace Easy2.Forms
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		protected virtual void OnCloseButtonClick(object sender, System.EventArgs e)
+		protected virtual void OnCloseButtonClick(object sender, EventArgs e)
 		{
 			this.Dispose(true);
 		}

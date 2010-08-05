@@ -4,6 +4,7 @@
 using Easy2.Classes;
 using Easy2.Properties;
 using MySql.Data.MySqlClient;
+using System;
 using System.Windows.Forms;
 
 namespace Easy2.Forms
@@ -25,7 +26,7 @@ namespace Easy2.Forms
 		/// 폼이 열릴 때 호출됩니다.
 		/// </summary>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		protected override void OnLoad(System.EventArgs e)
+		protected override void OnLoad(EventArgs e)
 		{
 			base.OnLoad(e);
 			this.InitializeCharset();
@@ -36,7 +37,7 @@ namespace Easy2.Forms
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		protected override void OnCommitButtonClick(object sender, System.EventArgs e)
+		protected override void OnCommitButtonClick(object sender, EventArgs e)
 		{
 			base.OnCommitButtonClick(sender, e);
 

@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.m_contentLabel = new DevComponents.DotNetBar.LabelX();
-			this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
+			this.m_findText = new DevComponents.DotNetBar.Controls.TextBoxX();
 			this.m_findOptionGroup = new System.Windows.Forms.GroupBox();
 			this.m_regularExpression = new DevComponents.DotNetBar.Controls.CheckBoxX();
 			this.m_findUp = new DevComponents.DotNetBar.Controls.CheckBoxX();
@@ -53,18 +53,18 @@
 			this.m_contentLabel.TabIndex = 0;
 			this.m_contentLabel.Text = "찾을 내용(&N)";
 			// 
-			// textBoxX1
+			// m_findText
 			// 
 			// 
 			// 
 			// 
-			this.textBoxX1.Border.Class = "TextBoxBorder";
-			this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-			this.textBoxX1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-			this.textBoxX1.Location = new System.Drawing.Point(7, 32);
-			this.textBoxX1.Name = "textBoxX1";
-			this.textBoxX1.Size = new System.Drawing.Size(460, 23);
-			this.textBoxX1.TabIndex = 1;
+			this.m_findText.Border.Class = "TextBoxBorder";
+			this.m_findText.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			this.m_findText.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+			this.m_findText.Location = new System.Drawing.Point(7, 32);
+			this.m_findText.Name = "m_findText";
+			this.m_findText.Size = new System.Drawing.Size(460, 23);
+			this.m_findText.TabIndex = 1;
 			// 
 			// m_findOptionGroup
 			// 
@@ -136,6 +136,7 @@
 			this.m_findNextButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_findNextButton.TabIndex = 3;
 			this.m_findNextButton.Text = "다음 찾기(&F)";
+			this.m_findNextButton.Click += new System.EventHandler(this.OnFindNextButtonClick);
 			// 
 			// m_closeButton
 			// 
@@ -148,6 +149,7 @@
 			this.m_closeButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_closeButton.TabIndex = 4;
 			this.m_closeButton.Text = "닫기(&C)";
+			this.m_closeButton.Click += new System.EventHandler(this.OnCloseButtonClick);
 			// 
 			// FindStringForm
 			// 
@@ -156,10 +158,11 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.m_closeButton;
 			this.ClientSize = new System.Drawing.Size(475, 219);
+			this.ControlBox = false;
 			this.Controls.Add(this.m_closeButton);
 			this.Controls.Add(this.m_findNextButton);
 			this.Controls.Add(this.m_findOptionGroup);
-			this.Controls.Add(this.textBoxX1);
+			this.Controls.Add(this.m_findText);
 			this.Controls.Add(this.m_contentLabel);
 			this.DoubleBuffered = true;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -167,6 +170,7 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "FindStringForm";
+			this.ShowInTaskbar = false;
 			this.Text = "찾기";
 			this.m_findOptionGroup.ResumeLayout(false);
 			this.m_findOptionGroup.PerformLayout();
@@ -178,7 +182,7 @@
 		#endregion
 
 		private DevComponents.DotNetBar.LabelX m_contentLabel;
-		private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
+		private DevComponents.DotNetBar.Controls.TextBoxX m_findText;
 		private System.Windows.Forms.GroupBox m_findOptionGroup;
 		private DevComponents.DotNetBar.ButtonX m_findNextButton;
 		private DevComponents.DotNetBar.Controls.CheckBoxX m_matchCase;

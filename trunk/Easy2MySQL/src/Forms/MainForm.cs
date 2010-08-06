@@ -308,6 +308,26 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
+		/// 바꾸기 버튼을 클릭하면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnReplaceDataClick(object sender, EventArgs e)
+		{
+			this.m_selectedQueryEditor.FindReplace.ShowReplace();
+		}
+
+		/// <summary>
+		/// 바로가기 버튼을 클릭하면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnGoToLineClick(object sender, EventArgs e)
+		{
+			this.m_selectedQueryEditor.GoTo.ShowGoToDialog();
+		}
+
+		/// <summary>
 		/// 모두선택 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>

@@ -571,13 +571,6 @@ namespace Easy2.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap FindNextData {
-            get {
-                object obj = ResourceManager.GetObject("FindNextData", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap FolderClose {
             get {
                 object obj = ResourceManager.GetObject("FolderClose", resourceCulture);

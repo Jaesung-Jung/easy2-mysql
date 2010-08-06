@@ -71,10 +71,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="ScintillaNet, Version=2.0.3138.25704, Culture=neutral, PublicKeyToken=948d6c9751444115, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>lib\ScintillaNet.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -504,8 +500,11 @@
     <Content Include="lib\DevComponents.DotNetBar2.dll" />
     <Content Include="lib\MySql.Data.CF.dll" />
     <Content Include="lib\MySql.Data.dll" />
-    <Content Include="lib\SciLexer.dll" />
-    <Content Include="lib\ScintillaNet.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ScintillaNET\ScintillaNET.csproj">
+      <Project>{F9B6DABD-BBC1-4638-8CE6-A5C9506BFDCB}</Project>
+      <Name>ScintillaNET</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

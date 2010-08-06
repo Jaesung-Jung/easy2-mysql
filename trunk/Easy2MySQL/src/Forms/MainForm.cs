@@ -304,6 +304,7 @@ namespace Easy2.Forms
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void OnFindDataClick(object sender, EventArgs e)
 		{
+			this.m_selectedQueryEditor.FindReplace.ShowFind();
 		}
 
 		/// <summary>

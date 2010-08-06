@@ -168,12 +168,6 @@
     <Compile Include="src\Forms\ErrorMessageForm.Designer.cs">
       <DependentUpon>ErrorMessageForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\Forms\FindStringForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="src\Forms\FindStringForm.Designer.cs">
-      <DependentUpon>FindStringForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="src\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,9 +221,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\ErrorMessageForm.resx">
       <DependentUpon>ErrorMessageForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="src\Forms\FindStringForm.resx">
-      <DependentUpon>FindStringForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

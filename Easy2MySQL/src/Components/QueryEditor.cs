@@ -1,6 +1,7 @@
 ﻿
 // QueryEditor.cs
 //
+using System;
 using System.Drawing;
 using ScintillaNet;
 

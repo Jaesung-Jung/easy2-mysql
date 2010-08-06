@@ -304,13 +304,6 @@ namespace Easy2.Forms
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void OnFindDataClick(object sender, EventArgs e)
 		{
-			if(this.m_findStringForm == null)
-			{
-				this.m_findStringForm = new FindStringForm();
-				this.m_findStringForm.Show(this);
-			}
-			else if(this.m_findStringForm.Visible == false)
-				this.m_findStringForm.Visible = true;
 		}
 
 		/// <summary>
@@ -420,7 +413,6 @@ namespace Easy2.Forms
 		private DockingManager m_dockingManager;
 		private ObjectBrowser m_objectBrowser;
 		private MessageWindow m_messageWindow;
-		private FindStringForm m_findStringForm = null;
 	}
 
 	/// <summary>

@@ -296,9 +296,6 @@
     <None Include="img\png\DeleteSelection.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="img\png\FindNextData.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="img\png\GoToLine.png" />
   </ItemGroup>
   <ItemGroup>

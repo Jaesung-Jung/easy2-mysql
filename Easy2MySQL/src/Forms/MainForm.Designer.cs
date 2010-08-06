@@ -42,7 +42,6 @@
 			this.m_editBar = new DevComponents.DotNetBar.RibbonBar();
 			this.m_findData = new DevComponents.DotNetBar.ButtonItem();
 			this.m_editItemContainer1 = new DevComponents.DotNetBar.ItemContainer();
-			this.m_findNextData = new DevComponents.DotNetBar.ButtonItem();
 			this.m_replaceData = new DevComponents.DotNetBar.ButtonItem();
 			this.m_goToLine = new DevComponents.DotNetBar.ButtonItem();
 			this.m_editItemContainer2 = new DevComponents.DotNetBar.ItemContainer();
@@ -387,18 +386,9 @@
 			this.m_editItemContainer1.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
 			this.m_editItemContainer1.Name = "m_editItemContainer1";
 			this.m_editItemContainer1.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_findNextData,
             this.m_replaceData,
             this.m_goToLine});
 			this.m_editItemContainer1.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
-			// 
-			// m_findNextData
-			// 
-			this.m_findNextData.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_findNextData.Image = ((System.Drawing.Image)(resources.GetObject("m_findNextData.Image")));
-			this.m_findNextData.KeyTips = "N";
-			this.m_findNextData.Name = "m_findNextData";
-			this.m_findNextData.Text = "다음찾기";
 			// 
 			// m_replaceData
 			// 
@@ -407,6 +397,7 @@
 			this.m_replaceData.KeyTips = "E";
 			this.m_replaceData.Name = "m_replaceData";
 			this.m_replaceData.Text = "바꾸기";
+			this.m_replaceData.Click += new System.EventHandler(this.OnReplaceDataClick);
 			// 
 			// m_goToLine
 			// 
@@ -415,6 +406,7 @@
 			this.m_goToLine.KeyTips = "G";
 			this.m_goToLine.Name = "m_goToLine";
 			this.m_goToLine.Text = "바로가기";
+			this.m_goToLine.Click += new System.EventHandler(this.OnGoToLineClick);
 			// 
 			// m_editItemContainer2
 			// 
@@ -1752,7 +1744,6 @@
 		private DevComponents.DotNetBar.ButtonItem m_findData;
 		private DevComponents.DotNetBar.ItemContainer m_editItemContainer1;
 		private DevComponents.DotNetBar.ItemContainer m_editItemContainer2;
-		private DevComponents.DotNetBar.ButtonItem m_findNextData;
 		private DevComponents.DotNetBar.ButtonItem m_replaceData;
 		private DevComponents.DotNetBar.ButtonItem m_goToLine;
 		private DevComponents.DotNetBar.ButtonItem m_selectAll;

@@ -227,5 +227,42 @@ namespace Easy2.Forms
 				}
 			}
 		}
+
+		/// <summary>
+		/// 사용자 제거 버튼을 클릭하면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnDeleteUserButtonClick(object sender, EventArgs e)
+		{
+			if(MessageBox.Show(
+				this,
+				String.Format(Resources.Easy2Message_UserDeleteQuestion, this.m_userListCombo.SelectedItem.ToString()),
+				Resources.Easy2Message_Title,
+				MessageBoxButtons.YesNo,
+				MessageBoxIcon.Question) == DialogResult.Yes)
+			{
+				string targetUsername = this.UserInfo.Username;
+				string targetHost = this.UserInfo.Host;
+
+				try
+				{
+					Program.ActivateCommunicator.DeleteUser(targetUsername, targetHost);
+
+					int selectedIndex = this.m_userListCombo.SelectedIndex;
+					this.m_userListCombo.Items.Remove(this.m_userListCombo.SelectedItem);
+					if(selectedIndex > 0)
+						this.m_userListCombo.SelectedIndex = selectedIndex - 1;
+					else if(selectedIndex == 0 && this.m_userListCombo.Items.Count > 0)
+						this.m_userListCombo.SelectedIndex = 0;
+					else
+						this.m_userListCombo.SelectedIndex = -1;
+				}
+				catch(MySqlException ex)
+				{
+					EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
+				}
+			}
+		}
 	}
 }

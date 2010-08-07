@@ -437,7 +437,7 @@
     <value>연결테스트</value>
   </data>
   <data name="Easy2Message_EmptyItem" xml:space="preserve">
-    <value>{0} 항목이 입력되지 않았습니다.</value>
+    <value>'{0}' 항목이 입력되지 않았습니다.</value>
   </data>
   <data name="Easy2Message_Title" xml:space="preserve">
     <value>Easy To MySQL</value>
@@ -446,9 +446,12 @@
     <value>입력한 비밀번호가 서로 일치하지 않습니다.</value>
   </data>
   <data name="Easy2Message_UserCreatedSuccessfully" xml:space="preserve">
-    <value>{0} 사용자가 만들어졌습니다.</value>
+    <value>'{0}' 사용자가 만들어졌습니다.</value>
   </data>
   <data name="Easy2Message_UserAlterSuccessfully" xml:space="preserve">
-    <value>{0} 사용자의 데이터가 수정되었습니다.</value>
+    <value>'{0}' 사용자 정보가 수정되었습니다.</value>
+  </data>
+  <data name="Easy2Message_UserDeleteQuestion" xml:space="preserve">
+    <value>'{0}' 사용자를 삭제 하시겠습니까?</value>
   </data>
 </root>

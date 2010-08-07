@@ -438,6 +438,7 @@
 			this.m_deleteUserButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_deleteUserButton.TabIndex = 4;
 			this.m_deleteUserButton.Text = "사용자 제거...";
+			this.m_deleteUserButton.Click += new System.EventHandler(this.OnDeleteUserButtonClick);
 			// 
 			// AlterUserForm
 			// 

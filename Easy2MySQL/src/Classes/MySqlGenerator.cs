@@ -38,7 +38,7 @@ namespace Easy2.Classes
 		/// <returns>사용할 데이터베이스를 지정하는 쿼리문입니다.</returns>
 		public static string UseDatabase(string databaseName)
 		{
-			return String.Format("USE {0}", databaseName);
+			return String.Format("USE {0};", databaseName);
 		}
 
 		/// <summary>
@@ -47,7 +47,7 @@ namespace Easy2.Classes
 		/// <returns>데이터베이를 조회하는 쿼리문입니다.</returns>
 		public static string ShowDatabases()
 		{
-			return "SHOW DATABASES";
+			return "SHOW DATABASES;";
 		}
 
 		/// <summary>
@@ -58,9 +58,9 @@ namespace Easy2.Classes
 		{
 			string query;
 			if(databaseName == "information_schema")
-				query = String.Format("SHOW TABLES FROM {0}", databaseName);
+				query = String.Format("SHOW TABLES FROM {0};", databaseName);
 			else
-				query = String.Format("SHOW FULL tables FROM {0} WHERE table_type='base table'", Program.ActivateCommunicator.UseDatabaseName);
+				query = String.Format("SHOW FULL tables FROM {0} WHERE table_type='base table';", Program.ActivateCommunicator.UseDatabaseName);
 			return query;
 		}
 
@@ -71,7 +71,7 @@ namespace Easy2.Classes
 		/// <returns>뷰를 조회하는 쿼리문입니다.</returns>
 		public static string ShowViews(string databaseName)
 		{
-			return String.Format("SELECT table_name FROM information_schema.tables WHERE table_schema='{0}' AND table_type='VIEW'", databaseName);
+			return String.Format("SELECT table_name FROM information_schema.tables WHERE table_schema='{0}' AND table_type='VIEW';", databaseName);
 		}
 
 		/// <summary>
@@ -81,7 +81,7 @@ namespace Easy2.Classes
 		/// <returns>저장 프로시저를 조회하는 쿼리문입니다.</returns>
 		public static string ShowStoredProcs(string databaseName)
 		{
-			return String.Format("SELECT specific_name FROM information_schema.routines WHERE routine_schema='{0}' AND routine_type='PROCEDURE'", databaseName);
+			return String.Format("SELECT specific_name FROM information_schema.routines WHERE routine_schema='{0}' AND routine_type='PROCEDURE';", databaseName);
 		}
 
 		/// <summary>
@@ -91,7 +91,7 @@ namespace Easy2.Classes
 		/// <returns>함수를 조회하는 쿼리문입니다.</returns>
 		public static string ShowFunctions(string databaseName)
 		{
-			return String.Format("SELECT specific_name FROM information_schema.routines WHERE routine_schema='{0}' AND routine_type='FUNCTION'", databaseName);
+			return String.Format("SELECT specific_name FROM information_schema.routines WHERE routine_schema='{0}' AND routine_type='FUNCTION';", databaseName);
 		}
 
 		/// <summary>
@@ -101,7 +101,7 @@ namespace Easy2.Classes
 		/// <returns>트리거는 조회하는 쿼리문입니다.</returns>
 		public static string ShowTriggers(string databaseName)
 		{
-			return String.Format("SELECT trigger_name FROM information_schema.triggers WHERE trigger_schema='{0}'", databaseName);
+			return String.Format("SELECT trigger_name FROM information_schema.triggers WHERE trigger_schema='{0}';", databaseName);
 		}
 
 		/// <summary>
@@ -111,7 +111,7 @@ namespace Easy2.Classes
 		/// <returns>이벤트를 조회하는 쿼리문입니다.</returns>
 		public static string ShowEvents(string databaseName)
 		{
-			return String.Format("SELECT event_name FROM information_schema.events WHERE event_schema='{0}' ORDER BY event_name", databaseName);
+			return String.Format("SELECT event_name FROM information_schema.events WHERE event_schema='{0}' ORDER BY event_name;", databaseName);
 		}
 
 		/// <summary>
@@ -121,7 +121,7 @@ namespace Easy2.Classes
 		/// <returns>컬럼을 조회하는 쿼리문입니다.</returns>
 		public static string ShowColumns(string tableName)
 		{
-			return String.Format("DESCRIBE {0}", tableName);
+			return String.Format("DESCRIBE {0};", tableName);
 		}
 
 		/// <summary>
@@ -131,7 +131,7 @@ namespace Easy2.Classes
 		/// <returns>인덱스를 조회하는 쿼리문입니다.</returns>
 		public static string ShowIndexes(string tableName)
 		{
-			return String.Format("SHOW INDEX FROM {0}", tableName);
+			return String.Format("SHOW INDEX FROM {0};", tableName);
 		}
 
 		/// <summary>
@@ -140,7 +140,7 @@ namespace Easy2.Classes
 		/// <returns>모든 문자셋의 정보를 조회하는 쿼리문입니다.</returns>
 		public static string ShowCharset()
 		{
-			return "SHOW CHARSET";
+			return "SHOW CHARSET;";
 		}
 
 		/// <summary>
@@ -150,7 +150,7 @@ namespace Easy2.Classes
 		/// <returns>문자셋의 정보를 조회하는 쿼리문을 생성합니다.</returns>
 		public static string ShowCharset(string where)
 		{
-			return String.Format("SHOW CHARSET WHERE charset='{0}'", where);
+			return String.Format("SHOW CHARSET WHERE charset='{0}';", where);
 		}
 
 		/// <summary>
@@ -159,7 +159,7 @@ namespace Easy2.Classes
 		/// <returns>모든 콜레이션의 정보를 조회하는 쿼리문입니다.</returns>
 		public static string ShowCollation()
 		{
-			return "SHOW COLLATION";
+			return "SHOW COLLATION;";
 		}
 
 		/// <summary>
@@ -169,7 +169,7 @@ namespace Easy2.Classes
 		/// <returns>문자셋에 해당되는 의 정보를 조회하는 쿼리문을 생성합니다.</returns>
 		public static string ShowCollation(string charset)
 		{
-			return String.Format("SHOW COLLATION WHERE charset='{0}'", charset);
+			return String.Format("SHOW COLLATION WHERE charset='{0}';", charset);
 		}
 
 		/// <summary>
@@ -178,7 +178,7 @@ namespace Easy2.Classes
 		/// <returns>사용중인 데이터베이스의 문자셋을 조회하는 쿼리문입니다.</returns>
 		public static string ShowCharsetForUseDatabase()
 		{
-			return "SHOW VARIABLES LIKE 'character_set_database'";
+			return "SHOW VARIABLES LIKE 'character_set_database';";
 		}
 
 		/// <summary>
@@ -187,7 +187,7 @@ namespace Easy2.Classes
 		/// <returns>사용중인 데이터베이스의 콜레이션을 조회하는 쿼리문입니다.</returns>
 		public static string ShowCollationForUseDatabase()
 		{
-			return "SHOW VARIABLES LIKE 'collation_database'";
+			return "SHOW VARIABLES LIKE 'collation_database';";
 		}
 
 		/// <summary>
@@ -196,7 +196,7 @@ namespace Easy2.Classes
 		/// <returns>서버의 문자셋을 조회하는 쿼리문입니다.</returns>
 		public static string ShowCharsetServer()
 		{
-			return "SHOW VARIABLES LIKE 'character_set_server'";
+			return "SHOW VARIABLES LIKE 'character_set_server';";
 		}
 
 		/// <summary>
@@ -205,7 +205,7 @@ namespace Easy2.Classes
 		/// <returns>서버의 콜레이션을 조회하는 쿼리문입니다.</returns>
 		public static string ShowCollationServer()
 		{
-			return "SHOW VARIABLES LIKE 'collation_server'";
+			return "SHOW VARIABLES LIKE 'collation_server';";
 		}
 
 		/// <summary>
@@ -214,7 +214,7 @@ namespace Easy2.Classes
 		/// <returns>MySQL 데이터베이스의 사용자들을 조회하는 쿼리문입니다.</returns>
 		public static string SelectMysqlUser()
 		{
-			return "SELECT user, host FROM mysql.user";
+			return "SELECT user, host FROM mysql.user;";
 		}
 
 		/// <summary>
@@ -225,7 +225,7 @@ namespace Easy2.Classes
 		/// <returns>MySQL 데이터베이스의 사용자의 정보를 조회하는 쿼리문입니다.</returns>
 		public static string SelectMysqlUser(string username, string host)
 		{
-			return String.Format("SELECT * FROM mysql.user WHERE user='{0}' AND host='{1}'", username, host);
+			return String.Format("SELECT * FROM mysql.user WHERE user='{0}' AND host='{1}';", username, host);
 		}
 
 		/// <summary>
@@ -251,6 +251,76 @@ namespace Easy2.Classes
 		public static string MakeIndexInfo(string keyName, string columnName)
 		{
 			return String.Format("{0}({1})", keyName, columnName);
+		}
+
+		/// <summary>
+		/// 사용자를 생성하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="userInfo">사용자정보를 가진 객체입니다.</param>
+		/// <returns>사용자를 생성하는 쿼리문입니다.</returns>
+		public static string CreateUser(User userInfo)
+		{
+			StringBuilder queryBuilder = new StringBuilder();
+
+			queryBuilder.Append(
+				"INSERT INTO mysql.user(host, user, password, select_priv, insert_priv, update_priv, delete_priv, create_priv, drop_priv, reload_priv, shutdown_priv, process_priv, file_priv, grant_priv, references_priv, index_priv, alter_priv");
+
+			if(Program.ActivateCommunicator.v402 == true)
+			{
+				queryBuilder.Append(
+					", show_db_priv, super_priv, create_tmp_table_priv, lock_tables_priv, execute_priv, repl_slave_priv, repl_client_priv");
+			}
+
+			if(Program.ActivateCommunicator.v500 == true)
+			{
+				queryBuilder.Append(
+					", create_view_priv, show_view_priv, create_routine_priv, alter_routine_priv, create_user_priv, ssl_cipher, x509_issuer, x509_subject");
+			}
+
+			if(Program.ActivateCommunicator.v510 == true)
+			{
+				queryBuilder.Append(", event_priv, trigger_priv");
+			}
+
+			queryBuilder.AppendFormat(
+				") VALUES('{0}', '{1}', PASSWORD('{2}'), '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}', '{14}', '{15}', '{16}'",
+				userInfo.Host, userInfo.Username, userInfo.Password,
+				userInfo.Select ? 'Y' : 'N', userInfo.Insert ? 'Y' : 'N', userInfo.Update ? 'Y' : 'N',
+				userInfo.Delete ? 'Y' : 'N', userInfo.Create ? 'Y' : 'N', userInfo.Drop ? 'Y' : 'N',
+				userInfo.Reload ? 'Y' : 'N', userInfo.Shutdown ? 'Y' : 'N', userInfo.Process ? 'Y' : 'N',
+				userInfo.File ? 'Y' : 'N', userInfo.Grant ? 'Y' : 'N', userInfo.Reference ? 'Y' : 'N',
+				userInfo.Index ? 'Y' : 'N', userInfo.Alter ? 'Y' : 'N'
+				);
+
+			if(Program.ActivateCommunicator.v402 == true)
+			{
+				queryBuilder.AppendFormat(
+					", '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}'",
+					userInfo.Show_db ? 'Y' : 'N', userInfo.Super ? 'Y' : 'N', userInfo.Create_tmp_tables ? 'Y' : 'N',
+					userInfo.Lock_tables ? 'Y' : 'N', userInfo.Execute ? 'Y' : 'N', userInfo.Repl_slave ? 'Y' : 'N',
+					userInfo.Repl_client ? 'Y' : 'N'
+					);
+			}
+
+			if(Program.ActivateCommunicator.v500 == true)
+			{
+				queryBuilder.AppendFormat(
+					", '{0}', '{1}', '{2}', '{3}', '{4}', '', '', ''",
+					userInfo.Create_view ? 'Y' : 'N', userInfo.Show_view ? 'Y' : 'N', userInfo.Create_routine ? 'Y' : 'N',
+					userInfo.Alter_routine ? 'Y' : 'N', userInfo.Create_user ? 'Y' : 'N'
+					);
+			}
+
+			if(Program.ActivateCommunicator.v510 == true)
+			{
+				queryBuilder.AppendFormat(", '{0}', '{1}'", userInfo.Event ? 'Y' : 'N', userInfo.Trigger ? 'Y' : 'N');
+			}
+
+			queryBuilder.Append(");");
+
+			queryBuilder.Append("FLUSH PRIVILEGES;");
+
+			return queryBuilder.ToString();
 		}
 
 		/// <summary>
@@ -332,78 +402,50 @@ namespace Easy2.Classes
 			}
 
 			queryBuilder.Append(String.Format(
-				" WHERE user='{0}' AND host='{1}'",
+				" WHERE user='{0}' AND host='{1}';",
 				targetUsername,
 				targetHost
 				));
+
+			queryBuilder.Append("FLUSH PRIVILEGES;");
 
 			return queryBuilder.ToString();
 		}
 
 		/// <summary>
-		/// 사용자를 생성하는 쿼리문을 생성합니다.
+		/// 사용자를 제거하는 쿼리문을 생성합니다.
 		/// </summary>
-		/// <param name="userInfo">사용자정보를 가진 객체입니다.</param>
-		/// <returns>사용자를 생성하는 쿼리문입니다.</returns>
-		public static string CreateUser(User userInfo)
+		/// <param name="targetUsername">제거대상의 사용자이름입니다.</param>
+		/// <param name="targetHost">제거대상의 호스트명입니다.</param>
+		/// <returns>사용자를 제거하는 쿼리문입니다.</returns>
+		public static string DeleteUser(string targetUsername, string targetHost)
 		{
 			StringBuilder queryBuilder = new StringBuilder();
 
-			queryBuilder.Append(
-				"INSERT INTO mysql.user(host, user, password, select_priv, insert_priv, update_priv, delete_priv, create_priv, drop_priv, reload_priv, shutdown_priv, process_priv, file_priv, grant_priv, references_priv, index_priv, alter_priv");
+			queryBuilder.Append(String.Format(
+				"DELETE FROM mysql.user WHERE USER='{0}' AND HOST='{1}';", targetUsername, targetHost
+				));
 
-			if(Program.ActivateCommunicator.v402 == true)
+			queryBuilder.Append(String.Format(
+				"DELETE FROM mysql.db WHERE USER='{0}' AND HOST='{1}';", targetUsername, targetHost
+				));
+
+			queryBuilder.Append(String.Format(
+				"DELETE FROM mysql.tables_priv WHERE USER='{0}' AND HOST='{1}';", targetUsername, targetHost
+				));
+
+			queryBuilder.Append(String.Format(
+				"DELETE FROM mysql.columns_priv WHERE USER='{0}' AND HOST='{1}';", targetUsername, targetHost
+				));
+
+			if(Program.ActivateCommunicator.v500)
 			{
-				queryBuilder.Append(
-					", show_db_priv, super_priv, create_tmp_table_priv, lock_tables_priv, execute_priv, repl_slave_priv, repl_client_priv");
+				queryBuilder.Append(String.Format(
+					"DELETE FROM mysql.procs_priv WHERE USER='{0}' AND HOST='{1}';", targetUsername, targetHost
+					));
 			}
 
-			if(Program.ActivateCommunicator.v500 == true)
-			{
-				queryBuilder.Append(
-					", create_view_priv, show_view_priv, create_routine_priv, alter_routine_priv, create_user_priv, ssl_cipher, x509_issuer, x509_subject");
-			}
-
-			if(Program.ActivateCommunicator.v510 == true)
-			{
-				queryBuilder.Append(", event_priv, trigger_priv");
-			}
-
-			queryBuilder.AppendFormat(
-				") VALUES('{0}', '{1}', PASSWORD('{2}'), '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}', '{14}', '{15}', '{16}'",
-				userInfo.Host, userInfo.Username, userInfo.Password,
-				userInfo.Select ? 'Y' : 'N', userInfo.Insert ? 'Y' : 'N', userInfo.Update ? 'Y' : 'N',
-				userInfo.Delete ? 'Y' : 'N', userInfo.Create ? 'Y' : 'N', userInfo.Drop ? 'Y' : 'N',
-				userInfo.Reload ? 'Y' : 'N', userInfo.Shutdown ? 'Y' : 'N', userInfo.Process ? 'Y' : 'N',
-				userInfo.File ? 'Y' : 'N', userInfo.Grant ? 'Y' : 'N', userInfo.Reference ? 'Y' : 'N',
-				userInfo.Index ? 'Y' : 'N', userInfo.Alter ? 'Y' : 'N'
-				);
-
-			if(Program.ActivateCommunicator.v402 == true)
-			{
-				queryBuilder.AppendFormat(
-					", '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}'",
-					userInfo.Show_db ? 'Y' : 'N', userInfo.Super ? 'Y' : 'N', userInfo.Create_tmp_tables ? 'Y' : 'N',
-					userInfo.Lock_tables ? 'Y' : 'N', userInfo.Execute ? 'Y' : 'N', userInfo.Repl_slave ? 'Y' : 'N',
-					userInfo.Repl_client ? 'Y' : 'N'
-					);
-			}
-
-			if(Program.ActivateCommunicator.v500 == true)
-			{
-				queryBuilder.AppendFormat(
-					", '{0}', '{1}', '{2}', '{3}', '{4}', '', '', ''",
-					userInfo.Create_view ? 'Y' : 'N', userInfo.Show_view ? 'Y' : 'N', userInfo.Create_routine ? 'Y' : 'N',
-					userInfo.Alter_routine ? 'Y' : 'N', userInfo.Create_user ? 'Y' : 'N'
-					);
-			}
-
-			if(Program.ActivateCommunicator.v510 == true)
-			{
-				queryBuilder.AppendFormat(", '{0}', '{1}'", userInfo.Event ? 'Y' : 'N', userInfo.Trigger ? 'Y' : 'N');
-			}
-
-			queryBuilder.Append(")");
+			queryBuilder.Append("FLUSH PRIVILEGES;");
 
 			return queryBuilder.ToString();
 		}
@@ -415,7 +457,7 @@ namespace Easy2.Classes
 		/// <return>데이터베이스를 생성하는 쿼리문입니다.</return>
 		public static string CreateDatabase(string dbname)
 		{
-			return String.Format("CREATE DATABASE {0}", dbname);
+			return String.Format("CREATE DATABASE {0};", dbname);
 		}
 
 		/// <summary>
@@ -427,7 +469,7 @@ namespace Easy2.Classes
 		/// <return>데이터베이스를 생성하는 쿼리문입니다.</return>
 		public static string CreateDatabase(string dbname, string charset, string collation)
 		{
-			return String.Format("CREATE DATABASE {0} CHARACTER SET {1} COLLATE {2}", dbname, charset, collation);
+			return String.Format("CREATE DATABASE {0} CHARACTER SET {1} COLLATE {2};", dbname, charset, collation);
 		}
 
 		/// <summary>
@@ -439,7 +481,7 @@ namespace Easy2.Classes
 		/// <return>데이터베이스를 수정하는 쿼리문입니다.</return>
 		public static string AlterDatabase(string dbname, string charset, string collation)
 		{
-			return String.Format("ALTER DATABASE {0} CHARACTER SET {1} COLLATE {2}", dbname, charset, collation);
+			return String.Format("ALTER DATABASE {0} CHARACTER SET {1} COLLATE {2};", dbname, charset, collation);
 		}
 	}
 }

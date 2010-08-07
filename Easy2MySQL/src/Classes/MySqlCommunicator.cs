@@ -218,7 +218,6 @@ namespace Easy2.Classes
 		public void CreateUser(User userInfo)
 		{
 			Program.ActivateCommunicator.Execute(MySqlGenerator.CreateUser(userInfo));
-			this.Execute("FLUSH PRIVILEGES");
 		}
 
 		/// <summary>
@@ -233,7 +232,19 @@ namespace Easy2.Classes
 		public void AlterUser(string targetUsername, string targetHost, User userInfo)
 		{
 			Program.ActivateCommunicator.Execute(MySqlGenerator.AlterUser(targetUsername, targetHost, userInfo));
-			this.Execute("FLUSH PRIVILEGES");
+		}
+
+		/// <summary>
+		/// 사용자를 제거합니다.
+		/// </summary>
+		/// <param name="targetUsername">제거대상의 사용자이름입니다.</param>
+		/// <param name="targetHost">제거대상의 호스트명입니다.</param>
+		/// <exception cref="MySqlException">
+		/// 사용자제거에 실패하였을 경우 MySqlException 예외가 발생됩니다.
+		/// </exception>
+		public void DeleteUser(string targetUsername, string targetHost)
+		{
+			Program.ActivateCommunicator.Execute(MySqlGenerator.DeleteUser(targetUsername, targetHost));
 		}
 
 		/// <summary>

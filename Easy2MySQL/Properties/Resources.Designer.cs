@@ -476,7 +476,7 @@ namespace Easy2.Properties {
         }
         
         /// <summary>
-        ///   {0} 항목이 입력되지 않았습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   &apos;{0}&apos; 항목이 입력되지 않았습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string Easy2Message_EmptyItem {
             get {
@@ -503,7 +503,7 @@ namespace Easy2.Properties {
         }
         
         /// <summary>
-        ///   {0} 사용자의 데이터가 수정되었습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   &apos;{0}&apos; 사용자 정보가 수정되었습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string Easy2Message_UserAlterSuccessfully {
             get {
@@ -512,11 +512,20 @@ namespace Easy2.Properties {
         }
         
         /// <summary>
-        ///   {0} 사용자가 만들어졌습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   &apos;{0}&apos; 사용자가 만들어졌습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string Easy2Message_UserCreatedSuccessfully {
             get {
                 return ResourceManager.GetString("Easy2Message_UserCreatedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &apos;{0}&apos; 사용자를 삭제 하시겠습니까?과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2Message_UserDeleteQuestion {
+            get {
+                return ResourceManager.GetString("Easy2Message_UserDeleteQuestion", resourceCulture);
             }
         }
         

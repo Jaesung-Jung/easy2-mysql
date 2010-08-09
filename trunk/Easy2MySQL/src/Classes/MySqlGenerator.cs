@@ -209,6 +209,17 @@ namespace Easy2.Classes
 		}
 
 		/// <summary>
+		/// 테이블의 필드의 정보를 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="from">조회할 테이블이름입니다.</param>
+		/// <param name="isFull">자세한 필드내용을 조회할지의 여부입니다.</param>
+		/// <returns>테이블의 필드의 정보를 조회하는 쿼리문입니다.</returns>
+		public static string ShowFullFields(string from, bool isFull)
+		{
+			return isFull ? String.Format("SHOW FULL FIELDS FROM {0};", from) : String.Format("SHOW FIELDS FROM {0};", from);
+		}
+
+		/// <summary>
 		/// MySQL 데이터베이스의 사용자들을 조회하는 쿼리문을 생성합니다.
 		/// </summary>
 		/// <returns>MySQL 데이터베이스의 사용자들을 조회하는 쿼리문입니다.</returns>
@@ -229,28 +240,47 @@ namespace Easy2.Classes
 		}
 
 		/// <summary>
-		/// 트리에 표시할 행문자열을 생성합니다.
+		/// 데이터베이스 권한을 조회하는 쿼리문을 생성합니다.
 		/// </summary>
-		/// <param name="columnInfo">컬럼정보를 가지는 배열입니다.</param>
-		/// <returns>트리에 표시할 행문자열입니다.</returns>
-		public static string MakeColumnInfo(string[] columnInfo)
+		/// <param name="username">사용자이름입니다.</param>
+		/// <param name="host">호스트명입니다.</param>
+		/// <returns>데이터베이스 권한을 조회하는 쿼리문입니다.</returns>
+		public static string SelectDatabasePrivilege(string username, string host)
 		{
-			string columnText = String.Format("{0}, {1}", columnInfo[0], columnInfo[1]);
-			if(columnInfo[2] == "YES")
-				columnText += ", Nullable";
-
-			return columnText;
+			return String.Format("SELECT * FROM mysql.db WHERE USER='{0}' AND HOST='{1}';", username, host);
 		}
 
 		/// <summary>
-		/// 트리에 표시할 인덱스문자열을 생성합니다.
+		/// 테이블 권한을 조회하는 쿼리문을 생성합니다.
 		/// </summary>
-		/// <param name="keyName">인덱스 키 이름입니다.</param>
-		/// <param name="columnName">인덱스 컬럼 이름입니다.</param>
-		/// <returns>트리에 표시할 인덱스문자열입니다.</returns>
-		public static string MakeIndexInfo(string keyName, string columnName)
+		/// <param name="username">사용자이름입니다.</param>
+		/// <param name="host">호스트명입니다.</param>
+		/// <returns>테이블 권한을 조회하는 쿼리문입니다.</returns>
+		public static string SelectTablePrivilege(string username, string host)
 		{
-			return String.Format("{0}({1})", keyName, columnName);
+			return String.Format("SELECT * FROM mysql.tables_priv WHERE USER='{0}' AND HOST='{1}';", username, host);
+		}
+
+		/// <summary>
+		/// 컬럼 권한을 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="username">사용자이름입니다.</param>
+		/// <param name="host">호스트명입니다.</param>
+		/// <returns>컬럼 권한을 조회하는 쿼리문입니다.</returns>
+		public static string SelectColumnPrivilege(string username, string host)
+		{
+			return String.Format("SELECT * FROM mysql.columns_priv WHERE USER='{0}' AND HOST='{1}';", username, host);
+		}
+
+		/// <summary>
+		/// 프로시저 권한을 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="username">사용자이름입니다.</param>
+		/// <param name="host">호스트명입니다.</param>
+		/// <returns>프로시저 권한을 조회하는 쿼리문입니다.</returns>
+		public static string SelectProcedurePrivilege(string username, string host)
+		{
+			return String.Format("SELECT * FROM mysql.procs_priv WHERE USER='{0}' AND HOST='{1}';", username, host);
 		}
 
 		/// <summary>
@@ -482,6 +512,31 @@ namespace Easy2.Classes
 		public static string AlterDatabase(string dbname, string charset, string collation)
 		{
 			return String.Format("ALTER DATABASE {0} CHARACTER SET {1} COLLATE {2};", dbname, charset, collation);
+		}
+
+		/// <summary>
+		/// 트리에 표시할 행문자열을 생성합니다.
+		/// </summary>
+		/// <param name="columnInfo">컬럼정보를 가지는 배열입니다.</param>
+		/// <returns>트리에 표시할 행문자열입니다.</returns>
+		public static string MakeColumnInfo(string[] columnInfo)
+		{
+			string columnText = String.Format("{0}, {1}", columnInfo[0], columnInfo[1]);
+			if(columnInfo[2] == "YES")
+				columnText += ", Nullable";
+
+			return columnText;
+		}
+
+		/// <summary>
+		/// 트리에 표시할 인덱스문자열을 생성합니다.
+		/// </summary>
+		/// <param name="keyName">인덱스 키 이름입니다.</param>
+		/// <param name="columnName">인덱스 컬럼 이름입니다.</param>
+		/// <returns>트리에 표시할 인덱스문자열입니다.</returns>
+		public static string MakeIndexInfo(string keyName, string columnName)
+		{
+			return String.Format("{0}({1})", keyName, columnName);
 		}
 	}
 }

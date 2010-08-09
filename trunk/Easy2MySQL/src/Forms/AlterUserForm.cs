@@ -89,31 +89,29 @@ namespace Easy2.Forms
 			if(Program.ActivateCommunicator.v510 == false)
 				this.m_510VersionGroupBox.Enabled = false;
 
-			if(this.LoadUserList() > 0)
-			{
+
+			this.m_userListCombo.Items.AddRange(this.ReadUsers());
+			if(m_userListCombo.Items.Count > 0)
 				this.m_userListCombo.SelectedIndex = 0;
-				this.m_userListCombo.Focus();
-			}
+			this.m_userListCombo.Focus();
 		}
 
 		/// <summary>
-		/// 사용자리스트를 불러옵니다.
+		/// 사용자리스트를 데이터베이스로부터 읽어옵니다.
 		/// </summary>
-		/// <returns>읽어진 필드의 갯수 입니다.</returns>
-		private int LoadUserList()
+		/// <returns>'사용자명@호스트명'의 문자열 배열입니다.</returns>
+		private string[] ReadUsers()
 		{
 			MySqlDataReader reader = null;
-			int fieldCount = 0;
+			List<string> userList = new List<string>(); 
+
 			try
 			{
 				reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.SelectMysqlUser());
-				fieldCount = reader.FieldCount;
 
 				while(reader.Read())
 				{
-					this.m_userListCombo.Items.Add(
-						new ComboItem(String.Format("{0}@{1}", reader.GetString(0), reader.GetString(1)))
-						);
+					userList.Add(String.Format("{0}@{1}", reader.GetString(0), reader.GetString(1)));
 				}
 
 				reader.Close();
@@ -129,7 +127,7 @@ namespace Easy2.Forms
 					reader.Close();
 			}
 
-			return fieldCount;
+			return userList.ToArray();
 		}
 
 		/// <summary>

@@ -397,6 +397,11 @@ namespace Easy2.Forms
 			new AlterUserForm().ShowDialog(this);
 		}
 
+		private void OnPrivilegeUserClick(object sender, EventArgs e)
+		{
+			new ManagePrivilegesUserForm().ShowDialog(this);
+		}
+
 		/// <summary>
 		/// 데이터베이스 만들기 버튼을 클릭하면 호출됩니다.
 		/// </summary>

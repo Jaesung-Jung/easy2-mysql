@@ -57,7 +57,7 @@ namespace Easy2.Components
 			{
 				if(Program.ActivateCommunicator.UseDatabaseName != databaseNode.Text)
 				{
-					Program.ActivateCommunicator.Execute(MySqlGenerator.UseDatabase(databaseNode.Text));
+					Program.ActivateCommunicator.UseDatabase(databaseNode.Text);
 					Program.ActivateCommunicator.UseDatabaseName = databaseNode.Text;
 				}
 			}

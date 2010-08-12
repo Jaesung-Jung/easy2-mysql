@@ -209,6 +209,15 @@ namespace Easy2.Classes
 		}
 
 		/// <summary>
+		/// 사용할 데이터베이스를 지정합니다.
+		/// </summary>
+		/// <param name="databaseName">사용할 데이터베이스의 이름입니다.</param>
+		public void UseDatabase(string databaseName)
+		{
+			Program.ActivateCommunicator.Execute(MySqlGenerator.UseDatabase(databaseName));
+		}
+
+		/// <summary>
 		/// 사용자를 생성합니다.
 		/// </summary>
 		/// <param name="userInfo">생성할 사용자정보를 가진 객체입니다.</param>

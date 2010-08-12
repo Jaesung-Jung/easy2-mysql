@@ -53,15 +53,13 @@ namespace Easy2.Classes
 		/// <summary>
 		/// 테이블을 조회하는 쿼리문을 생성합니다.
 		/// </summary>
+		/// <param name="databaseName">테이블을 소유한 데이터베이스 이름입니다.</param>
 		/// <returns>테이블을 조회하는 쿼리문입니다.</returns>
 		public static string ShowTables(string databaseName)
 		{
-			string query;
-			if(databaseName == "information_schema")
-				query = String.Format("SHOW TABLES FROM {0};", databaseName);
-			else
-				query = String.Format("SHOW FULL tables FROM {0} WHERE table_type='base table';", Program.ActivateCommunicator.UseDatabaseName);
-			return query;
+			return databaseName == "information_schema"?
+				String.Format("SHOW TABLES FROM {0};", databaseName) :
+				String.Format("SHOW FULL tables FROM {0} WHERE table_type='base table';", Program.ActivateCommunicator.UseDatabaseName);
 		}
 
 		/// <summary>
@@ -72,6 +70,16 @@ namespace Easy2.Classes
 		public static string ShowViews(string databaseName)
 		{
 			return String.Format("SELECT table_name FROM information_schema.tables WHERE table_schema='{0}' AND table_type='VIEW';", databaseName);
+		}
+
+		/// <summary>
+		/// 테이블과 뷰를 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="databaseName">테이블을 소유한 데이터베이스 이름입니다.</param>
+		/// <returns>테이블과 뷰를 조회하는 쿼리문입니다.</returns>
+		public static string ShowTablesViews(string databaseName)
+		{
+			return String.Format("SHOW TABLES FROM {0}", databaseName);
 		}
 
 		/// <summary>

@@ -255,7 +255,7 @@ namespace Easy2.Classes
 		/// <returns>데이터베이스 권한을 조회하는 쿼리문입니다.</returns>
 		public static string SelectDatabasePrivilege(string username, string host)
 		{
-			return String.Format("SELECT * FROM mysql.db WHERE USER='{0}' AND HOST='{1}';", username, host);
+			return String.Format("SELECT * FROM mysql.db WHERE user='{0}' AND host='{1}';", username, host);
 		}
 
 		/// <summary>
@@ -263,10 +263,11 @@ namespace Easy2.Classes
 		/// </summary>
 		/// <param name="username">사용자이름입니다.</param>
 		/// <param name="host">호스트명입니다.</param>
+		/// <param name="databaseName">테이터베이스이름입니다.</param>
 		/// <returns>테이블 권한을 조회하는 쿼리문입니다.</returns>
-		public static string SelectTablePrivilege(string username, string host)
+		public static string SelectTablePrivilege(string username, string host, string databaseName)
 		{
-			return String.Format("SELECT * FROM mysql.tables_priv WHERE USER='{0}' AND HOST='{1}';", username, host);
+			return String.Format("SELECT * FROM mysql.tables_priv WHERE user='{0}' AND host='{1}' AND db='{2}';", username, host, databaseName);
 		}
 
 		/// <summary>
@@ -274,10 +275,11 @@ namespace Easy2.Classes
 		/// </summary>
 		/// <param name="username">사용자이름입니다.</param>
 		/// <param name="host">호스트명입니다.</param>
+		/// <param name="tableName">테이블이름입니다.</param>
 		/// <returns>컬럼 권한을 조회하는 쿼리문입니다.</returns>
-		public static string SelectColumnPrivilege(string username, string host)
+		public static string SelectColumnPrivilege(string username, string host, string tableName)
 		{
-			return String.Format("SELECT * FROM mysql.columns_priv WHERE USER='{0}' AND HOST='{1}';", username, host);
+			return String.Format("SELECT * FROM mysql.columns_priv WHERE user='{0}' AND host='{1}' AND table_name='{2}';", username, host, tableName);
 		}
 
 		/// <summary>

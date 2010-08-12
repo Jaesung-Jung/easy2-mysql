@@ -119,7 +119,6 @@ namespace Easy2.Forms
 			catch(MySqlException ex)
 			{
 				EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
-				this.Dispose(true);
 			}
 			finally
 			{
@@ -185,7 +184,6 @@ namespace Easy2.Forms
 			catch(MySqlException ex)
 			{
 				EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
-				this.Dispose(true);
 			}
 			finally
 			{

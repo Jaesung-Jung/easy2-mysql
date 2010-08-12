@@ -207,6 +207,9 @@ namespace Easy2.Forms
 					MySqlConnectInfo connectInfo = new MySqlConnectInfo(splitLine[0], splitLine[1], splitLine[2], splitLine[3], splitLine[4], splitLine[5], splitLine[6]);
 					this.m_connectInfoList.Add(connectInfo);
 				}
+
+				sr.Close();
+				fs.Close();
 			}
  			catch(Exception ex)
  			{
@@ -215,9 +218,9 @@ namespace Easy2.Forms
 			finally
 			{
 				if(sr != null)
-					sr.Dispose();
+					sr.Close();
 				if(fs != null)
-					fs.Dispose();
+					fs.Close();
 			}
 		}
 
@@ -261,6 +264,9 @@ namespace Easy2.Forms
 					sw.WriteLine(line);
 				}
 
+				sw.Close();
+				fs.Close();
+
 			}
 			catch(Exception ex)
 			{
@@ -269,9 +275,9 @@ namespace Easy2.Forms
 			finally
 			{
 				if(sw != null)
-					sw.Dispose();
+					sw.Close();
 				if(fs != null)
-					fs.Dispose();
+					fs.Close();
 			}
 		}
 

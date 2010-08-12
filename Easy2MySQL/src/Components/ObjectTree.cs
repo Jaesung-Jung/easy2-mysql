@@ -145,7 +145,7 @@ namespace Easy2.Components
 			finally
 			{
 				if(reader != null)
-					reader.Dispose();
+					reader.Close();
 			}
 		}
 
@@ -186,7 +186,7 @@ namespace Easy2.Components
 					finally
 					{
 						if(reader != null)
-							reader.Dispose();
+							reader.Close();
 					}
 				}
 				else

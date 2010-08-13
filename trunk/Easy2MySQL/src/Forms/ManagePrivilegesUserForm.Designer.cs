@@ -235,7 +235,7 @@
 			this.m_routinePage.Location = new System.Drawing.Point(4, 26);
 			this.m_routinePage.Name = "m_routinePage";
 			this.m_routinePage.Padding = new System.Windows.Forms.Padding(3);
-			this.m_routinePage.Size = new System.Drawing.Size(1225, 344);
+			this.m_routinePage.Size = new System.Drawing.Size(426, 222);
 			this.m_routinePage.TabIndex = 1;
 			this.m_routinePage.Text = "프로시저/함수";
 			this.m_routinePage.UseVisualStyleBackColor = true;
@@ -251,7 +251,7 @@
 			this.m_tableLayoutPanel3.Name = "m_tableLayoutPanel3";
 			this.m_tableLayoutPanel3.RowCount = 1;
 			this.m_tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.m_tableLayoutPanel3.Size = new System.Drawing.Size(1219, 338);
+			this.m_tableLayoutPanel3.Size = new System.Drawing.Size(420, 216);
 			this.m_tableLayoutPanel3.TabIndex = 0;
 			// 
 			// m_routinePrivGrid
@@ -278,7 +278,7 @@
 			this.m_routinePrivGrid.MultiSelect = false;
 			this.m_routinePrivGrid.Name = "m_routinePrivGrid";
 			this.m_routinePrivGrid.RowTemplate.Height = 23;
-			this.m_routinePrivGrid.Size = new System.Drawing.Size(1213, 332);
+			this.m_routinePrivGrid.Size = new System.Drawing.Size(414, 210);
 			this.m_routinePrivGrid.TabIndex = 8;
 			// 
 			// Routine_name
@@ -362,7 +362,7 @@
 			this.MinimumSize = new System.Drawing.Size(464, 514);
 			this.Name = "ManagePrivilegesUserForm";
 			this.ShowInTaskbar = false;
-			this.Text = "ManagePrivilegesUserForm";
+			this.Text = "사용자 권한 설정하기";
 			this.m_tabControl.ResumeLayout(false);
 			this.m_tablePage.ResumeLayout(false);
 			this.m_tableLayoutPanel2.ResumeLayout(false);

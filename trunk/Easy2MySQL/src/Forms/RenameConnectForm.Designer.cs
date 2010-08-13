@@ -55,7 +55,7 @@
 			this.ClientSize = new System.Drawing.Size(272, 106);
 			this.DoubleBuffered = true;
 			this.Name = "RenameConnectForm";
-			this.Text = "RenameConnectForm";
+			this.Text = "연결이름 바꾸기";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

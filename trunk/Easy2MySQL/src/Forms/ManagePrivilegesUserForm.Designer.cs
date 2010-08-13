@@ -37,27 +37,27 @@
 			this.m_userListLabel = new DevComponents.DotNetBar.LabelX();
 			this.m_userListCombo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
 			this.m_tabControl = new System.Windows.Forms.TabControl();
-			this.m_tableViewPage = new System.Windows.Forms.TabPage();
+			this.m_tablePage = new System.Windows.Forms.TabPage();
 			this.m_tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.m_tablePrivGrid = new DevComponents.DotNetBar.Controls.DataGridViewX();
-			this.m_tableColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Table_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.m_columnPrivGrid = new DevComponents.DotNetBar.Controls.DataGridViewX();
-			this.m_columnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.m_procFuncPage = new System.Windows.Forms.TabPage();
+			this.Column_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.m_routinePage = new System.Windows.Forms.TabPage();
 			this.m_tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-			this.m_procedurePrivGrid = new DevComponents.DotNetBar.Controls.DataGridViewX();
-			this.m_procedureColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.m_routinePrivGrid = new DevComponents.DotNetBar.Controls.DataGridViewX();
+			this.Routine_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.m_tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.m_databasePrivGrid = new DevComponents.DotNetBar.Controls.DataGridViewX();
-			this.m_databaseColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Db = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.m_tabControl.SuspendLayout();
-			this.m_tableViewPage.SuspendLayout();
+			this.m_tablePage.SuspendLayout();
 			this.m_tableLayoutPanel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_tablePrivGrid)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_columnPrivGrid)).BeginInit();
-			this.m_procFuncPage.SuspendLayout();
+			this.m_routinePage.SuspendLayout();
 			this.m_tableLayoutPanel3.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.m_procedurePrivGrid)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_routinePrivGrid)).BeginInit();
 			this.m_tableLayoutPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_databasePrivGrid)).BeginInit();
 			this.SuspendLayout();
@@ -116,12 +116,12 @@
 			this.m_userListCombo.Size = new System.Drawing.Size(304, 25);
 			this.m_userListCombo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_userListCombo.TabIndex = 3;
-			this.m_userListCombo.SelectedIndexChanged += new System.EventHandler(this.OnSelectedIndexChanged);
+			this.m_userListCombo.SelectedIndexChanged += new System.EventHandler(this.OnUserListComboSelectedIndexChanged);
 			// 
 			// m_tabControl
 			// 
-			this.m_tabControl.Controls.Add(this.m_tableViewPage);
-			this.m_tabControl.Controls.Add(this.m_procFuncPage);
+			this.m_tabControl.Controls.Add(this.m_tablePage);
+			this.m_tabControl.Controls.Add(this.m_routinePage);
 			this.m_tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_tabControl.Location = new System.Drawing.Point(3, 120);
 			this.m_tabControl.Name = "m_tabControl";
@@ -129,16 +129,16 @@
 			this.m_tabControl.Size = new System.Drawing.Size(434, 252);
 			this.m_tabControl.TabIndex = 10;
 			// 
-			// m_tableViewPage
+			// m_tablePage
 			// 
-			this.m_tableViewPage.Controls.Add(this.m_tableLayoutPanel2);
-			this.m_tableViewPage.Location = new System.Drawing.Point(4, 26);
-			this.m_tableViewPage.Name = "m_tableViewPage";
-			this.m_tableViewPage.Padding = new System.Windows.Forms.Padding(3);
-			this.m_tableViewPage.Size = new System.Drawing.Size(426, 222);
-			this.m_tableViewPage.TabIndex = 0;
-			this.m_tableViewPage.Text = "테이블/뷰";
-			this.m_tableViewPage.UseVisualStyleBackColor = true;
+			this.m_tablePage.Controls.Add(this.m_tableLayoutPanel2);
+			this.m_tablePage.Location = new System.Drawing.Point(4, 26);
+			this.m_tablePage.Name = "m_tablePage";
+			this.m_tablePage.Padding = new System.Windows.Forms.Padding(3);
+			this.m_tablePage.Size = new System.Drawing.Size(426, 222);
+			this.m_tablePage.TabIndex = 0;
+			this.m_tablePage.Text = "테이블/뷰";
+			this.m_tablePage.UseVisualStyleBackColor = true;
 			// 
 			// m_tableLayoutPanel2
 			// 
@@ -165,7 +165,7 @@
 			this.m_tablePrivGrid.BackgroundColor = System.Drawing.Color.White;
 			this.m_tablePrivGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.m_tablePrivGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.m_tableColumn});
+            this.Table_name});
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
 			dataGridViewCellStyle1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -177,19 +177,21 @@
 			this.m_tablePrivGrid.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_tablePrivGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
 			this.m_tablePrivGrid.Location = new System.Drawing.Point(3, 3);
+			this.m_tablePrivGrid.MultiSelect = false;
 			this.m_tablePrivGrid.Name = "m_tablePrivGrid";
 			this.m_tablePrivGrid.RowTemplate.Height = 23;
 			this.m_tablePrivGrid.Size = new System.Drawing.Size(414, 102);
 			this.m_tablePrivGrid.TabIndex = 0;
+			this.m_tablePrivGrid.SelectionChanged += new System.EventHandler(this.OnTablePrivGridSelectionChanged);
 			// 
-			// m_tableColumn
+			// Table_name
 			// 
-			this.m_tableColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.m_tableColumn.HeaderText = "테이블";
-			this.m_tableColumn.Name = "m_tableColumn";
-			this.m_tableColumn.ReadOnly = true;
-			this.m_tableColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			this.m_tableColumn.Width = 53;
+			this.Table_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.Table_name.HeaderText = "테이블";
+			this.Table_name.Name = "Table_name";
+			this.Table_name.ReadOnly = true;
+			this.Table_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.Table_name.Width = 53;
 			// 
 			// m_columnPrivGrid
 			// 
@@ -200,7 +202,7 @@
 			this.m_columnPrivGrid.BackgroundColor = System.Drawing.Color.White;
 			this.m_columnPrivGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.m_columnPrivGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.m_columnColumn});
+            this.Column_name});
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
 			dataGridViewCellStyle2.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -212,55 +214,56 @@
 			this.m_columnPrivGrid.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_columnPrivGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
 			this.m_columnPrivGrid.Location = new System.Drawing.Point(3, 111);
+			this.m_columnPrivGrid.MultiSelect = false;
 			this.m_columnPrivGrid.Name = "m_columnPrivGrid";
 			this.m_columnPrivGrid.RowTemplate.Height = 23;
 			this.m_columnPrivGrid.Size = new System.Drawing.Size(414, 102);
 			this.m_columnPrivGrid.TabIndex = 1;
 			// 
-			// m_columnColumn
+			// Column_name
 			// 
-			this.m_columnColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.m_columnColumn.HeaderText = "컬럼";
-			this.m_columnColumn.Name = "m_columnColumn";
-			this.m_columnColumn.ReadOnly = true;
-			this.m_columnColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			this.m_columnColumn.Width = 40;
+			this.Column_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.Column_name.HeaderText = "컬럼";
+			this.Column_name.Name = "Column_name";
+			this.Column_name.ReadOnly = true;
+			this.Column_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.Column_name.Width = 40;
 			// 
-			// m_procFuncPage
+			// m_routinePage
 			// 
-			this.m_procFuncPage.Controls.Add(this.m_tableLayoutPanel3);
-			this.m_procFuncPage.Location = new System.Drawing.Point(4, 26);
-			this.m_procFuncPage.Name = "m_procFuncPage";
-			this.m_procFuncPage.Padding = new System.Windows.Forms.Padding(3);
-			this.m_procFuncPage.Size = new System.Drawing.Size(426, 222);
-			this.m_procFuncPage.TabIndex = 1;
-			this.m_procFuncPage.Text = "프로시저/함수";
-			this.m_procFuncPage.UseVisualStyleBackColor = true;
+			this.m_routinePage.Controls.Add(this.m_tableLayoutPanel3);
+			this.m_routinePage.Location = new System.Drawing.Point(4, 26);
+			this.m_routinePage.Name = "m_routinePage";
+			this.m_routinePage.Padding = new System.Windows.Forms.Padding(3);
+			this.m_routinePage.Size = new System.Drawing.Size(1225, 344);
+			this.m_routinePage.TabIndex = 1;
+			this.m_routinePage.Text = "프로시저/함수";
+			this.m_routinePage.UseVisualStyleBackColor = true;
 			// 
 			// m_tableLayoutPanel3
 			// 
 			this.m_tableLayoutPanel3.ColumnCount = 1;
 			this.m_tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.m_tableLayoutPanel3.Controls.Add(this.m_procedurePrivGrid, 0, 0);
+			this.m_tableLayoutPanel3.Controls.Add(this.m_routinePrivGrid, 0, 0);
 			this.m_tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_tableLayoutPanel3.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
 			this.m_tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
 			this.m_tableLayoutPanel3.Name = "m_tableLayoutPanel3";
 			this.m_tableLayoutPanel3.RowCount = 1;
 			this.m_tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.m_tableLayoutPanel3.Size = new System.Drawing.Size(420, 216);
+			this.m_tableLayoutPanel3.Size = new System.Drawing.Size(1219, 338);
 			this.m_tableLayoutPanel3.TabIndex = 0;
 			// 
-			// m_procedurePrivGrid
+			// m_routinePrivGrid
 			// 
-			this.m_procedurePrivGrid.AllowUserToAddRows = false;
-			this.m_procedurePrivGrid.AllowUserToDeleteRows = false;
-			this.m_procedurePrivGrid.AllowUserToResizeColumns = false;
-			this.m_procedurePrivGrid.AllowUserToResizeRows = false;
-			this.m_procedurePrivGrid.BackgroundColor = System.Drawing.Color.White;
-			this.m_procedurePrivGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.m_procedurePrivGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.m_procedureColumn});
+			this.m_routinePrivGrid.AllowUserToAddRows = false;
+			this.m_routinePrivGrid.AllowUserToDeleteRows = false;
+			this.m_routinePrivGrid.AllowUserToResizeColumns = false;
+			this.m_routinePrivGrid.AllowUserToResizeRows = false;
+			this.m_routinePrivGrid.BackgroundColor = System.Drawing.Color.White;
+			this.m_routinePrivGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.m_routinePrivGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Routine_name});
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
 			dataGridViewCellStyle3.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -268,23 +271,24 @@
 			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
 			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.m_procedurePrivGrid.DefaultCellStyle = dataGridViewCellStyle3;
-			this.m_procedurePrivGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_procedurePrivGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-			this.m_procedurePrivGrid.Location = new System.Drawing.Point(3, 3);
-			this.m_procedurePrivGrid.Name = "m_procedurePrivGrid";
-			this.m_procedurePrivGrid.RowTemplate.Height = 23;
-			this.m_procedurePrivGrid.Size = new System.Drawing.Size(414, 210);
-			this.m_procedurePrivGrid.TabIndex = 8;
+			this.m_routinePrivGrid.DefaultCellStyle = dataGridViewCellStyle3;
+			this.m_routinePrivGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.m_routinePrivGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+			this.m_routinePrivGrid.Location = new System.Drawing.Point(3, 3);
+			this.m_routinePrivGrid.MultiSelect = false;
+			this.m_routinePrivGrid.Name = "m_routinePrivGrid";
+			this.m_routinePrivGrid.RowTemplate.Height = 23;
+			this.m_routinePrivGrid.Size = new System.Drawing.Size(1213, 332);
+			this.m_routinePrivGrid.TabIndex = 8;
 			// 
-			// m_procedureColumn
+			// Routine_name
 			// 
-			this.m_procedureColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.m_procedureColumn.HeaderText = "프로시저/함수";
-			this.m_procedureColumn.Name = "m_procedureColumn";
-			this.m_procedureColumn.ReadOnly = true;
-			this.m_procedureColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			this.m_procedureColumn.Width = 97;
+			this.Routine_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.Routine_name.HeaderText = "프로시저/함수";
+			this.Routine_name.Name = "Routine_name";
+			this.Routine_name.ReadOnly = true;
+			this.Routine_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.Routine_name.Width = 97;
 			// 
 			// m_tableLayoutPanel1
 			// 
@@ -313,7 +317,7 @@
 			this.m_databasePrivGrid.BackgroundColor = System.Drawing.Color.White;
 			this.m_databasePrivGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.m_databasePrivGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.m_databaseColumn});
+            this.Db});
 			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
 			dataGridViewCellStyle4.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -325,20 +329,22 @@
 			this.m_databasePrivGrid.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.m_databasePrivGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
 			this.m_databasePrivGrid.Location = new System.Drawing.Point(3, 3);
+			this.m_databasePrivGrid.MultiSelect = false;
 			this.m_databasePrivGrid.Name = "m_databasePrivGrid";
 			this.m_databasePrivGrid.RowTemplate.Height = 23;
 			this.m_databasePrivGrid.Size = new System.Drawing.Size(434, 111);
 			this.m_databasePrivGrid.TabIndex = 12;
+			this.m_databasePrivGrid.SelectionChanged += new System.EventHandler(this.OnDatabasePrivGridSelectionChanged);
 			// 
-			// m_databaseColumn
+			// Db
 			// 
-			this.m_databaseColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.m_databaseColumn.HeaderText = "데이터베이스";
-			this.m_databaseColumn.Name = "m_databaseColumn";
-			this.m_databaseColumn.ReadOnly = true;
-			this.m_databaseColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-			this.m_databaseColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			this.m_databaseColumn.Width = 92;
+			this.Db.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.Db.HeaderText = "데이터베이스";
+			this.Db.Name = "Db";
+			this.Db.ReadOnly = true;
+			this.Db.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.Db.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.Db.Width = 92;
 			// 
 			// ManagePrivilegesUserForm
 			// 
@@ -358,13 +364,13 @@
 			this.ShowInTaskbar = false;
 			this.Text = "ManagePrivilegesUserForm";
 			this.m_tabControl.ResumeLayout(false);
-			this.m_tableViewPage.ResumeLayout(false);
+			this.m_tablePage.ResumeLayout(false);
 			this.m_tableLayoutPanel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.m_tablePrivGrid)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.m_columnPrivGrid)).EndInit();
-			this.m_procFuncPage.ResumeLayout(false);
+			this.m_routinePage.ResumeLayout(false);
 			this.m_tableLayoutPanel3.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.m_procedurePrivGrid)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.m_routinePrivGrid)).EndInit();
 			this.m_tableLayoutPanel1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.m_databasePrivGrid)).EndInit();
 			this.ResumeLayout(false);
@@ -378,18 +384,18 @@
 		private DevComponents.DotNetBar.LabelX m_userListLabel;
 		private DevComponents.DotNetBar.Controls.ComboBoxEx m_userListCombo;
 		private System.Windows.Forms.TabControl m_tabControl;
-		private System.Windows.Forms.TabPage m_tableViewPage;
+		private System.Windows.Forms.TabPage m_tablePage;
 		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanel2;
 		private DevComponents.DotNetBar.Controls.DataGridViewX m_tablePrivGrid;
 		private DevComponents.DotNetBar.Controls.DataGridViewX m_columnPrivGrid;
-		private System.Windows.Forms.TabPage m_procFuncPage;
+		private System.Windows.Forms.TabPage m_routinePage;
 		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanel1;
 		private DevComponents.DotNetBar.Controls.DataGridViewX m_databasePrivGrid;
 		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanel3;
-		private DevComponents.DotNetBar.Controls.DataGridViewX m_procedurePrivGrid;
-		private System.Windows.Forms.DataGridViewTextBoxColumn m_tableColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn m_columnColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn m_databaseColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn m_procedureColumn;
+		private DevComponents.DotNetBar.Controls.DataGridViewX m_routinePrivGrid;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Table_name;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Column_name;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Routine_name;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Db;
 	}
 }

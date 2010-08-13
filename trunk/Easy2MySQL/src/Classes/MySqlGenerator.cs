@@ -133,6 +133,17 @@ namespace Easy2.Classes
 		}
 
 		/// <summary>
+		/// 컬럼을 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="databaseName">조회할 테이블을 소유한 데이터베이스입니다.</param>
+		/// <param name="tableName">조회할 컬럼의 테이블이름입니다.</param>
+		/// <returns>컬럼을 조회하는 쿼리문입니다.</returns>
+		public static string ShowColumns(string databaseName, string tableName)
+		{
+			return String.Format("DESCRIBE {0}.{1};", databaseName, tableName);
+		}
+
+		/// <summary>
 		/// 인덱스를 조회하는 쿼리문을 생성합니다.
 		/// </summary>
 		/// <param name="tableName">조회할 인덱스의 테이블이름입니다.</param>
@@ -275,9 +286,10 @@ namespace Easy2.Classes
 		/// </summary>
 		/// <param name="username">사용자이름입니다.</param>
 		/// <param name="host">호스트명입니다.</param>
+		/// <param name="databaseName">데이터베이스이름입니다.</param>
 		/// <param name="tableName">테이블이름입니다.</param>
 		/// <returns>컬럼 권한을 조회하는 쿼리문입니다.</returns>
-		public static string SelectColumnPrivilege(string username, string host, string tableName)
+		public static string SelectColumnPrivilege(string username, string host, string databaseName, string tableName)
 		{
 			return String.Format("SELECT * FROM mysql.columns_priv WHERE user='{0}' AND host='{1}' AND table_name='{2}';", username, host, tableName);
 		}

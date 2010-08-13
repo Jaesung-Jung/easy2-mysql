@@ -291,7 +291,7 @@ namespace Easy2.Classes
 		/// <returns>컬럼 권한을 조회하는 쿼리문입니다.</returns>
 		public static string SelectColumnPrivilege(string username, string host, string databaseName, string tableName)
 		{
-			return String.Format("SELECT * FROM mysql.columns_priv WHERE user='{0}' AND host='{1}' AND table_name='{2}';", username, host, tableName);
+			return String.Format("SELECT * FROM mysql.columns_priv WHERE user='{0}' AND host='{1}' AND Db='{2}' AND table_name='{3}';", username, host, databaseName, tableName);
 		}
 
 		/// <summary>

@@ -76,7 +76,7 @@
 			this.Controls.Add(this.m_titleImgLabel);
 			this.DoubleBuffered = true;
 			this.Name = "AlterDatabaseForm";
-			this.Text = "AlterDatabaseForm";
+			this.Text = "데이터베이스 수정하기";
 			this.Controls.SetChildIndex(this.m_titleImgLabel, 0);
 			this.Controls.SetChildIndex(this.m_titleLabel, 0);
 			this.Controls.SetChildIndex(this.m_nameText, 0);

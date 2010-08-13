@@ -76,7 +76,7 @@
 			this.Controls.Add(this.m_titleLabel);
 			this.DoubleBuffered = true;
 			this.Name = "CreateDatabaseForm";
-			this.Text = "CreateDatabaseForm";
+			this.Text = "데이터베이스 만들기";
 			this.Controls.SetChildIndex(this.m_nameText, 0);
 			this.Controls.SetChildIndex(this.m_charsetCombo, 0);
 			this.Controls.SetChildIndex(this.m_collationCombo, 0);

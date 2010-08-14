@@ -48,6 +48,9 @@
 			this.m_routinePrivGrid = new DevComponents.DotNetBar.Controls.DataGridViewX();
 			this.Routine_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.m_tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.m_applyButton = new DevComponents.DotNetBar.ButtonX();
+			this.m_closeButton = new DevComponents.DotNetBar.ButtonX();
 			this.m_databasePrivGrid = new DevComponents.DotNetBar.Controls.DataGridViewX();
 			this.Db = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.m_tabControl.SuspendLayout();
@@ -59,6 +62,7 @@
 			this.m_tableLayoutPanel3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_routinePrivGrid)).BeginInit();
 			this.m_tableLayoutPanel1.SuspendLayout();
+			this.tableLayoutPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.m_databasePrivGrid)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -123,10 +127,10 @@
 			this.m_tabControl.Controls.Add(this.m_tablePage);
 			this.m_tabControl.Controls.Add(this.m_routinePage);
 			this.m_tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_tabControl.Location = new System.Drawing.Point(3, 120);
+			this.m_tabControl.Location = new System.Drawing.Point(3, 107);
 			this.m_tabControl.Name = "m_tabControl";
 			this.m_tabControl.SelectedIndex = 0;
-			this.m_tabControl.Size = new System.Drawing.Size(434, 252);
+			this.m_tabControl.Size = new System.Drawing.Size(434, 232);
 			this.m_tabControl.TabIndex = 10;
 			// 
 			// m_tablePage
@@ -135,7 +139,7 @@
 			this.m_tablePage.Location = new System.Drawing.Point(4, 26);
 			this.m_tablePage.Name = "m_tablePage";
 			this.m_tablePage.Padding = new System.Windows.Forms.Padding(3);
-			this.m_tablePage.Size = new System.Drawing.Size(426, 222);
+			this.m_tablePage.Size = new System.Drawing.Size(426, 202);
 			this.m_tablePage.TabIndex = 0;
 			this.m_tablePage.Text = "테이블/뷰";
 			this.m_tablePage.UseVisualStyleBackColor = true;
@@ -153,7 +157,7 @@
 			this.m_tableLayoutPanel2.RowCount = 2;
 			this.m_tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.m_tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.m_tableLayoutPanel2.Size = new System.Drawing.Size(420, 216);
+			this.m_tableLayoutPanel2.Size = new System.Drawing.Size(420, 196);
 			this.m_tableLayoutPanel2.TabIndex = 0;
 			// 
 			// m_tablePrivGrid
@@ -175,12 +179,12 @@
 			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.m_tablePrivGrid.DefaultCellStyle = dataGridViewCellStyle1;
 			this.m_tablePrivGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_tablePrivGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+			this.m_tablePrivGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
 			this.m_tablePrivGrid.Location = new System.Drawing.Point(3, 3);
 			this.m_tablePrivGrid.MultiSelect = false;
 			this.m_tablePrivGrid.Name = "m_tablePrivGrid";
 			this.m_tablePrivGrid.RowTemplate.Height = 23;
-			this.m_tablePrivGrid.Size = new System.Drawing.Size(414, 102);
+			this.m_tablePrivGrid.Size = new System.Drawing.Size(414, 92);
 			this.m_tablePrivGrid.TabIndex = 0;
 			this.m_tablePrivGrid.SelectionChanged += new System.EventHandler(this.OnTablePrivGridSelectionChanged);
 			// 
@@ -212,12 +216,12 @@
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.m_columnPrivGrid.DefaultCellStyle = dataGridViewCellStyle2;
 			this.m_columnPrivGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_columnPrivGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-			this.m_columnPrivGrid.Location = new System.Drawing.Point(3, 111);
+			this.m_columnPrivGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+			this.m_columnPrivGrid.Location = new System.Drawing.Point(3, 101);
 			this.m_columnPrivGrid.MultiSelect = false;
 			this.m_columnPrivGrid.Name = "m_columnPrivGrid";
 			this.m_columnPrivGrid.RowTemplate.Height = 23;
-			this.m_columnPrivGrid.Size = new System.Drawing.Size(414, 102);
+			this.m_columnPrivGrid.Size = new System.Drawing.Size(414, 92);
 			this.m_columnPrivGrid.TabIndex = 1;
 			// 
 			// Column_name
@@ -235,7 +239,7 @@
 			this.m_routinePage.Location = new System.Drawing.Point(4, 26);
 			this.m_routinePage.Name = "m_routinePage";
 			this.m_routinePage.Padding = new System.Windows.Forms.Padding(3);
-			this.m_routinePage.Size = new System.Drawing.Size(426, 222);
+			this.m_routinePage.Size = new System.Drawing.Size(426, 202);
 			this.m_routinePage.TabIndex = 1;
 			this.m_routinePage.Text = "프로시저/함수";
 			this.m_routinePage.UseVisualStyleBackColor = true;
@@ -251,7 +255,7 @@
 			this.m_tableLayoutPanel3.Name = "m_tableLayoutPanel3";
 			this.m_tableLayoutPanel3.RowCount = 1;
 			this.m_tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.m_tableLayoutPanel3.Size = new System.Drawing.Size(420, 216);
+			this.m_tableLayoutPanel3.Size = new System.Drawing.Size(420, 196);
 			this.m_tableLayoutPanel3.TabIndex = 0;
 			// 
 			// m_routinePrivGrid
@@ -273,12 +277,12 @@
 			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.m_routinePrivGrid.DefaultCellStyle = dataGridViewCellStyle3;
 			this.m_routinePrivGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_routinePrivGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+			this.m_routinePrivGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
 			this.m_routinePrivGrid.Location = new System.Drawing.Point(3, 3);
 			this.m_routinePrivGrid.MultiSelect = false;
 			this.m_routinePrivGrid.Name = "m_routinePrivGrid";
 			this.m_routinePrivGrid.RowTemplate.Height = 23;
-			this.m_routinePrivGrid.Size = new System.Drawing.Size(414, 210);
+			this.m_routinePrivGrid.Size = new System.Drawing.Size(414, 190);
 			this.m_routinePrivGrid.TabIndex = 8;
 			// 
 			// Routine_name
@@ -297,16 +301,58 @@
 						| System.Windows.Forms.AnchorStyles.Right)));
 			this.m_tableLayoutPanel1.ColumnCount = 1;
 			this.m_tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.m_tableLayoutPanel1.Controls.Add(this.tableLayoutPanel1, 0, 2);
 			this.m_tableLayoutPanel1.Controls.Add(this.m_databasePrivGrid, 0, 0);
 			this.m_tableLayoutPanel1.Controls.Add(this.m_tabControl, 0, 1);
 			this.m_tableLayoutPanel1.Location = new System.Drawing.Point(4, 89);
 			this.m_tableLayoutPanel1.Name = "m_tableLayoutPanel1";
-			this.m_tableLayoutPanel1.RowCount = 2;
-			this.m_tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.42857F));
-			this.m_tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68.57143F));
-			this.m_tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.m_tableLayoutPanel1.Size = new System.Drawing.Size(440, 375);
+			this.m_tableLayoutPanel1.RowCount = 3;
+			this.m_tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.33F));
+			this.m_tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 69.67F));
+			this.m_tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+			this.m_tableLayoutPanel1.Size = new System.Drawing.Size(440, 383);
 			this.m_tableLayoutPanel1.TabIndex = 7;
+			// 
+			// tableLayoutPanel1
+			// 
+			this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+						| System.Windows.Forms.AnchorStyles.Left)
+						| System.Windows.Forms.AnchorStyles.Right)));
+			this.tableLayoutPanel1.ColumnCount = 2;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
+			this.tableLayoutPanel1.Controls.Add(this.m_applyButton, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.m_closeButton, 1, 0);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 345);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 1;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(434, 35);
+			this.tableLayoutPanel1.TabIndex = 10;
+			// 
+			// m_applyButton
+			// 
+			this.m_applyButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.m_applyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_applyButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_applyButton.Location = new System.Drawing.Point(177, 7);
+			this.m_applyButton.Name = "m_applyButton";
+			this.m_applyButton.Size = new System.Drawing.Size(116, 25);
+			this.m_applyButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_applyButton.TabIndex = 8;
+			this.m_applyButton.Text = "적용(&A)";
+			// 
+			// m_closeButton
+			// 
+			this.m_closeButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.m_closeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_closeButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_closeButton.Location = new System.Drawing.Point(315, 7);
+			this.m_closeButton.Name = "m_closeButton";
+			this.m_closeButton.Size = new System.Drawing.Size(116, 25);
+			this.m_closeButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_closeButton.TabIndex = 9;
+			this.m_closeButton.Text = "닫기(&C)";
 			// 
 			// m_databasePrivGrid
 			// 
@@ -327,12 +373,12 @@
 			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.m_databasePrivGrid.DefaultCellStyle = dataGridViewCellStyle4;
 			this.m_databasePrivGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_databasePrivGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+			this.m_databasePrivGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
 			this.m_databasePrivGrid.Location = new System.Drawing.Point(3, 3);
 			this.m_databasePrivGrid.MultiSelect = false;
 			this.m_databasePrivGrid.Name = "m_databasePrivGrid";
 			this.m_databasePrivGrid.RowTemplate.Height = 23;
-			this.m_databasePrivGrid.Size = new System.Drawing.Size(434, 111);
+			this.m_databasePrivGrid.Size = new System.Drawing.Size(434, 98);
 			this.m_databasePrivGrid.TabIndex = 12;
 			this.m_databasePrivGrid.SelectionChanged += new System.EventHandler(this.OnDatabasePrivGridSelectionChanged);
 			// 
@@ -372,6 +418,7 @@
 			this.m_tableLayoutPanel3.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.m_routinePrivGrid)).EndInit();
 			this.m_tableLayoutPanel1.ResumeLayout(false);
+			this.tableLayoutPanel1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.m_databasePrivGrid)).EndInit();
 			this.ResumeLayout(false);
 
@@ -397,5 +444,8 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column_name;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Routine_name;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Db;
+		private DevComponents.DotNetBar.ButtonX m_applyButton;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+		private DevComponents.DotNetBar.ButtonX m_closeButton;
 	}
 }

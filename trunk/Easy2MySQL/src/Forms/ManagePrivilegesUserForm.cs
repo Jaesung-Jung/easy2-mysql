@@ -78,7 +78,7 @@ namespace Easy2.Forms
 				while(reader.Read())
 				{
 					string[] values = new string[this.m_databasePrivGrid.ColumnCount];
-					values[0] = reader.GetString(0); // 데이터베이스 이름
+					values[0] = reader["Database"].ToString(); // 데이터베이스 이름
 					for(int i = 1; i < values.Length; i++)
 					{
 						values[i] = "false"; // 체크박스 초기값
@@ -123,6 +123,7 @@ namespace Easy2.Forms
 				{
 					this.m_selectedDatabaseName = this.m_databasePrivGrid.Rows[index].Cells["Db"].Value.ToString();
 					this.m_tablePrivGrid.Rows.Clear();
+					this.m_routinePrivGrid.Rows.Clear();
 					
 					if(this.m_selectedDatabaseName != "information_schema")
 					{
@@ -131,7 +132,7 @@ namespace Easy2.Forms
 						{
 							// 테이블 목록 추가
 							reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowTablesViews(this.m_selectedDatabaseName));
-							List<string[]> valueList = new List<string[]>();
+							List<string[]> tableList = new List<string[]>();
 
 							while(reader.Read())
 							{
@@ -141,16 +142,40 @@ namespace Easy2.Forms
 								{
 									values[i] = "false"; // 체크박스 초기값
 								}
-								valueList.Add(values);
+								tableList.Add(values);
 							}
 							reader.Close();
 
-							foreach(string[] v in valueList)
+							foreach(string[] table in tableList)
 							{
-								this.m_tablePrivGrid.Rows.Add(v);
+								this.m_tablePrivGrid.Rows.Add(table);
 							}
 
 							SetTablePrivilege();
+
+							// 루틴 목록 추가
+							reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowRoutine(this.m_selectedDatabaseName));
+							List<string[]> routineList = new List<string[]>();
+
+							while(reader.Read())
+							{
+								string[] values = new string[this.m_routinePrivGrid.ColumnCount];
+								values[0] = reader["Routine_name"].ToString();
+								values[1] = reader["Routine_type"].ToString();
+								for(int i = 2; i < values.Length; i++)
+								{
+									values[i] = "false";
+								}
+								routineList.Add(values);
+							}
+							reader.Close();
+
+							foreach(string[] routine in routineList)
+							{
+								this.m_routinePrivGrid.Rows.Add(routine);
+							}
+
+							SetRoutinePrivilege();
 						}
 						catch(MySqlException ex)
 						{
@@ -194,7 +219,7 @@ namespace Easy2.Forms
 						while(reader.Read())
 						{
 							string[] rowValue = new string[this.m_columnPrivGrid.ColumnCount];
-							rowValue[0] = reader.GetString(0); // 컬럼 이름
+							rowValue[0] = reader["Field"].ToString(); // 컬럼 이름
 							for(int i = 1; i < rowValue.Length; i++)
 							{
 								rowValue[i] = "false"; // 체크박스 초기값
@@ -219,6 +244,135 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
+		/// 적용 버튼이 클릭되면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생한 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnApplyButtonClick(object sender, EventArgs e)
+		{
+			/*
+			 * 권한을 관리함에 있어 UPDATE를 이용한 변경이 힘들다.
+			 * 이유는 각 오브젝트들에 대해 권한이 있는지 없는지 여부를
+			 * 검사하여 권한변경 또는 권한을 추가/제거하여야 해야 하기
+			 * 때문에, 많은 양의 쿼리문을 처리하면서 비효율적인 동작과
+			 * 함께 조건도 복잡해지게 된다.
+			 * 권한 변경이 일어나면 관련된 권한을 모두 제거하고 그리드에
+			 * 있는 정보를 토대로 새롭게 권한을 작성하여 값을 넣어주도록
+			 * 작성하였다.
+			 *
+			 */
+
+			// 해당사용자의 권한정보를 모두 제거하는 코드 삽입
+
+			// 데이터베이스 권한정보 읽기
+			List<DatabasePrivilege> db_privileges = new List<DatabasePrivilege>();
+			foreach(DataGridViewRow row in this.m_databasePrivGrid.Rows)
+			{
+				DatabasePrivilege db_priv = new DatabasePrivilege();
+				db_priv.Db = row.Cells["Db"].Value.ToString();
+				foreach(DataGridViewCell cell in row.Cells)
+				{
+					if(cell is DataGridViewCheckBoxCell)
+					{
+						if(Boolean.Parse(cell.Value.ToString()) == true)
+						{
+							db_priv.Privileges.Add(cell.OwningColumn.Name);
+						}
+					}
+				}
+
+				// 권한이 있는것들만 추가
+				if(db_priv.Privileges.Count != 0)
+					db_privileges.Add(db_priv);
+			}
+
+			// 테이블 권한정보 읽기
+			List<TablePrivilege> table_privileges = new List<TablePrivilege>();
+			foreach(DataGridViewRow row in this.m_tablePrivGrid.Rows)
+			{
+				TablePrivilege table_priv = new TablePrivilege();
+				table_priv.Db = this.m_databasePrivGrid.SelectedCells[0].OwningRow.Cells["Db"].Value.ToString();
+				table_priv.TableName = row.Cells["Table_name"].Value.ToString();
+				foreach(DataGridViewCell cell in row.Cells)
+				{
+					if(cell is DataGridViewCheckBoxCell)
+					{
+						if(Boolean.Parse(cell.Value.ToString()) == true)
+						{
+							table_priv.Privileges.Add(cell.OwningColumn.Name);
+						}
+					}
+				}
+				if(table_priv.Privileges.Count != 0)
+					table_privileges.Add(table_priv);
+			}
+
+			// 컬럼 권한정보 읽기
+			List<ColumnPrivilege> column_privileges = new List<ColumnPrivilege>();
+			foreach(DataGridViewRow row in this.m_columnPrivGrid.Rows)
+			{
+				ColumnPrivilege column_priv = new ColumnPrivilege();
+				column_priv.Db = this.m_databasePrivGrid.SelectedCells[0].OwningRow.Cells["Db"].Value.ToString();
+				column_priv.TableName = this.m_tablePrivGrid.SelectedCells[0].OwningRow.Cells["Table_name"].Value.ToString();
+				column_priv.ColumnName = row.Cells["Column_name"].Value.ToString();
+				foreach(DataGridViewCell cell in row.Cells)
+				{
+					if(cell is DataGridViewCheckBoxCell)
+					{
+						if(Boolean.Parse(cell.Value.ToString()) == true)
+						{
+							column_priv.Privileges.Add(cell.OwningColumn.Name);
+						}
+					}
+				}
+				if(column_priv.Privileges.Count != 0)
+					column_privileges.Add(column_priv);
+			}
+
+			// 루틴 권한정보 읽기
+			List<RoutinePrivilege> routine_privileges = new List<RoutinePrivilege>();
+			foreach(DataGridViewRow row in this.m_routinePrivGrid.Rows)
+			{
+				RoutinePrivilege routine_priv = new RoutinePrivilege();
+				routine_priv.Db = this.m_databasePrivGrid.SelectedCells[0].OwningRow.Cells["Db"].Value.ToString();
+				routine_priv.RoutineName = row.Cells["Routine_name"].Value.ToString();
+				routine_priv.Type = (RoutinePrivilege.RoutineType)Enum.Parse(typeof(RoutinePrivilege.RoutineType), row.Cells["Routine_type"].Value.ToString());
+				foreach(DataGridViewCell cell in row.Cells)
+				{
+					if(cell is DataGridViewCheckBoxCell)
+					{
+						if(Boolean.Parse(cell.Value.ToString()) == true)
+						{
+							routine_priv.Privileges.Add(cell.OwningColumn.Name);
+						}
+					}
+				}
+				if(routine_priv.Privileges.Count != 0)
+					routine_privileges.Add(routine_priv);
+			}
+
+			try
+			{
+				Program.ActivateCommunicator.UpdatePrivilege(this.m_host, this.m_username, db_privileges.ToArray(), table_privileges.ToArray(), column_privileges.ToArray(), routine_privileges.ToArray());
+				// 메세지박스 추가
+			}
+			catch(MySqlException ex)
+			{
+				EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
+			}
+		}
+
+		/// <summary>
+		/// 닫기 버튼이 클릭되면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생한 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnCloseButtonClick(object sender, EventArgs e)
+		{
+			this.Dispose(true);
+		}
+
+		/// <summary>
 		/// 데이터베이스 그리드뷰의 컬럼들을 초기화합니다.
 		/// </summary>
 		/// <exception cref="MySqlException">
@@ -232,7 +386,7 @@ namespace Easy2.Forms
 				reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowFullFields(target, false));
 				while(reader.Read())
 				{
-					string fieldName = reader.GetString(0);
+					string fieldName = reader["Field"].ToString();
 					if(target == "mysql.db")
 					{
 						if(fieldName.IndexOf("priv") != -1)
@@ -267,8 +421,8 @@ namespace Easy2.Forms
 						}
 						if(fieldName == targetField)
 						{
-							string fieldValue = reader.GetString(1);
-							Regex regex = new Regex("[A-Za-z]+", RegexOptions.IgnoreCase);
+							string fieldValue = reader["Type"].ToString();
+							Regex regex = new Regex("[A-Za-z ]+", RegexOptions.IgnoreCase);
 							MatchCollection matches = regex.Matches(fieldValue);
 							if(matches.Count > 0)
 							{
@@ -278,6 +432,8 @@ namespace Easy2.Forms
 									{
 										DataGridViewCheckBoxColumn privColumn = new DataGridViewCheckBoxColumn();
 										privColumn.Name = match.ToString();
+										if(targetGridView == this.m_routinePrivGrid)
+											System.Console.WriteLine(privColumn.Name);
 										privColumn.HeaderText = match.ToString();
 										privColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 										privColumn.Resizable = DataGridViewTriState.False;
@@ -317,7 +473,7 @@ namespace Easy2.Forms
 
 				while(reader.Read())
 				{
-					userList.Add(String.Format("{0}@{1}", reader.GetString(0), reader.GetString(1)));
+					userList.Add(String.Format("{0}@{1}", reader["user"].ToString(), reader["host"].ToString()));
 				}
 
 				reader.Close();
@@ -355,9 +511,10 @@ namespace Easy2.Forms
 
 					for(int i = 0; i < reader.FieldCount; i++)
 					{
-						if(reader.GetName(i).IndexOf("priv") != -1)
+						string fieldName = reader.GetName(i);
+						if(fieldName.IndexOf("priv") != -1)
 						{
-							row.Cells[reader.GetName(i)].Value = reader.GetString(i) == "Y" ? "True" : "False";
+							row.Cells[reader.GetName(i)].Value = reader[fieldName].ToString() == "Y" ? "True" : "False";
 						}
 					}
 				}
@@ -394,9 +551,57 @@ namespace Easy2.Forms
 
 					for(int i = 0; i < reader.FieldCount; i++)
 					{
-						if(reader.GetName(i) == "Table_priv")
+						string fieldName = reader.GetName(i);
+						if(fieldName == "Table_priv")
 						{
-							string[] privilege = reader.GetString(i).Split(',');
+							string[] privilege = reader[fieldName].ToString().Split(',');
+							foreach(string s in privilege)
+							{
+								if(s.Length > 0)
+								{
+									row.Cells[s].Value = "True";
+								}
+							}
+						}
+					}
+				}
+				reader.Close();
+			}
+			catch(MySqlException ex)
+			{
+				throw ex;
+			}
+			finally
+			{
+				if(reader != null)
+					reader.Close();
+			}
+		}
+
+		/// <summary>
+		/// 사용자의 루틴에 대한 권한정보를 설정합니다.
+		/// </summary>
+		private void SetRoutinePrivilege()
+		{
+			// 테이블 권한정보 로드
+			MySqlDataReader reader = null;
+			try
+			{
+				reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.SelectRoutinePrivilege(this.m_username, this.m_host, this.m_selectedDatabaseName));
+				while(reader.Read())
+				{
+					// Linq 쿼리로 Row 찾기
+					DataGridViewRow row =
+						(from DataGridViewRow r in m_routinePrivGrid.Rows
+						 where r.Cells["Routine_name"].Value.ToString() == reader["Routine_name"].ToString()
+						 select r).ToArray()[0];
+
+					for(int i = 0; i < reader.FieldCount; i++)
+					{
+						string fieldName = reader.GetName(i);
+						if(fieldName == "Proc_priv")
+						{
+							string[] privilege = reader[fieldName].ToString().Split(',');
 							foreach(string s in privilege)
 							{
 								if(s.Length > 0)
@@ -440,9 +645,10 @@ namespace Easy2.Forms
 
 					for(int i = 0; i < reader.FieldCount; i++)
 					{
-						if(reader.GetName(i) == "Column_priv")
+						string filedName = reader.GetName(i);
+						if(filedName == "Column_priv")
 						{
-							string[] privilege = reader.GetString(i).Split(',');
+							string[] privilege = reader[filedName].ToString().Split(',');
 							foreach(string s in privilege)
 							{
 								if(s.Length > 0)

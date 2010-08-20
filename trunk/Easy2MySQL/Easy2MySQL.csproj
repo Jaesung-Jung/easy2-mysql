@@ -85,11 +85,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="src\Classes\ColumnPrivilege.cs" />
     <Compile Include="src\Classes\CommunicatorCollection.cs" />
+    <Compile Include="src\Classes\DatabasePrivilege.cs" />
     <Compile Include="src\Classes\MySqlCommunicator.cs" />
     <Compile Include="src\Classes\MySqlConnectInfo.cs" />
     <Compile Include="src\Classes\MySqlGenerator.cs" />
     <Compile Include="src\Classes\Program.cs" />
+    <Compile Include="src\Classes\RoutinePrivilege.cs" />
+    <Compile Include="src\Classes\TablePrivilege.cs" />
     <Compile Include="src\Classes\User.cs" />
     <Compile Include="src\Classes\ZoomSliderBinder.cs" />
     <Compile Include="src\Components\DockablePane.cs">

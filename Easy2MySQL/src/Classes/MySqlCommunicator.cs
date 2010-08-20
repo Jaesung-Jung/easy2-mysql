@@ -208,13 +208,18 @@ namespace Easy2.Classes
 			return affectedRow;
 		}
 
+		public void FlushPrivileges()
+		{
+			Execute(MySqlGenerator.FlushPrivileges());
+		}
+
 		/// <summary>
 		/// 사용할 데이터베이스를 지정합니다.
 		/// </summary>
 		/// <param name="databaseName">사용할 데이터베이스의 이름입니다.</param>
 		public void UseDatabase(string databaseName)
 		{
-			Program.ActivateCommunicator.Execute(MySqlGenerator.UseDatabase(databaseName));
+			Execute(MySqlGenerator.UseDatabase(databaseName));
 		}
 
 		/// <summary>
@@ -226,7 +231,8 @@ namespace Easy2.Classes
 		/// </exception>
 		public void CreateUser(User userInfo)
 		{
-			Program.ActivateCommunicator.Execute(MySqlGenerator.CreateUser(userInfo));
+			Execute(MySqlGenerator.CreateUser(userInfo));
+			FlushPrivileges();
 		}
 
 		/// <summary>
@@ -240,7 +246,8 @@ namespace Easy2.Classes
 		/// </exception>
 		public void AlterUser(string targetUsername, string targetHost, User userInfo)
 		{
-			Program.ActivateCommunicator.Execute(MySqlGenerator.AlterUser(targetUsername, targetHost, userInfo));
+			Execute(MySqlGenerator.AlterUser(targetUsername, targetHost, userInfo));
+			FlushPrivileges();
 		}
 
 		/// <summary>
@@ -253,7 +260,8 @@ namespace Easy2.Classes
 		/// </exception>
 		public void DeleteUser(string targetUsername, string targetHost)
 		{
-			Program.ActivateCommunicator.Execute(MySqlGenerator.DeleteUser(targetUsername, targetHost));
+			Execute(MySqlGenerator.DeleteUser(targetUsername, targetHost));
+			FlushPrivileges();
 		}
 
 		/// <summary>
@@ -265,7 +273,7 @@ namespace Easy2.Classes
 		/// </exception>
 		public void CreateDatabase(string dbname)
 		{
-			Program.ActivateCommunicator.Execute(MySqlGenerator.CreateDatabase(dbname));
+			Execute(MySqlGenerator.CreateDatabase(dbname));
 		}
 
 		/// <summary>
@@ -279,7 +287,7 @@ namespace Easy2.Classes
 		/// </exception>
 		public void CreateDatabase(string dbname, string charset, string collation)
 		{
-			Program.ActivateCommunicator.Execute(MySqlGenerator.CreateDatabase(dbname, charset, collation));
+			Execute(MySqlGenerator.CreateDatabase(dbname, charset, collation));
 		}
 
 		/// <summary>
@@ -293,7 +301,38 @@ namespace Easy2.Classes
 		/// </exception>
 		public void AlterDatabase(string dbname, string charset, string collation)
 		{
-			Program.ActivateCommunicator.Execute(MySqlGenerator.AlterDatabase(dbname, charset, collation));
+			Execute(MySqlGenerator.AlterDatabase(dbname, charset, collation));
+		}
+
+		/// <summary>
+		/// 데이터베이스 권한을 갱신합니다.
+		/// </summary>
+		/// <param name="host">호스트입니다.</param>
+		/// <param name="user">사용자입니다.</param>
+		/// <param name="db_privileges">터이터베이스 권한정보를 가진 객체 배열입니다.</param>
+		/// <param name="table_privileges">테이블 권한정보를 가진 객체 배열입니다.</param>
+		/// <param name="column_privileges">컬럼 권한정보를 가진 객체 배열입니다.</param>
+		/// <param name="routine_privileges">루틴 퀀한정보를 가진 객체 배열입니다.</param>
+		public void UpdatePrivilege(string host, string user, DatabasePrivilege[] db_privileges, TablePrivilege[] table_privileges, ColumnPrivilege[] column_privileges, RoutinePrivilege[] routine_privileges)
+		{
+			Execute(MySqlGenerator.DeletePrivileges(host, user));
+			FlushPrivileges();
+
+			foreach(DatabasePrivilege db_priv in db_privileges)
+				Execute(MySqlGenerator.UpdateDatabasePrivilege(host, user, db_priv));
+
+			foreach(TablePrivilege table_priv in table_privileges)
+				Execute(MySqlGenerator.UpdateTablePrivilege(host, user, table_priv));
+
+			foreach(ColumnPrivilege column_priv in column_privileges)
+				Execute(MySqlGenerator.UpdateColumnPrivilege(host, user, column_priv));
+
+			foreach(RoutinePrivilege routine_priv in routine_privileges)
+				Execute(MySqlGenerator.UpdateRoutinePrivilege(host, user, routine_priv));
+
+			if(column_privileges.Length != 0)
+				Execute(MySqlGenerator.UpdateColumnPrivilegeInTablesPriv(host, user, column_privileges));
+			FlushPrivileges();
 		}
 
 		/// <summary>

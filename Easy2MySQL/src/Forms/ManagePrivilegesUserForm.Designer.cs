@@ -47,6 +47,7 @@
 			this.m_tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.m_routinePrivGrid = new DevComponents.DotNetBar.Controls.DataGridViewX();
 			this.Routine_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Routine_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.m_tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.m_applyButton = new DevComponents.DotNetBar.ButtonX();
@@ -179,7 +180,7 @@
 			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.m_tablePrivGrid.DefaultCellStyle = dataGridViewCellStyle1;
 			this.m_tablePrivGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_tablePrivGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+			this.m_tablePrivGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
 			this.m_tablePrivGrid.Location = new System.Drawing.Point(3, 3);
 			this.m_tablePrivGrid.MultiSelect = false;
 			this.m_tablePrivGrid.Name = "m_tablePrivGrid";
@@ -216,7 +217,7 @@
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.m_columnPrivGrid.DefaultCellStyle = dataGridViewCellStyle2;
 			this.m_columnPrivGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_columnPrivGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+			this.m_columnPrivGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
 			this.m_columnPrivGrid.Location = new System.Drawing.Point(3, 101);
 			this.m_columnPrivGrid.MultiSelect = false;
 			this.m_columnPrivGrid.Name = "m_columnPrivGrid";
@@ -267,7 +268,8 @@
 			this.m_routinePrivGrid.BackgroundColor = System.Drawing.Color.White;
 			this.m_routinePrivGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.m_routinePrivGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Routine_name});
+            this.Routine_name,
+            this.Routine_type});
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
 			dataGridViewCellStyle3.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -277,7 +279,7 @@
 			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.m_routinePrivGrid.DefaultCellStyle = dataGridViewCellStyle3;
 			this.m_routinePrivGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_routinePrivGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+			this.m_routinePrivGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
 			this.m_routinePrivGrid.Location = new System.Drawing.Point(3, 3);
 			this.m_routinePrivGrid.MultiSelect = false;
 			this.m_routinePrivGrid.Name = "m_routinePrivGrid";
@@ -288,11 +290,20 @@
 			// Routine_name
 			// 
 			this.Routine_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-			this.Routine_name.HeaderText = "프로시저/함수";
+			this.Routine_name.HeaderText = "루틴";
 			this.Routine_name.Name = "Routine_name";
 			this.Routine_name.ReadOnly = true;
 			this.Routine_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			this.Routine_name.Width = 97;
+			this.Routine_name.Width = 40;
+			// 
+			// Routine_type
+			// 
+			this.Routine_type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.Routine_type.HeaderText = "타입";
+			this.Routine_type.Name = "Routine_type";
+			this.Routine_type.ReadOnly = true;
+			this.Routine_type.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.Routine_type.Width = 40;
 			// 
 			// m_tableLayoutPanel1
 			// 
@@ -341,6 +352,7 @@
 			this.m_applyButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_applyButton.TabIndex = 8;
 			this.m_applyButton.Text = "적용(&A)";
+			this.m_applyButton.Click += new System.EventHandler(this.OnApplyButtonClick);
 			// 
 			// m_closeButton
 			// 
@@ -353,6 +365,7 @@
 			this.m_closeButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_closeButton.TabIndex = 9;
 			this.m_closeButton.Text = "닫기(&C)";
+			this.m_closeButton.Click += new System.EventHandler(this.OnCloseButtonClick);
 			// 
 			// m_databasePrivGrid
 			// 
@@ -373,7 +386,7 @@
 			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.m_databasePrivGrid.DefaultCellStyle = dataGridViewCellStyle4;
 			this.m_databasePrivGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_databasePrivGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+			this.m_databasePrivGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
 			this.m_databasePrivGrid.Location = new System.Drawing.Point(3, 3);
 			this.m_databasePrivGrid.MultiSelect = false;
 			this.m_databasePrivGrid.Name = "m_databasePrivGrid";
@@ -442,10 +455,11 @@
 		private DevComponents.DotNetBar.Controls.DataGridViewX m_routinePrivGrid;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Table_name;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column_name;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Routine_name;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Db;
 		private DevComponents.DotNetBar.ButtonX m_applyButton;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private DevComponents.DotNetBar.ButtonX m_closeButton;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Routine_name;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Routine_type;
 	}
 }

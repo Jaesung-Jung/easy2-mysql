@@ -3,6 +3,7 @@
 //
 using System;
 using System.Text;
+using System.Collections.Generic;
 
 namespace Easy2.Classes
 {
@@ -89,7 +90,7 @@ namespace Easy2.Classes
 		/// <returns>저장 프로시저를 조회하는 쿼리문입니다.</returns>
 		public static string ShowStoredProcs(string databaseName)
 		{
-			return String.Format("SELECT specific_name FROM information_schema.routines WHERE routine_schema='{0}' AND routine_type='PROCEDURE';", databaseName);
+			return String.Format("SELECT * FROM information_schema.routines WHERE routine_schema='{0}' AND routine_type='PROCEDURE';", databaseName);
 		}
 
 		/// <summary>
@@ -99,7 +100,20 @@ namespace Easy2.Classes
 		/// <returns>함수를 조회하는 쿼리문입니다.</returns>
 		public static string ShowFunctions(string databaseName)
 		{
-			return String.Format("SELECT specific_name FROM information_schema.routines WHERE routine_schema='{0}' AND routine_type='FUNCTION';", databaseName);
+			return String.Format("SELECT * FROM information_schema.routines WHERE routine_schema='{0}' AND routine_type='FUNCTION';", databaseName);
+		}
+
+		/// <summary>
+		/// 루틴을 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <remarks>
+		/// 루틴은 저장프로시저와 함수 모두를 의미합니다.
+		/// </remarks>
+		/// <param name="databaseName">루틴을 소유한 데이터베이스 이름입니다.</param>
+		/// <returns>루틴을 조회하는 쿼리문입니다.</returns>
+		public static string ShowRoutine(string databaseName)
+		{
+			return String.Format("SELECT * FROM information_schema.routines WHERE routine_schema='{0}' AND routine_type='PROCEDURE'|'FUNCTION'", databaseName);
 		}
 
 		/// <summary>
@@ -282,6 +296,18 @@ namespace Easy2.Classes
 		}
 
 		/// <summary>
+		/// 루틴 권한을 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="username">사용자이름입니다.</param>
+		/// <param name="host">호스트명입니다.</param>
+		/// <param name="databaseName">테이터베이스이름입니다.</param>
+		/// <returns>테이블 권한을 조회하는 쿼리문입니다.</returns>
+		public static string SelectRoutinePrivilege(string username, string host, string databaseName)
+		{
+			return String.Format("SELECT * FROM mysql.procs_priv WHERE user='{0}' AND host='{1}' AND db='{2}';", username, host, databaseName);
+		}
+
+		/// <summary>
 		/// 컬럼 권한을 조회하는 쿼리문을 생성합니다.
 		/// </summary>
 		/// <param name="username">사용자이름입니다.</param>
@@ -312,29 +338,29 @@ namespace Easy2.Classes
 		/// <returns>사용자를 생성하는 쿼리문입니다.</returns>
 		public static string CreateUser(User userInfo)
 		{
-			StringBuilder queryBuilder = new StringBuilder();
+			StringBuilder builder = new StringBuilder();
 
-			queryBuilder.Append(
+			builder.Append(
 				"INSERT INTO mysql.user(host, user, password, select_priv, insert_priv, update_priv, delete_priv, create_priv, drop_priv, reload_priv, shutdown_priv, process_priv, file_priv, grant_priv, references_priv, index_priv, alter_priv");
 
 			if(Program.ActivateCommunicator.v402 == true)
 			{
-				queryBuilder.Append(
+				builder.Append(
 					", show_db_priv, super_priv, create_tmp_table_priv, lock_tables_priv, execute_priv, repl_slave_priv, repl_client_priv");
 			}
 
 			if(Program.ActivateCommunicator.v500 == true)
 			{
-				queryBuilder.Append(
+				builder.Append(
 					", create_view_priv, show_view_priv, create_routine_priv, alter_routine_priv, create_user_priv, ssl_cipher, x509_issuer, x509_subject");
 			}
 
 			if(Program.ActivateCommunicator.v510 == true)
 			{
-				queryBuilder.Append(", event_priv, trigger_priv");
+				builder.Append(", event_priv, trigger_priv");
 			}
 
-			queryBuilder.AppendFormat(
+			builder.AppendFormat(
 				") VALUES('{0}', '{1}', PASSWORD('{2}'), '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}', '{14}', '{15}', '{16}'",
 				userInfo.Host, userInfo.Username, userInfo.Password,
 				userInfo.Select ? 'Y' : 'N', userInfo.Insert ? 'Y' : 'N', userInfo.Update ? 'Y' : 'N',
@@ -346,7 +372,7 @@ namespace Easy2.Classes
 
 			if(Program.ActivateCommunicator.v402 == true)
 			{
-				queryBuilder.AppendFormat(
+				builder.AppendFormat(
 					", '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}'",
 					userInfo.Show_db ? 'Y' : 'N', userInfo.Super ? 'Y' : 'N', userInfo.Create_tmp_tables ? 'Y' : 'N',
 					userInfo.Lock_tables ? 'Y' : 'N', userInfo.Execute ? 'Y' : 'N', userInfo.Repl_slave ? 'Y' : 'N',
@@ -356,7 +382,7 @@ namespace Easy2.Classes
 
 			if(Program.ActivateCommunicator.v500 == true)
 			{
-				queryBuilder.AppendFormat(
+				builder.AppendFormat(
 					", '{0}', '{1}', '{2}', '{3}', '{4}', '', '', ''",
 					userInfo.Create_view ? 'Y' : 'N', userInfo.Show_view ? 'Y' : 'N', userInfo.Create_routine ? 'Y' : 'N',
 					userInfo.Alter_routine ? 'Y' : 'N', userInfo.Create_user ? 'Y' : 'N'
@@ -365,14 +391,12 @@ namespace Easy2.Classes
 
 			if(Program.ActivateCommunicator.v510 == true)
 			{
-				queryBuilder.AppendFormat(", '{0}', '{1}'", userInfo.Event ? 'Y' : 'N', userInfo.Trigger ? 'Y' : 'N');
+				builder.AppendFormat(", '{0}', '{1}'", userInfo.Event ? 'Y' : 'N', userInfo.Trigger ? 'Y' : 'N');
 			}
 
-			queryBuilder.Append(");");
+			builder.Append(");");
 
-			queryBuilder.Append("FLUSH PRIVILEGES;");
-
-			return queryBuilder.ToString();
+			return builder.ToString();
 		}
 
 		/// <summary>
@@ -384,21 +408,21 @@ namespace Easy2.Classes
 		/// <returns>사용자를 수정하는 쿼리문입니다.</returns>
 		public static string AlterUser(string targetUsername, string targetHost, User userInfo)
 		{
-			StringBuilder queryBuilder = new StringBuilder();
+			StringBuilder builder = new StringBuilder();
 
-			queryBuilder.Append(
+			builder.Append(
 				"UPDATE mysql.user SET "
 				);
 
 			if(userInfo.Password.CompareTo("\n\n\n\n") != 0)
 			{
-				queryBuilder.Append(String.Format(
+				builder.Append(String.Format(
 					"password=PASSWORD('{0}'), ",
 					userInfo.Password
 					));
 			}
 
-			queryBuilder.Append(String.Format(
+			builder.Append(String.Format(
 				"user='{0}', host='{1}', select_priv='{2}', insert_priv='{3}', update_priv='{4}', delete_priv='{5}', create_priv='{6}', drop_priv='{7}', reload_priv='{8}', shutdown_priv='{9}', process_priv='{10}', file_priv='{11}', grant_priv='{12}', references_priv='{13}', index_priv='{14}', alter_priv='{15}'",
 				userInfo.Username,
 				userInfo.Host,
@@ -420,7 +444,7 @@ namespace Easy2.Classes
 
 			if(Program.ActivateCommunicator.v402 == true)
 			{
-				queryBuilder.Append(String.Format(
+				builder.Append(String.Format(
 					", show_db_priv='{0}', super_priv='{1}', create_tmp_table_priv='{2}', lock_tables_priv='{3}', execute_priv='{4}', repl_slave_priv='{5}', repl_client_priv='{6}'",
 					userInfo.Show_db ? 'Y' : 'N',
 					userInfo.Super ? 'Y' : 'N',
@@ -434,7 +458,7 @@ namespace Easy2.Classes
 
 			if(Program.ActivateCommunicator.v500 == true)
 			{
-				queryBuilder.Append(String.Format(
+				builder.Append(String.Format(
 					", create_view_priv='{0}', show_view_priv='{1}', create_routine_priv='{2}', alter_routine_priv='{3}', create_user_priv='{4}', ssl_cipher='', x509_issuer='', x509_subject=''",
 					userInfo.Create_view ? 'Y' : 'N',
 					userInfo.Show_view ? 'Y' : 'N',
@@ -446,22 +470,20 @@ namespace Easy2.Classes
 
 			if(Program.ActivateCommunicator.v510 == true)
 			{
-				queryBuilder.Append(String.Format(
+				builder.Append(String.Format(
 					", event_priv='{0}', trigger_priv='{1}'",
 					userInfo.Event ? 'Y' : 'N',
 					userInfo.Trigger ? 'Y' : 'N'
 					));
 			}
 
-			queryBuilder.Append(String.Format(
+			builder.Append(String.Format(
 				" WHERE user='{0}' AND host='{1}';",
 				targetUsername,
 				targetHost
 				));
 
-			queryBuilder.Append("FLUSH PRIVILEGES;");
-
-			return queryBuilder.ToString();
+			return builder.ToString();
 		}
 
 		/// <summary>
@@ -472,34 +494,32 @@ namespace Easy2.Classes
 		/// <returns>사용자를 제거하는 쿼리문입니다.</returns>
 		public static string DeleteUser(string targetUsername, string targetHost)
 		{
-			StringBuilder queryBuilder = new StringBuilder();
+			StringBuilder builder = new StringBuilder();
 
-			queryBuilder.Append(String.Format(
+			builder.Append(String.Format(
 				"DELETE FROM mysql.user WHERE USER='{0}' AND HOST='{1}';", targetUsername, targetHost
 				));
 
-			queryBuilder.Append(String.Format(
+			builder.Append(String.Format(
 				"DELETE FROM mysql.db WHERE USER='{0}' AND HOST='{1}';", targetUsername, targetHost
 				));
 
-			queryBuilder.Append(String.Format(
+			builder.Append(String.Format(
 				"DELETE FROM mysql.tables_priv WHERE USER='{0}' AND HOST='{1}';", targetUsername, targetHost
 				));
 
-			queryBuilder.Append(String.Format(
+			builder.Append(String.Format(
 				"DELETE FROM mysql.columns_priv WHERE USER='{0}' AND HOST='{1}';", targetUsername, targetHost
 				));
 
 			if(Program.ActivateCommunicator.v500)
 			{
-				queryBuilder.Append(String.Format(
+				builder.Append(String.Format(
 					"DELETE FROM mysql.procs_priv WHERE USER='{0}' AND HOST='{1}';", targetUsername, targetHost
 					));
 			}
 
-			queryBuilder.Append("FLUSH PRIVILEGES;");
-
-			return queryBuilder.ToString();
+			return builder.ToString();
 		}
 
 		/// <summary>
@@ -534,6 +554,243 @@ namespace Easy2.Classes
 		public static string AlterDatabase(string dbname, string charset, string collation)
 		{
 			return String.Format("ALTER DATABASE {0} CHARACTER SET {1} COLLATE {2};", dbname, charset, collation);
+		}
+
+		/// <summary>
+		/// 데이터베이스 권한정보를 갱신하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="host">호스트입니다.</param>
+		/// <param name="user">사용자입니다.</param>
+		/// <param name="db_privileges">데이터베이스 권한정보 객체입니다.</param>
+		/// <returns>데이터베이스 권한정보를 갱신하는 쿼리문입니다.</returns>
+		public static string UpdateDatabasePrivilege(string host, string user, DatabasePrivilege db_priv)
+		{
+			StringBuilder builder = new StringBuilder();
+
+			builder.Append(
+				"INSERT INTO mysql.db(host, db, user, "
+				);
+
+			for(int i = 0; i < db_priv.Privileges.Count; i++)
+			{
+				if(i == db_priv.Privileges.Count - 1)
+				{
+					builder.Append(
+						String.Format("{0}) ", db_priv.Privileges[i])
+						);
+				}
+
+				else
+				{
+					builder.Append(
+						String.Format("{0}, ", db_priv.Privileges[i])
+						);
+				}
+			}
+
+			builder.Append(
+				String.Format("VALUES('{0}', '{1}', '{2}', ", host, db_priv.Db, user)
+				);
+
+			for(int i = 0; i < db_priv.Privileges.Count; i++)
+			{
+				if(i == db_priv.Privileges.Count - 1)
+				{
+					builder.Append("'Y');");
+				}
+				else
+				{
+					builder.Append("'Y', ");
+				}
+			}
+
+			return builder.ToString();
+		}
+
+		/// <summary>
+		/// 테이블 권한정보를 갱신하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="host">호스트입니다.</param>
+		/// <param name="user">사용자입니다.</param>
+		/// <param name="db_privileges">테이블 권한정보 객체입니다.</param>
+		/// <returns>테이블 권한정보를 갱신하는 쿼리문입니다.</returns>
+		public static string UpdateTablePrivilege(string host, string user, TablePrivilege table_priv)
+		{
+			StringBuilder builder = new StringBuilder();
+
+			builder.Append(
+				String.Format("INSERT INTO mysql.tables_priv(host, db, user, table_name, grantor, table_priv) VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '",
+					host, table_priv.Db, user, table_priv.TableName,
+					String.Format("{0}@{1}", user, host)
+					)
+				);
+
+			for(int i = 0; i < table_priv.Privileges.Count; i++)
+			{
+				if(i == table_priv.Privileges.Count - 1)
+				{
+					builder.Append(
+						String.Format("{0}');", table_priv.Privileges[i])
+						);
+				}
+				else
+				{
+					builder.Append(
+						String.Format("{0},", table_priv.Privileges[i])
+						);
+				}
+			}
+
+			return builder.ToString();
+		}
+
+		/// <summary>
+		/// 컬럼 권한정보를 갱신하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="host">호스트입니다.</param>
+		/// <param name="user">사용자입니다.</param>
+		/// <param name="db_privileges">컬럼 권한정보 객체입니다.</param>
+		/// <returns>컬럼 권한정보를 갱신하는 쿼리문입니다.</returns>
+		public static string UpdateColumnPrivilege(string host, string user, ColumnPrivilege column_priv)
+		{
+			StringBuilder builder = new StringBuilder();
+
+			builder.Append(
+				String.Format("INSERT INTO mysql.columns_priv(host, db, user, table_name, column_name, column_priv) VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '",
+					host, column_priv.Db, user, column_priv.TableName, column_priv.ColumnName)
+				);
+
+			for(int i = 0; i < column_priv.Privileges.Count; i++)
+			{
+				if(i == column_priv.Privileges.Count - 1)
+				{
+					builder.Append(
+						String.Format("{0}');", column_priv.Privileges[i])
+						);
+				}
+				else
+				{
+					builder.Append(
+						String.Format("{0},", column_priv.Privileges[i])
+						);
+				}
+			}
+
+			return builder.ToString();
+		}
+
+		/// <summary>
+		/// 루틴 권한정보를 갱신하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="host">호스트입니다.</param>
+		/// <param name="user">사용자입니다.</param>
+		/// <param name="db_privileges">루틴 권한정보 객체입니다.</param>
+		/// <returns>루틴 권한정보를 갱신하는 쿼리문입니다.</returns>
+		public static string UpdateRoutinePrivilege(string host, string user, RoutinePrivilege routine_priv)
+		{
+			StringBuilder builder = new StringBuilder();
+
+			builder.Append(
+				String.Format("INSERT INTO mysql.procs_priv(host, db, user, routine_name, routine_type, grantor, proc_priv) VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '",
+					host, routine_priv.Db, user, routine_priv.RoutineName, routine_priv.Type.ToString(),
+					String.Format("{0}@{1}", user, host))
+				);
+
+			for(int i = 0; i < routine_priv.Privileges.Count; i++)
+			{
+				if(i == routine_priv.Privileges.Count - 1)
+				{
+					builder.Append(
+						String.Format("{0}');", routine_priv.Privileges[i])
+						);
+				}
+				else
+				{
+					builder.Append(
+						String.Format("{0},", routine_priv.Privileges[i])
+						);
+				}
+			}
+
+			return builder.ToString();
+		}
+
+		/// <summary>
+		/// tables_priv 테이블의 column_priv 컬럼 값을 갱신하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="host">호스트입니다.</param>
+		/// <param name="user">사용자입니다.</param>
+		/// <param name="column_privileges">컬럼의 권한정보를 가진 객체 배열입니다.</param>
+		/// <returns>tables_priv 테이블의 column_priv 컬럼 값을 갱신하는 쿼리문입니다.</returns>
+		public static string UpdateColumnPrivilegeInTablesPriv(string host, string user, ColumnPrivilege[] column_privileges)
+		{
+			StringBuilder builder = new StringBuilder();
+
+			builder.Append(
+				"UPDATE mysql.tables_priv SET column_priv='"
+				);
+
+			HashSet<string> priv_set = new HashSet<string>();
+			foreach(ColumnPrivilege column_priv in column_privileges)
+			{
+				foreach(string priv in column_priv.Privileges)
+				{
+					priv_set.Add(priv);
+				}
+			}
+
+			foreach(string priv in priv_set)
+			{
+				builder.Append(
+					String.Format("{0},", priv)
+					);
+			}
+
+			// 위 foreach문에서 완성된 문자열 '권한1,권한2,권한3, 형태를 '권한1,권한2,권한3'으로 변경
+			// 즉 마지막에 들어있는 ,문자를 '로 치환
+			builder.Replace(",", "'", builder.Length - 1, 1);
+
+			builder.Append(
+				String.Format(" WHERE host='{0}' AND db='{1}' AND user='{2}' AND table_name='{3}';",
+					host, column_privileges[0].Db, user, column_privileges[0].TableName)
+				);
+
+			return builder.ToString();
+		}
+
+		/// <summary>
+		/// 모든 객체에 관한 권한을 제거하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="host">호스트입니다.</param>
+		/// <param name="user">사용자입니다.</param>
+		/// <returns>모든 객체에 관한 권한을 제거하는 쿼리문입니다.</returns>
+		public static string DeletePrivileges(string host, string user)
+		{
+			StringBuilder builder = new StringBuilder();
+
+			builder.Append(
+				String.Format("DELETE FROM mysql.db WHERE host='{0}' AND user='{1}';", host, user)
+				);
+			builder.Append(
+				String.Format("DELETE FROM mysql.tables_priv WHERE host='{0}' AND user='{1}';", host, user)
+				);
+			builder.Append(
+				String.Format("DELETE FROM mysql.columns_priv WHERE host='{0}' AND user='{1}';", host, user)
+				);
+			builder.Append(
+				String.Format("DELETE FROM mysql.procs_priv WHERE host='{0}' AND user='{1}';", host, user)
+				);
+
+			return builder.ToString();
+		}
+
+		/// <summary>
+		/// 내부 캐쉬메모리를 비우는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <returns>내부 캐쉬메모리를 비우는 쿼리문입니다.</returns>
+		public static string FlushPrivileges()
+		{
+			return "FLUSH PRIVILEGES;";
 		}
 
 		/// <summary>

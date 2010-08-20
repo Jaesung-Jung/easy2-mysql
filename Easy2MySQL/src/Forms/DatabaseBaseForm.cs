@@ -106,13 +106,17 @@ namespace Easy2.Forms
 				MySqlDataReader reader = null;
 				try
 				{
-					reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowCharset(charset));
+					reader = Program.ActivateCommunicator.ExecuteReader(
+						MySqlGenerator.ShowCharset(charset)
+						);
 					reader.Read();
 					this.m_descriptionLabel.Text = reader.GetString(1);
 					reader.Close();
 
 					this.m_collationCombo.Items.Clear();
-					reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowCollation(charset));
+					reader = Program.ActivateCommunicator.ExecuteReader(
+						MySqlGenerator.ShowCollation(charset)
+						);
 					while(reader.Read())
 					{
 						this.m_collationCombo.Items.Add(reader.GetString(0));

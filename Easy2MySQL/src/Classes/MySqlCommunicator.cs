@@ -313,7 +313,14 @@ namespace Easy2.Classes
 		/// <param name="table_privileges">테이블 권한정보를 가진 객체 배열입니다.</param>
 		/// <param name="column_privileges">컬럼 권한정보를 가진 객체 배열입니다.</param>
 		/// <param name="routine_privileges">루틴 퀀한정보를 가진 객체 배열입니다.</param>
-		public void UpdatePrivilege(string host, string user, DatabasePrivilege[] db_privileges, TablePrivilege[] table_privileges, ColumnPrivilege[] column_privileges, RoutinePrivilege[] routine_privileges)
+		public void UpdatePrivilege(
+			string host,
+			string user,
+			DatabasePrivilege[] db_privileges,
+			TablePrivilege[] table_privileges,
+			ColumnPrivilege[] column_privileges,
+			RoutinePrivilege[] routine_privileges
+			)
 		{
 			Execute(MySqlGenerator.DeletePrivileges(host, user));
 			FlushPrivileges();
@@ -331,7 +338,13 @@ namespace Easy2.Classes
 				Execute(MySqlGenerator.UpdateRoutinePrivilege(host, user, routine_priv));
 
 			if(column_privileges.Length != 0)
-				Execute(MySqlGenerator.UpdateColumnPrivilegeInTablesPriv(host, user, column_privileges));
+			{
+				Execute(MySqlGenerator.UpdateColumnPrivilegeInTablesPriv(
+					host,
+					user,
+					column_privileges
+					));
+			}
 			FlushPrivileges();
 		}
 

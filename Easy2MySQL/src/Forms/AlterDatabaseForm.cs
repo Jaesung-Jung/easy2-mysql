@@ -39,12 +39,16 @@ namespace Easy2.Forms
 			MySqlDataReader reader = null;
 			try
 			{
-				reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowCharsetForUseDatabase());
+				reader = Program.ActivateCommunicator.ExecuteReader(
+					MySqlGenerator.ShowCharsetForUseDatabase()
+					);
 				reader.Read();
 				string charset = reader.GetString(1);
 				reader.Close();
 
-				reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowCollationForUseDatabase());
+				reader = Program.ActivateCommunicator.ExecuteReader(
+					MySqlGenerator.ShowCollationForUseDatabase()
+					);
 				reader.Read();
 				string collation = reader.GetString(1);
 				reader.Close();
@@ -54,7 +58,7 @@ namespace Easy2.Forms
 			}
 			catch(MySqlException ex)
 			{
-				EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
+				EasyToMySqlError.Show(this,	ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
 			}
 			finally
 			{
@@ -79,17 +83,25 @@ namespace Easy2.Forms
 			{
 				if(this.m_charsetCombo.SelectedIndex == 0)
 				{
-					reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowCharsetServer());
+					reader = Program.ActivateCommunicator.ExecuteReader(
+						MySqlGenerator.ShowCharsetServer()
+						);
 					reader.Read();
-					string charset = reader.GetString(1);
+					string charset = reader["Value"].ToString();
 					reader.Close();
 
-					reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowCollationServer());
+					reader = Program.ActivateCommunicator.ExecuteReader(
+						MySqlGenerator.ShowCollationServer()
+						);
 					reader.Read();
-					string collation = reader.GetString(1);
+					string collation = reader["Value"].ToString();
 					reader.Close();
 
-					Program.ActivateCommunicator.AlterDatabase(this.m_dbname, charset, collation);
+					Program.ActivateCommunicator.AlterDatabase(
+						this.m_dbname,
+						charset,
+						collation
+						);
 				}
 				else
 				{

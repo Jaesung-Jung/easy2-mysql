@@ -107,11 +107,17 @@ namespace Easy2.Forms
 
 			try
 			{
-				reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.SelectMysqlUser());
+				reader = Program.ActivateCommunicator.ExecuteReader(
+					MySqlGenerator.SelectMysqlUser()
+					);
 
 				while(reader.Read())
 				{
-					userList.Add(String.Format("{0}@{1}", reader.GetString(0), reader.GetString(1)));
+					userList.Add(String.Format(
+						"{0}@{1}",
+						reader["User"].ToString(),
+						reader["Host"].ToString()
+						));
 				}
 
 				reader.Close();
@@ -142,7 +148,9 @@ namespace Easy2.Forms
 				string username = this.m_userListCombo.SelectedItem.ToString().Split('@')[0];
 				string host = this.m_userListCombo.SelectedItem.ToString().Split('@')[1];
 
-				reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.SelectMysqlUser(username, host));
+				reader = Program.ActivateCommunicator.ExecuteReader(
+					MySqlGenerator.SelectMysqlUser(username, host)
+					);
 
 				while(reader.Read())
 				{

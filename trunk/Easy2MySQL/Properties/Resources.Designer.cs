@@ -503,6 +503,15 @@ namespace Easy2.Properties {
         }
         
         /// <summary>
+        ///   사용자 권한이 갱신되었습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2Message_UpdatePrivileges {
+            get {
+                return ResourceManager.GetString("Easy2Message_UpdatePrivileges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   &apos;{0}&apos; 사용자 정보가 수정되었습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string Easy2Message_UserAlterSuccessfully {

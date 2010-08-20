@@ -454,4 +454,7 @@
   <data name="Easy2Message_UserDeleteQuestion" xml:space="preserve">
     <value>'{0}' 사용자를 삭제 하시겠습니까?</value>
   </data>
+  <data name="Easy2Message_UpdatePrivileges" xml:space="preserve">
+    <value>사용자 권한이 갱신되었습니다.</value>
+  </data>
 </root>

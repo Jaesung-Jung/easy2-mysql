@@ -195,7 +195,11 @@ namespace Easy2.Forms
 			StreamReader sr = null;
 			try
 			{
-				fs = new FileStream(Resources.FilePath_ConnectionData, FileMode.Open, FileAccess.Read);
+				fs = new FileStream(
+					Resources.FilePath_ConnectionData,
+					FileMode.Open,
+					FileAccess.Read
+					);
 				sr = new StreamReader(fs);
 				
 				string line;
@@ -204,7 +208,15 @@ namespace Easy2.Forms
 					string[] splitLine = line.Split(';');
 
 					// ConnectName, Host, Username, Password, Port, Database, Timeout
-					MySqlConnectInfo connectInfo = new MySqlConnectInfo(splitLine[0], splitLine[1], splitLine[2], splitLine[3], splitLine[4], splitLine[5], splitLine[6]);
+					MySqlConnectInfo connectInfo = new MySqlConnectInfo(
+						splitLine[0],
+						splitLine[1],
+						splitLine[2],
+						splitLine[3],
+						splitLine[4],
+						splitLine[5],
+						splitLine[6]
+						);
 					this.m_connectInfoList.Add(connectInfo);
 				}
 
@@ -233,14 +245,20 @@ namespace Easy2.Forms
 			StreamWriter sw = null;
 			try
 			{
-				fs = new FileStream(Resources.FilePath_ConnectionData, FileMode.Open, FileAccess.Write);
+				fs = new FileStream(
+					Resources.FilePath_ConnectionData,
+					FileMode.Open,
+					FileAccess.Write
+					);
 				sw = new StreamWriter(fs);
 
 				string line;
 				UpdateData(true);
 				for(int i = 0; i < this.m_connectInfoList.Count; i++)
 				{
-					if((this.m_connectionListCombo.SelectedIndex == i && this.m_savePasswordCheck.Checked) || (this.m_connectionListCombo.SelectedIndex != i))
+					if((this.m_connectionListCombo.SelectedIndex == i &&
+						this.m_savePasswordCheck.Checked) ||
+						(this.m_connectionListCombo.SelectedIndex != i))
 					{
 						line = String.Format("{0};{1};{2};{3};{4};{5};{6};",
 							this.m_connectInfoList[i].ConnectName,
@@ -321,7 +339,9 @@ namespace Easy2.Forms
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void OnRenameConnectionClick(object sender, EventArgs e)
 		{
-			RenameConnectForm frm = new RenameConnectForm(this.m_connectionListCombo.SelectedItem.ToString());
+			RenameConnectForm frm = new RenameConnectForm(
+				this.m_connectionListCombo.SelectedItem.ToString()
+				);
 			DialogResult result = frm.ShowDialog(this);
 			if(result == DialogResult.OK)
 			{
@@ -391,8 +411,16 @@ namespace Easy2.Forms
 			UpdateData(true);
 			try
 			{
-				string message = Resources.Easy2Message_ConnectSuccess + "\n" + Program.MySqlConnector.ConnectTest(this.m_selectedInfo);
-				MessageBox.Show(this, message, Resources.Easy2Message_ConnectTest, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				string message =
+					Resources.Easy2Message_ConnectSuccess + "\n" +
+					Program.MySqlConnector.ConnectTest(this.m_selectedInfo);
+				MessageBox.Show(
+					this,
+					message,
+					Resources.Easy2Message_ConnectTest,
+					MessageBoxButtons.OK,
+					MessageBoxIcon.Information
+					);
 			}
 			catch(MySqlException ex)
 			{

@@ -29,7 +29,7 @@ namespace Easy2.Forms
 		protected override void OnLoad(EventArgs e)
 		{
 			base.OnLoad(e);
-			this.InitializeCharset();
+			InitializeCharset();
 		}
 
 		/// <summary>

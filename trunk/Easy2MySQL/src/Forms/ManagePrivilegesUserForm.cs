@@ -131,7 +131,9 @@ namespace Easy2.Forms
 						try
 						{
 							// 테이블 목록 추가
-							reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowTablesViews(this.m_selectedDatabaseName));
+							reader = Program.ActivateCommunicator.ExecuteReader(
+								MySqlGenerator.ShowTablesViews(this.m_selectedDatabaseName)
+								);
 							List<string[]> tableList = new List<string[]>();
 
 							while(reader.Read())
@@ -154,7 +156,9 @@ namespace Easy2.Forms
 							SetTablePrivilege();
 
 							// 루틴 목록 추가
-							reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowRoutine(this.m_selectedDatabaseName));
+							reader = Program.ActivateCommunicator.ExecuteReader(
+								MySqlGenerator.ShowRoutine(this.m_selectedDatabaseName)
+								);
 							List<string[]> routineList = new List<string[]>();
 
 							while(reader.Read())
@@ -179,7 +183,7 @@ namespace Easy2.Forms
 						}
 						catch(MySqlException ex)
 						{
-							EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
+							EasyToMySqlError.Show(this,	ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
 						}
 						finally
 						{
@@ -215,7 +219,9 @@ namespace Easy2.Forms
 					try
 					{
 						// 컬럼 목록 추가
-						reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowColumns(this.m_selectedDatabaseName, this.m_selectedTableName));
+						reader = Program.ActivateCommunicator.ExecuteReader(
+							MySqlGenerator.ShowColumns(this.m_selectedDatabaseName, this.m_selectedTableName)
+							);
 						while(reader.Read())
 						{
 							string[] rowValue = new string[this.m_columnPrivGrid.ColumnCount];
@@ -336,7 +342,10 @@ namespace Easy2.Forms
 				RoutinePrivilege routine_priv = new RoutinePrivilege();
 				routine_priv.Db = this.m_databasePrivGrid.SelectedCells[0].OwningRow.Cells["Db"].Value.ToString();
 				routine_priv.RoutineName = row.Cells["Routine_name"].Value.ToString();
-				routine_priv.Type = (RoutinePrivilege.RoutineType)Enum.Parse(typeof(RoutinePrivilege.RoutineType), row.Cells["Routine_type"].Value.ToString());
+				routine_priv.Type = (RoutinePrivilege.RoutineType)Enum.Parse(
+					typeof(RoutinePrivilege.RoutineType),
+					row.Cells["Routine_type"].Value.ToString()
+					);
 				foreach(DataGridViewCell cell in row.Cells)
 				{
 					if(cell is DataGridViewCheckBoxCell)
@@ -353,8 +362,21 @@ namespace Easy2.Forms
 
 			try
 			{
-				Program.ActivateCommunicator.UpdatePrivilege(this.m_host, this.m_username, db_privileges.ToArray(), table_privileges.ToArray(), column_privileges.ToArray(), routine_privileges.ToArray());
-				// 메세지박스 추가
+				Program.ActivateCommunicator.UpdatePrivilege(
+					this.m_host,
+					this.m_username,
+					db_privileges.ToArray(),
+					table_privileges.ToArray(),
+					column_privileges.ToArray(),
+					routine_privileges.ToArray()
+					);
+				MessageBox.Show(
+						this,
+						Resources.Easy2Message_UpdatePrivileges,
+						Resources.Easy2Message_Title,
+						MessageBoxButtons.OK,
+						MessageBoxIcon.Information
+						);
 			}
 			catch(MySqlException ex)
 			{
@@ -383,7 +405,9 @@ namespace Easy2.Forms
 			MySqlDataReader reader = null;
 			try
 			{
-				reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowFullFields(target, false));
+				reader = Program.ActivateCommunicator.ExecuteReader(
+					MySqlGenerator.ShowFullFields(target, false)
+					);
 				while(reader.Read())
 				{
 					string fieldName = reader["Field"].ToString();
@@ -400,7 +424,10 @@ namespace Easy2.Forms
 							this.m_databasePrivGrid.Columns.Add(privColumn);
 						}
 					}
-					else if(target == "mysql.tables_priv" | target == "mysql.columns_priv" | target == "mysql.procs_priv")
+					else if(target == "mysql.tables_priv" |
+							target == "mysql.columns_priv" |
+							target == "mysql.procs_priv"
+						)
 					{
 						string targetField = null;
 						DataGridViewX targetGridView = null;
@@ -469,7 +496,9 @@ namespace Easy2.Forms
 
 			try
 			{
-				reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.SelectMysqlUser());
+				reader = Program.ActivateCommunicator.ExecuteReader(
+					MySqlGenerator.SelectMysqlUser()
+					);
 
 				while(reader.Read())
 				{
@@ -500,7 +529,9 @@ namespace Easy2.Forms
 			MySqlDataReader reader = null;
 			try
 			{
-				reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.SelectDatabasePrivilege(m_username, m_host));
+				reader = Program.ActivateCommunicator.ExecuteReader(
+					MySqlGenerator.SelectDatabasePrivilege(m_username, m_host)
+					);
 				while(reader.Read())
 				{
 					// Linq 쿼리로 Row 찾기
@@ -540,7 +571,8 @@ namespace Easy2.Forms
 			MySqlDataReader reader = null;
 			try
 			{
-				reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.SelectTablePrivilege(this.m_username, this.m_host, this.m_selectedDatabaseName));
+				reader = Program.ActivateCommunicator.ExecuteReader(
+					MySqlGenerator.SelectTablePrivilege(this.m_username, this.m_host, this.m_selectedDatabaseName));
 				while(reader.Read())
 				{
 					// Linq 쿼리로 Row 찾기
@@ -587,7 +619,8 @@ namespace Easy2.Forms
 			MySqlDataReader reader = null;
 			try
 			{
-				reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.SelectRoutinePrivilege(this.m_username, this.m_host, this.m_selectedDatabaseName));
+				reader = Program.ActivateCommunicator.ExecuteReader(
+					MySqlGenerator.SelectRoutinePrivilege(this.m_username, this.m_host, this.m_selectedDatabaseName));
 				while(reader.Read())
 				{
 					// Linq 쿼리로 Row 찾기
@@ -634,7 +667,8 @@ namespace Easy2.Forms
 			MySqlDataReader reader = null;
 			try
 			{
-				reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.SelectColumnPrivilege(this.m_username, this.m_host, this.m_selectedDatabaseName, this.m_selectedTableName));
+				reader = Program.ActivateCommunicator.ExecuteReader(
+					MySqlGenerator.SelectColumnPrivilege(this.m_username, this.m_host, this.m_selectedDatabaseName, this.m_selectedTableName));
 				while(reader.Read())
 				{
 					// Linq 쿼리로 Row 찾기

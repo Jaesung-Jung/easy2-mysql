@@ -91,32 +91,44 @@ namespace Easy2.Components
 							folderNode.Nodes.Clear();
 							if(folderNode.Text == "테이블")
 							{
-								reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowTables(Program.ActivateCommunicator.UseDatabaseName));
+								reader = Program.ActivateCommunicator.ExecuteReader(
+									MySqlGenerator.ShowTables(Program.ActivateCommunicator.UseDatabaseName)
+									);
 								this.ReadTables(folderNode, reader);
 							}
 							else if(folderNode.Text == "뷰")
 							{
-								reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowViews(Program.ActivateCommunicator.UseDatabaseName));
+								reader = Program.ActivateCommunicator.ExecuteReader(
+									MySqlGenerator.ShowViews(Program.ActivateCommunicator.UseDatabaseName)
+									);
 								this.ReadObject(folderNode, reader);
 							}
 							else if(folderNode.Text == "저장 프로시저")
 							{
-								reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowStoredProcs(Program.ActivateCommunicator.UseDatabaseName));
+								reader = Program.ActivateCommunicator.ExecuteReader(
+									MySqlGenerator.ShowStoredProcs(Program.ActivateCommunicator.UseDatabaseName)
+									);
 								this.ReadObject(folderNode, reader);
 							}
 							else if(folderNode.Text == "함수")
 							{
-								reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowFunctions(Program.ActivateCommunicator.UseDatabaseName));
+								reader = Program.ActivateCommunicator.ExecuteReader(
+									MySqlGenerator.ShowFunctions(Program.ActivateCommunicator.UseDatabaseName)
+									);
 								this.ReadObject(folderNode, reader);
 							}
 							else if(folderNode.Text == "트리거")
 							{
-								reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowTriggers(Program.ActivateCommunicator.UseDatabaseName));
+								reader = Program.ActivateCommunicator.ExecuteReader(
+									MySqlGenerator.ShowTriggers(Program.ActivateCommunicator.UseDatabaseName)
+									);
 								this.ReadObject(folderNode, reader);
 							}
 							else if(folderNode.Text == "이벤트")
 							{
-								reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowEvents(Program.ActivateCommunicator.UseDatabaseName));
+								reader = Program.ActivateCommunicator.ExecuteReader(
+									MySqlGenerator.ShowEvents(Program.ActivateCommunicator.UseDatabaseName)
+									);
 								this.ReadObject(folderNode, reader);
 							}
 						}
@@ -126,13 +138,17 @@ namespace Easy2.Components
 						Node tableNode = e.Node;
 						if(tableNode.Nodes[0].Nodes.Count == 0)
 						{
-							reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowColumns(tableNode.Text));
+							reader = Program.ActivateCommunicator.ExecuteReader(
+								MySqlGenerator.ShowColumns(tableNode.Text)
+								);
 							this.ReadColumns(tableNode.Nodes[0], reader);
 							reader.Close();
 						}
 						if(tableNode.Nodes[1].Nodes.Count == 0)
 						{
-							reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowIndexes(tableNode.Text));
+							reader = Program.ActivateCommunicator.ExecuteReader(
+								MySqlGenerator.ShowIndexes(tableNode.Text)
+								);
 							this.ReadIndexes(tableNode.Nodes[1], reader);
 						}
 						break;
@@ -192,20 +208,34 @@ namespace Easy2.Components
 				else
 					databaseList.Add(communicator.ConnectInfo.Database);
 
-				ObjectNode serverNode = new ObjectNode(null, communicator.ConnectInfo.Username + "@" + communicator.ConnectInfo.Host, ObjectNodeType.MySqlServer);
+				ObjectNode serverNode = new ObjectNode(
+					null,
+					communicator.ConnectInfo.Username + "@" + communicator.ConnectInfo.Host,
+					ObjectNodeType.MySqlServer
+					);
 				this.Nodes.Add(serverNode);
 
 				string[] folderList = { "테이블", "뷰", "저장 프로시저", "함수", "트리거", "이벤트" };
 				foreach(string databaseName in databaseList)
 				{
-					ObjectNode databaseNode = new ObjectNode(serverNode, databaseName, ObjectNodeType.MySqlDatabase);
+					ObjectNode databaseNode = new ObjectNode(
+						serverNode,
+						databaseName,
+						ObjectNodeType.MySqlDatabase
+						);
 					serverNode.Nodes.Add(databaseNode);
 
 					foreach(string folder in folderList)
 					{
-						ObjectNode folderNode = new ObjectNode(databaseNode, folder, ObjectNodeType.Folder);
+						ObjectNode folderNode = new ObjectNode(
+							databaseNode,
+							folder,
+							ObjectNodeType.Folder
+							);
 						databaseNode.Nodes.Add(folderNode);
-						folderNode.Nodes.Add(new ObjectNode(folderNode, "null", ObjectNodeType.MySqlTable));
+						folderNode.Nodes.Add(
+							new ObjectNode(folderNode, "null", ObjectNodeType.MySqlTable)
+							);
 					}
 				}
 			}

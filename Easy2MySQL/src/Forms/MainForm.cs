@@ -434,6 +434,11 @@ namespace Easy2.Forms
 			alterDatabaseForm.ShowDialog(this);
 		}
 
+		private void OnCreateTableClick(object sender, EventArgs e)
+		{
+			new TableBaseForm().ShowDialog(this);
+		}
+
 		private int m_queryEditorsCount;
 		private QueryEditor m_selectedQueryEditor;
 		private DockingManager m_dockingManager;

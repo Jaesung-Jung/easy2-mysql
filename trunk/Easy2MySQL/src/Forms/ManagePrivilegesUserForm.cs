@@ -118,7 +118,7 @@ namespace Easy2.Forms
 		{
 			if(this.m_databasePrivGrid.SelectedCells.Count > 0)
 			{
-				int index = this.m_databasePrivGrid.SelectedCells[0].RowIndex;
+				int index = this.m_databasePrivGrid.CurrentCell.RowIndex;
 				if(this.m_selectedDatabaseName != this.m_databasePrivGrid.Rows[index].Cells["Db"].Value.ToString())
 				{
 					this.m_selectedDatabaseName = this.m_databasePrivGrid.Rows[index].Cells["Db"].Value.ToString();
@@ -209,7 +209,7 @@ namespace Easy2.Forms
 		{
 			if(this.m_tablePrivGrid.SelectedCells.Count > 0)
 			{
-				int index = this.m_tablePrivGrid.SelectedCells[0].RowIndex;
+				int index = this.m_tablePrivGrid.CurrentCell.RowIndex;
 				if(this.m_selectedTableName != this.m_tablePrivGrid.Rows[index].Cells["Table_name"].Value.ToString())
 				{
 					this.m_selectedTableName = this.m_tablePrivGrid.Rows[index].Cells["Table_name"].Value.ToString();
@@ -297,7 +297,7 @@ namespace Easy2.Forms
 			foreach(DataGridViewRow row in this.m_tablePrivGrid.Rows)
 			{
 				TablePrivilege table_priv = new TablePrivilege();
-				table_priv.Db = this.m_databasePrivGrid.SelectedCells[0].OwningRow.Cells["Db"].Value.ToString();
+				table_priv.Db = this.m_databasePrivGrid.CurrentCell.OwningRow.Cells["Db"].Value.ToString();
 				table_priv.TableName = row.Cells["Table_name"].Value.ToString();
 				foreach(DataGridViewCell cell in row.Cells)
 				{
@@ -318,8 +318,8 @@ namespace Easy2.Forms
 			foreach(DataGridViewRow row in this.m_columnPrivGrid.Rows)
 			{
 				ColumnPrivilege column_priv = new ColumnPrivilege();
-				column_priv.Db = this.m_databasePrivGrid.SelectedCells[0].OwningRow.Cells["Db"].Value.ToString();
-				column_priv.TableName = this.m_tablePrivGrid.SelectedCells[0].OwningRow.Cells["Table_name"].Value.ToString();
+				column_priv.Db = this.m_databasePrivGrid.CurrentCell.OwningRow.Cells["Db"].Value.ToString();
+				column_priv.TableName = this.m_tablePrivGrid.CurrentCell.OwningRow.Cells["Table_name"].Value.ToString();
 				column_priv.ColumnName = row.Cells["Column_name"].Value.ToString();
 				foreach(DataGridViewCell cell in row.Cells)
 				{
@@ -340,10 +340,10 @@ namespace Easy2.Forms
 			foreach(DataGridViewRow row in this.m_routinePrivGrid.Rows)
 			{
 				RoutinePrivilege routine_priv = new RoutinePrivilege();
-				routine_priv.Db = this.m_databasePrivGrid.SelectedCells[0].OwningRow.Cells["Db"].Value.ToString();
+				routine_priv.Db = this.m_databasePrivGrid.CurrentCell.OwningRow.Cells["Db"].Value.ToString();
 				routine_priv.RoutineName = row.Cells["Routine_name"].Value.ToString();
-				routine_priv.Type = (RoutinePrivilege.RoutineType)Enum.Parse(
-					typeof(RoutinePrivilege.RoutineType),
+				routine_priv.Type = (RoutineType)Enum.Parse(
+					typeof(RoutineType),
 					row.Cells["Routine_type"].Value.ToString()
 					);
 				foreach(DataGridViewCell cell in row.Cells)
@@ -545,7 +545,7 @@ namespace Easy2.Forms
 						string fieldName = reader.GetName(i);
 						if(fieldName.IndexOf("priv") != -1)
 						{
-							row.Cells[reader.GetName(i)].Value = reader[fieldName].ToString() == "Y" ? "True" : "False";
+							row.Cells[reader.GetName(i)].Value = reader[fieldName].ToString() == "Y" ? true : false;
 						}
 					}
 				}
@@ -591,7 +591,7 @@ namespace Easy2.Forms
 							{
 								if(s.Length > 0)
 								{
-									row.Cells[s].Value = "True";
+									row.Cells[s].Value = true;
 								}
 							}
 						}
@@ -639,7 +639,7 @@ namespace Easy2.Forms
 							{
 								if(s.Length > 0)
 								{
-									row.Cells[s].Value = "True";
+									row.Cells[s].Value = true;
 								}
 							}
 						}
@@ -687,7 +687,7 @@ namespace Easy2.Forms
 							{
 								if(s.Length > 0)
 								{
-									row.Cells[s].Value = "True";
+									row.Cells[s].Value = true;
 								}
 							}
 						}

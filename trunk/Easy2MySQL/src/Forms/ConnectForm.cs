@@ -360,7 +360,7 @@ namespace Easy2.Forms
 		private void OnDeleteConnectionClick(object sender, EventArgs e)
 		{
 			DialogResult result = MessageBox.Show(
-				this, Resources.Easy2Message_DeleteQuestion,
+				this, Resources.Easy2Message_DeleteConnectionQuestion,
 				Resources.Easy2Message_Question,
 				MessageBoxButtons.YesNo,
 				MessageBoxIcon.Question);

@@ -460,9 +460,18 @@ namespace Easy2.Properties {
         /// <summary>
         ///   객체를 삭제하시겠습니까?과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static string Easy2Message_DeleteQuestion {
+        internal static string Easy2Message_DeleteConnectionQuestion {
             get {
-                return ResourceManager.GetString("Easy2Message_DeleteQuestion", resourceCulture);
+                return ResourceManager.GetString("Easy2Message_DeleteConnectionQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   필드를 지우시겠습니까?과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2Message_DeleteFieldQuestion {
+            get {
+                return ResourceManager.GetString("Easy2Message_DeleteFieldQuestion", resourceCulture);
             }
         }
         

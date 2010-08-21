@@ -544,6 +544,7 @@
 			this.m_createTable.Name = "m_createTable";
 			this.m_createTable.SubItemsExpandWidth = 14;
 			this.m_createTable.Text = "<div align=\"center\">테이블<br/>만들기</div>";
+			this.m_createTable.Click += new System.EventHandler(this.OnCreateTableClick);
 			// 
 			// m_tableItemContainer
 			// 

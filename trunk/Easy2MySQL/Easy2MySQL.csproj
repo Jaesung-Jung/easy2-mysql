@@ -78,6 +78,7 @@
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -121,6 +122,11 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="src\Components\SliderItemEx.cs" />
+    <Compile Include="src\Components\TableEditor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="src\Enums\DataTypePermission.cs" />
+    <Compile Include="src\Enums\RoutineType.cs" />
     <Compile Include="src\Enums\WndMsg.cs" />
     <Compile Include="src\Forms\AlterDatabaseForm.cs">
       <SubType>Form</SubType>
@@ -194,6 +200,12 @@
     <Compile Include="src\Forms\RenameConnectForm.Designer.cs">
       <DependentUpon>RenameConnectForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\Forms\TableBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\TableBaseForm.Designer.cs">
+      <DependentUpon>TableBaseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\Forms\UserBaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\RenameConnectForm.resx">
       <DependentUpon>RenameConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\TableBaseForm.resx">
+      <DependentUpon>TableBaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\UserBaseForm.resx">
       <DependentUpon>UserBaseForm.cs</DependentUpon>

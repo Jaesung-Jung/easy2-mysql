@@ -154,8 +154,8 @@ namespace Easy2.Forms
 
 				while(reader.Read())
 				{
-					this.UserInfo.Host = reader.GetString(0);
-					this.UserInfo.Username = reader.GetString(1);
+					this.UserInfo.Host = reader["Host"].ToString();
+					this.UserInfo.Username = reader["User"].ToString();
 					this.UserInfo.Password = "\n\n\n\n";
 					this.UserInfo.Select = reader.GetChar(3) == 'Y' ? true : false;
 					this.UserInfo.Insert = reader.GetChar(4) == 'Y' ? true : false;

@@ -50,7 +50,7 @@ namespace Easy2.Forms
 				SortedSet<string> readerSet = new SortedSet<string>();
 				while(reader.Read())
 				{
-					readerSet.Add(reader.GetString(0));
+					readerSet.Add(reader["Charset"].ToString());
 				}
 				foreach(string s in readerSet)
 				{
@@ -110,7 +110,7 @@ namespace Easy2.Forms
 						MySqlGenerator.ShowCharset(charset)
 						);
 					reader.Read();
-					this.m_descriptionLabel.Text = reader.GetString(1);
+					this.m_descriptionLabel.Text = reader["Description"].ToString();
 					reader.Close();
 
 					this.m_collationCombo.Items.Clear();
@@ -119,7 +119,7 @@ namespace Easy2.Forms
 						);
 					while(reader.Read())
 					{
-						this.m_collationCombo.Items.Add(reader.GetString(0));
+						this.m_collationCombo.Items.Add(reader["Collation"].ToString());
 					}
 					this.m_collationCombo.SelectedIndex = 0;
 					reader.Close();

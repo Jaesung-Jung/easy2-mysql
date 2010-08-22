@@ -193,7 +193,7 @@ namespace Easy2.Components
 					{
 						reader = communicator.ExecuteReader(MySqlGenerator.ShowDatabases());
 						while(reader.Read())
-							databaseList.Add(reader.GetString(0));
+							databaseList.Add(reader["Database"].ToString());
 					}
 					catch(MySqlException ex)
 					{

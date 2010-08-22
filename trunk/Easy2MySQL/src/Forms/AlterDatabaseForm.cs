@@ -43,14 +43,14 @@ namespace Easy2.Forms
 					MySqlGenerator.ShowCharsetForUseDatabase()
 					);
 				reader.Read();
-				string charset = reader.GetString(1);
+				string charset = reader["Value"].ToString();
 				reader.Close();
 
 				reader = Program.ActivateCommunicator.ExecuteReader(
 					MySqlGenerator.ShowCollationForUseDatabase()
 					);
 				reader.Read();
-				string collation = reader.GetString(1);
+				string collation = reader["Value"].ToString();
 				reader.Close();
 
 				this.m_charsetCombo.SelectedIndex = this.m_charsetCombo.FindString(charset);

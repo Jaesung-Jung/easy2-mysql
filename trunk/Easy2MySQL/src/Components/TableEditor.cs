@@ -8,6 +8,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using MySql.Data.MySqlClient;
 using DevComponents.DotNetBar.Controls;
 
 namespace Easy2.Components
@@ -28,6 +29,7 @@ namespace Easy2.Components
 		protected override void OnCellValueChanged(DataGridViewCellEventArgs e)
 		{
 			DataGridViewCell changedCell = this[e.ColumnIndex, e.RowIndex];
+			DataGridViewRow changedRow = this.Rows[e.RowIndex];
 			DataGridViewColumn changedColumn = this.Columns[e.ColumnIndex];
 
 			if(changedColumn == this.Columns["Datatype"])
@@ -36,62 +38,88 @@ namespace Easy2.Components
 
 				if((this.m_permission[type] & DataTypePermission.AutoIncrement) == DataTypePermission.AutoIncrement)
 				{
-					ControlCell(changedCell.OwningRow.Cells["AutoIncr"], false);
+					ControlCell(changedRow.Cells["AutoIncr"], false);
 				}
 				else
 				{
-					ControlCell(changedCell.OwningRow.Cells["AutoIncr"], false, true);
+					ControlCell(changedRow.Cells["AutoIncr"], false, true);
 				}
 				if((this.m_permission[type] & DataTypePermission.Charset) == DataTypePermission.Charset)
 				{
-					ControlCell(changedCell.OwningRow.Cells["Charset"], false);
+					ReadCharset();
+					ControlCell(changedRow.Cells["Charset"], "기본값", false);
 				}
 				else
 				{
-					ControlCell(changedCell.OwningRow.Cells["Charset"], null, true);
+					this.m_charset.Clear();
+					ControlCell(changedRow.Cells["Charset"], null, true);
 				}
 				if((this.m_permission[type] & DataTypePermission.Collation) == DataTypePermission.Collation)
 				{
-					ControlCell(changedCell.OwningRow.Cells["Collation"], false);
+					ControlCell(changedRow.Cells["Collation"], false);
 				}
 				else
 				{
-					ControlCell(changedCell.OwningRow.Cells["Collation"], null, true);
+//					((DataGridViewComboBoxCell)changedRow.Cells["Collation"]).Items.Clear();
+					ControlCell(changedRow.Cells["Collation"], null, true);
 				}
 				if((this.m_permission[type] & DataTypePermission.Len) == DataTypePermission.Len)
 				{
-					ControlCell(changedCell.OwningRow.Cells["Length"], false);
+					ControlCell(changedRow.Cells["Length"], false);
 				}
 				else
 				{
-					ControlCell(changedCell.OwningRow.Cells["Length"], null, true);
+					ControlCell(changedRow.Cells["Length"], null, true);
 				}
 				if((this.m_permission[type] & DataTypePermission.Unsigned) == DataTypePermission.Unsigned)
 				{
-					ControlCell(changedCell.OwningRow.Cells["Unsigned"], false);
+					ControlCell(changedRow.Cells["Unsigned"], false);
 				}
 				else
 				{
-					ControlCell(changedCell.OwningRow.Cells["Unsigned"], false, true);
+					ControlCell(changedRow.Cells["Unsigned"], false, true);
 				}
 				if((this.m_permission[type] & DataTypePermission.Zerofill) == DataTypePermission.Zerofill)
 				{
-					ControlCell(changedCell.OwningRow.Cells["Zerofill"], false);
+					ControlCell(changedRow.Cells["Zerofill"], false);
 				}
 				else
 				{
-					ControlCell(changedCell.OwningRow.Cells["Zerofill"], false, true);
+					ControlCell(changedRow.Cells["Zerofill"], false, true);
 				}
 			}
 			else if(changedColumn == this.Columns["Pk"])
 			{
 				if(Boolean.Parse(changedCell.Value.ToString()))
 				{
-					ControlCell(changedCell.OwningRow.Cells["NotNull"], true, true);
+					ControlCell(changedRow.Cells["NotNull"], true, true);
 				}
 				else
 				{
-					ControlCell(changedCell.OwningRow.Cells["NotNull"], false);
+					ControlCell(changedRow.Cells["NotNull"], false);
+				}
+			}
+			else if(changedColumn == this.Columns["Charset"])
+			{
+				DataGridViewComboBoxCell collationCell = (DataGridViewComboBoxCell)(changedRow.Cells["Collation"]);
+				collationCell.Items.Clear();
+				if(changedCell.Value != null)
+				{
+					if(changedCell.Value.Equals("기본값") == false)
+					{
+						collationCell.Items.AddRange(ReadCollation(changedCell.Value.ToString()));
+						collationCell.Value = collationCell.Items[0];
+					}
+					else
+					{
+						collationCell.Items.Add("기본값");
+						collationCell.Value = collationCell.Items[0];
+					}
+				}
+				else
+				{
+					collationCell.Items.Clear();
+					collationCell.Value = null;
 				}
 			}
 
@@ -167,6 +195,7 @@ namespace Easy2.Components
 			lengthColumn.HeaderText = "길이";
 			lengthColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
 			lengthColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+			lengthColumn.ReadOnly = true;
 			lengthColumn.Width = 50;
 			lengthColumn.ValueType = typeof(System.Int32);
 			//
@@ -197,6 +226,7 @@ namespace Easy2.Components
 			//
 			unsignedColumn.Name = "Unsigned";
 			unsignedColumn.HeaderText = "Unsigned";
+			unsignedColumn.ReadOnly = true;
 			unsignedColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
 			unsignedColumn.Resizable = DataGridViewTriState.False;
 			unsignedColumn.Width = 80;
@@ -205,6 +235,7 @@ namespace Easy2.Components
 			//
 			autoIncrementColumn.Name = "AutoIncr";
 			autoIncrementColumn.HeaderText = "Auto Incr";
+			autoIncrementColumn.ReadOnly = true;
 			autoIncrementColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
 			autoIncrementColumn.Resizable = DataGridViewTriState.False;
 			autoIncrementColumn.Width = 80;
@@ -213,6 +244,7 @@ namespace Easy2.Components
 			//
 			zerofillColumn.Name = "Zerofill";
 			zerofillColumn.HeaderText = "Zerofill";
+			zerofillColumn.ReadOnly = true;
 			zerofillColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
 			zerofillColumn.Resizable = DataGridViewTriState.False;
 			zerofillColumn.Width = 70;
@@ -221,8 +253,8 @@ namespace Easy2.Components
 			//
 			charsetColumn.Name = "Charset";
 			charsetColumn.HeaderText = "문자셋";
+			charsetColumn.ReadOnly = true;
 			charsetColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
-			charsetColumn.Resizable = DataGridViewTriState.False;
 			charsetColumn.FlatStyle = FlatStyle.Flat;
 			charsetColumn.DataSource = this.m_charset;
 			charsetColumn.Width = 100;
@@ -231,11 +263,10 @@ namespace Easy2.Components
 			//
 			collationColumn.Name = "Collation";
 			collationColumn.HeaderText = "콜레이션";
+			collationColumn.ReadOnly = true;
 			collationColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
-			collationColumn.Resizable = DataGridViewTriState.False;
 			collationColumn.FlatStyle = FlatStyle.Flat;
-			collationColumn.DataSource = this.m_collation;
-			collationColumn.Width = 120; ;
+			collationColumn.Width = 140;
 			//
 			// commentColumn
 			//
@@ -354,8 +385,65 @@ namespace Easy2.Components
 		/// <summary>
 		/// 캐릭터셋을 읽어옵니다.
 		/// </summary>
+		/// <exception cref="MySqlException">
+		/// 쿼리문 실행을 실패하였을 경우 MySqlException 예외가 발생됩니다.
+		/// </exception>
 		private void ReadCharset()
 		{
+			MySqlDataReader reader = null;
+			this.m_charset.Add("기본값");
+			try
+			{
+				reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowCharset());
+				while(reader.Read())
+				{
+					this.m_charset.Add(reader["Charset"].ToString());
+				}
+				reader.Close();
+			}
+			catch(MySqlException ex)
+			{
+				throw ex;
+			}
+			finally
+			{
+				if(reader != null)
+					reader.Close();
+			}
+		}
+
+		/// <summary>
+		/// 콜레이션을 읽어옵니다.
+		/// </summary>
+		/// /// <exception cref="MySqlException">
+		/// 쿼리문 실행을 실패하였을 경우 MySqlException 예외가 발생됩니다.
+		/// </exception>
+		private string[] ReadCollation(string charset)
+		{
+			MySqlDataReader reader = null;
+			List<string> collation = new List<string>();
+
+			try
+			{
+				reader = Program.ActivateCommunicator.ExecuteReader(
+					MySqlGenerator.ShowCollation(charset));
+				while(reader.Read())
+				{
+					collation.Add(reader["Collation"].ToString());
+				}
+				collation.Sort();
+				reader.Close();
+			}
+			catch(MySqlException ex)
+			{
+				throw ex;
+			}
+			finally
+			{
+				if(reader != null)
+					reader.Close();
+			}
+			return collation.ToArray();
 		}
 
 		/// <summary>
@@ -408,6 +496,5 @@ namespace Easy2.Components
 
 		private Dictionary<string, DataTypePermission> m_permission = new Dictionary<string, DataTypePermission>();
 		private List<string> m_charset = new List<string>();
-		private List<string> m_collation = new List<string>();
 	}
 }

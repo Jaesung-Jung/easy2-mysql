@@ -107,7 +107,9 @@ namespace Easy2.Components
 				{
 					if(changedCell.Value.Equals("기본값") == false)
 					{
-						collationCell.Items.AddRange(ReadCollation(changedCell.Value.ToString()));
+						collationCell.Items.AddRange(
+							Program.ActivateCommunicator.GetCollation(changedCell.Value.ToString())
+							);
 						collationCell.Value = collationCell.Items[0];
 					}
 					else
@@ -390,60 +392,15 @@ namespace Easy2.Components
 		/// </exception>
 		private void ReadCharset()
 		{
-			MySqlDataReader reader = null;
 			this.m_charset.Add("기본값");
 			try
 			{
-				reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowCharset());
-				while(reader.Read())
-				{
-					this.m_charset.Add(reader["Charset"].ToString());
-				}
-				reader.Close();
+				this.m_charset.AddRange(Program.ActivateCommunicator.GetCharset());
 			}
 			catch(MySqlException ex)
 			{
 				throw ex;
 			}
-			finally
-			{
-				if(reader != null)
-					reader.Close();
-			}
-		}
-
-		/// <summary>
-		/// 콜레이션을 읽어옵니다.
-		/// </summary>
-		/// /// <exception cref="MySqlException">
-		/// 쿼리문 실행을 실패하였을 경우 MySqlException 예외가 발생됩니다.
-		/// </exception>
-		private string[] ReadCollation(string charset)
-		{
-			MySqlDataReader reader = null;
-			List<string> collation = new List<string>();
-
-			try
-			{
-				reader = Program.ActivateCommunicator.ExecuteReader(
-					MySqlGenerator.ShowCollation(charset));
-				while(reader.Read())
-				{
-					collation.Add(reader["Collation"].ToString());
-				}
-				collation.Sort();
-				reader.Close();
-			}
-			catch(MySqlException ex)
-			{
-				throw ex;
-			}
-			finally
-			{
-				if(reader != null)
-					reader.Close();
-			}
-			return collation.ToArray();
 		}
 
 		/// <summary>
@@ -471,7 +428,7 @@ namespace Easy2.Components
 		/// <summary>
 		/// 현재 셀 위치의 행을 제거합니다.(메세지 박스로 지울지여부 물음)
 		/// </summary>
-		private void RemoveRow()
+		public void RemoveRow()
 		{
 			if(this.CurrentCell != null)
 			{

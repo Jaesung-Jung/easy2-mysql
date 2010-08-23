@@ -213,6 +213,71 @@ namespace Easy2.Classes
 			Execute(MySqlGenerator.FlushPrivileges());
 		}
 
+		public string[] GetCharset()
+		{
+			List<string> charset = new List<string>();
+			MySqlDataReader reader = null;
+			try
+			{
+				reader = ExecuteReader(MySqlGenerator.ShowCharset());
+				while(reader.Read())
+				{
+					charset.Add(reader["Charset"].ToString());
+				}
+				reader.Close();
+				charset.Sort();
+			}
+			finally
+			{
+				if(reader != null)
+					reader.Close();
+			}
+
+			return charset.ToArray();
+		}
+
+		public string GetDescription(string charset)
+		{
+			string description;
+			MySqlDataReader reader = null;
+			try
+			{
+				reader = ExecuteReader(MySqlGenerator.ShowCharset(charset));
+				reader.Read();
+				description = reader["Description"].ToString();
+				reader.Close();
+			}
+			finally
+			{
+				if(reader != null)
+					reader.Close();
+			}
+
+			return description;
+		}
+
+		public string[] GetCollation(string charset)
+		{
+			List<string> collation = new List<string>();
+			MySqlDataReader reader = null;
+			try
+			{
+				reader = ExecuteReader(MySqlGenerator.ShowCollation(charset));
+				while(reader.Read())
+				{
+					collation.Add(reader["Collation"].ToString());
+				}
+				reader.Close();
+				collation.Sort();
+			}
+			finally
+			{
+				if(reader != null)
+					reader.Close();
+			}
+			return collation.ToArray();
+		}
+
 		/// <summary>
 		/// 사용할 데이터베이스를 지정합니다.
 		/// </summary>

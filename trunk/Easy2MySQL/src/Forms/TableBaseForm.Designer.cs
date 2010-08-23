@@ -28,15 +28,22 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.m_titleImgLabel = new DevComponents.DotNetBar.LabelX();
 			this.m_titleLabel = new DevComponents.DotNetBar.Controls.ReflectionLabel();
 			this.m_tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.m_tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+			this.m_closeButton = new DevComponents.DotNetBar.ButtonX();
+			this.m_deleteRowButton = new DevComponents.DotNetBar.ButtonX();
+			this.m_advanceButton = new DevComponents.DotNetBar.ButtonX();
+			this.m_commitButton = new DevComponents.DotNetBar.ButtonX();
 			this.m_tableLayoutPanel1.SuspendLayout();
+			this.m_tableLayoutPanel2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// m_titleImgLabel
+			// 
+			// 
+			// 
 			// 
 			this.m_titleImgLabel.BackgroundStyle.Class = "";
 			this.m_titleImgLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
@@ -47,6 +54,9 @@
 			this.m_titleImgLabel.TabIndex = 0;
 			// 
 			// m_titleLabel
+			// 
+			// 
+			// 
 			// 
 			this.m_titleLabel.BackgroundStyle.Class = "";
 			this.m_titleLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
@@ -82,12 +92,65 @@
 			this.m_tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
 			this.m_tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
 			this.m_tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.m_tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.m_tableLayoutPanel2.Controls.Add(this.m_closeButton, 3, 0);
+			this.m_tableLayoutPanel2.Controls.Add(this.m_deleteRowButton, 2, 0);
+			this.m_tableLayoutPanel2.Controls.Add(this.m_advanceButton, 1, 0);
+			this.m_tableLayoutPanel2.Controls.Add(this.m_commitButton, 0, 0);
 			this.m_tableLayoutPanel2.Location = new System.Drawing.Point(3, 409);
 			this.m_tableLayoutPanel2.Name = "m_tableLayoutPanel2";
 			this.m_tableLayoutPanel2.RowCount = 1;
 			this.m_tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.m_tableLayoutPanel2.Size = new System.Drawing.Size(911, 34);
 			this.m_tableLayoutPanel2.TabIndex = 2;
+			// 
+			// m_closeButton
+			// 
+			this.m_closeButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.m_closeButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_closeButton.Location = new System.Drawing.Point(393, 3);
+			this.m_closeButton.Name = "m_closeButton";
+			this.m_closeButton.Size = new System.Drawing.Size(116, 25);
+			this.m_closeButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_closeButton.TabIndex = 3;
+			this.m_closeButton.Text = "닫기(&L)";
+			this.m_closeButton.Click += new System.EventHandler(this.OnCloseButtonClick);
+			// 
+			// m_deleteRowButton
+			// 
+			this.m_deleteRowButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.m_deleteRowButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_deleteRowButton.Location = new System.Drawing.Point(263, 3);
+			this.m_deleteRowButton.Name = "m_deleteRowButton";
+			this.m_deleteRowButton.Size = new System.Drawing.Size(116, 25);
+			this.m_deleteRowButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_deleteRowButton.TabIndex = 2;
+			this.m_deleteRowButton.Text = "행 지우기(&D)...";
+			this.m_deleteRowButton.Click += new System.EventHandler(this.OnDeleteRowButtonClick);
+			// 
+			// m_advanceButton
+			// 
+			this.m_advanceButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.m_advanceButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_advanceButton.Location = new System.Drawing.Point(133, 3);
+			this.m_advanceButton.Name = "m_advanceButton";
+			this.m_advanceButton.Size = new System.Drawing.Size(116, 25);
+			this.m_advanceButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_advanceButton.TabIndex = 1;
+			this.m_advanceButton.Text = "고급 설정(&A)...";
+			this.m_advanceButton.Click += new System.EventHandler(this.OnAdvanceButtonClick);
+			// 
+			// m_commitButton
+			// 
+			this.m_commitButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.m_commitButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_commitButton.Location = new System.Drawing.Point(3, 3);
+			this.m_commitButton.Name = "m_commitButton";
+			this.m_commitButton.Size = new System.Drawing.Size(116, 25);
+			this.m_commitButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_commitButton.TabIndex = 0;
+			this.m_commitButton.Text = "확인(&C)";
+			this.m_commitButton.Click += new System.EventHandler(this.OnCommitButtonClick);
 			// 
 			// TableBaseForm
 			// 
@@ -101,6 +164,7 @@
 			this.Name = "TableBaseForm";
 			this.Text = "TableBaseForm";
 			this.m_tableLayoutPanel1.ResumeLayout(false);
+			this.m_tableLayoutPanel2.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -111,5 +175,9 @@
 		private DevComponents.DotNetBar.Controls.ReflectionLabel m_titleLabel;
 		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanel1;
 		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanel2;
+		private DevComponents.DotNetBar.ButtonX m_commitButton;
+		private DevComponents.DotNetBar.ButtonX m_closeButton;
+		private DevComponents.DotNetBar.ButtonX m_deleteRowButton;
+		private DevComponents.DotNetBar.ButtonX m_advanceButton;
 	}
 }

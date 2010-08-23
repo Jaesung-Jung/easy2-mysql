@@ -43,30 +43,13 @@ namespace Easy2.Forms
 			this.m_charsetCombo.SelectedIndex = 0;
 			this.m_collationCombo.SelectedIndex = 0;
 
-			MySqlDataReader reader = null;
 			try
 			{
-				reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowCharset());
-				SortedSet<string> readerSet = new SortedSet<string>();
-				while(reader.Read())
-				{
-					readerSet.Add(reader["Charset"].ToString());
-				}
-				foreach(string s in readerSet)
-				{
-					this.m_charsetCombo.Items.Add(s);
-				}
-				readerSet.Clear();
-				reader.Close();
+				this.m_charsetCombo.Items.AddRange(Program.ActivateCommunicator.GetCharset());
 			}
 			catch(MySqlException ex)
 			{
 				EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
-			}
-			finally
-			{
-				if(reader != null)
-					reader.Close();
 			}
 		}
 
@@ -103,35 +86,16 @@ namespace Easy2.Forms
 			{
 				string charset = this.m_charsetCombo.SelectedItem.ToString();
 
-				MySqlDataReader reader = null;
 				try
 				{
-					reader = Program.ActivateCommunicator.ExecuteReader(
-						MySqlGenerator.ShowCharset(charset)
-						);
-					reader.Read();
-					this.m_descriptionLabel.Text = reader["Description"].ToString();
-					reader.Close();
-
-					this.m_collationCombo.Items.Clear();
-					reader = Program.ActivateCommunicator.ExecuteReader(
-						MySqlGenerator.ShowCollation(charset)
-						);
-					while(reader.Read())
-					{
-						this.m_collationCombo.Items.Add(reader["Collation"].ToString());
-					}
+					this.m_descriptionLabel.Text = Program.ActivateCommunicator.GetDescription(charset);
+					this.m_collationCombo.Items.Clear();				
+					this.m_collationCombo.Items.AddRange(Program.ActivateCommunicator.GetCollation(charset));
 					this.m_collationCombo.SelectedIndex = 0;
-					reader.Close();
 				}
 				catch(MySqlException ex)
 				{
 					EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
-				}
-				finally
-				{
-					if(reader != null)
-						reader.Close();
 				}
 			}
 			else

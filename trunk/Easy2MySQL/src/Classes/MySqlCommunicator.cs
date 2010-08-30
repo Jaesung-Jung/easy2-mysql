@@ -208,11 +208,18 @@ namespace Easy2.Classes
 			return affectedRow;
 		}
 
+		/// <summary>
+		/// MySQL 내부캐쉬를 비웁니다.
+		/// </summary>
 		public void FlushPrivileges()
 		{
 			Execute(MySqlGenerator.FlushPrivileges());
 		}
 
+		/// <summary>
+		/// 문자셋을 가져옵니다.
+		/// </summary>
+		/// <returns>캐릭터셋의 배열입니다.</returns>
 		public string[] GetCharset()
 		{
 			List<string> charset = new List<string>();
@@ -236,6 +243,11 @@ namespace Easy2.Classes
 			return charset.ToArray();
 		}
 
+		/// <summary>
+		/// 문자셋의 대한 설명을 가져옵니다.
+		/// </summary>
+		/// <param name="charset">해당하는 문자셋입니다.</param>
+		/// <returns>문자셋에 대한 설명입니다.</returns>
 		public string GetDescription(string charset)
 		{
 			string description;
@@ -256,6 +268,11 @@ namespace Easy2.Classes
 			return description;
 		}
 
+		/// <summary>
+		/// 콜레이션을 가져옵니다.
+		/// </summary>
+		/// <param name="charset">해당하는 문자셋입니다.</param>
+		/// <returns>문자셋에 대한 콜레이션 배열입니다.</returns>
 		public string[] GetCollation(string charset)
 		{
 			List<string> collation = new List<string>();

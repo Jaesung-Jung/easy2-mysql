@@ -30,14 +30,14 @@
 		{
 			this.m_titleImgLabel = new DevComponents.DotNetBar.LabelX();
 			this.m_titleLabel = new DevComponents.DotNetBar.Controls.ReflectionLabel();
-			this.m_tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.m_tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+			this.m_layoutPanel = new System.Windows.Forms.TableLayoutPanel();
+			this.m_innerLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
 			this.m_closeButton = new DevComponents.DotNetBar.ButtonX();
 			this.m_deleteRowButton = new DevComponents.DotNetBar.ButtonX();
 			this.m_advanceButton = new DevComponents.DotNetBar.ButtonX();
 			this.m_commitButton = new DevComponents.DotNetBar.ButtonX();
-			this.m_tableLayoutPanel1.SuspendLayout();
-			this.m_tableLayoutPanel2.SuspendLayout();
+			this.m_layoutPanel.SuspendLayout();
+			this.m_innerLayoutPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// m_titleImgLabel
@@ -65,44 +65,44 @@
 			this.m_titleLabel.Size = new System.Drawing.Size(393, 50);
 			this.m_titleLabel.TabIndex = 1;
 			// 
-			// m_tableLayoutPanel1
+			// m_layoutPanel
 			// 
-			this.m_tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+			this.m_layoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
 						| System.Windows.Forms.AnchorStyles.Left)
 						| System.Windows.Forms.AnchorStyles.Right)));
-			this.m_tableLayoutPanel1.ColumnCount = 1;
-			this.m_tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.m_tableLayoutPanel1.Controls.Add(this.m_tableLayoutPanel2, 0, 1);
-			this.m_tableLayoutPanel1.Location = new System.Drawing.Point(12, 60);
-			this.m_tableLayoutPanel1.Name = "m_tableLayoutPanel1";
-			this.m_tableLayoutPanel1.RowCount = 2;
-			this.m_tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.m_tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-			this.m_tableLayoutPanel1.Size = new System.Drawing.Size(917, 446);
-			this.m_tableLayoutPanel1.TabIndex = 2;
+			this.m_layoutPanel.ColumnCount = 1;
+			this.m_layoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.m_layoutPanel.Controls.Add(this.m_innerLayoutPanel, 0, 1);
+			this.m_layoutPanel.Location = new System.Drawing.Point(12, 60);
+			this.m_layoutPanel.Name = "m_layoutPanel";
+			this.m_layoutPanel.RowCount = 2;
+			this.m_layoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.m_layoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+			this.m_layoutPanel.Size = new System.Drawing.Size(917, 446);
+			this.m_layoutPanel.TabIndex = 2;
 			// 
-			// m_tableLayoutPanel2
+			// m_innerLayoutPanel
 			// 
-			this.m_tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+			this.m_innerLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
 						| System.Windows.Forms.AnchorStyles.Left)
 						| System.Windows.Forms.AnchorStyles.Right)));
-			this.m_tableLayoutPanel2.ColumnCount = 5;
-			this.m_tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
-			this.m_tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
-			this.m_tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
-			this.m_tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
-			this.m_tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.m_tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.m_tableLayoutPanel2.Controls.Add(this.m_closeButton, 3, 0);
-			this.m_tableLayoutPanel2.Controls.Add(this.m_deleteRowButton, 2, 0);
-			this.m_tableLayoutPanel2.Controls.Add(this.m_advanceButton, 1, 0);
-			this.m_tableLayoutPanel2.Controls.Add(this.m_commitButton, 0, 0);
-			this.m_tableLayoutPanel2.Location = new System.Drawing.Point(3, 409);
-			this.m_tableLayoutPanel2.Name = "m_tableLayoutPanel2";
-			this.m_tableLayoutPanel2.RowCount = 1;
-			this.m_tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.m_tableLayoutPanel2.Size = new System.Drawing.Size(911, 34);
-			this.m_tableLayoutPanel2.TabIndex = 2;
+			this.m_innerLayoutPanel.ColumnCount = 5;
+			this.m_innerLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+			this.m_innerLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+			this.m_innerLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+			this.m_innerLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+			this.m_innerLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.m_innerLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.m_innerLayoutPanel.Controls.Add(this.m_closeButton, 3, 0);
+			this.m_innerLayoutPanel.Controls.Add(this.m_deleteRowButton, 2, 0);
+			this.m_innerLayoutPanel.Controls.Add(this.m_advanceButton, 1, 0);
+			this.m_innerLayoutPanel.Controls.Add(this.m_commitButton, 0, 0);
+			this.m_innerLayoutPanel.Location = new System.Drawing.Point(3, 409);
+			this.m_innerLayoutPanel.Name = "m_innerLayoutPanel";
+			this.m_innerLayoutPanel.RowCount = 1;
+			this.m_innerLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.m_innerLayoutPanel.Size = new System.Drawing.Size(911, 34);
+			this.m_innerLayoutPanel.TabIndex = 2;
 			// 
 			// m_closeButton
 			// 
@@ -126,7 +126,6 @@
 			this.m_deleteRowButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_deleteRowButton.TabIndex = 2;
 			this.m_deleteRowButton.Text = "행 지우기(&D)...";
-			this.m_deleteRowButton.Click += new System.EventHandler(this.OnDeleteRowButtonClick);
 			// 
 			// m_advanceButton
 			// 
@@ -150,21 +149,20 @@
 			this.m_commitButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_commitButton.TabIndex = 0;
 			this.m_commitButton.Text = "확인(&C)";
-			this.m_commitButton.Click += new System.EventHandler(this.OnCommitButtonClick);
 			// 
 			// TableBaseForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(941, 518);
-			this.Controls.Add(this.m_tableLayoutPanel1);
+			this.Controls.Add(this.m_layoutPanel);
 			this.Controls.Add(this.m_titleLabel);
 			this.Controls.Add(this.m_titleImgLabel);
 			this.DoubleBuffered = true;
 			this.Name = "TableBaseForm";
 			this.Text = "TableBaseForm";
-			this.m_tableLayoutPanel1.ResumeLayout(false);
-			this.m_tableLayoutPanel2.ResumeLayout(false);
+			this.m_layoutPanel.ResumeLayout(false);
+			this.m_innerLayoutPanel.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -173,8 +171,8 @@
 
 		private DevComponents.DotNetBar.LabelX m_titleImgLabel;
 		private DevComponents.DotNetBar.Controls.ReflectionLabel m_titleLabel;
-		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanel1;
-		private System.Windows.Forms.TableLayoutPanel m_tableLayoutPanel2;
+		private System.Windows.Forms.TableLayoutPanel m_layoutPanel;
+		private System.Windows.Forms.TableLayoutPanel m_innerLayoutPanel;
 		private DevComponents.DotNetBar.ButtonX m_commitButton;
 		private DevComponents.DotNetBar.ButtonX m_closeButton;
 		private DevComponents.DotNetBar.ButtonX m_deleteRowButton;

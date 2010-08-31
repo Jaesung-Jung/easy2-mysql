@@ -404,6 +404,15 @@ namespace Easy2.Properties {
         }
         
         /// <summary>
+        ///   여기에는 숫자만 입력할 수 있습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2Exception_NotAllowedCharacter {
+            get {
+                return ResourceManager.GetString("Easy2Exception_NotAllowedCharacter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   서버에서 &lt;font color=\&quot;#FF0000\&quot;&gt;SELECT&lt;/font&gt; 명령을 거부하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string Easy2Exception_SelectCommandDenied {
@@ -643,6 +652,34 @@ namespace Easy2.Properties {
         internal static System.Drawing.Bitmap ImportDatabase {
             get {
                 object obj = ResourceManager.GetObject("ImportDatabase", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap MessageBoxError {
+            get {
+                object obj = ResourceManager.GetObject("MessageBoxError", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap MessageBoxInformation {
+            get {
+                object obj = ResourceManager.GetObject("MessageBoxInformation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap MessageBoxQuestion {
+            get {
+                object obj = ResourceManager.GetObject("MessageBoxQuestion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap MessageBoxWarning {
+            get {
+                object obj = ResourceManager.GetObject("MessageBoxWarning", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

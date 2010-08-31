@@ -101,35 +101,35 @@ namespace Easy2.Components
 								reader = Program.ActivateCommunicator.ExecuteReader(
 									MySqlGenerator.ShowViews(Program.ActivateCommunicator.UseDatabaseName)
 									);
-								this.ReadObject(folderNode, reader);
+								this.ReadObject(folderNode, reader, ObjectNodeType.MySqlView);
 							}
 							else if(folderNode.Text == "저장 프로시저")
 							{
 								reader = Program.ActivateCommunicator.ExecuteReader(
 									MySqlGenerator.ShowStoredProcs(Program.ActivateCommunicator.UseDatabaseName)
 									);
-								this.ReadObject(folderNode, reader);
+								this.ReadObject(folderNode, reader, ObjectNodeType.MySqlStoredProcs);
 							}
 							else if(folderNode.Text == "함수")
 							{
 								reader = Program.ActivateCommunicator.ExecuteReader(
 									MySqlGenerator.ShowFunctions(Program.ActivateCommunicator.UseDatabaseName)
 									);
-								this.ReadObject(folderNode, reader);
+								this.ReadObject(folderNode, reader, ObjectNodeType.MySqlFunction);
 							}
 							else if(folderNode.Text == "트리거")
 							{
 								reader = Program.ActivateCommunicator.ExecuteReader(
 									MySqlGenerator.ShowTriggers(Program.ActivateCommunicator.UseDatabaseName)
 									);
-								this.ReadObject(folderNode, reader);
+								this.ReadObject(folderNode, reader, ObjectNodeType.MySqlTrigger);
 							}
 							else if(folderNode.Text == "이벤트")
 							{
 								reader = Program.ActivateCommunicator.ExecuteReader(
 									MySqlGenerator.ShowEvents(Program.ActivateCommunicator.UseDatabaseName)
 									);
-								this.ReadObject(folderNode, reader);
+								this.ReadObject(folderNode, reader, ObjectNodeType.MySqlEvent);
 							}
 						}
 						break;
@@ -297,11 +297,12 @@ namespace Easy2.Components
 		/// </summary>
 		/// <param name="folderNode">해당 오브젝트 폴더의 노드입니다.</param>
 		/// <param name="reader">오브젝트데이터를 가진 객체입니다.</param>
-		private void ReadObject(Node folderNode, MySqlDataReader reader)
+		/// <param name="type">오브젝트노드의 타입입니다.</param>
+		private void ReadObject(Node folderNode, MySqlDataReader reader, ObjectNodeType type)
 		{
 			while(reader.Read())
 			{
-				folderNode.Nodes.Add(new ObjectNode((ObjectNode)folderNode, reader.GetString(0), ObjectNodeType.MySqlView));
+				folderNode.Nodes.Add(new ObjectNode((ObjectNode)folderNode, reader.GetString(0), type));
  			}
 		}
 

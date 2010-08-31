@@ -106,6 +106,9 @@
     <Compile Include="src\Components\MessageWindow.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="src\Components\NumericTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="src\Components\ObjectBrowser.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -145,6 +148,12 @@
     </Compile>
     <Compile Include="src\Forms\AlterUserForm.Designer.cs">
       <DependentUpon>AlterUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\BallonMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\BallonMessageBox.Designer.cs">
+      <DependentUpon>BallonMessageBox.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Forms\BaseForm.cs">
       <SubType>Form</SubType>
@@ -238,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\AlterUserForm.resx">
       <DependentUpon>AlterUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\BallonMessageBox.resx">
+      <DependentUpon>BallonMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
@@ -538,6 +550,10 @@
     <None Include="img\png\CreateUser.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="img\png\MessageBoxWarning.png" />
+    <None Include="img\png\MessageBoxError.png" />
+    <None Include="img\png\MessageBoxInformation.png" />
+    <None Include="img\png\MessageBoxQuestion.png" />
     <Content Include="lib\DevComponents.DotNetBar.Design.dll" />
     <Content Include="lib\DevComponents.DotNetBar2.dll" />
     <Content Include="lib\MySql.Data.CF.dll" />

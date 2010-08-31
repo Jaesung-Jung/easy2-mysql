@@ -43,13 +43,13 @@
 			this.m_rowformatLabel = new DevComponents.DotNetBar.LabelX();
 			this.m_delayCombo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
 			this.m_delayLabel = new DevComponents.DotNetBar.LabelX();
-			this.m_chunksizeText = new DevComponents.DotNetBar.Controls.TextBoxX();
+			this.m_chunksizeText = new Easy2.Components.NumericTextBox();
 			this.m_chunksizeLabel = new DevComponents.DotNetBar.LabelX();
-			this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
-			this.m_maximumText = new DevComponents.DotNetBar.Controls.TextBoxX();
-			this.m_minimumText = new DevComponents.DotNetBar.Controls.TextBoxX();
-			this.m_avgrowText = new DevComponents.DotNetBar.Controls.TextBoxX();
-			this.m_autoincrText = new DevComponents.DotNetBar.Controls.TextBoxX();
+			this.m_chunksText = new Easy2.Components.NumericTextBox();
+			this.m_maximumText = new Easy2.Components.NumericTextBox();
+			this.m_minimumText = new Easy2.Components.NumericTextBox();
+			this.m_avgrowText = new Easy2.Components.NumericTextBox();
+			this.m_autoincrText = new Easy2.Components.NumericTextBox();
 			this.m_chunksLabel = new DevComponents.DotNetBar.LabelX();
 			this.m_maximumLabel = new DevComponents.DotNetBar.LabelX();
 			this.m_minimumLabel = new DevComponents.DotNetBar.LabelX();
@@ -200,7 +200,7 @@
 			this.m_groupBox.Controls.Add(this.m_delayLabel);
 			this.m_groupBox.Controls.Add(this.m_chunksizeText);
 			this.m_groupBox.Controls.Add(this.m_chunksizeLabel);
-			this.m_groupBox.Controls.Add(this.textBoxX1);
+			this.m_groupBox.Controls.Add(this.m_chunksText);
 			this.m_groupBox.Controls.Add(this.m_maximumText);
 			this.m_groupBox.Controls.Add(this.m_minimumText);
 			this.m_groupBox.Controls.Add(this.m_avgrowText);
@@ -295,28 +295,28 @@
 			this.m_chunksizeLabel.TabIndex = 10;
 			this.m_chunksizeLabel.Text = "Chunk &Size";
 			// 
-			// textBoxX1
+			// m_chunksText
 			// 
 			// 
 			// 
 			// 
-			this.textBoxX1.Border.Class = "TextBoxBorder";
-			this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-			this.textBoxX1.Location = new System.Drawing.Point(123, 84);
-			this.textBoxX1.Name = "textBoxX1";
-			this.textBoxX1.Size = new System.Drawing.Size(79, 25);
-			this.textBoxX1.TabIndex = 9;
+			this.m_chunksText.Border.Class = "TextBoxBorder";
+			this.m_chunksText.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			this.m_chunksText.Location = new System.Drawing.Point(123, 84);
+			this.m_chunksText.Name = "m_chunksText";
+			this.m_chunksText.Size = new System.Drawing.Size(79, 25);
+			this.m_chunksText.TabIndex = 9;
 			// 
 			// m_maximumText
 			// 
 			// 
 			// 
 			// 
-			this.m_maximumText.Border.Class = "";
+			this.m_maximumText.Border.Class = "TextBoxBorder";
 			this.m_maximumText.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_maximumText.Location = new System.Drawing.Point(336, 53);
 			this.m_maximumText.Name = "m_maximumText";
-			this.m_maximumText.Size = new System.Drawing.Size(79, 18);
+			this.m_maximumText.Size = new System.Drawing.Size(79, 25);
 			this.m_maximumText.TabIndex = 7;
 			// 
 			// m_minimumText
@@ -336,11 +336,11 @@
 			// 
 			// 
 			// 
-			this.m_avgrowText.Border.Class = "";
+			this.m_avgrowText.Border.Class = "TextBoxBorder";
 			this.m_avgrowText.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_avgrowText.Location = new System.Drawing.Point(336, 22);
 			this.m_avgrowText.Name = "m_avgrowText";
-			this.m_avgrowText.Size = new System.Drawing.Size(79, 18);
+			this.m_avgrowText.Size = new System.Drawing.Size(79, 25);
 			this.m_avgrowText.TabIndex = 3;
 			// 
 			// m_autoincrText
@@ -499,13 +499,13 @@
 		private DevComponents.DotNetBar.LabelX m_rowformatLabel;
 		private DevComponents.DotNetBar.Controls.ComboBoxEx m_delayCombo;
 		private DevComponents.DotNetBar.LabelX m_delayLabel;
-		private DevComponents.DotNetBar.Controls.TextBoxX m_chunksizeText;
+		private Easy2.Components.NumericTextBox m_chunksizeText;
 		private DevComponents.DotNetBar.LabelX m_chunksizeLabel;
-		private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
-		private DevComponents.DotNetBar.Controls.TextBoxX m_maximumText;
-		private DevComponents.DotNetBar.Controls.TextBoxX m_minimumText;
-		private DevComponents.DotNetBar.Controls.TextBoxX m_avgrowText;
-		private DevComponents.DotNetBar.Controls.TextBoxX m_autoincrText;
+		private Easy2.Components.NumericTextBox m_chunksText;
+		private Easy2.Components.NumericTextBox m_maximumText;
+		private Easy2.Components.NumericTextBox m_minimumText;
+		private Easy2.Components.NumericTextBox m_avgrowText;
+		private Easy2.Components.NumericTextBox m_autoincrText;
 		private DevComponents.DotNetBar.LabelX m_chunksLabel;
 		private DevComponents.DotNetBar.ButtonX m_commitButton;
 		private DevComponents.DotNetBar.ButtonX m_closeButton;

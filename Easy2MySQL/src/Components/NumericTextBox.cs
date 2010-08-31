@@ -1,6 +1,8 @@
 ﻿
 // NumericTextBox.cs
 //
+using Easy2.Properties;
+using Easy2.Forms;
 using System;
 using System.Windows.Forms;
 using DevComponents.DotNetBar.Controls;
@@ -23,8 +25,30 @@ namespace Easy2.Components
 			if(Char.IsLetter(key) || Char.IsWhiteSpace(key) || Char.IsSymbol(key) || Char.IsPunctuation(key))
 			{
 				e.Handled = true;
+				if(this.m_balloon.Visible == false)
+					this.m_balloon.ShowMessageBox(this, Resources.Easy2Exception_NotAllowedCharacter, false, MessageBoxIcon.Error);
+			}
+			else
+			{
+				this.m_balloon.HideMessageBox();
 			}
 			base.OnKeyPress(e);
 		}
+
+		/// <summary>
+		/// 컨트롤이 포커스를 잃으면 호출됩니다.
+		/// </summary>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		protected override void OnLostFocus(EventArgs e)
+		{
+			base.OnLostFocus(e);
+			
+			if(this.m_balloon.Visible)
+			{
+				this.m_balloon.HideMessageBox();
+			}
+		}
+
+		private BallonMessageBox m_balloon = new BallonMessageBox();
 	}
 }

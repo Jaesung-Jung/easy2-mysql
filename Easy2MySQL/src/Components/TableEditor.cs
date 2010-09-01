@@ -13,7 +13,7 @@ using DevComponents.DotNetBar.Controls;
 
 namespace Easy2.Components
 {
-	class TableEditor : DataGridViewX
+	public class TableEditor : DataGridViewX
 	{
 		public TableEditor()
 		{
@@ -155,6 +155,16 @@ namespace Easy2.Components
 			{
 				base.OnKeyDown(e);
 			}
+		}
+
+		/// <summary>
+		/// 유효하지 않은 데이터가 입력되었을 때 호출됩니다.
+		/// </summary>
+		/// <param name="displayErrorDialogIfNoHandler">오류메세지 창을 보여줄지 여부입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		protected override void OnDataError(bool displayErrorDialogIfNoHandler, DataGridViewDataErrorEventArgs e)
+		{
+			// 예외처리기법 추가예정
 		}
 
 		/// <summary>

@@ -296,6 +296,35 @@ namespace Easy2.Classes
 		}
 
 		/// <summary>
+		/// MySQL 데이터베이스의 엔진들을 가져옵니다.
+		/// </summary>
+		/// <returns>데이터베이스의 엔진들입니다.</returns>
+		public string[] GetEngines()
+		{
+			List<string> engines = new List<string>();
+			MySqlDataReader reader = null;
+			try
+			{
+				reader = ExecuteReader(MySqlGenerator.ShowEngines());
+				while(reader.Read())
+				{
+					if(reader["Support"].ToString() != "NO")
+					{
+						engines.Add(reader["Engine"].ToString());
+					}
+				}
+				reader.Close();
+				engines.Sort();
+			}
+			finally
+			{
+				if(reader != null)
+					reader.Close();
+			}
+			return engines.ToArray();
+		}
+
+		/// <summary>
 		/// 사용할 데이터베이스를 지정합니다.
 		/// </summary>
 		/// <param name="databaseName">사용할 데이터베이스의 이름입니다.</param>

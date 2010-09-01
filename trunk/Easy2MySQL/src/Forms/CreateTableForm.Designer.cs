@@ -30,7 +30,7 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Text = "CreateTableForm";
+			this.Text = "테이블 만들기";
 		}
 
 		#endregion

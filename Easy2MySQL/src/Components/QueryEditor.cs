@@ -36,5 +36,23 @@ namespace Easy2.Components
 
 			this.LineWrap.Mode = WrapMode.Word;
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="path"></param>
+		public void WriteQueryToSqlFile(string path)
+		{
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="path"></param>
+		public void ReadQueryFromSqlFile(string path)
+		{
+
+		}
 	}
 }

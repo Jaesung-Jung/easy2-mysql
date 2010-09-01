@@ -208,11 +208,14 @@ namespace Easy2.Classes
 		/// <summary>
 		/// 문자셋의 정보를 조회하는 쿼리문을 생성합니다.
 		/// </summary>
-		/// <param name="where">조회할 문자셋입니다.</param>
+		/// <param name="where">조회할 문자셋 또는 콜레이션입니다.</param>
+		/// <param name="b">true이면 charset의 정보, false이면 collation에 대한 charset을 조회합니다.</param>
 		/// <returns>문자셋의 정보를 조회하는 쿼리문을 생성합니다.</returns>
-		public static string ShowCharset(string where)
+		public static string ShowCharset(string where, bool b = true)
 		{
-			return String.Format("SHOW CHARSET WHERE charset='{0}';", where);
+			return b?
+				String.Format("SHOW CHARSET WHERE charset='{0}';", where) :
+				String.Format("SELECT character_set_name FROM collations WHERE collation_name='{0}';", where);
 		}
 
 		/// <summary>
@@ -281,6 +284,15 @@ namespace Easy2.Classes
 			return isFull ?
 				String.Format("SHOW FULL FIELDS FROM {0};", from):
 				String.Format("SHOW FIELDS FROM {0};", from);
+		}
+
+		/// <summary>
+		/// MySQL의 엔진을 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <returns>MySQL의 엔진을 조회하는 쿼리문입니다.</returns>
+		public static string ShowEngines()
+		{
+			return "SHOW ENGINES;";
 		}
 
 		/// <summary>

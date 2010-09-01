@@ -446,6 +446,7 @@
 			this.m_closeButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_closeButton.TabIndex = 12;
 			this.m_closeButton.Text = "닫기(&L)";
+			this.m_closeButton.Click += new System.EventHandler(this.OnCloseButtonClick);
 			// 
 			// AdvPropertiesForm
 			// 

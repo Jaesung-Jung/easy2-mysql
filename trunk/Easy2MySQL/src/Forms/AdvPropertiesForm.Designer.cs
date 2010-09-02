@@ -35,7 +35,7 @@
 			this.m_charsetLabel = new DevComponents.DotNetBar.LabelX();
 			this.m_charsetCombo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
 			this.m_collationLabel = new DevComponents.DotNetBar.LabelX();
-			this.comboBoxEx1 = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+			this.m_collationCombo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
 			this.m_commentLabel = new DevComponents.DotNetBar.LabelX();
 			this.m_commentText = new DevComponents.DotNetBar.Controls.TextBoxX();
 			this.m_groupBox = new System.Windows.Forms.GroupBox();
@@ -64,7 +64,7 @@
 			this.m_engineLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_engineLabel.Location = new System.Drawing.Point(12, 12);
 			this.m_engineLabel.Name = "m_engineLabel";
-			this.m_engineLabel.Size = new System.Drawing.Size(49, 21);
+			this.m_engineLabel.Size = new System.Drawing.Size(60, 21);
 			this.m_engineLabel.TabIndex = 0;
 			this.m_engineLabel.Text = "엔진(&E)";
 			// 
@@ -88,7 +88,7 @@
 			// 
 			this.m_checksumLabel.BackgroundStyle.Class = "";
 			this.m_checksumLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-			this.m_checksumLabel.Location = new System.Drawing.Point(254, 104);
+			this.m_checksumLabel.Location = new System.Drawing.Point(278, 106);
 			this.m_checksumLabel.Name = "m_checksumLabel";
 			this.m_checksumLabel.Size = new System.Drawing.Size(64, 21);
 			this.m_checksumLabel.TabIndex = 10;
@@ -101,9 +101,9 @@
 			this.m_checksumCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.m_checksumCombo.FormattingEnabled = true;
 			this.m_checksumCombo.ItemHeight = 19;
-			this.m_checksumCombo.Location = new System.Drawing.Point(324, 104);
+			this.m_checksumCombo.Location = new System.Drawing.Point(348, 104);
 			this.m_checksumCombo.Name = "m_checksumCombo";
-			this.m_checksumCombo.Size = new System.Drawing.Size(116, 25);
+			this.m_checksumCombo.Size = new System.Drawing.Size(92, 25);
 			this.m_checksumCombo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_checksumCombo.TabIndex = 11;
 			// 
@@ -148,18 +148,18 @@
 			this.m_collationLabel.TabIndex = 4;
 			this.m_collationLabel.Text = "콜레이션(&N)";
 			// 
-			// comboBoxEx1
+			// m_collationCombo
 			// 
-			this.comboBoxEx1.DisplayMember = "Text";
-			this.comboBoxEx1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-			this.comboBoxEx1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBoxEx1.FormattingEnabled = true;
-			this.comboBoxEx1.ItemHeight = 19;
-			this.comboBoxEx1.Location = new System.Drawing.Point(299, 42);
-			this.comboBoxEx1.Name = "comboBoxEx1";
-			this.comboBoxEx1.Size = new System.Drawing.Size(141, 25);
-			this.comboBoxEx1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.comboBoxEx1.TabIndex = 5;
+			this.m_collationCombo.DisplayMember = "Text";
+			this.m_collationCombo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+			this.m_collationCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.m_collationCombo.FormattingEnabled = true;
+			this.m_collationCombo.ItemHeight = 19;
+			this.m_collationCombo.Location = new System.Drawing.Point(299, 42);
+			this.m_collationCombo.Name = "m_collationCombo";
+			this.m_collationCombo.Size = new System.Drawing.Size(141, 25);
+			this.m_collationCombo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+			this.m_collationCombo.TabIndex = 5;
 			// 
 			// m_commentLabel
 			// 
@@ -339,7 +339,7 @@
 			this.m_rowformatCombo.ItemHeight = 19;
 			this.m_rowformatCombo.Location = new System.Drawing.Point(82, 104);
 			this.m_rowformatCombo.Name = "m_rowformatCombo";
-			this.m_rowformatCombo.Size = new System.Drawing.Size(132, 25);
+			this.m_rowformatCombo.Size = new System.Drawing.Size(190, 25);
 			this.m_rowformatCombo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_rowformatCombo.TabIndex = 9;
 			// 
@@ -351,9 +351,9 @@
 			// 
 			this.m_rowformatLabel.BackgroundStyle.Class = "";
 			this.m_rowformatLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-			this.m_rowformatLabel.Location = new System.Drawing.Point(12, 104);
+			this.m_rowformatLabel.Location = new System.Drawing.Point(12, 106);
 			this.m_rowformatLabel.Name = "m_rowformatLabel";
-			this.m_rowformatLabel.Size = new System.Drawing.Size(67, 21);
+			this.m_rowformatLabel.Size = new System.Drawing.Size(77, 21);
 			this.m_rowformatLabel.TabIndex = 8;
 			this.m_rowformatLabel.Text = "열 서식(&F)";
 			// 
@@ -369,7 +369,7 @@
 			this.Controls.Add(this.m_groupBox);
 			this.Controls.Add(this.m_commentText);
 			this.Controls.Add(this.m_commentLabel);
-			this.Controls.Add(this.comboBoxEx1);
+			this.Controls.Add(this.m_collationCombo);
 			this.Controls.Add(this.m_collationLabel);
 			this.Controls.Add(this.m_charsetCombo);
 			this.Controls.Add(this.m_charsetLabel);
@@ -399,7 +399,7 @@
 		private DevComponents.DotNetBar.LabelX m_charsetLabel;
 		private DevComponents.DotNetBar.Controls.ComboBoxEx m_charsetCombo;
 		private DevComponents.DotNetBar.LabelX m_collationLabel;
-		private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxEx1;
+		private DevComponents.DotNetBar.Controls.ComboBoxEx m_collationCombo;
 		private DevComponents.DotNetBar.LabelX m_commentLabel;
 		private DevComponents.DotNetBar.Controls.TextBoxX m_commentText;
 		private System.Windows.Forms.GroupBox m_groupBox;

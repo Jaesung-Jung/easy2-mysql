@@ -7,35 +7,35 @@ using System.ComponentModel;
 
 namespace Easy2.Forms
 {
-	public partial class AdvPropertiesForm : BaseForm
+	public partial class AdvTablePropertiesForm : BaseForm
 	{
 		/// <summary>
 		/// AdvPropertiesForm 컴포넌트를 초기화합니다.
 		/// </summary>
-		public AdvPropertiesForm()
+		public AdvTablePropertiesForm()
 		{
 			InitializeComponent();
+			InitializeComboBox();
 		}
 
 		/// <summary>
-		/// 폼이 보여질 때 호출됩니다.
+		/// 콤보박스들을 초기화합니다.
 		/// </summary>
-		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		protected override void OnShown(EventArgs e)
+		private void InitializeComboBox()
 		{
-			this.m_engineCombo.Items.Add("[Default]");
+			this.m_engineCombo.Items.Add("DEFAULT");
 			this.m_engineCombo.Items.AddRange(Program.ActivateCommunicator.GetEngines());
 			this.m_engineCombo.SelectedIndex = 0;
 
-			this.m_charsetCombo.Items.Add("[Default]");
+			this.m_charsetCombo.Items.Add("DEFAULT");
 			this.m_charsetCombo.Items.AddRange(Program.ActivateCommunicator.GetCharset());
 			this.m_charsetCombo.SelectedIndex = 0;
 
-			this.m_collationCombo.Items.Add("[Default]");
+			this.m_collationCombo.Items.Add("DEFAULT");
 			this.m_collationCombo.SelectedIndex = 0;
 
 			this.m_rowformatCombo.Items.AddRange(new string[]{
-				"[Default]",
+				"DEFAULT",
 				"Compressed",
 				"Dynamic",
 				"Fixed"
@@ -43,13 +43,11 @@ namespace Easy2.Forms
 			this.m_rowformatCombo.SelectedIndex = 0;
 
 			this.m_checksumCombo.Items.AddRange(new string[]{
-				"[Default]",
+				"DEFAULT",
 				"0",
 				"1"
 			});
 			this.m_checksumCombo.SelectedIndex = 0;
-
-			base.OnShown(e);
 		}
 
 		/// <summary>

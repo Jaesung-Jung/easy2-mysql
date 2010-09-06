@@ -44,6 +44,6 @@ namespace Easy2.Forms
 			set { this.m_layoutPanel.Controls.Add(value); }
 		}
 
-		private AdvPropertiesForm m_advPropertiesForm = new AdvPropertiesForm();
+		private AdvTablePropertiesForm m_advPropertiesForm = new AdvTablePropertiesForm();
 	}
 }

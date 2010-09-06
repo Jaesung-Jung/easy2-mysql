@@ -1,6 +1,6 @@
 ﻿namespace Easy2.Forms
 {
-	partial class AdvPropertiesForm
+	partial class AdvTablePropertiesForm
 	{
 		/// <summary>
 		/// Required designer variable.

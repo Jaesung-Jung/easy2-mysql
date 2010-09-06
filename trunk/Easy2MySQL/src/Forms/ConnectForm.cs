@@ -145,13 +145,16 @@ namespace Easy2.Forms
 			try
 			{
 				int selectedIndex = this.m_connectionListCombo.SelectedIndex;
-				this.m_selectedInfo = this.m_connectInfoList[selectedIndex];
-				UpdateData(false);
-				this.m_saveConnection.Enabled = false;
-				this.m_connect.Enabled = true;
-				this.m_connectTest.Enabled = true;
-				this.m_renameConnection.Enabled = true;
-				this.m_deleteConnection.Enabled = true;
+				if(selectedIndex != -1)
+				{
+					this.m_selectedInfo = this.m_connectInfoList[selectedIndex];
+					UpdateData(false);
+					this.m_saveConnection.Enabled = false;
+					this.m_connect.Enabled = true;
+					this.m_connectTest.Enabled = true;
+					this.m_renameConnection.Enabled = true;
+					this.m_deleteConnection.Enabled = true;
+				}
 			}
 			catch(Exception ex)
 			{
@@ -367,6 +370,7 @@ namespace Easy2.Forms
 
 			if(result == DialogResult.Yes)
 			{
+				int selectedIndex = this.m_connectionListCombo.SelectedIndex;
 				this.m_connectionListCombo.Items.Remove(this.m_connectionListCombo.SelectedItem);
 				this.m_connectInfoList.Remove(this.m_selectedInfo);
 				this.m_mysqlHostText.Text = "";
@@ -375,6 +379,12 @@ namespace Easy2.Forms
 				this.m_mysqlPortText.Text = "";
 				this.m_mysqlDatabaseText.Text = "";
 				this.m_mysqlTimeoutText.Text = "";
+				if(selectedIndex > 0)
+					this.m_connectionListCombo.SelectedIndex = selectedIndex - 1;
+				else if(selectedIndex == 0 && this.m_connectionListCombo.Items.Count > 0)
+					this.m_connectionListCombo.SelectedIndex = 0;
+				else
+					this.m_connectionListCombo.SelectedIndex = -1;
 			}
 		}
 

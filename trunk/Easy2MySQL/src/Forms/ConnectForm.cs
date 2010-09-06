@@ -247,7 +247,7 @@ namespace Easy2.Forms
 			{
 				fs = new FileStream(
 					Resources.FilePath_ConnectionData,
-					FileMode.Open,
+					FileMode.Truncate,
 					FileAccess.Write
 					);
 				sw = new StreamWriter(fs);

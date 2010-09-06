@@ -131,11 +131,11 @@
     <Compile Include="src\Enums\DataTypePermission.cs" />
     <Compile Include="src\Enums\RoutineType.cs" />
     <Compile Include="src\Enums\WndMsg.cs" />
-    <Compile Include="src\Forms\AdvPropertiesForm.cs">
+    <Compile Include="src\Forms\AdvTablePropertiesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\Forms\AdvPropertiesForm.Designer.cs">
-      <DependentUpon>AdvPropertiesForm.cs</DependentUpon>
+    <Compile Include="src\Forms\AdvTablePropertiesForm.Designer.cs">
+      <DependentUpon>AdvTablePropertiesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Forms\AlterDatabaseForm.cs">
       <SubType>Form</SubType>
@@ -239,8 +239,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\Forms\AdvPropertiesForm.resx">
-      <DependentUpon>AdvPropertiesForm.cs</DependentUpon>
+    <EmbeddedResource Include="src\Forms\AdvTablePropertiesForm.resx">
+      <DependentUpon>AdvTablePropertiesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\AlterDatabaseForm.resx">
       <DependentUpon>AlterDatabaseForm.cs</DependentUpon>

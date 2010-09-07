@@ -462,6 +462,33 @@ namespace Easy2.Components
 			}
 		}
 
+		/// <summary>
+		/// 컬럼들의 정보를 읽습니다.
+		/// </summary>
+		/// <returns>읽혀진 컬럼의 배열입니다.</returns>
+		public ColumnInfo[] ReadColumns()
+		{
+			List<ColumnInfo> columnList = new List<ColumnInfo>();
+			foreach(DataGridViewRow row in this.Rows)
+			{
+				ColumnInfo info = new ColumnInfo();
+				info.FiledName = row.Cells["Field"].Value.ToString();
+				info.DataType = row.Cells["Datatype"].Value.ToString();
+				info.DataLength = row.Cells["Length"].Value.ToString();
+				info.DefaultValue = row.Cells["Default"].Value.ToString();
+				info.PK = Boolean.Parse(row.Cells["Pk"].Value.ToString());
+				info.NotNull = Boolean.Parse(row.Cells["NotNull"].Value.ToString());
+				info.Unsigned = Boolean.Parse(row.Cells["Unsigned"].Value.ToString());
+				info.AutoIncrement = Boolean.Parse(row.Cells["AutoIncr"].Value.ToString());
+				info.Zerofill = Boolean.Parse(row.Cells["Zerofill"].Value.ToString());
+				info.Charset = row.Cells["Charset"].Value.ToString();
+				info.Collation = row.Cells["Collation"].Value.ToString();
+				info.Comment = row.Cells["Comment"].Value.ToString();
+				columnList.Add(info);
+			}
+			return columnList.ToArray();
+		}
+
 		private Dictionary<string, DataTypePermission> m_permission = new Dictionary<string, DataTypePermission>();
 		private List<string> m_charset = new List<string>();
 	}

@@ -97,7 +97,7 @@
     <Compile Include="src\Classes\TableOption.cs" />
     <Compile Include="src\Classes\TablePrivilege.cs" />
     <Compile Include="src\Classes\User.cs" />
-    <Compile Include="src\Components\ZoomSliderBinder.cs" />
+    <Compile Include="src\Classes\ZoomSliderBinder.cs" />
     <Compile Include="src\Components\DockablePane.cs">
       <SubType>Component</SubType>
     </Compile>

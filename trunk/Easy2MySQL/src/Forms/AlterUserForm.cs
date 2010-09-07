@@ -7,6 +7,7 @@ using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
+using DevComponents.DotNetBar;
 using DevComponents.Editors;
 
 namespace Easy2.Forms
@@ -217,7 +218,7 @@ namespace Easy2.Forms
 				try
 				{
 					Program.ActivateCommunicator.AlterUser(targetUsername, targetHost, this.UserInfo);
-					MessageBox.Show(
+					MessageBoxEx.Show(
 						this,
 						String.Format(Resources.Easy2Message_UserAlterSuccessfully, this.UserInfo.Username),
 						Resources.Easy2Message_Title,
@@ -239,7 +240,7 @@ namespace Easy2.Forms
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void OnDeleteUserButtonClick(object sender, EventArgs e)
 		{
-			if(MessageBox.Show(
+			if(MessageBoxEx.Show(
 				this,
 				String.Format(Resources.Easy2Message_UserDeleteQuestion, this.m_userListCombo.SelectedItem.ToString()),
 				Resources.Easy2Message_Title,

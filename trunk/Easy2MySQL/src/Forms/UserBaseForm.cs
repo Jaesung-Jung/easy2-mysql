@@ -5,6 +5,7 @@ using Easy2.Classes;
 using Easy2.Properties;
 using System;
 using System.Windows.Forms;
+using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Controls;
 
 namespace Easy2.Forms
@@ -113,7 +114,7 @@ namespace Easy2.Forms
 				(this.m_PasswordText1.Text.CompareTo(this.m_PasswordText2.Text) != 0)
 				)
 			{
-				MessageBox.Show(
+				MessageBoxEx.Show(
 					this, Resources.Easy2Message_DoNotMatchPassword,
 					Resources.Easy2Message_Title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
@@ -126,7 +127,7 @@ namespace Easy2.Forms
 			{
 				if(this.m_PasswordText1.TextLength == 0)
 				{
-					MessageBox.Show(
+					MessageBoxEx.Show(
 					this, String.Format(
 						Resources.Easy2Message_EmptyItem,
 						this.m_PasswordLabel.Text.Substring(0, this.m_PasswordLabel.Text.Length - 4)),
@@ -135,7 +136,7 @@ namespace Easy2.Forms
 				}
 				else
 				{
-					MessageBox.Show(
+					MessageBoxEx.Show(
 					this, String.Format(
 						Resources.Easy2Message_EmptyItem,
 						this.m_retypePasswordLabel.Text.Substring(0, this.m_retypePasswordLabel.Text.Length - 4)),

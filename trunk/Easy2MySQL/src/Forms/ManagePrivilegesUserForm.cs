@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using DevComponents.Editors;
+using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Controls;
 using MySql.Data.MySqlClient;
 
@@ -370,7 +371,7 @@ namespace Easy2.Forms
 					column_privileges.ToArray(),
 					routine_privileges.ToArray()
 					);
-				MessageBox.Show(
+				MessageBoxEx.Show(
 						this,
 						Resources.Easy2Message_UpdatePrivileges,
 						Resources.Easy2Message_Title,

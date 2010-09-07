@@ -6,6 +6,7 @@ using Easy2.Properties;
 using System;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using DevComponents.DotNetBar;
 
 namespace Easy2.Forms
 {
@@ -54,7 +55,7 @@ namespace Easy2.Forms
 				try
 				{
 					Program.ActivateCommunicator.CreateUser(this.UserInfo);
-					MessageBox.Show(
+					MessageBoxEx.Show(
 						this,
 						String.Format(Resources.Easy2Message_UserCreatedSuccessfully, this.UserInfo.Username),
 						Resources.Easy2Message_Title,

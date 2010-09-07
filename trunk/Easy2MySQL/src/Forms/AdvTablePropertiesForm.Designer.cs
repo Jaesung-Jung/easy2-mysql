@@ -317,6 +317,7 @@
 			this.m_commitButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_commitButton.TabIndex = 12;
 			this.m_commitButton.Text = "확인(&C)";
+			this.m_commitButton.Click += new System.EventHandler(this.OnCommitButtonClick);
 			// 
 			// m_closeButton
 			// 
@@ -357,7 +358,7 @@
 			this.m_rowformatLabel.TabIndex = 8;
 			this.m_rowformatLabel.Text = "열 서식(&F)";
 			// 
-			// AdvPropertiesForm
+			// AdvTablePropertiesForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -380,7 +381,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.Name = "AdvPropertiesForm";
+			this.Name = "AdvTablePropertiesForm";
 			this.ShowIcon = false;
 			this.Text = "고급 설정";
 			this.m_groupBox.ResumeLayout(false);

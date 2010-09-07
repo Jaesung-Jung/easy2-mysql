@@ -21,10 +21,6 @@ namespace Easy2.Forms
 		/// <summary>
 		/// MainForm 인스턴스를 초기화합니다.
 		/// </summary>
-		/// 
-		
-		
-
 		public MainForm()
 		{
 			this.m_dockingManager = new DockingManager(this);
@@ -242,6 +238,42 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void OnOpenFileInSameTabClick(object sender, EventArgs e)
+		{
+			OpenFileDialog OpenFileDialog = new OpenFileDialog();
+			OpenFileDialog.InitialDirectory = "C:\\";
+			OpenFileDialog.Title = "SQL파일 불러오기";
+			OpenFileDialog.Filter = "SQL 파일(*.sql)|*.sql";
+
+			if(OpenFileDialog.ShowDialog() == DialogResult.OK)
+			{
+				this.m_selectedQueryEditor.ReadQueryFromSqlFile(OpenFileDialog.FileName);
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void OnSaveFileClick(object sender, EventArgs e)
+		{
+			SaveFileDialog saveFileDialog = new SaveFileDialog();
+			saveFileDialog.InitialDirectory = "C:\\";
+			saveFileDialog.Title = "SQL파일 저장하기";
+			saveFileDialog.Filter = "SQL 파일(*.sql)|*.sql";
+
+			if(saveFileDialog.ShowDialog() == DialogResult.OK)
+			{
+				this.m_selectedQueryEditor.WriteQueryToSqlFile(saveFileDialog.FileName);
+			}
+		}
+
+		/// <summary>
 		/// 모든연결종료 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
@@ -449,34 +481,6 @@ namespace Easy2.Forms
 		private DockingManager m_dockingManager;
 		private ObjectBrowser m_objectBrowser;
 		private MessageWindow m_messageWindow;
-
-		private void m_openFileInSameTab_Click(object sender, EventArgs e)
-		{
-			OpenFileDialog OpenFileDialog = new OpenFileDialog();
-            		OpenFileDialog.InitialDirectory = "C:\\";
-            		OpenFileDialog.Title = "SQL파일 불러오기";
-			OpenFileDialog.Filter = "SQL 파일(*.sql)|*.sql";
-            
-			if (OpenFileDialog.ShowDialog() == DialogResult.OK)
-			{
-				this.m_selectedQueryEditor.ReadQueryFromSqlFile(OpenFileDialog.FileName);
-			}
-		}
-
-		private void m_saveFile_Click(object sender, EventArgs e)
-		{
-			SaveFileDialog saveFileDialog = new SaveFileDialog();
-			saveFileDialog.InitialDirectory = "C:\\";
-			saveFileDialog.Title = "SQL파일 저장하기";
-			saveFileDialog.Filter = "SQL 파일(*.sql)|*.sql";
-
-			if (saveFileDialog.ShowDialog() == DialogResult.OK)
-			{
-				this.m_selectedQueryEditor.WriteQueryToSqlFile(saveFileDialog.FileName);
-			}				
-		}
-
-	
 	}
 
 	/// <summary>

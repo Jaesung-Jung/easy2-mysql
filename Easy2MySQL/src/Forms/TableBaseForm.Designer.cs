@@ -120,6 +120,7 @@
 			// 
 			this.m_deleteRowButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.m_deleteRowButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_deleteRowButton.Enabled = false;
 			this.m_deleteRowButton.Location = new System.Drawing.Point(263, 3);
 			this.m_deleteRowButton.Name = "m_deleteRowButton";
 			this.m_deleteRowButton.Size = new System.Drawing.Size(116, 25);
@@ -175,8 +176,8 @@
 		private System.Windows.Forms.TableLayoutPanel m_innerLayoutPanel;
 		private DevComponents.DotNetBar.ButtonX m_commitButton;
 		private DevComponents.DotNetBar.ButtonX m_closeButton;
-		private DevComponents.DotNetBar.ButtonX m_deleteRowButton;
 		private DevComponents.DotNetBar.ButtonX m_advanceButton;
 		protected DevComponents.DotNetBar.Controls.ReflectionLabel m_titleLabel;
+		protected DevComponents.DotNetBar.ButtonX m_deleteRowButton;
 	}
 }

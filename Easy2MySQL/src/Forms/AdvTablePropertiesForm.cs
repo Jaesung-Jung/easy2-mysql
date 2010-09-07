@@ -4,6 +4,7 @@
 using Easy2.Classes;
 using System;
 using System.ComponentModel;
+using MySql.Data.MySqlClient;
 
 namespace Easy2.Forms
 {
@@ -21,33 +22,43 @@ namespace Easy2.Forms
 		/// <summary>
 		/// 콤보박스들을 초기화합니다.
 		/// </summary>
+		/// <exception cref="MySqlException">
+		/// 쿼리문 실행을 실패하였을 경우 MySqlException 예외가 발생됩니다.
+		/// </exception>
 		private void InitializeComboBox()
 		{
-			this.m_engineCombo.Items.Add("DEFAULT");
-			this.m_engineCombo.Items.AddRange(Program.ActivateCommunicator.GetEngines());
-			this.m_engineCombo.SelectedIndex = 0;
+			try
+			{
+				this.m_engineCombo.Items.Add("DEFAULT");
+				this.m_engineCombo.Items.AddRange(Program.ActivateCommunicator.GetEngines());
+				this.m_engineCombo.SelectedIndex = 0;
 
-			this.m_charsetCombo.Items.Add("DEFAULT");
-			this.m_charsetCombo.Items.AddRange(Program.ActivateCommunicator.GetCharset());
-			this.m_charsetCombo.SelectedIndex = 0;
+				this.m_charsetCombo.Items.Add("DEFAULT");
+				this.m_charsetCombo.Items.AddRange(Program.ActivateCommunicator.GetCharset());
+				this.m_charsetCombo.SelectedIndex = 0;
 
-			this.m_collationCombo.Items.Add("DEFAULT");
-			this.m_collationCombo.SelectedIndex = 0;
+				this.m_collationCombo.Items.Add("DEFAULT");
+				this.m_collationCombo.SelectedIndex = 0;
 
-			this.m_rowformatCombo.Items.AddRange(new string[]{
-				"DEFAULT",
-				"COMPRESSED",
-				"DYNAMIC",
-				"FIXED"
-			});
-			this.m_rowformatCombo.SelectedIndex = 0;
+				this.m_rowformatCombo.Items.AddRange(new string[]{
+					"DEFAULT",
+					"COMPRESSED",
+					"DYNAMIC",
+					"FIXED"
+				});
+				this.m_rowformatCombo.SelectedIndex = 0;
 
-			this.m_checksumCombo.Items.AddRange(new string[]{
-				"DEFAULT",
-				"0",
-				"1"
-			});
-			this.m_checksumCombo.SelectedIndex = 0;
+				this.m_checksumCombo.Items.AddRange(new string[]{
+					"DEFAULT",
+					"0",
+					"1"
+				});
+				this.m_checksumCombo.SelectedIndex = 0;
+			}
+			catch(MySqlException ex)
+			{
+				throw ex;
+			}
 		}
 
 		/// <summary>

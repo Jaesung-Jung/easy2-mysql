@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
+using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Controls;
 
 namespace Easy2.Components
@@ -445,7 +446,7 @@ namespace Easy2.Components
 				// 커밋되지 않은 열은 제거하지 못함
 				if(this.CurrentCell.OwningRow.IsNewRow == false)
 				{
-					DialogResult result = MessageBox.Show(
+					DialogResult result = MessageBoxEx.Show(
 						this,
 						Resources.Easy2Message_DeleteFieldQuestion,
 						Resources.Easy2Message_Title,

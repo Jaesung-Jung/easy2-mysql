@@ -362,7 +362,7 @@ namespace Easy2.Forms
 		/// <param name="e"></param>
 		private void OnDeleteConnectionClick(object sender, EventArgs e)
 		{
-			DialogResult result = MessageBox.Show(
+			DialogResult result = MessageBoxEx.Show(
 				this, Resources.Easy2Message_DeleteConnectionQuestion,
 				Resources.Easy2Message_Question,
 				MessageBoxButtons.YesNo,
@@ -424,7 +424,7 @@ namespace Easy2.Forms
 				string message =
 					Resources.Easy2Message_ConnectSuccess + "\n" +
 					Program.MySqlConnector.ConnectTest(this.m_selectedInfo);
-				MessageBox.Show(
+				MessageBoxEx.Show(
 					this,
 					message,
 					Resources.Easy2Message_ConnectTest,

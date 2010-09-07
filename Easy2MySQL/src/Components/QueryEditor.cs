@@ -4,6 +4,9 @@
 using System;
 using System.Drawing;
 using ScintillaNet;
+using System.IO;
+using System.Text;
+using System.Windows.Forms;
 
 namespace Easy2.Components
 {
@@ -15,9 +18,14 @@ namespace Easy2.Components
 		/// <summary>
 		/// QueryEditor 인스턴스를 초기화합니다.
 		/// </summary>
+		/// 
+		
+
 		public QueryEditor()
 		{
 			InitializeComponent();
+
+
 		}
 
 		/// <summary>
@@ -43,7 +51,13 @@ namespace Easy2.Components
 		/// <param name="path"></param>
 		public void WriteQueryToSqlFile(string path)
 		{
+			FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write);
+			StreamWriter sw = new StreamWriter(fs, Encoding.Default);
 
+			sw.WriteLine(this.Text);
+
+			sw.Close();
+			fs.Close();
 		}
 
 		/// <summary>
@@ -52,7 +66,13 @@ namespace Easy2.Components
 		/// <param name="path"></param>
 		public void ReadQueryFromSqlFile(string path)
 		{
+			FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read);
+			StreamReader sw = new StreamReader(fs, Encoding.Default);
 
+			this.Text = sw.ReadToEnd();
+
+			sw.Close();
+			fs.Close();
 		}
 	}
 }

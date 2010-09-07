@@ -86,6 +86,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="src\Classes\ColumnInfo.cs" />
     <Compile Include="src\Classes\ColumnPrivilege.cs" />
     <Compile Include="src\Classes\CommunicatorCollection.cs" />
     <Compile Include="src\Classes\DatabasePrivilege.cs" />
@@ -260,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\CreateDatabaseForm.resx">
       <DependentUpon>CreateDatabaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\CreateTableForm.resx">
+      <DependentUpon>CreateTableForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\CreateUserForm.resx">
       <DependentUpon>CreateUserForm.cs</DependentUpon>

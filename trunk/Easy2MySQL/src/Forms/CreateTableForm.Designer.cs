@@ -28,9 +28,27 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
+			this.SuspendLayout();
+			// 
+			// m_titleLabel
+			// 
+			// 
+			// 
+			// 
+			this.m_titleLabel.BackgroundStyle.Class = "";
+			this.m_titleLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+			this.m_titleLabel.Text = "<b><font size=\"+6\"><font color=\"#015A84\">My</font><font color=\"#E97B00\">SQL</font" +
+				"><font color=\"#000000\"> 테이블 만들기</font></font></b>";
+			// 
+			// CreateTableForm
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(941, 518);
+			this.Name = "CreateTableForm";
 			this.Text = "테이블 만들기";
+			this.ResumeLayout(false);
+
 		}
 
 		#endregion

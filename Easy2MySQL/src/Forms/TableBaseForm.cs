@@ -17,23 +17,40 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
+		/// 확인버튼을 클릭하면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		protected virtual void OnCommitButtonClick(object sender, EventArgs e)
+		{
+		}
+
+		/// <summary>
+		/// 고급설정버튼을 클릭하면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		protected virtual void OnAdvanceButtonClick(object sender, EventArgs e)
+		{
+		}
+
+		/// <summary>
+		/// 열 제거버튼을 클릭하면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		protected virtual void OnDeleteRowButtonClick(object sender, EventArgs e)
+		{
+		}
+
+		/// <summary>
 		/// 닫기버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		protected void OnCloseButtonClick(object sender, EventArgs e)
+		protected virtual void OnCloseButtonClick(object sender, EventArgs e)
 		{
 			this.Close();
-		}
-
-		/// <summary>
-		/// 고급 기능버튼을 클릭하면 호출됩니다.
-		/// </summary>
-		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
-		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void OnAdvanceButtonClick(object sender, EventArgs e)
-		{
-			this.m_advPropertiesForm.ShowDialog(this);
 		}
 
 		/// <summary>
@@ -43,7 +60,5 @@ namespace Easy2.Forms
 		{
 			set { this.m_layoutPanel.Controls.Add(value); }
 		}
-
-		private AdvTablePropertiesForm m_advPropertiesForm = new AdvTablePropertiesForm();
 	}
 }

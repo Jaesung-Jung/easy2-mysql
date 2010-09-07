@@ -126,6 +126,7 @@
 			this.m_deleteRowButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_deleteRowButton.TabIndex = 2;
 			this.m_deleteRowButton.Text = "행 지우기(&D)...";
+			this.m_deleteRowButton.Click += new System.EventHandler(this.OnDeleteRowButtonClick);
 			// 
 			// m_advanceButton
 			// 
@@ -149,6 +150,7 @@
 			this.m_commitButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_commitButton.TabIndex = 0;
 			this.m_commitButton.Text = "확인(&C)";
+			this.m_commitButton.Click += new System.EventHandler(this.OnCommitButtonClick);
 			// 
 			// TableBaseForm
 			// 
@@ -158,7 +160,6 @@
 			this.Controls.Add(this.m_layoutPanel);
 			this.Controls.Add(this.m_titleLabel);
 			this.Controls.Add(this.m_titleImgLabel);
-			this.DoubleBuffered = true;
 			this.Name = "TableBaseForm";
 			this.Text = "TableBaseForm";
 			this.m_layoutPanel.ResumeLayout(false);
@@ -170,12 +171,12 @@
 		#endregion
 
 		private DevComponents.DotNetBar.LabelX m_titleImgLabel;
-		private DevComponents.DotNetBar.Controls.ReflectionLabel m_titleLabel;
 		private System.Windows.Forms.TableLayoutPanel m_layoutPanel;
 		private System.Windows.Forms.TableLayoutPanel m_innerLayoutPanel;
 		private DevComponents.DotNetBar.ButtonX m_commitButton;
 		private DevComponents.DotNetBar.ButtonX m_closeButton;
 		private DevComponents.DotNetBar.ButtonX m_deleteRowButton;
 		private DevComponents.DotNetBar.ButtonX m_advanceButton;
+		protected DevComponents.DotNetBar.Controls.ReflectionLabel m_titleLabel;
 	}
 }

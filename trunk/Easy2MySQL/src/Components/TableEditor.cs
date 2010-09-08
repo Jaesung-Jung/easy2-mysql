@@ -471,20 +471,35 @@ namespace Easy2.Components
 			List<ColumnInfo> columnList = new List<ColumnInfo>();
 			foreach(DataGridViewRow row in this.Rows)
 			{
-				ColumnInfo info = new ColumnInfo();
-				info.FiledName = row.Cells["Field"].Value.ToString();
-				info.DataType = row.Cells["Datatype"].Value.ToString();
-				info.DataLength = row.Cells["Length"].Value.ToString();
-				info.DefaultValue = row.Cells["Default"].Value.ToString();
-				info.PK = Boolean.Parse(row.Cells["Pk"].Value.ToString());
-				info.NotNull = Boolean.Parse(row.Cells["NotNull"].Value.ToString());
-				info.Unsigned = Boolean.Parse(row.Cells["Unsigned"].Value.ToString());
-				info.AutoIncrement = Boolean.Parse(row.Cells["AutoIncr"].Value.ToString());
-				info.Zerofill = Boolean.Parse(row.Cells["Zerofill"].Value.ToString());
-				info.Charset = row.Cells["Charset"].Value.ToString();
-				info.Collation = row.Cells["Collation"].Value.ToString();
-				info.Comment = row.Cells["Comment"].Value.ToString();
-				columnList.Add(info);
+				if(row.IsNewRow != true)
+				{
+					ColumnInfo info = new ColumnInfo();
+					info.FiledName = row.Cells["Field"].Value != null ?
+						row.Cells["Field"].Value.ToString() : null;
+					info.DataType = row.Cells["Datatype"].Value != null ?
+						row.Cells["Datatype"].Value.ToString() : null;
+					info.DataLength = row.Cells["Length"].Value != null ?
+						row.Cells["Length"].Value.ToString() : null;
+					info.DefaultValue = row.Cells["Default"].Value != null ?
+						row.Cells["Default"].Value.ToString() : null;
+					info.PK = row.Cells["Pk"].Value != null ?
+						Boolean.Parse(row.Cells["Pk"].Value.ToString()) : false;
+					info.NotNull = row.Cells["NotNull"].Value != null ?
+						Boolean.Parse(row.Cells["NotNull"].Value.ToString()) : false;
+					info.Unsigned = row.Cells["Unsigned"].Value != null ?
+						Boolean.Parse(row.Cells["Unsigned"].Value.ToString()) : false;
+					info.AutoIncrement = row.Cells["AutoIncr"].Value != null ?
+						Boolean.Parse(row.Cells["AutoIncr"].Value.ToString()) : false;
+					info.Zerofill = row.Cells["Zerofill"].Value != null ?
+						Boolean.Parse(row.Cells["Zerofill"].Value.ToString()) : false;
+					info.Charset = row.Cells["Charset"].Value != null ?
+						row.Cells["Charset"].Value.ToString() : null;
+					info.Collation = row.Cells["Collation"].Value != null ?
+						row.Cells["Collation"].Value.ToString() : null;
+					info.Comment = row.Cells["Comment"].Value != null ?
+						row.Cells["Comment"].Value.ToString() : null;
+					columnList.Add(info);
+				}
 			}
 			return columnList.ToArray();
 		}

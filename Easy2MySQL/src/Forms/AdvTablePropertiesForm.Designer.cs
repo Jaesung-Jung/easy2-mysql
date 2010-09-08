@@ -133,6 +133,7 @@
 			this.m_charsetCombo.Size = new System.Drawing.Size(121, 25);
 			this.m_charsetCombo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_charsetCombo.TabIndex = 3;
+			this.m_charsetCombo.SelectedIndexChanged += new System.EventHandler(this.OnCharsetComboSelectedIndexChanged);
 			// 
 			// m_collationLabel
 			// 
@@ -311,25 +312,25 @@
 			// 
 			this.m_commitButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.m_commitButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_commitButton.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.m_commitButton.Location = new System.Drawing.Point(202, 250);
 			this.m_commitButton.Name = "m_commitButton";
 			this.m_commitButton.Size = new System.Drawing.Size(116, 25);
 			this.m_commitButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_commitButton.TabIndex = 12;
 			this.m_commitButton.Text = "확인(&C)";
-			this.m_commitButton.Click += new System.EventHandler(this.OnCommitButtonClick);
 			// 
 			// m_closeButton
 			// 
 			this.m_closeButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.m_closeButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_closeButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.m_closeButton.Location = new System.Drawing.Point(324, 250);
 			this.m_closeButton.Name = "m_closeButton";
 			this.m_closeButton.Size = new System.Drawing.Size(116, 25);
 			this.m_closeButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_closeButton.TabIndex = 13;
 			this.m_closeButton.Text = "닫기(&L)";
-			this.m_closeButton.Click += new System.EventHandler(this.OnCloseButtonClick);
 			// 
 			// m_rowformatCombo
 			// 

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using DevComponents.DotNetBar;
+using Easy2.src.Classes;
 
 namespace Easy2.Forms
 {
@@ -208,7 +209,7 @@ namespace Easy2.Forms
 				string line;
 				while((line = sr.ReadLine()) != null)
 				{
-					string[] splitLine = line.Split(';');
+					string[] splitLine = Cryptography.DesDecrypt(line).Split(';');
 
 					// ConnectName, Host, Username, Password, Port, Database, Timeout
 					MySqlConnectInfo connectInfo = new MySqlConnectInfo(
@@ -282,7 +283,7 @@ namespace Easy2.Forms
 							this.m_connectInfoList[i].Database,
 							this.m_connectInfoList[i].ConnectTimeout);
 					}
-					sw.WriteLine(line);
+					sw.WriteLine(Cryptography.DesEncrypt(line));
 				}
 
 				sw.Close();

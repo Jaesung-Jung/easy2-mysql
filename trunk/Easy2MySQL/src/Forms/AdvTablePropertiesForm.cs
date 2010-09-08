@@ -2,8 +2,10 @@
 // AdvPropertiesForm.cs
 //
 using Easy2.Classes;
+using Easy2.Properties;
 using System;
 using System.ComponentModel;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 namespace Easy2.Forms
@@ -13,10 +15,12 @@ namespace Easy2.Forms
 		/// <summary>
 		/// AdvPropertiesForm 컴포넌트를 초기화합니다.
 		/// </summary>
-		public AdvTablePropertiesForm()
+		/// <param name="option">테이블옵션 객체입니다.</param>
+		public AdvTablePropertiesForm(TableOption option)
 		{
 			InitializeComponent();
 			InitializeComboBox();
+			WriteData(option);
 		}
 
 		/// <summary>
@@ -62,80 +66,71 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 폼이 닫혀질 때 호출됩니다.
-		/// </summary>
-		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		protected override void OnClosing(CancelEventArgs e)
-		{
-			e.Cancel = true;
-
-			if(this.Visible == true)
-			{
-				this.Visible = false;
-			}
-		}
-
-		/// <summary>
-		/// 닫기버튼을 클릭하면 호출됩니다.
+		/// 문자셋 콤보의 선택된 인덱스가 변경되면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void OnCloseButtonClick(object sender, EventArgs e)
+		private void OnCharsetComboSelectedIndexChanged(object sender, EventArgs e)
 		{
-			if(this.Visible == true)
+			if(this.m_charsetCombo.SelectedIndex != 0)
 			{
-				this.Visible = false;
-			}
-		}
+				string charset = this.m_charsetCombo.SelectedItem.ToString();
 
-		/// <summary>
-		/// 확인버튼을 클릭하면 호출됩니다.
-		/// </summary>
-		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
-		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void OnCommitButtonClick(object sender, EventArgs e)
-		{
-			UpdateData(true);
-			if(this.Visible == true)
-			{
-				this.Visible = false;
-			}
-		}
-
-		/// <summary>
-		/// 컨트롤에 값을 쓰거나 읽어옵니다.
-		/// </summary>
-		/// <param name="b">true이면 컨트롤에서 데이터를 읽어오고, false이면 컨트롤에 데이터를 씁니다.</param>
-		private void UpdateData(bool b)
-		{
-			if(b == true)
-			{
-				this.m_tableOption.Engine = this.m_engineCombo.SelectedItem.ToString();
-				this.m_tableOption.Charset = this.m_charsetCombo.SelectedItem.ToString();
-				this.m_tableOption.Collation = this.m_collationCombo.SelectedItem.ToString();
-				this.m_tableOption.Comment = this.m_commentText.Text;
-				this.m_tableOption.Format = this.m_rowformatCombo.SelectedItem.ToString();
-				this.m_tableOption.Checksum = this.m_checksumCombo.SelectedItem.ToString();
-				this.m_tableOption.AutoIncrement = this.m_autoincrText.Text;
-				this.m_tableOption.AvgRowLength = this.m_avgrowText.Text;
-				this.m_tableOption.MinimumRows = this.m_minimumText.Text;
-				this.m_tableOption.MaximumRows = this.m_maximumText.Text;
+				try
+				{
+					this.m_collationCombo.Items.Clear();
+					this.m_collationCombo.Items.AddRange(Program.ActivateCommunicator.GetCollation(charset));
+					this.m_collationCombo.SelectedIndex = 0;
+				}
+				catch(MySqlException ex)
+				{
+					EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
+				}
 			}
 			else
 			{
-
+				this.m_collationCombo.Items.Clear();
+				this.m_collationCombo.Items.Add("DEFAULT");
+				this.m_collationCombo.SelectedIndex = 0;
 			}
 		}
 
 		/// <summary>
-		/// 테이블옵션데이터를 나타냅니다.
+		/// 컨트롤에서 값을 읽어옵니다.
 		/// </summary>
-		public TableOption OptionData
+		/// <returns>읽어진 테이블옵션 객체입니다.</returns>
+		public TableOption ReadData()
 		{
-			get { return this.m_tableOption; }
-			set { this.m_tableOption = value; }
+			TableOption option = new TableOption();
+			option.Engine = this.m_engineCombo.SelectedItem.ToString();
+			option.Charset = this.m_charsetCombo.SelectedItem.ToString();
+			option.Collation = this.m_collationCombo.SelectedItem.ToString();
+			option.Comment = this.m_commentText.Text;
+			option.Format = this.m_rowformatCombo.SelectedItem.ToString();
+			option.Checksum = this.m_checksumCombo.SelectedItem.ToString();
+			option.AutoIncrement = this.m_autoincrText.Text;
+			option.AvgRowLength = this.m_avgrowText.Text;
+			option.MinimumRows = this.m_minimumText.Text;
+			option.MaximumRows = this.m_maximumText.Text;
+
+			return option;
 		}
 
-		private TableOption m_tableOption = new TableOption();
+		private void WriteData(TableOption option)
+		{
+			if(option != null)
+			{
+				this.m_engineCombo.SelectedIndex = this.m_engineCombo.FindString(option.Engine);
+				this.m_charsetCombo.SelectedIndex = this.m_charsetCombo.FindString(option.Charset);
+				this.m_collationCombo.SelectedIndex = this.m_collationCombo.FindString(option.Collation);
+				this.m_commentText.Text = option.Comment;
+				this.m_rowformatCombo.SelectedIndex = this.m_rowformatCombo.FindString(option.Format);
+				this.m_checksumCombo.SelectedIndex = this.m_checksumCombo.FindString(option.Checksum);
+				this.m_autoincrText.Text = option.AutoIncrement;
+				this.m_avgrowText.Text = option.AvgRowLength;
+				this.m_minimumText.Text = option.MinimumRows;
+				this.m_maximumText.Text = option.MaximumRows;
+			}
+		}
 	}
 }

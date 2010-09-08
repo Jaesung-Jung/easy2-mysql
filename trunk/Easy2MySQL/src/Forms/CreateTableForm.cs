@@ -2,6 +2,8 @@
 // CreateTableForm.cs
 //
 using System;
+using System.Windows.Forms;
+using Easy2.Classes;
 using Easy2.Components;
 
 namespace Easy2.Forms
@@ -35,9 +37,15 @@ namespace Easy2.Forms
 			}
 		}
 
+		/// <summary>
+		/// 확인버튼을 클릭하면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		protected override void OnCommitButtonClick(object sender, EventArgs e)
 		{
 			base.OnCommitButtonClick(sender, e);
+			Program.ActivateCommunicator.CreateTable(this.m_tableEditor.ReadColumns(), this.m_tableOption);
 		}
 
 		/// <summary>
@@ -47,7 +55,12 @@ namespace Easy2.Forms
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
  		protected override void OnAdvanceButtonClick(object sender, EventArgs e)
  		{
-			this.m_advPropertiesForm.ShowDialog(this);
+			AdvTablePropertiesForm advPropertiesForm = new AdvTablePropertiesForm(this.m_tableOption);
+			advPropertiesForm.ShowDialog(this);
+			if(advPropertiesForm.DialogResult == DialogResult.OK)
+			{
+				this.m_tableOption = advPropertiesForm.ReadData();
+			}
 			base.OnAdvanceButtonClick(sender, e);
  		}
 
@@ -63,6 +76,6 @@ namespace Easy2.Forms
 		}
 
 		private TableEditor m_tableEditor = new TableEditor();
-		private AdvTablePropertiesForm m_advPropertiesForm = new AdvTablePropertiesForm();
+		private TableOption m_tableOption = null;
 	}
 }

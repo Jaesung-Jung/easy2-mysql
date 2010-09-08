@@ -473,7 +473,7 @@ namespace Easy2.Forms
 
 		private void OnCreateTableClick(object sender, EventArgs e)
 		{
-			new TableBaseForm().ShowDialog(this);
+			new CreateTableForm().ShowDialog(this);
 		}
 
 		private int m_queryEditorsCount;

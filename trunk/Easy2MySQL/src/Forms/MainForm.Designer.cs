@@ -162,8 +162,8 @@
 			this.m_ribbonControl.BackgroundStyle.Class = "";
 			this.m_ribbonControl.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_ribbonControl.CaptionVisible = true;
-			this.m_ribbonControl.Controls.Add(this.m_createPanel);
 			this.m_ribbonControl.Controls.Add(this.m_homePanel);
+			this.m_ribbonControl.Controls.Add(this.m_createPanel);
 			this.m_ribbonControl.Controls.Add(this.m_toolPanel);
 			this.m_ribbonControl.Dock = System.Windows.Forms.DockStyle.Top;
 			this.m_ribbonControl.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -211,6 +211,7 @@
 			this.m_createPanel.StyleMouseOver.Class = "";
 			this.m_createPanel.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_createPanel.TabIndex = 2;
+			this.m_createPanel.Visible = false;
 			// 
 			// m_objectBar
 			// 
@@ -765,7 +766,6 @@
 			this.m_homePanel.StyleMouseOver.Class = "";
 			this.m_homePanel.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_homePanel.TabIndex = 1;
-			this.m_homePanel.Visible = false;
 			// 
 			// m_tabBar
 			// 
@@ -1474,6 +1474,7 @@
 			this.m_openFileInSameTab.Image = ((System.Drawing.Image)(resources.GetObject("m_openFileInSameTab.Image")));
 			this.m_openFileInSameTab.Name = "m_openFileInSameTab";
 			this.m_openFileInSameTab.Text = "불러오기(&O)...";
+			this.m_openFileInSameTab.Click += new System.EventHandler(this.OnOpenFileInSameTabClick);
 			// 
 			// m_openFileInNewTab
 			// 
@@ -1488,6 +1489,7 @@
 			this.m_saveFile.Image = ((System.Drawing.Image)(resources.GetObject("m_saveFile.Image")));
 			this.m_saveFile.Name = "m_saveFile";
 			this.m_saveFile.Text = "저장하기(&S)...";
+			this.m_saveFile.Click += new System.EventHandler(this.OnSaveFileClick);
 			// 
 			// m_saveAs
 			// 
@@ -1541,6 +1543,7 @@
 			// 
 			// m_homeTab
 			// 
+			this.m_homeTab.Checked = true;
 			this.m_homeTab.KeyTips = "H";
 			this.m_homeTab.Name = "m_homeTab";
 			this.m_homeTab.Panel = this.m_homePanel;
@@ -1548,7 +1551,6 @@
 			// 
 			// m_createTab
 			// 
-			this.m_createTab.Checked = true;
 			this.m_createTab.KeyTips = "C";
 			this.m_createTab.Name = "m_createTab";
 			this.m_createTab.Panel = this.m_createPanel;

@@ -950,6 +950,11 @@ namespace Easy2.Classes
 			return builder.ToString();
 		}
 
+		public static string CreateTable(ColumnInfo[] columns, TableOption option)
+		{
+			return null;
+		}
+
 		/// <summary>
 		/// 내부 캐쉬메모리를 비우는 쿼리문을 생성합니다.
 		/// </summary>

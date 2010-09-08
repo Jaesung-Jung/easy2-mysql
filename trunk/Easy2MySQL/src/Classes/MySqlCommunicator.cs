@@ -459,6 +459,11 @@ namespace Easy2.Classes
 			FlushPrivileges();
 		}
 
+		public void CreateTable(ColumnInfo[] columns, TableOption option)
+		{
+			Execute(MySqlGenerator.CreateTable(columns, option));
+		}
+
 		/// <summary>
 		/// 연결정보를 나타냅니다.
 		/// </summary>

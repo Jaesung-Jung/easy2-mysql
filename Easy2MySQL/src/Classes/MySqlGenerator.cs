@@ -950,9 +950,69 @@ namespace Easy2.Classes
 			return builder.ToString();
 		}
 
-		public static string CreateTable(ColumnInfo[] columns, TableOption option)
+		/// <summary>
+		/// 테이블을 만드는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="database">테이블을 소유할 데이터베이스입니다.</param>
+		/// <param name="tableName">테이블 이름입니다.</param>
+		/// <param name="columns">컬럼정보 배열의 객체입니다.</param>
+		/// <param name="option">테이블옵션 객체입니다.</param>
+		/// <returns></returns>
+		public static string CreateTable(string database, string tableName, FieldInfo[] fields, TableOption option)
 		{
-			return null;
+			StringBuilder builder = new StringBuilder();
+			List<FieldInfo> pkFields = new List<FieldInfo>();
+
+			builder.Append(String.Format(
+				"CREATE TABLE {0}.{1}(",
+				database,
+				tableName
+				));
+			
+			foreach(FieldInfo field in fields)
+			{
+				if(field.PK == true)
+					pkFields.Add(field);
+			}
+
+			foreach(FieldInfo field in fields)
+			{
+				builder.Append(String.Format("{0} {1}", field.FiledName, field.DataType));
+
+				if(field.DataLength != null)
+					builder.Append(String.Format("({0})", field.DataLength));
+				if(field.Charset != null)
+					builder.Append(String.Format(" CHARSET {0}", field.Charset));
+				if(field.Collation != null)
+					builder.Append(String.Format(" COLLATE {0}", field.Collation));
+				if(field.Unsigned == true)
+					builder.Append(" UNSIGNED");
+				if(field.Zerofill == true)
+					builder.Append(" ZEROFILL");
+				if(field.NotNull == true)
+					builder.Append(" NOT NULL");
+				if(field.AutoIncrement == true)
+					builder.Append(" AUTO_INCREMENT");
+				if(field.PK == true && pkFields.Count > 1 && field.FiledName == pkFields[0].FiledName)
+					builder.Append(" UNIQUE");
+				if(field.Comment != null)
+					builder.Append(String.Format(" COMMENT '{0}'", field.Comment));
+
+				builder.Append(", ");
+			}
+
+			builder.Append("PRIMARY KEY(");
+			foreach(FieldInfo field in pkFields)
+			{
+				if(field != pkFields[pkFields.Count - 1])
+					builder.Append(String.Format("{0},", field.FiledName));
+				else
+					builder.Append(String.Format("{0})", field.FiledName));
+			}
+
+			builder.Append(");");
+
+			return builder.ToString();
 		}
 
 		/// <summary>

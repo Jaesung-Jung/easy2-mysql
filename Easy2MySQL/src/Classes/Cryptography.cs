@@ -17,7 +17,7 @@ namespace Easy2.src.Classes
 		/// <returns>복호화 된 문자열</returns>
 		public static string DesDecrypt(string text)
 		{
-			byte[] key = ASCIIEncoding.ASCII.GetBytes("asdfasdf");
+			byte[] key = { 0x02, 0x00, 0x01, 0x00, 0x00, 0x03, 0x02, 0x06 };
 
 			DESCryptoServiceProvider cryptoProvider = new DESCryptoServiceProvider();
 			MemoryStream memoryStream = new MemoryStream(Convert.FromBase64String(text));
@@ -33,7 +33,7 @@ namespace Easy2.src.Classes
 		/// <returns>암호화 된 문자열</returns>
 		public static string DesEncrypt(string text)
 		{
-			byte[] key = ASCIIEncoding.ASCII.GetBytes("asdfasdf");
+			byte[] key = { 0x02, 0x00, 0x01, 0x00, 0x00, 0x03, 0x02, 0x06 };
 
 			DESCryptoServiceProvider cryptoProvider = new DESCryptoServiceProvider();
 			MemoryStream memoryStream = new MemoryStream();

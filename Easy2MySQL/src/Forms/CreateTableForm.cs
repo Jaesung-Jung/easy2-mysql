@@ -5,6 +5,8 @@ using System;
 using System.Windows.Forms;
 using Easy2.Classes;
 using Easy2.Components;
+using DevComponents.DotNetBar;
+using MySql.Data.MySqlClient;
 
 namespace Easy2.Forms
 {
@@ -44,8 +46,32 @@ namespace Easy2.Forms
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		protected override void OnCommitButtonClick(object sender, EventArgs e)
 		{
-			base.OnCommitButtonClick(sender, e);
-			Program.ActivateCommunicator.CreateTable(this.m_tableEditor.ReadColumns(), this.m_tableOption);
+			NewTableForm newTableForm = new NewTableForm();
+			if(this.m_tableEditor.Rows.Count == 1)
+			{
+				// MessageBoxEx.Show("데이터 입력해라");
+			}
+			else
+			{
+				newTableForm.ShowDialog(this);
+				if(newTableForm.DialogResult == DialogResult.OK)
+				{
+					try
+					{
+						Program.ActivateCommunicator.CreateTable(
+							Program.ActivateCommunicator.UseDatabaseName,
+							newTableForm.TableName,
+							this.m_tableEditor.ReadFields(),
+							this.m_tableOption
+							);
+					}
+					catch(MySqlException ex)
+					{
+						throw ex;
+						// EasyToMySqlError.Show(this, ex.Message, "d", ex.Number);
+					}
+				}
+			}
 		}
 
 		/// <summary>

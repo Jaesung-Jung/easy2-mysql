@@ -107,6 +107,16 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
+		/// 선택된 탭의 문자열을 변경합니다.
+		/// </summary>
+		/// <param name="text">변경할 문자열입니다.</param>
+		private void SetTextCurrentTab(string text)
+		{
+			Bar bar = GetFirstDocumentBar();
+			bar.Items[bar.SelectedDockTab].Text = text;
+		}
+
+		/// <summary>
 		/// 폼이 보여질 때 호출됩니다.
 		/// </summary>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>

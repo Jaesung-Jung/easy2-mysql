@@ -7,7 +7,7 @@ namespace Easy2.Classes
 	/// <summary>
 	/// 한 컬럼의 정보를 나타냅니다.
 	/// </summary>
-	public class ColumnInfo
+	public class FieldInfo
 	{
 		/// <summary>
 		/// 필드명을 나타냅니다.

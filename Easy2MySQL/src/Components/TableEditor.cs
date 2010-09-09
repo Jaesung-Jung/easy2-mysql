@@ -48,7 +48,7 @@ namespace Easy2.Components
 				if((this.m_permission[type] & DataTypePermission.Charset) == DataTypePermission.Charset)
 				{
 					ReadCharset();
-					ControlCell(changedRow.Cells["Charset"], "기본값", false);
+					ControlCell(changedRow.Cells["Charset"], "DEFAULT", false);
 				}
 				else
 				{
@@ -61,7 +61,6 @@ namespace Easy2.Components
 				}
 				else
 				{
-//					((DataGridViewComboBoxCell)changedRow.Cells["Collation"]).Items.Clear();
 					ControlCell(changedRow.Cells["Collation"], null, true);
 				}
 				if((this.m_permission[type] & DataTypePermission.Len) == DataTypePermission.Len)
@@ -100,13 +99,24 @@ namespace Easy2.Components
 					ControlCell(changedRow.Cells["NotNull"], false);
 				}
 			}
+			else if(changedColumn == this.Columns["AutoIncr"])
+			{
+				if(Boolean.Parse(changedCell.Value.ToString()))
+				{
+					ControlCell(changedRow.Cells["Default"], null, true);
+				}
+				else
+				{
+					ControlCell(changedRow.Cells["Default"], false);
+				}
+			}
 			else if(changedColumn == this.Columns["Charset"])
 			{
 				DataGridViewComboBoxCell collationCell = (DataGridViewComboBoxCell)(changedRow.Cells["Collation"]);
 				collationCell.Items.Clear();
 				if(changedCell.Value != null)
 				{
-					if(changedCell.Value.Equals("기본값") == false)
+					if(changedCell.Value.Equals("DEFAULT") == false)
 					{
 						collationCell.Items.AddRange(
 							Program.ActivateCommunicator.GetCollation(changedCell.Value.ToString())
@@ -115,7 +125,7 @@ namespace Easy2.Components
 					}
 					else
 					{
-						collationCell.Items.Add("기본값");
+						collationCell.Items.Add("DEFAULT");
 						collationCell.Value = collationCell.Items[0];
 					}
 				}
@@ -403,7 +413,7 @@ namespace Easy2.Components
 		/// </exception>
 		private void ReadCharset()
 		{
-			this.m_charset.Add("기본값");
+			this.m_charset.Add("DEFAULT");
 			try
 			{
 				this.m_charset.AddRange(Program.ActivateCommunicator.GetCharset());
@@ -466,14 +476,14 @@ namespace Easy2.Components
 		/// 컬럼들의 정보를 읽습니다.
 		/// </summary>
 		/// <returns>읽혀진 컬럼의 배열입니다.</returns>
-		public ColumnInfo[] ReadColumns()
+		public FieldInfo[] ReadFields()
 		{
-			List<ColumnInfo> columnList = new List<ColumnInfo>();
+			List<FieldInfo> columnList = new List<FieldInfo>();
 			foreach(DataGridViewRow row in this.Rows)
 			{
 				if(row.IsNewRow != true)
 				{
-					ColumnInfo info = new ColumnInfo();
+					FieldInfo info = new FieldInfo();
 					info.FiledName = row.Cells["Field"].Value != null ?
 						row.Cells["Field"].Value.ToString() : null;
 					info.DataType = row.Cells["Datatype"].Value != null ?

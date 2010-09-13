@@ -463,12 +463,13 @@ namespace Easy2.Classes
 		/// 테이블을 생성합니다.
 		/// </summary>
 		/// <param name="database">테이블을 소유할 데이터베이스입니다.</param>
-		/// <param name="tableName">테이블 이름입니다.</param>
-		/// <param name="columns">컬럼정보 배열의 객체입니다.</param>
+		/// <param name="table">테이블 이름입니다.</param>
+		/// <param name="fields">컬럼정보 배열의 객체입니다.</param>
 		/// <param name="option">테이블옵션 객체입니다.</param>
-		public void CreateTable(string database, string tableName, FieldInfo[] columns, TableOption option)
+		public void CreateTable(string database, string table, FieldInfo[] fields, TableOption option)
 		{
-			System.Console.WriteLine(MySqlGenerator.CreateTable(database, tableName, columns, option));
+			// System.Console.WriteLine(MySqlGenerator.CreateTable(database, tableName, columns, option));
+			Execute(MySqlGenerator.CreateTable(database, table, fields, option));
 		}
 
 		/// <summary>

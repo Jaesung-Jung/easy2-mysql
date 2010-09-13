@@ -444,6 +444,11 @@ namespace Easy2.Forms
 			new AlterUserForm().ShowDialog(this);
 		}
 
+		/// <summary>
+		/// 사용자권한 버튼을 클릭하면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void OnPrivilegeUserClick(object sender, EventArgs e)
 		{
 			new ManagePrivilegesUserForm().ShowDialog(this);
@@ -481,9 +486,22 @@ namespace Easy2.Forms
 			alterDatabaseForm.ShowDialog(this);
 		}
 
+		/// <summary>
+		/// 테이블만들기 버튼을 클릭하면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void OnCreateTableClick(object sender, EventArgs e)
 		{
-			new CreateTableForm().ShowDialog(this);
+			CreateTableForm createTableForm = new CreateTableForm();
+			createTableForm.ShowDialog(this);
+			if(createTableForm.DialogResult == DialogResult.OK)
+			{
+				this.m_objectBrowser.Tree.AddTable(
+					Program.ActivateCommunicator.UseDatabaseName,
+					createTableForm.CreateTableName
+					);
+			}
 		}
 
 		private int m_queryEditorsCount;

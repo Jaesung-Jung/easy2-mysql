@@ -954,11 +954,11 @@ namespace Easy2.Classes
 		/// 테이블을 만드는 쿼리문을 생성합니다.
 		/// </summary>
 		/// <param name="database">테이블을 소유할 데이터베이스입니다.</param>
-		/// <param name="tableName">테이블 이름입니다.</param>
-		/// <param name="columns">컬럼정보 배열의 객체입니다.</param>
+		/// <param name="table">테이블 이름입니다.</param>
+		/// <param name="fields">컬럼정보 배열의 객체입니다.</param>
 		/// <param name="option">테이블옵션 객체입니다.</param>
 		/// <returns></returns>
-		public static string CreateTable(string database, string tableName, FieldInfo[] fields, TableOption option)
+		public static string CreateTable(string database, string table, FieldInfo[] fields, TableOption option)
 		{
 			StringBuilder builder = new StringBuilder();
 			List<FieldInfo> pkFields = new List<FieldInfo>();
@@ -966,7 +966,7 @@ namespace Easy2.Classes
 			builder.Append(String.Format(
 				"CREATE TABLE {0}.{1}(",
 				database,
-				tableName
+				table
 				));
 			
 			foreach(FieldInfo field in fields)
@@ -981,9 +981,9 @@ namespace Easy2.Classes
 
 				if(field.DataLength != null)
 					builder.Append(String.Format("({0})", field.DataLength));
-				if(field.Charset != null)
+				if(field.Charset != null && field.Charset != "DEFAULT")
 					builder.Append(String.Format(" CHARSET {0}", field.Charset));
-				if(field.Collation != null)
+				if(field.Collation != null && field.Charset != "DEFAULT")
 					builder.Append(String.Format(" COLLATE {0}", field.Collation));
 				if(field.Unsigned == true)
 					builder.Append(" UNSIGNED");
@@ -997,11 +997,13 @@ namespace Easy2.Classes
 					builder.Append(" UNIQUE");
 				if(field.Comment != null)
 					builder.Append(String.Format(" COMMENT '{0}'", field.Comment));
-
-				builder.Append(", ");
+				if(field != fields[fields.Length - 1])
+					builder.Append(", ");
 			}
 
-			builder.Append("PRIMARY KEY(");
+			if(pkFields.Count != 0)
+				builder.Append(", PRIMARY KEY(");
+
 			foreach(FieldInfo field in pkFields)
 			{
 				if(field != pkFields[pkFields.Count - 1])
@@ -1010,7 +1012,34 @@ namespace Easy2.Classes
 					builder.Append(String.Format("{0})", field.FiledName));
 			}
 
-			builder.Append(");");
+			if(option != null)
+			{
+				builder.Append(")");
+				if(option.Engine.Length != 0)
+					builder.Append(String.Format(" ENGINE={0}", option.Engine));
+				if(option.Checksum.Length != 0)
+					builder.Append(String.Format(" CHECKSUM={0}", option.Checksum));
+				if(option.AutoIncrement.Length != 0)
+					builder.Append(String.Format(" AUTO_INCREMENT={0}", option.AutoIncrement));
+				if(option.AvgRowLength.Length != 0)
+					builder.Append(String.Format(" AVG_ROW_LENGTH={0}", option.AvgRowLength));
+				if(option.Comment.Length != 0)
+					builder.Append(String.Format(" COMMENT='{0}'", option.Comment));
+				if(option.MaximumRows.Length != 0)
+					builder.Append(String.Format(" MAX_ROWS={0}", option.MaximumRows));
+				if(option.MinimumRows.Length != 0)
+					builder.Append(String.Format(" MIN_ROWS={0}", option.MinimumRows));
+				if(option.Format.Length != 0)
+					builder.Append(String.Format(" FORMAT={0}", option.Format));
+				if(option.Charset.Length != 0)
+					builder.Append(String.Format(" CHARSET={0}", option.Charset));
+				if(option.Collation.Length != 0)
+					builder.Append(String.Format(" COLLATE={0}", option.Collation));	
+			}
+			else
+			{
+				builder.Append(");");
+			}
 
 			return builder.ToString();
 		}

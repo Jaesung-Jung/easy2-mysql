@@ -310,9 +310,9 @@ namespace Easy2.Components
 		/// 데이터베이스 노드를 추가합니다.
 		/// </summary>
 		/// <param name="dbname">추가될 데이터베이스 노드의 이름입니다.</param>
-		public void AddDatabase(string dbname)
+		public void AddDatabase(string database)
 		{
-			ObjectNode databaseNode = new ObjectNode(this.m_activateNode, dbname, ObjectNodeType.MySqlDatabase);
+			ObjectNode databaseNode = new ObjectNode(this.m_activateNode, database, ObjectNodeType.MySqlDatabase);
 			string[] folderList = { "테이블", "뷰", "저장 프로시저", "함수", "트리거", "이벤트" };
 			m_activateNode.Nodes.Add(databaseNode);
 
@@ -320,7 +320,36 @@ namespace Easy2.Components
 			{
 				ObjectNode folderNode = new ObjectNode(databaseNode, folder, ObjectNodeType.Folder);
 				databaseNode.Nodes.Add(folderNode);
-				folderNode.Nodes.Add(new ObjectNode(folderNode, "null", ObjectNodeType.MySqlTable));
+				folderNode.Nodes.Add(new ObjectNode(folderNode, "null", ObjectNodeType.Folder));
+			}
+		}
+
+		/// <summary>
+		/// 테이블 노드를 추가합니다.
+		/// </summary>
+		/// <param name="table">추가될 테이블 노드의 이름입니다.</param>
+		public void AddTable(string database, string table)
+		{
+			ObjectNode tableFolderNode = null;
+			foreach(Node node in this.m_activateNode.Nodes)
+			{
+				if(node.Text == database)
+				{
+					tableFolderNode = (ObjectNode)(node.Nodes[0]);
+					break;
+				}
+			}
+			if(tableFolderNode != null)
+			{
+				ObjectNode tableNode = new ObjectNode(tableFolderNode, table, ObjectNodeType.MySqlTable);
+				tableFolderNode.Nodes.Add(tableNode);
+				string[] folderList = { "컬럼", "인덱스" };
+				
+				foreach(string folder in folderList)
+				{
+					ObjectNode folderNode = new ObjectNode(tableNode, folder, ObjectNodeType.Folder);
+					tableNode.Nodes.Add(folderNode);
+				}
 			}
 		}
 

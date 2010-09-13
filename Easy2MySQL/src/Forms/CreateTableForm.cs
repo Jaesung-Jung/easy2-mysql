@@ -3,6 +3,7 @@
 //
 using System;
 using System.Windows.Forms;
+using Easy2.Properties;
 using Easy2.Classes;
 using Easy2.Components;
 using DevComponents.DotNetBar;
@@ -56,19 +57,20 @@ namespace Easy2.Forms
 				newTableForm.ShowDialog(this);
 				if(newTableForm.DialogResult == DialogResult.OK)
 				{
+					this.m_table = newTableForm.TableName;
 					try
 					{
 						Program.ActivateCommunicator.CreateTable(
 							Program.ActivateCommunicator.UseDatabaseName,
-							newTableForm.TableName,
+							this.m_table,
 							this.m_tableEditor.ReadFields(),
 							this.m_tableOption
 							);
+						this.DialogResult = DialogResult.OK;
 					}
 					catch(MySqlException ex)
 					{
-						throw ex;
-						// EasyToMySqlError.Show(this, ex.Message, "d", ex.Number);
+						EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
 					}
 				}
 			}
@@ -101,7 +103,13 @@ namespace Easy2.Forms
 			base.OnDeleteRowButtonClick(sender, e);
 		}
 
+		public string CreateTableName
+		{
+			get { return this.m_table; }
+		}
+
 		private TableEditor m_tableEditor = new TableEditor();
 		private TableOption m_tableOption = null;
+		private string m_table = null;
 	}
 }

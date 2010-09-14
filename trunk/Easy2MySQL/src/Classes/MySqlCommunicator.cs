@@ -416,6 +416,92 @@ namespace Easy2.Classes
 		}
 
 		/// <summary>
+		/// 데이터베이스를 제거합니다.
+		/// </summary>
+		/// <param name="dbname">제거할 데이터베이스입니다.</param>
+		public void DropDatabase(string dbname)
+		{
+			Execute(MySqlGenerator.DropDatabase(dbname));
+		}
+
+		/// <summary>
+		/// 데이터베이스 내의 모든 오브젝트를 제거합니다.
+		/// </summary>
+		/// <param name="dbname">제거할 오브젝트를 소유한 데이터베이스입니다.</param>
+		/// <param name="dropTables">테이블 제거여부입니다.</param>
+		/// <param name="dropViews">뷰 제거여부입니다.</param>
+		/// <param name="dropProcs">프로시저 제거여부입니다.</param>
+		/// <param name="dropFuncs">함수 제거여부입니다.</param>
+		/// <param name="dropEvents">이벤트 제거여부입니다.</param>
+		public void TrucateDatabase(
+			string dbname,
+			bool dropTables,
+			bool dropViews,
+			bool dropProcs,
+			bool dropFuncs,
+			bool dropEvents)
+		{
+			MySqlDataReader reader = null;
+			List<string> tables = new List<string>();
+			List<string> views = new List<string>();
+			List<string> procs = new List<string>();
+			List<string> funcs = new List<string>();
+			List<string> events = new List<string>();
+
+			try
+			{
+				if(dropTables)
+				{
+					reader = ExecuteReader(MySqlGenerator.ShowTables(dbname));
+					while(reader.Read())
+						tables.Add(reader[0].ToString());
+					reader.Close();
+				}
+
+				if(dropViews)
+				{
+					reader = ExecuteReader(MySqlGenerator.ShowViews(dbname));
+					while(reader.Read())
+						views.Add(reader[0].ToString());
+					reader.Close();
+				}
+
+				if(dropProcs)
+				{
+					reader = ExecuteReader(MySqlGenerator.ShowStoredProcs(dbname));
+					while(reader.Read())
+						procs.Add(reader[0].ToString());
+					reader.Close();
+				}
+
+				if(dropFuncs)
+				{
+					reader = ExecuteReader(MySqlGenerator.ShowFunctions(dbname));
+					while(reader.Read())
+						funcs.Add(reader[0].ToString());
+					reader.Close();
+				}
+
+				if(dropEvents)
+				{
+					reader = ExecuteReadesr(MySqlGenerator.ShowEvents(dbname));
+					while(reader.Read())
+						events.Add(reader[0].ToString());
+					reader.Close();
+				}
+
+				Execute(MySqlGenerator.TrucateDatabase(
+					dbname, tables.ToArray(), views.ToArray(), procs.ToArray(), funcs.ToArray(), events.ToArray())
+					);
+			}
+			finally
+			{
+				if(reader != null)
+					reader.Close();
+			}
+		}
+
+		/// <summary>
 		/// 데이터베이스 권한을 갱신합니다.
 		/// </summary>
 		/// <param name="host">호스트입니다.</param>

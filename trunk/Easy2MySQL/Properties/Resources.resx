@@ -475,4 +475,7 @@
   <data name="Easy2Exception_NotAllowedCharacter" xml:space="preserve">
     <value>여기에는 숫자만 입력할 수 있습니다.</value>
   </data>
+  <data name="Easy2Message_DropDatabaseQuestion" xml:space="preserve">
+    <value>데이터베이스 '{0}'를 제거하시겠습니까?</value>
+  </data>
 </root>

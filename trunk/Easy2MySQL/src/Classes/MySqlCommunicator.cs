@@ -484,7 +484,7 @@ namespace Easy2.Classes
 
 				if(dropEvents)
 				{
-					reader = ExecuteReadesr(MySqlGenerator.ShowEvents(dbname));
+					reader = ExecuteReader(MySqlGenerator.ShowEvents(dbname));
 					while(reader.Read())
 						events.Add(reader[0].ToString());
 					reader.Close();

@@ -325,6 +325,28 @@ namespace Easy2.Components
 		}
 
 		/// <summary>
+		/// 데이터베이스 노드를 제거합니다.
+		/// </summary>
+		/// <param name="database">제거될 데이터베이스 노드의 이름입니다.</param>
+		public void DeleteDatabase(string database)
+		{
+			ObjectNode root = this.m_activateNode;
+			Node target = null;
+
+			foreach(Node node in root.Nodes)
+			{
+				if(node.Text == database)
+				{
+					target = node;
+					break;
+				}
+			}
+
+			if(target != null)
+				root.Nodes.Remove(target);
+		}
+
+		/// <summary>
 		/// 테이블 노드를 추가합니다.
 		/// </summary>
 		/// <param name="table">추가될 테이블 노드의 이름입니다.</param>

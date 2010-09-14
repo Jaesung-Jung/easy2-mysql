@@ -1,6 +1,7 @@
 ﻿
 // MainForm.cs
 //
+using Easy2.Properties;
 using Easy2.Classes;
 using Easy2.Components;
 using System;
@@ -9,7 +10,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using DevComponents.AdvTree;
 using DevComponents.DotNetBar;
-
+using MySql.Data.MySqlClient;
 
 namespace Easy2.Forms
 {
@@ -470,7 +471,7 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 데이터베이스 수정하기기 버튼을 클릭하면 호출됩니다.
+		/// 데이터베이스 수정하기 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -484,6 +485,30 @@ namespace Easy2.Forms
 
 			AlterDatabaseForm alterDatabaseForm = new AlterDatabaseForm(dbname);
 			alterDatabaseForm.ShowDialog(this);
+		}
+
+		/// <summary>
+		/// 데이터베이스 제거하기 버튼을 클릭하면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnDropDatabaseClick(object sender, EventArgs e)
+		{
+			String dbname = Program.ActivateCommunicator.UseDatabaseName;
+			DialogResult result = MessageBoxEx.Show(
+				this, String.Format(Resources.Easy2Message_DropDatabaseQuestion, dbname), Resources.Easy2Message_Question, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			if(result == DialogResult.Yes)
+			{
+				try
+				{
+					Program.ActivateCommunicator.DropDatabase(dbname);
+					this.m_objectBrowser.Tree.DeleteDatabase(dbname);
+				}
+				catch(MySqlException ex)
+				{
+					EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
+				}
+			}
 		}
 
 		/// <summary>

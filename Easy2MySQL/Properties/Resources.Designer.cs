@@ -494,6 +494,15 @@ namespace Easy2.Properties {
         }
         
         /// <summary>
+        ///   데이터베이스 &apos;{0}&apos;를 제거하시겠습니까?과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2Message_DropDatabaseQuestion {
+            get {
+                return ResourceManager.GetString("Easy2Message_DropDatabaseQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   &apos;{0}&apos; 항목이 입력되지 않았습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string Easy2Message_EmptyItem {

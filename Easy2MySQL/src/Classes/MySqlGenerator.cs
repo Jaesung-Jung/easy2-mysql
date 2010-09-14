@@ -683,6 +683,61 @@ namespace Easy2.Classes
 		}
 
 		/// <summary>
+		/// 데이터베이스를 제거하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="dbname">데이터베이스 이름입니다.</param>
+		/// <returns>데이터베이스를 제거하는 쿼리문입니다.</returns>
+		public static string DropDatabase(string dbname)
+		{
+			return String.Format("DROP DATABASE {0};", dbname);
+		}
+
+		/// <summary>
+		/// 데이터베이스를 비우는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="dbname">데이터베이스 이름입니다.</param>
+		/// <param name="tables">테이블 배열 객체입니다.</param>
+		/// <param name="views">뷰 배열 객체입니다.</param>
+		/// <param name="procs">저장프로시저 배열 객체입니다.</param>
+		/// <param name="funcs">함수 배열 객체입니다.</param>
+		/// <param name="events">이벤트 배열 객체입니다.</param>
+		/// <returns>데이터베이스를 비우는 쿼리문입니다.</returns>
+		public static string TrucateDatabase(
+			string dbname,
+			string[] tables,
+			string[] views,
+			string[] procs,
+			string[] funcs,
+			string[] events)
+		{
+			// SET FOREIGN_KEY_CHECKS = 0	참조 무결성 체크 안함
+			// SET FOREIGN_KEY_CHECKS = 1	참조 무결성 체크 함
+
+			StringBuilder builder = new StringBuilder();
+
+			builder.Append("SET FOREIGN_KEY_CHECKS = 0;");
+
+			foreach(string table in tables)
+				builder.Append(String.Format("DROP TABLE {0}.{1};", dbname, table));
+
+			foreach(string view in views)
+				builder.Append(String.Format("DROP VIEW {0}.{1};", dbname, view));
+
+			foreach(string proc in procs)
+				builder.Append(String.Format("DROP PROCEDURE {0}.{1};", dbname, proc));
+
+			foreach(string func in funcs)
+				builder.Append(String.Format("DROP FUNCTION {0}.{1};", dbname, func));
+
+			foreach(string evt in events)
+				builder.Append(String.Format("DROP EVENT '0'.{1};", dbname, evt));
+
+			builder.Append("SET FOREIGN_KEY_CHECKS = 1;");
+
+			return null;
+		}
+
+		/// <summary>
 		/// 데이터베이스 권한정보를 갱신하는 쿼리문을 생성합니다.
 		/// </summary>
 		/// <param name="host">호스트입니다.</param>
@@ -1034,7 +1089,8 @@ namespace Easy2.Classes
 				if(option.Charset.Length != 0)
 					builder.Append(String.Format(" CHARSET={0}", option.Charset));
 				if(option.Collation.Length != 0)
-					builder.Append(String.Format(" COLLATE={0}", option.Collation));	
+					builder.Append(String.Format(" COLLATE={0}", option.Collation));
+				builder.Append(";");
 			}
 			else
 			{

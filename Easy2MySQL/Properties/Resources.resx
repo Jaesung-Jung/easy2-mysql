@@ -478,4 +478,7 @@
   <data name="Easy2Message_DropDatabaseQuestion" xml:space="preserve">
     <value>데이터베이스 '{0}'를 제거하시겠습니까?</value>
   </data>
+  <data name="Easy2Message_TruncateDatabaseQuestion" xml:space="preserve">
+    <value>데이터베이스 '{0}'를 비우시겠습니까?</value>
+  </data>
 </root>

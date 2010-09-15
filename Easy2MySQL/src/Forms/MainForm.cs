@@ -466,7 +466,7 @@ namespace Easy2.Forms
 			createDatabaseForm.ShowDialog(this);
 			if(createDatabaseForm.DialogResult == DialogResult.Yes)
 			{
-				this.m_objectBrowser.Tree.AddDatabase(createDatabaseForm.CreatedDatabaseName);
+				this.m_objectBrowser.Tree.InsertDatabase(createDatabaseForm.CreatedDatabaseName);
 			}
 		}
 
@@ -485,6 +485,47 @@ namespace Easy2.Forms
 
 			AlterDatabaseForm alterDatabaseForm = new AlterDatabaseForm(dbname);
 			alterDatabaseForm.ShowDialog(this);
+		}
+
+		/// <summary>
+		/// 테이블 비우기 버튼을 클릭하면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnTruncateDatabaseClick(object sender, EventArgs e)
+		{
+			String dbname = Program.ActivateCommunicator.UseDatabaseName;
+			DialogResult result = MessageBoxEx.Show(
+				this, String.Format(Resources.Easy2Message_TruncateDatabaseQuestion, dbname), Resources.Easy2Message_Question, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			if(result == DialogResult.Yes)
+			{
+				try
+				{
+					bool dropViews = false;
+					bool dropProcs = false;
+					bool dropFuncs = false;
+					bool dropEvents = false;
+					bool dropTriggers = false;
+
+					if(Program.ActivateCommunicator.v500)
+					{
+						dropViews = true;
+						dropProcs = true;
+						dropFuncs = true;
+					}
+					if(Program.ActivateCommunicator.v510)
+					{
+						dropEvents = true;
+						dropTriggers = true;
+					}
+					Program.ActivateCommunicator.TrucateDatabase(dbname, true, dropViews, dropProcs, dropFuncs, dropEvents, dropTriggers);
+					this.m_objectBrowser.Tree.TrucateDatabase(dbname);
+				}
+				catch(MySqlException ex)
+				{
+					EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
+				}
+			}
 		}
 
 		/// <summary>

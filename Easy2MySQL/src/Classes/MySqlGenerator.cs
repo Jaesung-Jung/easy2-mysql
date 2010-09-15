@@ -701,6 +701,7 @@ namespace Easy2.Classes
 		/// <param name="procs">저장프로시저 배열 객체입니다.</param>
 		/// <param name="funcs">함수 배열 객체입니다.</param>
 		/// <param name="events">이벤트 배열 객체입니다.</param>
+		/// <param name="triggers">트리거 배열 객체입니다.</param>
 		/// <returns>데이터베이스를 비우는 쿼리문입니다.</returns>
 		public static string TrucateDatabase(
 			string dbname,
@@ -708,7 +709,8 @@ namespace Easy2.Classes
 			string[] views,
 			string[] procs,
 			string[] funcs,
-			string[] events)
+			string[] events,
+			string[] triggers)
 		{
 			// SET FOREIGN_KEY_CHECKS = 0	참조 무결성 체크 안함
 			// SET FOREIGN_KEY_CHECKS = 1	참조 무결성 체크 함
@@ -730,7 +732,10 @@ namespace Easy2.Classes
 				builder.Append(String.Format("DROP FUNCTION {0}.{1};", dbname, func));
 
 			foreach(string evt in events)
-				builder.Append(String.Format("DROP EVENT '0'.{1};", dbname, evt));
+				builder.Append(String.Format("DROP EVENT {0}.{1};", dbname, evt));
+
+			foreach(string trigger in triggers)
+				builder.Append(String.Format("DROP TRIGGER {0}.{1};", dbname, trigger));
 
 			builder.Append("SET FOREIGN_KEY_CHECKS = 1;");
 

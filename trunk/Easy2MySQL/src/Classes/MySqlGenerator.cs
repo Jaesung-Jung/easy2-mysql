@@ -44,7 +44,7 @@ namespace Easy2.Classes
 		/// <returns>사용할 데이터베이스를 지정하는 쿼리문입니다.</returns>
 		public static string UseDatabase(string databaseName)
 		{
-			return String.Format("USE {0};", databaseName);
+			return String.Format("USE `{0}`;", databaseName);
 		}
 
 		/// <summary>
@@ -65,11 +65,11 @@ namespace Easy2.Classes
 		{
 			return databaseName == "information_schema"?
 				String.Format(
-					"SHOW TABLES FROM {0};",
+					"SHOW TABLES FROM `{0}`;",
 					databaseName
 					):
 				String.Format(
-					"SHOW FULL tables FROM {0} WHERE table_type='base table';",
+					"SHOW FULL tables FROM `{0}` WHERE table_type='base table';",
 					Program.ActivateCommunicator.UseDatabaseName
 					);
 		}
@@ -94,7 +94,7 @@ namespace Easy2.Classes
 		/// <returns>테이블과 뷰를 조회하는 쿼리문입니다.</returns>
 		public static string ShowTablesViews(string databaseName)
 		{
-			return String.Format("SHOW TABLES FROM {0}", databaseName);
+			return String.Format("SHOW TABLES FROM `{0}`", databaseName);
 		}
 
 		/// <summary>
@@ -172,7 +172,7 @@ namespace Easy2.Classes
 		/// <returns>컬럼을 조회하는 쿼리문입니다.</returns>
 		public static string ShowColumns(string tableName)
 		{
-			return String.Format("DESCRIBE {0};", tableName);
+			return String.Format("DESCRIBE `{0}`;", tableName);
 		}
 
 		/// <summary>
@@ -183,7 +183,7 @@ namespace Easy2.Classes
 		/// <returns>컬럼을 조회하는 쿼리문입니다.</returns>
 		public static string ShowColumns(string databaseName, string tableName)
 		{
-			return String.Format("DESCRIBE {0}.{1};", databaseName, tableName);
+			return String.Format("DESCRIBE `{0}`.`{1}`;", databaseName, tableName);
 		}
 
 		/// <summary>
@@ -193,7 +193,7 @@ namespace Easy2.Classes
 		/// <returns>인덱스를 조회하는 쿼리문입니다.</returns>
 		public static string ShowIndexes(string tableName)
 		{
-			return String.Format("SHOW INDEX FROM {0};", tableName);
+			return String.Format("SHOW INDEX FROM `{0}`;", tableName);
 		}
 
 		/// <summary>
@@ -282,8 +282,8 @@ namespace Easy2.Classes
 		public static string ShowFullFields(string from, bool isFull)
 		{
 			return isFull ?
-				String.Format("SHOW FULL FIELDS FROM {0};", from):
-				String.Format("SHOW FIELDS FROM {0};", from);
+				String.Format("SHOW FULL FIELDS FROM `{0}`;", from):
+				String.Format("SHOW FIELDS FROM `{0}`;", from);
 		}
 
 		/// <summary>
@@ -647,7 +647,7 @@ namespace Easy2.Classes
 		/// <return>데이터베이스를 생성하는 쿼리문입니다.</return>
 		public static string CreateDatabase(string dbname)
 		{
-			return String.Format("CREATE DATABASE {0};", dbname);
+			return String.Format("CREATE DATABASE `{0}`;", dbname);
 		}
 
 		/// <summary>
@@ -659,7 +659,7 @@ namespace Easy2.Classes
 		/// <return>데이터베이스를 생성하는 쿼리문입니다.</return>
 		public static string CreateDatabase(string dbname, string charset, string collation)
 		{
-			return String.Format("CREATE DATABASE {0} CHARACTER SET {1} COLLATE {2};",
+			return String.Format("CREATE DATABASE `{0}` CHARACTER SET {1} COLLATE {2};",
 				dbname,
 				charset,
 				collation
@@ -675,7 +675,7 @@ namespace Easy2.Classes
 		/// <return>데이터베이스를 수정하는 쿼리문입니다.</return>
 		public static string AlterDatabase(string dbname, string charset, string collation)
 		{
-			return String.Format("ALTER DATABASE {0} CHARACTER SET {1} COLLATE {2};",
+			return String.Format("ALTER DATABASE `{0}` CHARACTER SET {1} COLLATE {2};",
 				dbname,
 				charset,
 				collation
@@ -689,7 +689,7 @@ namespace Easy2.Classes
 		/// <returns>데이터베이스를 제거하는 쿼리문입니다.</returns>
 		public static string DropDatabase(string dbname)
 		{
-			return String.Format("DROP DATABASE {0};", dbname);
+			return String.Format("DROP DATABASE `{0}`;", dbname);
 		}
 
 		/// <summary>
@@ -712,34 +712,27 @@ namespace Easy2.Classes
 			string[] events,
 			string[] triggers)
 		{
-			// SET FOREIGN_KEY_CHECKS = 0	참조 무결성 체크 안함
-			// SET FOREIGN_KEY_CHECKS = 1	참조 무결성 체크 함
-
 			StringBuilder builder = new StringBuilder();
 
-			builder.Append("SET FOREIGN_KEY_CHECKS = 0;");
-
 			foreach(string table in tables)
-				builder.Append(String.Format("DROP TABLE {0}.{1};", dbname, table));
+				builder.Append(String.Format("DROP TABLE `{0}`.`{1}`;", dbname, table));
 
 			foreach(string view in views)
-				builder.Append(String.Format("DROP VIEW {0}.{1};", dbname, view));
+				builder.Append(String.Format("DROP VIEW `{0}`.`{1}`;", dbname, view));
 
 			foreach(string proc in procs)
-				builder.Append(String.Format("DROP PROCEDURE {0}.{1};", dbname, proc));
+				builder.Append(String.Format("DROP PROCEDURE `{0}`.`{1}`;", dbname, proc));
 
 			foreach(string func in funcs)
-				builder.Append(String.Format("DROP FUNCTION {0}.{1};", dbname, func));
+				builder.Append(String.Format("DROP FUNCTION `{0}`.`{1}`;", dbname, func));
 
 			foreach(string evt in events)
-				builder.Append(String.Format("DROP EVENT {0}.{1};", dbname, evt));
+				builder.Append(String.Format("DROP EVENT `{0}`.`{1}`;", dbname, evt));
 
 			foreach(string trigger in triggers)
-				builder.Append(String.Format("DROP TRIGGER {0}.{1};", dbname, trigger));
+				builder.Append(String.Format("DROP TRIGGER `{0}`.`{1}`;", dbname, trigger));
 
-			builder.Append("SET FOREIGN_KEY_CHECKS = 1;");
-
-			return null;
+			return builder.ToString();
 		}
 
 		/// <summary>
@@ -1037,7 +1030,7 @@ namespace Easy2.Classes
 
 			foreach(FieldInfo field in fields)
 			{
-				builder.Append(String.Format("{0} {1}", field.FiledName, field.DataType));
+				builder.Append(String.Format("`{0}` {1}", field.FiledName, field.DataType));
 
 				if(field.DataLength != null)
 					builder.Append(String.Format("({0})", field.DataLength));
@@ -1067,9 +1060,9 @@ namespace Easy2.Classes
 			foreach(FieldInfo field in pkFields)
 			{
 				if(field != pkFields[pkFields.Count - 1])
-					builder.Append(String.Format("{0},", field.FiledName));
+					builder.Append(String.Format("`{0}`,", field.FiledName));
 				else
-					builder.Append(String.Format("{0})", field.FiledName));
+					builder.Append(String.Format("`{0}`)", field.FiledName));
 			}
 
 			if(option != null)
@@ -1112,6 +1105,18 @@ namespace Easy2.Classes
 		public static string FlushPrivileges()
 		{
 			return "FLUSH PRIVILEGES;";
+		}
+
+		/// <summary>
+		/// 참조 무결성 체크 여부를 설정하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="b">체크 여부입니다.</param>
+		/// <returns>참조 무결성 체크 여부를 설정하는 쿼리문입니다.</returns>
+		public static string SetForeignKeyChecks(bool b)
+		{
+			// SET FOREIGN_KEY_CHECKS = 0	참조 무결성 체크 안함
+			// SET FOREIGN_KEY_CHECKS = 1	참조 무결성 체크 함
+			return b ? "SET FOREIGN_KEY_CHECKS = 1;" : "SET FOREIGN_KEY_CHECKS = 0;";
 		}
 
 		/// <summary>

@@ -433,13 +433,15 @@ namespace Easy2.Classes
 		/// <param name="dropProcs">프로시저 제거여부입니다.</param>
 		/// <param name="dropFuncs">함수 제거여부입니다.</param>
 		/// <param name="dropEvents">이벤트 제거여부입니다.</param>
+		/// <param name="dropTriggers">트리거 제거여부입니다.</param>
 		public void TrucateDatabase(
 			string dbname,
 			bool dropTables,
 			bool dropViews,
 			bool dropProcs,
 			bool dropFuncs,
-			bool dropEvents)
+			bool dropEvents,
+			bool dropTriggers)
 		{
 			MySqlDataReader reader = null;
 			List<string> tables = new List<string>();
@@ -447,6 +449,7 @@ namespace Easy2.Classes
 			List<string> procs = new List<string>();
 			List<string> funcs = new List<string>();
 			List<string> events = new List<string>();
+			List<string> triggers = new List<string>();
 
 			try
 			{
@@ -490,8 +493,16 @@ namespace Easy2.Classes
 					reader.Close();
 				}
 
+				if(dropTriggers)
+				{
+					reader = ExecuteReader(MySqlGenerator.ShowTriggers(dbname));
+					while(reader.Read())
+						triggers.Add(reader[0].ToString());
+					reader.Close();
+				}
+
 				Execute(MySqlGenerator.TrucateDatabase(
-					dbname, tables.ToArray(), views.ToArray(), procs.ToArray(), funcs.ToArray(), events.ToArray())
+					dbname, tables.ToArray(), views.ToArray(), procs.ToArray(), funcs.ToArray(), events.ToArray(), triggers.ToArray())
 					);
 			}
 			finally

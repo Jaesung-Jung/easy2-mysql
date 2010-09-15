@@ -273,14 +273,21 @@ namespace Easy2.Forms
 		/// <param name="e"></param>
 		private void OnSaveFileClick(object sender, EventArgs e)
 		{
-			SaveFileDialog saveFileDialog = new SaveFileDialog();
-			saveFileDialog.InitialDirectory = "C:\\";
-			saveFileDialog.Title = "SQL파일 저장하기";
-			saveFileDialog.Filter = "SQL 파일(*.sql)|*.sql";
-
-			if(saveFileDialog.ShowDialog() == DialogResult.OK)
+			if(this.m_selectedQueryEditor.Path == null)
 			{
-				this.m_selectedQueryEditor.WriteQueryToSqlFile(saveFileDialog.FileName);
+				SaveFileDialog saveFileDialog = new SaveFileDialog();
+				saveFileDialog.InitialDirectory = "C:\\";
+				saveFileDialog.Title = "SQL파일 저장하기";
+				saveFileDialog.Filter = "SQL 파일(*.sql)|*.sql";
+
+				if(saveFileDialog.ShowDialog() == DialogResult.OK)
+				{
+					this.m_selectedQueryEditor.WriteQueryToSqlFile(saveFileDialog.FileName);
+				}
+			}
+			else
+			{
+				this.m_selectedQueryEditor.WriteQueryToSqlFile();
 			}
 		}
 

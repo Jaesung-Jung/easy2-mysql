@@ -18,14 +18,9 @@ namespace Easy2.Components
 		/// <summary>
 		/// QueryEditor 인스턴스를 초기화합니다.
 		/// </summary>
-		/// 
-		
-
 		public QueryEditor()
 		{
 			InitializeComponent();
-
-
 		}
 
 		/// <summary>
@@ -43,6 +38,14 @@ namespace Easy2.Components
 			this.Styles.LineNumber.BackColor = Color.White;
 
 			this.LineWrap.Mode = WrapMode.Word;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public void WriteQueryToSqlFile()
+		{
+			WriteQueryToSqlFile(this.m_sqlPath);
 		}
 
 		/// <summary>
@@ -73,6 +76,15 @@ namespace Easy2.Components
 
 			sw.Close();
 			fs.Close();
+
+			this.m_sqlPath = path;
 		}
+
+		public string Path
+		{
+			get { return this.m_sqlPath; }
+		}
+
+		private string m_sqlPath = null;
 	}
 }

@@ -217,6 +217,15 @@ namespace Easy2.Classes
 		}
 
 		/// <summary>
+		/// 참조 무결성 체크 여부를 설정합니다.
+		/// </summary>
+		/// <param name="b">체크 여부입니다.</param>
+		public void SetForeignKeyChecks(bool b)
+		{
+			Execute(MySqlGenerator.SetForeignKeyChecks(b));
+		}
+
+		/// <summary>
 		/// 문자셋을 가져옵니다.
 		/// </summary>
 		/// <returns>캐릭터셋의 배열입니다.</returns>
@@ -453,6 +462,8 @@ namespace Easy2.Classes
 
 			try
 			{
+				SetForeignKeyChecks(false);
+
 				if(dropTables)
 				{
 					reader = ExecuteReader(MySqlGenerator.ShowTables(dbname));
@@ -504,6 +515,8 @@ namespace Easy2.Classes
 				Execute(MySqlGenerator.TrucateDatabase(
 					dbname, tables.ToArray(), views.ToArray(), procs.ToArray(), funcs.ToArray(), events.ToArray(), triggers.ToArray())
 					);
+
+				SetForeignKeyChecks(true);
 			}
 			finally
 			{

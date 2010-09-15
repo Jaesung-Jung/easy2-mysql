@@ -310,7 +310,7 @@ namespace Easy2.Components
 		/// 데이터베이스 노드를 추가합니다.
 		/// </summary>
 		/// <param name="dbname">추가될 데이터베이스 노드의 이름입니다.</param>
-		public void AddDatabase(string database)
+		public void InsertDatabase(string database)
 		{
 			ObjectNode databaseNode = new ObjectNode(this.m_activateNode, database, ObjectNodeType.MySqlDatabase);
 			string[] folderList = { "테이블", "뷰", "저장 프로시저", "함수", "트리거", "이벤트" };
@@ -344,6 +344,28 @@ namespace Easy2.Components
 
 			if(target != null)
 				root.Nodes.Remove(target);
+		}
+
+		/// <summary>
+		/// 데이터베이스 내의 모든 오브젝트 노드를 제거합니다.
+		/// </summary>
+		/// <param name="database">제거될 데이터베이스 노드의 이름입니다.</param>
+		public void TrucateDatabase(string database)
+		{
+			ObjectNode root = this.m_activateNode;
+			Node target = null;
+
+			foreach(Node node in root.Nodes)
+			{
+				if(node.Text == database)
+				{
+					target = node;
+					break;
+				}
+			}
+
+			foreach(Node node in target.Nodes)
+				node.Nodes.Clear();
 		}
 
 		/// <summary>

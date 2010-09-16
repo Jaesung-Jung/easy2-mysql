@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using DevComponents.AdvTree;
 using DevComponents.DotNetBar;
 using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace Easy2.Forms
 {
@@ -257,15 +258,30 @@ namespace Easy2.Forms
 		{
 			OpenFileDialog OpenFileDialog = new OpenFileDialog();
 			OpenFileDialog.InitialDirectory = "C:\\";
-			OpenFileDialog.Title = "SQL파일 불러오기";
+			OpenFileDialog.Title = "열기";
 			OpenFileDialog.Filter = "SQL 파일(*.sql)|*.sql";
 
-			if(OpenFileDialog.ShowDialog() == DialogResult.OK)
+			if (OpenFileDialog.ShowDialog() == DialogResult.OK)
 			{
+				this.SetTextCurrentTab(OpenFileDialog.SafeFileName);
 				this.m_selectedQueryEditor.ReadQueryFromSqlFile(OpenFileDialog.FileName);
 			}
 		}
+		private void m_openFileInNewTab_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog OpenFileDialog = new OpenFileDialog();
+			OpenFileDialog.InitialDirectory = "C:\\";
+			OpenFileDialog.Title = "열기";
+			OpenFileDialog.Filter = "SQL 파일(*.sql)|*.sql";
 
+
+			if (OpenFileDialog.ShowDialog() == DialogResult.OK)
+			{
+				CreateNewDocument(DocumentType.QueryEditor);
+				this.SetTextCurrentTab(OpenFileDialog.SafeFileName);
+				this.m_selectedQueryEditor.ReadQueryFromSqlFile(OpenFileDialog.FileName);
+			}
+		}
 		/// <summary>
 		/// 
 		/// </summary>
@@ -273,16 +289,17 @@ namespace Easy2.Forms
 		/// <param name="e"></param>
 		private void OnSaveFileClick(object sender, EventArgs e)
 		{
-			if(this.m_selectedQueryEditor.Path == null)
+			if (this.m_selectedQueryEditor.Path == null)
 			{
 				SaveFileDialog saveFileDialog = new SaveFileDialog();
 				saveFileDialog.InitialDirectory = "C:\\";
-				saveFileDialog.Title = "SQL파일 저장하기";
+				saveFileDialog.Title = "다른이름으로 저장";
 				saveFileDialog.Filter = "SQL 파일(*.sql)|*.sql";
 
-				if(saveFileDialog.ShowDialog() == DialogResult.OK)
+				if (saveFileDialog.ShowDialog() == DialogResult.OK)
 				{
 					this.m_selectedQueryEditor.WriteQueryToSqlFile(saveFileDialog.FileName);
+					this.SetTextCurrentTab(Path.GetFileName(saveFileDialog.FileName));
 				}
 			}
 			else
@@ -290,7 +307,20 @@ namespace Easy2.Forms
 				this.m_selectedQueryEditor.WriteQueryToSqlFile();
 			}
 		}
+		private void m_saveAs_Click(object sender, EventArgs e)
+		{
+			SaveFileDialog saveFileDialog = new SaveFileDialog();
+			saveFileDialog.InitialDirectory = "C:\\";
+			saveFileDialog.Title = "다른 이름으로 저장";
+			saveFileDialog.Filter = "SQL 파일(*.sql)|*.sql";
 
+
+			if (saveFileDialog.ShowDialog() == DialogResult.OK)
+			{
+				this.m_selectedQueryEditor.WriteQueryToSqlFile(saveFileDialog.FileName);
+				this.SetTextCurrentTab(Path.GetFileName(saveFileDialog.FileName));
+			}
+		}
 		/// <summary>
 		/// 모든연결종료 버튼을 클릭하면 호출됩니다.
 		/// </summary>
@@ -582,6 +612,7 @@ namespace Easy2.Forms
 		private DockingManager m_dockingManager;
 		private ObjectBrowser m_objectBrowser;
 		private MessageWindow m_messageWindow;
+
 	}
 
 	/// <summary>

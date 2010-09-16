@@ -54,13 +54,16 @@ namespace Easy2.Components
 		/// <param name="path"></param>
 		public void WriteQueryToSqlFile(string path)
 		{
-			FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write);
+			FileStream fs = new FileStream(path, FileMode.Create, FileAccess.Write);
 			StreamWriter sw = new StreamWriter(fs, Encoding.Default);
 
 			sw.WriteLine(this.Text);
+			
 
 			sw.Close();
 			fs.Close();
+
+			this.m_sqlPath = path;
 		}
 
 		/// <summary>

@@ -1484,6 +1484,7 @@
 			this.m_openFileInNewTab.Image = ((System.Drawing.Image)(resources.GetObject("m_openFileInNewTab.Image")));
 			this.m_openFileInNewTab.Name = "m_openFileInNewTab";
 			this.m_openFileInNewTab.Text = "새 탭에 불러오기(&F)...";
+			this.m_openFileInNewTab.Click += new System.EventHandler(this.m_openFileInNewTab_Click);
 			// 
 			// m_saveFile
 			// 
@@ -1499,6 +1500,7 @@
 			this.m_saveAs.Image = ((System.Drawing.Image)(resources.GetObject("m_saveAs.Image")));
 			this.m_saveAs.Name = "m_saveAs";
 			this.m_saveAs.Text = "다른 이름으로 저장하기(&A)...";
+			this.m_saveAs.Click += new System.EventHandler(this.m_saveAs_Click);
 			// 
 			// m_rightItemContainer
 			// 

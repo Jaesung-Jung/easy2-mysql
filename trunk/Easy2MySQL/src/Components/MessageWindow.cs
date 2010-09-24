@@ -1,14 +1,14 @@
 ﻿
 // MessageWindow
 //
-using System.Windows.Forms;
+using DevComponents.DotNetBar;
 
 namespace Easy2.Components
 {
 	/// <summary>
 	/// 메세지를 출력하는 윈도우 클래스입니다.
 	/// </summary>
-	public class MessageWindow : DockablePane
+	public class MessageWindow : DockContainerItem
 	{
 		/// <summary>
 		/// MessageWindow 객체를 초기화합니다.

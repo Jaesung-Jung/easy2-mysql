@@ -107,9 +107,7 @@
     <Compile Include="src\Components\DockingManager.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="src\Components\MessageWindow.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="src\Components\MessageWindow.cs" />
     <Compile Include="src\Components\NumericTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -132,6 +130,10 @@
     <Compile Include="src\Components\TableEditor.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="src\Components\TableViewer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="src\Components\TableWindow.cs" />
     <Compile Include="src\Enums\DataTypePermission.cs" />
     <Compile Include="src\Enums\RoutineType.cs" />
     <Compile Include="src\Enums\WndMsg.cs" />

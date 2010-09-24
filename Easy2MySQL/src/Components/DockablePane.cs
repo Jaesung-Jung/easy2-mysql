@@ -24,7 +24,7 @@ namespace Easy2.Components
 			//
 			// m_dockBar
 			//
-			this.CanHide = true;
+			this.AccessibleRole = AccessibleRole.ToolBar;
 			this.Stretch = true;
 			this.LayoutType = eLayoutType.DockContainer;
 			this.Style = eDotNetBarStyle.StyleManagerControlled;

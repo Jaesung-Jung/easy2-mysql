@@ -43,16 +43,26 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 메세지 윈도우를 생성합니다.
+		/// 도킹 컨테이너 아이템바를 생성합니다. 
 		/// </summary>
-		/// <param name="dockSide">메세지 윈도우의 도킹위치입니다.</param>
-		/// <param name="size">메세지 윈도우의 사이즈입니다.</param>
-		private void CreateMessageWindow(eDockSide dockSide, Size size)
+		/// <param name="dockSide">도킹위치 입니다.</param>
+		/// <param name="size">바의 크기입니다.</param>
+		private void CreateDockContainerItemBar(eDockSide dockSide, Size size)
 		{
 			this.m_messageWindow = new MessageWindow("메세지 창");
-			this.m_messageWindow.Size = size;
+			this.m_tableWindow = new TableWindow("테이블 창");
 
-			this.m_dockingManager.Dock(this.m_messageWindow, dockSide);
+			this.m_dockContainerItemBar = new Bar();
+			this.m_dockContainerItemBar.AccessibleRole = AccessibleRole.ToolBar;
+			this.m_dockContainerItemBar.CloseSingleTab = true;
+			this.m_dockContainerItemBar.GrabHandleStyle = eGrabHandleStyle.CaptionDotted;
+			this.m_dockContainerItemBar.LayoutType = eLayoutType.DockContainer;
+			this.m_dockContainerItemBar.Stretch = true;
+			this.m_dockContainerItemBar.DockTabChange += new DotNetBarManager.DockTabChangeEventHandler(OnDockTabBarDockTabChange);
+			this.m_dockContainerItemBar.Text = this.m_messageWindow.Text;
+			this.m_dockContainerItemBar.Size = size;
+			this.m_dockContainerItemBar.Items.AddRange(new BaseItem[] { this.m_messageWindow, this.m_tableWindow });
+			this.m_dockingManager.Dock(this.m_dockContainerItemBar, dockSide);
 		}
 
 		/// <summary>
@@ -102,7 +112,7 @@ namespace Easy2.Forms
 			}
 			Bar bar = BarUtilities.CreateDocumentBar();
 			bar.DockTabClosing += new DockTabClosingEventHandler(OnDockableTabClosing);
-			bar.DockTabChange += new DotNetBarManager.DockTabChangeEventHandler(OnDockTabChange);
+			bar.DockTabChange += new DotNetBarManager.DockTabChangeEventHandler(OnDocumentDockTabChange);
 			this.m_dockingManager.FillDockSite.GetDocumentUIManager().Dock(bar);
 
 			return bar;
@@ -176,17 +186,27 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 탭이 변경되면 호출됩니다.
+		/// 도큐먼트 탭이 변경되면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		void OnDockTabChange(object sender, DockTabChangeEventArgs e)
+		void OnDocumentDockTabChange(object sender, DockTabChangeEventArgs e)
 		{
 			this.m_selectedQueryEditor = (QueryEditor)(((DockContainerItem)(e.NewTab)).Control);
 			this.m_selectedQueryEditor.DataBindings.Clear();
 			this.m_selectedQueryEditor.DataBindings.Add("Zoom", this.m_zoomSlider, "Value");
  			this.m_zoomSlider.DataBindings.Clear();
  			this.m_zoomSlider.DataBindings.Add("Value", this.m_selectedQueryEditor, "Zoom");
+		}
+
+		/// <summary>
+		/// 도킹탭이 변경되면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		void OnDockTabBarDockTabChange(object sender, DockTabChangeEventArgs e)
+		{
+			this.m_dockContainerItemBar.Text = e.NewTab.Text;
 		}
 
 		/// <summary>
@@ -219,7 +239,7 @@ namespace Easy2.Forms
 			if(dlgResult == DialogResult.OK)
 			{
 				CreateObjectBrowser(eDockSide.Left, new Size(250, 100));
-				CreateMessageWindow(eDockSide.Bottom, new Size(100, 250));
+				CreateDockContainerItemBar(eDockSide.Bottom, new Size(100, 250));
 				CreateNewDocument(DocumentType.QueryEditor);
 			}
 			else if(dlgResult == DialogResult.Cancel)
@@ -612,7 +632,8 @@ namespace Easy2.Forms
 		private DockingManager m_dockingManager;
 		private ObjectBrowser m_objectBrowser;
 		private MessageWindow m_messageWindow;
-
+		private TableWindow m_tableWindow;
+		private Bar m_dockContainerItemBar;
 	}
 
 	/// <summary>

@@ -155,6 +155,8 @@ namespace Easy2.Forms
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void OnQuitApplicationClick(object sender, EventArgs e)
 		{
+			Program.CoummunicatorList.DisconnectAll();
+			this.Close();
 		}
 
 		/// <summary>
@@ -224,9 +226,7 @@ namespace Easy2.Forms
  
  			this.m_zoomSlider.Text = String.Format(@"{0}%", pecentage.ToString());
 		}
-
-
-
+		
 		/// <summary>
 		/// 새로운연결 버튼을 클릭하면 호출됩니다.
 		/// </summary>
@@ -270,10 +270,10 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
-		/// 
+		/// 불러오기 버튼을 클릭하면 호출됩니다.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void OnOpenFileInSameTabClick(object sender, EventArgs e)
 		{
 			OpenFileDialog OpenFileDialog = new OpenFileDialog();
@@ -287,6 +287,12 @@ namespace Easy2.Forms
 				this.m_selectedQueryEditor.ReadQueryFromSqlFile(OpenFileDialog.FileName);
 			}
 		}
+
+		/// <summary>
+		/// 새 탭에 불러오기 버튼을 클릭하면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void OnOpenFileInNewTabClick(object sender, EventArgs e)
 		{
 			OpenFileDialog OpenFileDialog = new OpenFileDialog();
@@ -302,11 +308,12 @@ namespace Easy2.Forms
 				this.m_selectedQueryEditor.ReadQueryFromSqlFile(OpenFileDialog.FileName);
 			}
 		}
+
 		/// <summary>
-		/// 
+		/// 저장하기 버튼을 클릭하면 호출됩니다.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void OnSaveFileClick(object sender, EventArgs e)
 		{
 			if (this.m_selectedQueryEditor.Path == null)
@@ -327,6 +334,12 @@ namespace Easy2.Forms
 				this.m_selectedQueryEditor.WriteQueryToSqlFile();
 			}
 		}
+
+		/// <summary>
+		/// 다른 이름으로 저장하기 버튼을 클릭하면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void OnSaveAsClick(object sender, EventArgs e)
 		{
 			SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -341,6 +354,7 @@ namespace Easy2.Forms
 				this.SetTextCurrentTab(Path.GetFileName(saveFileDialog.FileName));
 			}
 		}
+
 		/// <summary>
 		/// 모든연결종료 버튼을 클릭하면 호출됩니다.
 		/// </summary>

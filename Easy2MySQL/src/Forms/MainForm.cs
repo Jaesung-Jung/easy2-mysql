@@ -287,7 +287,7 @@ namespace Easy2.Forms
 				this.m_selectedQueryEditor.ReadQueryFromSqlFile(OpenFileDialog.FileName);
 			}
 		}
-		private void m_openFileInNewTab_Click(object sender, EventArgs e)
+		private void OnOpenFileInNewTabClick(object sender, EventArgs e)
 		{
 			OpenFileDialog OpenFileDialog = new OpenFileDialog();
 			OpenFileDialog.InitialDirectory = "C:\\";
@@ -327,7 +327,7 @@ namespace Easy2.Forms
 				this.m_selectedQueryEditor.WriteQueryToSqlFile();
 			}
 		}
-		private void m_saveAs_Click(object sender, EventArgs e)
+		private void OnSaveAsClick(object sender, EventArgs e)
 		{
 			SaveFileDialog saveFileDialog = new SaveFileDialog();
 			saveFileDialog.InitialDirectory = "C:\\";

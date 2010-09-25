@@ -1,6 +1,7 @@
 ﻿
 // TableWindow.cs
 //
+using System.Drawing;
 using DevComponents.DotNetBar;
 
 namespace Easy2.Components
@@ -18,6 +19,7 @@ namespace Easy2.Components
 		{
 			this.Text = s;
 			this.Control = this.m_tableViewer;
+			this.m_tableViewer.BackgroundColor = Color.White;
 		}
 
 		private TableViewer m_tableViewer = new TableViewer();

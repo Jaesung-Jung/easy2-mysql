@@ -497,6 +497,66 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
+		/// 쿼리 실행하기 버튼을 클릭하면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnExecuteQueryClick(object sender, EventArgs e)
+		{
+			// 쿼리문을 파싱합니다.
+			string[] queries = this.m_selectedQueryEditor.ParseQuery();
+
+			MySqlDataReader reader = null;
+			try
+			{
+				foreach(string query in queries)
+				{
+					reader = Program.ActivateCommunicator.ExecuteReader(query);
+					if(reader.FieldCount == 0)
+					{
+						// 메세지창에 출력
+					}
+					else
+					{
+						// 테이블에 출력
+					}
+
+					reader.Close();
+				}
+			}
+			catch(MySqlException ex)
+			{
+				// 메세지창에 출력
+				System.Console.WriteLine(ex.Message);
+			}
+			finally
+			{
+				if(reader != null)
+					reader.Close();
+			}
+		}
+
+		/// <summary>
+		/// 선택된 쿼리 실행하기 버튼을 클릭하면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnExecuteSelectQueryClick(object sender, EventArgs e)
+		{
+
+		}
+
+		/// <summary>
+		/// 모든 쿼리 실행하기 버튼을 클릭하면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnExecyteAllQueryClick(object sender, EventArgs e)
+		{
+
+		}
+
+		/// <summary>
 		/// 사용자추가 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>

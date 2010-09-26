@@ -22,6 +22,14 @@ namespace Easy2.Components
 			this.m_tableViewer.BackgroundColor = Color.White;
 		}
 
+		/// <summary>
+		/// 테이블뷰어를 나타냅니다.
+		/// </summary>
+		public TableViewer Viewer
+		{
+			get { return this.m_tableViewer; }
+		}
+
 		private TableViewer m_tableViewer = new TableViewer();
 	}
 }

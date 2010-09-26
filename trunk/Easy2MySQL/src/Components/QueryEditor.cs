@@ -6,6 +6,7 @@ using System.Drawing;
 using ScintillaNet;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Easy2.Components
@@ -41,7 +42,7 @@ namespace Easy2.Components
 		}
 
 		/// <summary>
-		/// 
+		/// 쿼리문을 SQL파일에 씁니다.
 		/// </summary>
 		public void WriteQueryToSqlFile()
 		{
@@ -49,9 +50,9 @@ namespace Easy2.Components
 		}
 
 		/// <summary>
-		/// 
+		/// 쿼리문을 SQL파일에 씁니다.
 		/// </summary>
-		/// <param name="path"></param>
+		/// <param name="path">파일 경로입니다.</param>
 		public void WriteQueryToSqlFile(string path)
 		{
 			FileStream fs = new FileStream(path, FileMode.Create, FileAccess.Write);
@@ -67,9 +68,9 @@ namespace Easy2.Components
 		}
 
 		/// <summary>
-		/// 
+		/// 쿼리문을 SQL파일에서 읽어옵니다.
 		/// </summary>
-		/// <param name="path"></param>
+		/// <param name="path">파일 경로입니다.</param>
 		public void ReadQueryFromSqlFile(string path)
 		{
 			FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read);
@@ -83,9 +84,48 @@ namespace Easy2.Components
 			this.m_sqlPath = path;
 		}
 
+		/// <summary>
+		/// 파일 경로를 나타냅니다.
+		/// </summary>
 		public string Path
 		{
 			get { return this.m_sqlPath; }
+		}
+
+		/// <summary>
+		/// 현재 에디트창의 주석문을 제외한 쿼리문만을 파싱합니다.
+		/// </summary>
+		public string[] ParseQuery()
+		{
+			string singlePattern = "--(.*)";	// 단일라인 주석 찾는 정규식
+			string multiPattern = "(/\\*)(.|\\s)*?(\\*/)";	// 다중라인 주석 찾는 정규식
+			StringBuilder builder = new StringBuilder(this.Text);
+
+			Regex regex = new Regex(singlePattern);
+			MatchCollection matches = regex.Matches(builder.ToString());
+
+			foreach(Match match in matches)
+			{
+				builder.Replace(match.Value, "");	// 주석을 찾아서 지움
+			}
+
+			regex = new Regex(multiPattern);
+			matches = regex.Matches(builder.ToString());
+
+			foreach(Match match in matches)
+			{
+				builder.Replace(match.Value, "");	// 주석을 찾아서 지움
+			}
+
+			string[] split = builder.ToString().Trim().Split(';');
+			string[] queries = new string[split.Length];
+
+			for(int i = 0; i < queries.Length; i++)
+			{
+				queries[i] = split[i].Trim() + ";";
+			}
+				
+			return queries;
 		}
 
 		private string m_sqlPath = null;

@@ -129,6 +129,47 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
+		/// 쿼리문을 실행하여 쿼리뷰, 메세지창에 결과를 출력합니다.
+		/// </summary>
+		/// <param name="query">실행할 쿼리문입니다.</param>
+		private void ExecuteQuery(string query)
+		{
+			if(query == null)
+				return;
+
+			MySqlDataReader reader = null;
+			try
+			{
+				reader = Program.ActivateCommunicator.ExecuteReader(query);
+				if(reader.FieldCount == 0)
+				{
+					this.m_messageWindow.Message = String.Format(Resources.Easy2Message_AffectedRows, reader.RecordsAffected);
+					this.m_dockContainerItemBar.SelectedDockTab = this.m_dockContainerItemBar.Items.IndexOf(this.m_messageWindow);
+					((ReadonlyTextBox)(this.m_messageWindow.Control)).SelectionLength = 0;
+				}
+				else
+				{
+					this.m_tableWindow.Viewer.FillTableData(reader);
+					this.m_dockContainerItemBar.SelectedDockTab = this.m_dockContainerItemBar.Items.IndexOf(this.m_tableWindow);
+				}
+
+				reader.Close();
+			}
+			catch(MySqlException ex)
+			{
+				this.m_messageWindow.Message = String.Format(Resources.Easy2Message_ErrorMessage, query, ex.Number, ex.Message);
+				this.m_dockContainerItemBar.SelectedDockTab = this.m_dockContainerItemBar.Items.IndexOf(this.m_messageWindow);
+				((ReadonlyTextBox)(this.m_messageWindow.Control)).SelectionLength = 0;
+
+			}
+			finally
+			{
+				if(reader != null)
+					reader.Close();
+			}
+		}
+
+		/// <summary>
 		/// 폼이 보여질 때 호출됩니다.
 		/// </summary>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
@@ -505,35 +546,10 @@ namespace Easy2.Forms
 		{
 			// 쿼리문을 파싱합니다.
 			string[] queries = this.m_selectedQueryEditor.ParseQuery();
-
-			MySqlDataReader reader = null;
-			try
-			{
-				foreach(string query in queries)
-				{
-					reader = Program.ActivateCommunicator.ExecuteReader(query);
-					if(reader.FieldCount == 0)
-					{
-						// 메세지창에 출력
-					}
-					else
-					{
-						// 테이블에 출력
-					}
-
-					reader.Close();
-				}
-			}
-			catch(MySqlException ex)
-			{
-				// 메세지창에 출력
-				System.Console.WriteLine(ex.Message);
-			}
-			finally
-			{
-				if(reader != null)
-					reader.Close();
-			}
+			if((queries.Length > 0) && (queries[queries.Length - 1] != null))
+				ExecuteQuery(queries[queries.Length - 1]);
+			else if((queries.Length > 1) && (queries[queries.Length - 2] != null))
+				ExecuteQuery(queries[queries.Length - 2]);
 		}
 
 		/// <summary>

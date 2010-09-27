@@ -85,21 +85,24 @@ namespace Easy2.Components
 		}
 
 		/// <summary>
-		/// 파일 경로를 나타냅니다.
+		/// 문자열에서 주석문을 제외한 쿼리문만을 파싱합니다.
 		/// </summary>
-		public string Path
+		/// <returns>파싱된 쿼리문 배열입니다.</returns>
+		public string[] ParseQuery()
 		{
-			get { return this.m_sqlPath; }
+			return ParseQuery(this.Text);
 		}
 
 		/// <summary>
-		/// 현재 에디트창의 주석문을 제외한 쿼리문만을 파싱합니다.
+		/// 입력된 문자열에서 주석문을 제외한 쿼리문만을 파싱합니다.
 		/// </summary>
-		public string[] ParseQuery()
+		/// <param name="s">파싱할 문자열입니다.</param>
+		/// <returns>파싱된 쿼리문 배열입니다.</returns>
+		public string[] ParseQuery(string s)
 		{
 			string singlePattern = "--(.*)";	// 단일라인 주석 찾는 정규식
 			string multiPattern = "(/\\*)(.|\\s)*?(\\*/)";	// 다중라인 주석 찾는 정규식
-			StringBuilder builder = new StringBuilder(this.Text);
+			StringBuilder builder = new StringBuilder(s);
 
 			Regex regex = new Regex(singlePattern);
 			MatchCollection matches = regex.Matches(builder.ToString());
@@ -125,8 +128,16 @@ namespace Easy2.Components
 				string query = split[i].Trim();
 				queries[i] = (query != null) && (query.Length != 0) ? query + ";" : null;
 			}
-				
+
 			return queries;
+		}
+
+		/// <summary>
+		/// 파일 경로를 나타냅니다.
+		/// </summary>
+		public string Path
+		{
+			get { return this.m_sqlPath; }
 		}
 
 		private string m_sqlPath = null;

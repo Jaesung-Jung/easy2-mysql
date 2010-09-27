@@ -32,9 +32,6 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.m_ribbonControl = new DevComponents.DotNetBar.RibbonControl();
 			this.m_homePanel = new DevComponents.DotNetBar.RibbonPanel();
-			this.m_tabBar = new DevComponents.DotNetBar.RibbonBar();
-			this.m_switchPreviousTab = new DevComponents.DotNetBar.ButtonItem();
-			this.m_switchNextTab = new DevComponents.DotNetBar.ButtonItem();
 			this.m_executeBar = new DevComponents.DotNetBar.RibbonBar();
 			this.m_executeQuery = new DevComponents.DotNetBar.ButtonItem();
 			this.m_executeSelectQuery = new DevComponents.DotNetBar.ButtonItem();
@@ -186,7 +183,6 @@
 			// m_homePanel
 			// 
 			this.m_homePanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_homePanel.Controls.Add(this.m_tabBar);
 			this.m_homePanel.Controls.Add(this.m_executeBar);
 			this.m_homePanel.Controls.Add(this.m_editBar);
 			this.m_homePanel.Controls.Add(this.m_clipboardBar);
@@ -212,59 +208,6 @@
 			this.m_homePanel.StyleMouseOver.Class = "";
 			this.m_homePanel.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_homePanel.TabIndex = 1;
-			// 
-			// m_tabBar
-			// 
-			this.m_tabBar.AutoOverflowEnabled = true;
-			// 
-			// 
-			// 
-			this.m_tabBar.BackgroundMouseOverStyle.Class = "";
-			this.m_tabBar.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-			// 
-			// 
-			// 
-			this.m_tabBar.BackgroundStyle.Class = "";
-			this.m_tabBar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-			this.m_tabBar.ContainerControlProcessDialogKey = true;
-			this.m_tabBar.Dock = System.Windows.Forms.DockStyle.Left;
-			this.m_tabBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.m_switchPreviousTab,
-            this.m_switchNextTab});
-			this.m_tabBar.Location = new System.Drawing.Point(741, 0);
-			this.m_tabBar.Name = "m_tabBar";
-			this.m_tabBar.Size = new System.Drawing.Size(123, 119);
-			this.m_tabBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-			this.m_tabBar.TabIndex = 4;
-			this.m_tabBar.Text = "탭";
-			// 
-			// 
-			// 
-			this.m_tabBar.TitleStyle.Class = "";
-			this.m_tabBar.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-			// 
-			// 
-			// 
-			this.m_tabBar.TitleStyleMouseOver.Class = "";
-			this.m_tabBar.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-			// 
-			// m_switchPreviousTab
-			// 
-			this.m_switchPreviousTab.Image = ((System.Drawing.Image)(resources.GetObject("m_switchPreviousTab.Image")));
-			this.m_switchPreviousTab.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-			this.m_switchPreviousTab.KeyTips = "TP";
-			this.m_switchPreviousTab.Name = "m_switchPreviousTab";
-			this.m_switchPreviousTab.SubItemsExpandWidth = 14;
-			this.m_switchPreviousTab.Text = "이전 탭";
-			// 
-			// m_switchNextTab
-			// 
-			this.m_switchNextTab.Image = ((System.Drawing.Image)(resources.GetObject("m_switchNextTab.Image")));
-			this.m_switchNextTab.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-			this.m_switchNextTab.KeyTips = "TN";
-			this.m_switchNextTab.Name = "m_switchNextTab";
-			this.m_switchNextTab.SubItemsExpandWidth = 14;
-			this.m_switchNextTab.Text = "다음 탭";
 			// 
 			// m_executeBar
 			// 
@@ -1764,9 +1707,6 @@
 		private DevComponents.DotNetBar.ButtonItem m_executeQuery;
 		private DevComponents.DotNetBar.ButtonItem m_executeSelectQuery;
 		private DevComponents.DotNetBar.ButtonItem m_execyteAllQuery;
-		private DevComponents.DotNetBar.RibbonBar m_tabBar;
-		private DevComponents.DotNetBar.ButtonItem m_switchPreviousTab;
-		private DevComponents.DotNetBar.ButtonItem m_switchNextTab;
 		private DevComponents.DotNetBar.RibbonBar m_userBar;
 		private DevComponents.DotNetBar.ButtonItem m_createUser;
 		private DevComponents.DotNetBar.ButtonItem m_alterUser;

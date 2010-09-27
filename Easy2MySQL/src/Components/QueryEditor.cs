@@ -122,7 +122,8 @@ namespace Easy2.Components
 
 			for(int i = 0; i < queries.Length; i++)
 			{
-				queries[i] = split[i].Trim() + ";";
+				string query = split[i].Trim();
+				queries[i] = (query != null) && (query.Length != 0) ? query + ";" : null;
 			}
 				
 			return queries;

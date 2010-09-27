@@ -341,7 +341,6 @@ namespace Easy2.Forms
 			OpenFileDialog.Title = "열기";
 			OpenFileDialog.Filter = "SQL 파일(*.sql)|*.sql";
 
-
 			if (OpenFileDialog.ShowDialog() == DialogResult.OK)
 			{
 				CreateNewDocument(DocumentType.QueryEditor);
@@ -387,7 +386,6 @@ namespace Easy2.Forms
 			saveFileDialog.InitialDirectory = "C:\\";
 			saveFileDialog.Title = "다른 이름으로 저장";
 			saveFileDialog.Filter = "SQL 파일(*.sql)|*.sql";
-
 
 			if (saveFileDialog.ShowDialog() == DialogResult.OK)
 			{
@@ -559,7 +557,12 @@ namespace Easy2.Forms
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void OnExecuteSelectQueryClick(object sender, EventArgs e)
 		{
-
+			string[] queries = this.m_selectedQueryEditor.ParseQuery(this.m_selectedQueryEditor.Selection.Text);
+			foreach(string query in queries)
+			{
+				if(query != null && query.Length > 0)
+					ExecuteQuery(query);
+			}
 		}
 
 		/// <summary>
@@ -569,7 +572,12 @@ namespace Easy2.Forms
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void OnExecyteAllQueryClick(object sender, EventArgs e)
 		{
-
+			string[] queries = this.m_selectedQueryEditor.ParseQuery();
+			foreach(string query in queries)
+			{
+				if(query != null && query.Length > 0)
+					ExecuteQuery(query);
+			}
 		}
 
 		/// <summary>

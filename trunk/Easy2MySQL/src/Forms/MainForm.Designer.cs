@@ -114,8 +114,6 @@
 			this.m_newConnection = new DevComponents.DotNetBar.ButtonItem();
 			this.m_newConnectionUsingCurrentSettings = new DevComponents.DotNetBar.ButtonItem();
 			this.m_newQueryEditor = new DevComponents.DotNetBar.ButtonItem();
-			this.m_newQueryWizard = new DevComponents.DotNetBar.ButtonItem();
-			this.m_newSchemaDesigner = new DevComponents.DotNetBar.ButtonItem();
 			this.m_closeTab = new DevComponents.DotNetBar.ButtonItem();
 			this.m_disconnectMySql = new DevComponents.DotNetBar.ButtonItem();
 			this.m_disconnectAllMySql = new DevComponents.DotNetBar.ButtonItem();
@@ -1336,12 +1334,10 @@
 			this.m_leftItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.m_newConnection,
             this.m_newConnectionUsingCurrentSettings,
-            this.m_newQueryEditor,
-            this.m_newQueryWizard,
-            this.m_newSchemaDesigner,
-            this.m_closeTab,
             this.m_disconnectMySql,
             this.m_disconnectAllMySql,
+            this.m_newQueryEditor,
+            this.m_closeTab,
             this.m_openFileInSameTab,
             this.m_openFileInNewTab,
             this.m_saveFile,
@@ -1374,25 +1370,8 @@
 			this.m_newQueryEditor.Text = "새 쿼리 에디터(&Q)";
 			this.m_newQueryEditor.Click += new System.EventHandler(this.OnNewQueryEditorClick);
 			// 
-			// m_newQueryWizard
-			// 
-			this.m_newQueryWizard.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_newQueryWizard.Image = ((System.Drawing.Image)(resources.GetObject("m_newQueryWizard.Image")));
-			this.m_newQueryWizard.Name = "m_newQueryWizard";
-			this.m_newQueryWizard.SubItemsExpandWidth = 24;
-			this.m_newQueryWizard.Text = "새 쿼리 마법사(&W)";
-			// 
-			// m_newSchemaDesigner
-			// 
-			this.m_newSchemaDesigner.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_newSchemaDesigner.Image = ((System.Drawing.Image)(resources.GetObject("m_newSchemaDesigner.Image")));
-			this.m_newSchemaDesigner.Name = "m_newSchemaDesigner";
-			this.m_newSchemaDesigner.SubItemsExpandWidth = 24;
-			this.m_newSchemaDesigner.Text = "새 스키마 디자이너(&H)";
-			// 
 			// m_closeTab
 			// 
-			this.m_closeTab.BeginGroup = true;
 			this.m_closeTab.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
 			this.m_closeTab.Image = ((System.Drawing.Image)(resources.GetObject("m_closeTab.Image")));
 			this.m_closeTab.Name = "m_closeTab";
@@ -1401,6 +1380,7 @@
 			// 
 			// m_disconnectMySql
 			// 
+			this.m_disconnectMySql.BeginGroup = true;
 			this.m_disconnectMySql.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
 			this.m_disconnectMySql.Image = ((System.Drawing.Image)(resources.GetObject("m_disconnectMySql.Image")));
 			this.m_disconnectMySql.Name = "m_disconnectMySql";
@@ -1674,8 +1654,6 @@
 		private DevComponents.DotNetBar.ButtonItem m_newConnection;
 		private DevComponents.DotNetBar.ButtonItem m_newConnectionUsingCurrentSettings;
 		private DevComponents.DotNetBar.ButtonItem m_newQueryEditor;
-		private DevComponents.DotNetBar.ButtonItem m_newQueryWizard;
-		private DevComponents.DotNetBar.ButtonItem m_newSchemaDesigner;
 		private DevComponents.DotNetBar.ButtonItem m_closeTab;
 		private DevComponents.DotNetBar.ButtonItem m_disconnectMySql;
 		private DevComponents.DotNetBar.GalleryContainer m_rightItemContainer;

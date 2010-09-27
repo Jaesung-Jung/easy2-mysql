@@ -481,4 +481,12 @@
   <data name="Easy2Message_TruncateDatabaseQuestion" xml:space="preserve">
     <value>데이터베이스 '{0}'를 비우시겠습니까?</value>
   </data>
+  <data name="Easy2Message_AffectedRows" xml:space="preserve">
+    <value>{0}개의 열이 영향을 받았습니다.</value>
+  </data>
+  <data name="Easy2Message_ErrorMessage" xml:space="preserve">
+    <value>[질의] : {0}
+[오류 번호] : {1}
+[오류 메세지] : {2}</value>
+  </data>
 </root>

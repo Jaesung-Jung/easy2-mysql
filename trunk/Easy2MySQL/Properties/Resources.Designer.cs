@@ -449,6 +449,15 @@ namespace Easy2.Properties {
         }
         
         /// <summary>
+        ///   {0}개의 열이 영향을 받았습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2Message_AffectedRows {
+            get {
+                return ResourceManager.GetString("Easy2Message_AffectedRows", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   MySQL 서버 연결에 성공하였습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string Easy2Message_ConnectSuccess {
@@ -508,6 +517,17 @@ namespace Easy2.Properties {
         internal static string Easy2Message_EmptyItem {
             get {
                 return ResourceManager.GetString("Easy2Message_EmptyItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   [질의] : {0}
+        ///[오류 번호] : {1}
+        ///[오류 메세지] : {2}과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2Message_ErrorMessage {
+            get {
+                return ResourceManager.GetString("Easy2Message_ErrorMessage", resourceCulture);
             }
         }
         

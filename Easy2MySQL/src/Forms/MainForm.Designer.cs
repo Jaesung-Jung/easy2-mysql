@@ -113,10 +113,10 @@
 			this.m_leftItemContainer = new DevComponents.DotNetBar.ItemContainer();
 			this.m_newConnection = new DevComponents.DotNetBar.ButtonItem();
 			this.m_newConnectionUsingCurrentSettings = new DevComponents.DotNetBar.ButtonItem();
-			this.m_newQueryEditor = new DevComponents.DotNetBar.ButtonItem();
-			this.m_closeTab = new DevComponents.DotNetBar.ButtonItem();
 			this.m_disconnectMySql = new DevComponents.DotNetBar.ButtonItem();
 			this.m_disconnectAllMySql = new DevComponents.DotNetBar.ButtonItem();
+			this.m_newQueryEditor = new DevComponents.DotNetBar.ButtonItem();
+			this.m_closeTab = new DevComponents.DotNetBar.ButtonItem();
 			this.m_openFileInSameTab = new DevComponents.DotNetBar.ButtonItem();
 			this.m_openFileInNewTab = new DevComponents.DotNetBar.ButtonItem();
 			this.m_saveFile = new DevComponents.DotNetBar.ButtonItem();
@@ -1289,6 +1289,7 @@
 			this.m_startButton.ImageFixedSize = new System.Drawing.Size(16, 16);
 			this.m_startButton.ImagePaddingHorizontal = 0;
 			this.m_startButton.ImagePaddingVertical = 0;
+			this.m_startButton.KeyTips = "F";
 			this.m_startButton.Name = "m_startButton";
 			this.m_startButton.ShowSubItems = false;
 			this.m_startButton.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -1360,6 +1361,23 @@
 			this.m_newConnectionUsingCurrentSettings.SubItemsExpandWidth = 24;
 			this.m_newConnectionUsingCurrentSettings.Text = "기존 설정 연결(&N)";
 			// 
+			// m_disconnectMySql
+			// 
+			this.m_disconnectMySql.BeginGroup = true;
+			this.m_disconnectMySql.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_disconnectMySql.Image = ((System.Drawing.Image)(resources.GetObject("m_disconnectMySql.Image")));
+			this.m_disconnectMySql.Name = "m_disconnectMySql";
+			this.m_disconnectMySql.Text = "연결종료(&D)";
+			this.m_disconnectMySql.Click += new System.EventHandler(this.OnDisconnectMySqlClick);
+			// 
+			// m_disconnectAllMySql
+			// 
+			this.m_disconnectAllMySql.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_disconnectAllMySql.Image = ((System.Drawing.Image)(resources.GetObject("m_disconnectAllMySql.Image")));
+			this.m_disconnectAllMySql.Name = "m_disconnectAllMySql";
+			this.m_disconnectAllMySql.Text = "모든 연결종료(&L)";
+			this.m_disconnectAllMySql.Click += new System.EventHandler(this.OnDisconnectAllMySqlClick);
+			// 
 			// m_newQueryEditor
 			// 
 			this.m_newQueryEditor.BeginGroup = true;
@@ -1377,23 +1395,6 @@
 			this.m_closeTab.Name = "m_closeTab";
 			this.m_closeTab.SubItemsExpandWidth = 24;
 			this.m_closeTab.Text = "댑 닫기(&T)";
-			// 
-			// m_disconnectMySql
-			// 
-			this.m_disconnectMySql.BeginGroup = true;
-			this.m_disconnectMySql.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_disconnectMySql.Image = ((System.Drawing.Image)(resources.GetObject("m_disconnectMySql.Image")));
-			this.m_disconnectMySql.Name = "m_disconnectMySql";
-			this.m_disconnectMySql.Text = "연결종료(&D)";
-			this.m_disconnectMySql.Click += new System.EventHandler(this.OnDisconnectMySqlClick);
-			// 
-			// m_disconnectAllMySql
-			// 
-			this.m_disconnectAllMySql.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_disconnectAllMySql.Image = ((System.Drawing.Image)(resources.GetObject("m_disconnectAllMySql.Image")));
-			this.m_disconnectAllMySql.Name = "m_disconnectAllMySql";
-			this.m_disconnectAllMySql.Text = "모든 연결종료(&L)";
-			this.m_disconnectAllMySql.Click += new System.EventHandler(this.OnDisconnectAllMySqlClick);
 			// 
 			// m_openFileInSameTab
 			// 

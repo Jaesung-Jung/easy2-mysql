@@ -282,8 +282,8 @@ namespace Easy2.Classes
 		public static string ShowFullFields(string from, bool isFull)
 		{
 			return isFull ?
-				String.Format("SHOW FULL FIELDS FROM `{0}`;", from):
-				String.Format("SHOW FIELDS FROM `{0}`;", from);
+				String.Format("SHOW FULL FIELDS FROM {0};", from):
+				String.Format("SHOW FIELDS FROM {0};", from);
 		}
 
 		/// <summary>

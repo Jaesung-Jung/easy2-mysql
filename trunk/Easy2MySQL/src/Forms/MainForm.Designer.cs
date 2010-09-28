@@ -112,7 +112,6 @@
 			this.m_fileMenuItemContainer = new DevComponents.DotNetBar.ItemContainer();
 			this.m_leftItemContainer = new DevComponents.DotNetBar.ItemContainer();
 			this.m_newConnection = new DevComponents.DotNetBar.ButtonItem();
-			this.m_newConnectionUsingCurrentSettings = new DevComponents.DotNetBar.ButtonItem();
 			this.m_disconnectMySql = new DevComponents.DotNetBar.ButtonItem();
 			this.m_disconnectAllMySql = new DevComponents.DotNetBar.ButtonItem();
 			this.m_newQueryEditor = new DevComponents.DotNetBar.ButtonItem();
@@ -1334,7 +1333,6 @@
 			this.m_leftItemContainer.Name = "m_leftItemContainer";
 			this.m_leftItemContainer.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.m_newConnection,
-            this.m_newConnectionUsingCurrentSettings,
             this.m_disconnectMySql,
             this.m_disconnectAllMySql,
             this.m_newQueryEditor,
@@ -1352,14 +1350,6 @@
 			this.m_newConnection.SubItemsExpandWidth = 24;
 			this.m_newConnection.Text = "새로운 연결(&C)...";
 			this.m_newConnection.Click += new System.EventHandler(this.OnNewConnectionClick);
-			// 
-			// m_newConnectionUsingCurrentSettings
-			// 
-			this.m_newConnectionUsingCurrentSettings.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-			this.m_newConnectionUsingCurrentSettings.Image = ((System.Drawing.Image)(resources.GetObject("m_newConnectionUsingCurrentSettings.Image")));
-			this.m_newConnectionUsingCurrentSettings.Name = "m_newConnectionUsingCurrentSettings";
-			this.m_newConnectionUsingCurrentSettings.SubItemsExpandWidth = 24;
-			this.m_newConnectionUsingCurrentSettings.Text = "기존 설정 연결(&N)";
 			// 
 			// m_disconnectMySql
 			// 
@@ -1654,7 +1644,6 @@
 		private DevComponents.DotNetBar.ItemContainer m_fileMenuItemContainer;
 		private DevComponents.DotNetBar.ItemContainer m_leftItemContainer;
 		private DevComponents.DotNetBar.ButtonItem m_newConnection;
-		private DevComponents.DotNetBar.ButtonItem m_newConnectionUsingCurrentSettings;
 		private DevComponents.DotNetBar.ButtonItem m_newQueryEditor;
 		private DevComponents.DotNetBar.ButtonItem m_closeTab;
 		private DevComponents.DotNetBar.ButtonItem m_disconnectMySql;

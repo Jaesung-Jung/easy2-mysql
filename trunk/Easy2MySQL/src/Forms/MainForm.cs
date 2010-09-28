@@ -416,6 +416,36 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
+		/// 탭 닫기 버튼을 클릭하면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		private void OnCloseTabClick(object sender, EventArgs e)
+		{
+			Bar bar = GetFirstDocumentBar();
+
+			DockContainerItem previousItem = null; // 이전 탭
+			DockContainerItem currentItem = null;  // 현재 탭
+
+			// 바에서 탭아이템을 삭제할 경우 가장 첫번째 아이템이 선택됨
+			// 그에따라 이전아이템을 참조하면서 삭제 될 때 이전 아이템을 선택하도록 함
+			for(int i = 0; i < bar.Items.Count; i++)
+			{
+				previousItem = currentItem;
+				currentItem = (DockContainerItem)(bar.Items[i]);
+
+				if(currentItem.Control == this.m_selectedQueryEditor)
+				{
+					bar.Items.Remove(currentItem);
+					if(previousItem != null)
+						bar.SelectedDockTab = bar.Items.IndexOf(previousItem);
+
+					break;
+				}
+			}
+		}
+
+		/// <summary>
 		/// 새로고침 버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>

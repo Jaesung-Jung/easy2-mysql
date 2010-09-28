@@ -1395,6 +1395,7 @@
 			this.m_closeTab.Name = "m_closeTab";
 			this.m_closeTab.SubItemsExpandWidth = 24;
 			this.m_closeTab.Text = "댑 닫기(&T)";
+			this.m_closeTab.Click += new System.EventHandler(this.OnCloseTabClick);
 			// 
 			// m_openFileInSameTab
 			// 

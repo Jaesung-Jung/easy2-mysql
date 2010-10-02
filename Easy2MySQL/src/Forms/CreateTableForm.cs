@@ -28,7 +28,7 @@ namespace Easy2.Forms
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		void OnTableEditorSelectionChanged(object sender, EventArgs e)
+		private void OnTableEditorSelectionChanged(object sender, EventArgs e)
 		{
 			if(this.m_tableEditor.CurrentCell.OwningRow.IsNewRow == false)
 			{

@@ -24,7 +24,7 @@ namespace Easy2.Components
 			this.EditMode = DataGridViewEditMode.EditProgrammatically;
 			this.BackgroundColor = Color.White;
 			this.Dock = DockStyle.Fill;
-			this.Font = new Font("돋움체", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+			this.Font = new Font("Courier New", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
 			this.MultiSelect = false;
 			this.RowHeadersVisible = false;
 		}

@@ -489,4 +489,7 @@
 [오류 번호] : {1}
 [오류 메세지] : {2}</value>
   </data>
+  <data name="Easy2Message_EmptyTableData" xml:space="preserve">
+    <value>데이터가 입력되지 않았습니다.</value>
+  </data>
 </root>

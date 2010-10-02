@@ -521,6 +521,15 @@ namespace Easy2.Properties {
         }
         
         /// <summary>
+        ///   데이터가 입력되지 않았습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2Message_EmptyTableData {
+            get {
+                return ResourceManager.GetString("Easy2Message_EmptyTableData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   [질의] : {0}
         ///[오류 번호] : {1}
         ///[오류 메세지] : {2}과(와) 유사한 지역화된 문자열을 찾습니다.

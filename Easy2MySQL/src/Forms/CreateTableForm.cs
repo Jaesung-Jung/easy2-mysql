@@ -50,7 +50,7 @@ namespace Easy2.Forms
 			NewTableForm newTableForm = new NewTableForm();
 			if(this.m_tableEditor.Rows.Count == 1)
 			{
-				// MessageBoxEx.Show("데이터 입력해라");
+				MessageBoxEx.Show(this, Resources.Easy2Message_EmptyTableData, Resources.Easy2Message_Title, MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			else
 			{

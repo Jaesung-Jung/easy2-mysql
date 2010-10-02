@@ -276,14 +276,28 @@ namespace Easy2.Classes
 		/// <summary>
 		/// 테이블의 필드의 정보를 조회하는 쿼리문을 생성합니다.
 		/// </summary>
-		/// <param name="from">조회할 테이블이름입니다.</param>
+		/// <param name="table">조회할 테이블이름입니다.</param>
 		/// <param name="isFull">자세한 필드내용을 조회할지의 여부입니다.</param>
 		/// <returns>테이블의 필드의 정보를 조회하는 쿼리문입니다.</returns>
-		public static string ShowFullFields(string from, bool isFull)
+		public static string ShowFullFields(string table, bool isFull)
 		{
 			return isFull ?
-				String.Format("SHOW FULL FIELDS FROM {0};", from):
-				String.Format("SHOW FIELDS FROM {0};", from);
+				String.Format("SHOW FULL FIELDS FROM {0};", table):
+				String.Format("SHOW FIELDS FROM {0};", table);
+		}
+
+		/// <summary>
+		/// 테이블의 필드의 정보를 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="db">조회할 테이블을 소유한 데이터베이스입니다.</param>
+		/// <param name="table">조회할 테이블이름입니다.</param>
+		/// <param name="isFull">자세한 필드내용을 조회할지의 여부입니다.</param>
+		/// <returns>테이블의 필드의 정보를 조회하는 쿼리문입니다.</returns>
+		public static string ShowFullFields(string db, string table, bool isFull)
+		{
+			return isFull ?
+				String.Format("SHOW FULL FIELDS FROM `{0}`.`{1}`;", db, table) :
+				String.Format("SHOW FIELDS FROM `{0}`.`{1}`;", db, table);
 		}
 
 		/// <summary>

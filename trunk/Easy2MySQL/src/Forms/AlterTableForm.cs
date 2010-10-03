@@ -28,6 +28,7 @@ namespace Easy2.Forms
 			base.TableEditorContainer = this.m_tableEditor;
 
 			InitializeTableEditor();
+			InitializeAdvTablePropertiesForm();
 		}
 
 		/// <summary>
@@ -44,10 +45,10 @@ namespace Easy2.Forms
 				{
 					string r_Field = reader["Field"].ToString();
 					string r_Type = reader["Type"].ToString();
-					string r_Collation = reader["Collation"].GetType().Name == "DBNull" ? null : reader["Collation"].ToString();
+					string r_Collation = reader["Collation"].GetType().Name.Equals("DBNull") == true ? null : reader["Collation"].ToString();
 					string r_Null = reader["Null"].ToString();
 					string r_Key = reader["Key"].ToString();
-					string r_Default = reader["Default"].GetType().Name == "DBNull" ? null : reader["Default"].ToString();
+					string r_Default = reader["Default"].GetType().Name.Equals("DBNull") == true ? null : reader["Default"].ToString();
 					string r_Extra = reader["Extra"].ToString();
 					string r_Comment = reader["Comment"].ToString();
 
@@ -70,6 +71,54 @@ namespace Easy2.Forms
 				reader.Close();
 
 				this.m_tableEditor.WriteFields(fields.ToArray());
+			}
+			catch(MySqlException ex)
+			{
+				EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
+			}
+			finally
+			{
+				if(reader != null)
+					reader.Close();
+			}
+		}
+
+		/// <summary>
+		/// 테이블 고급설정 폼을 초기화합니다.
+		/// </summary>
+		private void InitializeAdvTablePropertiesForm()
+		{
+			MySqlDataReader reader = null;
+			try
+			{
+				reader = Program.ActivateCommunicator.ExecuteReader(MySqlGenerator.ShowTableStatus(this.m_db, this.m_table));
+				reader.Read();
+
+				TableOption option = new TableOption();
+				option.Engine = reader["Engine"].ToString();
+				option.Collation = reader["Collation"].ToString();
+				option.Charset = option.Collation.Substring(0, option.Collation.IndexOf('_'));
+				option.Comment = reader["Comment"].ToString();
+				option.Format = reader["Row_format"].ToString();
+				option.Checksum = reader["Checksum"].GetType().Name.Equals("DBNull") == true ? "DEFAULT" : reader["Checksum"].ToString();
+				option.AutoIncrement = reader["Auto_increment"].GetType().Name.Equals("DBNull") == true ? "" : reader["Auto_increment"].ToString();
+				option.AvgRowLength = reader["Avg_row_length"].ToString().Equals("0") == true ? "" : reader["Avg_row_length"].ToString();
+
+				string[] createOptions = reader["Create_options"].ToString().Split(' ');
+				foreach(string createOption in createOptions)
+				{
+					if(createOption.IndexOf("min_rows=") != -1)
+					{
+						option.MinimumRows = createOption.Substring(0 + "min_rows=".Length);
+					}
+					else if(createOption.IndexOf("max_rows=") != -1)
+					{
+						option.MaximumRows = createOption.Substring(0 + "max_rows=".Length);
+					}
+				}
+				reader.Close();
+
+				this.m_tableOption = option;
 			}
 			catch(MySqlException ex)
 			{

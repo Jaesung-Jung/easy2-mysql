@@ -1157,5 +1157,29 @@ namespace Easy2.Classes
 		{
 			return String.Format("{0}({1})", keyName, columnName);
 		}
+
+		/// <summary>
+		/// 입력된 문자열에서 데이터타입을 구합니다..
+		/// </summary>
+		/// <param name="s">데이터타입을 구할 문자열입니다.</param>
+		/// <returns>데이터타입 입니다.</returns>
+		public static string GetDataType(string s)
+		{
+			string[] split = s.Split(' ');
+			return split[0].IndexOf('(') != -1 ? split[0].Substring(0, split[0].IndexOf('(')) : split[0];
+		}
+
+		/// <summary>
+		/// 입력된 문자열에서 데이터길이를 구합니다.
+		/// </summary>
+		/// <param name="s">데이터길이를 구할 문자열입니다.</param>
+		/// <returns>데이터길이 입니다.</returns>
+		public static string GetDataLength(string s)
+		{
+			string[] split = s.Split(' ');
+			int start = split[0].IndexOf('(');
+			int end = split[0].IndexOf(')');
+			return start != -1 ? split[0].Substring(start + 1, end - start - 1) : "";
+		}
 	}
 }

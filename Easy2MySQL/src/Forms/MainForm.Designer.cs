@@ -156,8 +156,8 @@
 			this.m_ribbonControl.BackgroundStyle.Class = "";
 			this.m_ribbonControl.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_ribbonControl.CaptionVisible = true;
-			this.m_ribbonControl.Controls.Add(this.m_homePanel);
 			this.m_ribbonControl.Controls.Add(this.m_createPanel);
+			this.m_ribbonControl.Controls.Add(this.m_homePanel);
 			this.m_ribbonControl.Controls.Add(this.m_toolPanel);
 			this.m_ribbonControl.Dock = System.Windows.Forms.DockStyle.Top;
 			this.m_ribbonControl.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -205,6 +205,7 @@
 			this.m_homePanel.StyleMouseOver.Class = "";
 			this.m_homePanel.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_homePanel.TabIndex = 1;
+			this.m_homePanel.Visible = false;
 			// 
 			// m_executeBar
 			// 
@@ -574,7 +575,6 @@
 			this.m_createPanel.StyleMouseOver.Class = "";
 			this.m_createPanel.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_createPanel.TabIndex = 2;
-			this.m_createPanel.Visible = false;
 			// 
 			// m_objectBar
 			// 
@@ -932,6 +932,7 @@
 			this.m_alterTable.KeyTips = "TA";
 			this.m_alterTable.Name = "m_alterTable";
 			this.m_alterTable.Text = "테이블 수정하기";
+			this.m_alterTable.Click += new System.EventHandler(this.OnAlterTableClick);
 			// 
 			// m_truncateTable
 			// 
@@ -1465,7 +1466,6 @@
 			// 
 			// m_homeTab
 			// 
-			this.m_homeTab.Checked = true;
 			this.m_homeTab.KeyTips = "H";
 			this.m_homeTab.Name = "m_homeTab";
 			this.m_homeTab.Panel = this.m_homePanel;
@@ -1473,6 +1473,7 @@
 			// 
 			// m_createTab
 			// 
+			this.m_createTab.Checked = true;
 			this.m_createTab.KeyTips = "C";
 			this.m_createTab.Name = "m_createTab";
 			this.m_createTab.Panel = this.m_createPanel;

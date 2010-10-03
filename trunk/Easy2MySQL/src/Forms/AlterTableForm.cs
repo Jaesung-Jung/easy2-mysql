@@ -21,14 +21,18 @@ namespace Easy2.Forms
 		/// <param name="table">수정할 테이블입니다.</param>
 		public AlterTableForm(string db, string table)
 		{
+			this.m_isInitialize = true;
 			InitializeComponent();
-			this.m_tableEditor.SelectionChanged += new EventHandler(this.OnTableEditorSelectionChanged);
+			this.m_tableEditor.SelectionChanged += new EventHandler(OnTableEditorSelectionChanged);
+			this.m_tableEditor.RowsRemoved += new DataGridViewRowsRemovedEventHandler(OnTableEditorRowsRemoved);
+			this.m_tableEditor.CellValueChanged += new DataGridViewCellEventHandler(OnTableEditorCellValueChanged);
 			this.m_db = db;
 			this.m_table = table;
 			base.TableEditorContainer = this.m_tableEditor;
 
 			InitializeTableEditor();
 			InitializeAdvTablePropertiesForm();
+			this.m_isInitialize = false;
 		}
 
 		/// <summary>
@@ -53,7 +57,7 @@ namespace Easy2.Forms
 					string r_Comment = reader["Comment"].ToString();
 
  					FieldInfo field = new FieldInfo();
- 					field.FiledName = r_Field;
+ 					field.FieldName = r_Field;
  					field.DataType = MySqlGenerator.GetDataType(r_Type);
  					field.DataLength = MySqlGenerator.GetDataLength(r_Type);
  					field.DefaultValue = r_Default;
@@ -67,6 +71,10 @@ namespace Easy2.Forms
 					field.Comment = r_Comment;
 
 					fields.Add(field);
+
+					this.m_fieldList.Add(field.FieldName);
+					if(field.PK == true)
+						this.m_primaryKeyCount++;
 				}
 				reader.Close();
 
@@ -149,12 +157,84 @@ namespace Easy2.Forms
 		}
 
 		/// <summary>
+		/// 행이 지워지면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
+		void OnTableEditorRowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+		{
+			// 기존의 필드가 지워짐
+			if(e.RowIndex < this.m_fieldList.Count)
+			{
+				// 지워진 필드 추가
+				this.m_removedFields.Add(this.m_fieldList[e.RowIndex]);
+				this.m_fieldList.RemoveAt(e.RowIndex);
+			}
+		}
+
+		void OnTableEditorCellValueChanged(object sender, DataGridViewCellEventArgs e)
+		{
+			if(this.m_isInitialize == false)
+			{
+				if(this.m_tableEditor.Columns[e.ColumnIndex].Name == "Pk")
+				{
+					this.m_isChangedPrimaryKey = true;
+				}
+				else if(e.RowIndex < this.m_fieldList.Count)
+				{
+					this.m_modifiedFields.Add(this.m_fieldList[e.RowIndex]);
+				}
+			}
+		}
+
+		/// <summary>
 		/// 확인버튼을 클릭하면 호출됩니다.
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		protected override void OnCommitButtonClick(object sender, EventArgs e)
 		{
+			List<FieldInfo> addedFields = new List<FieldInfo>();
+			List<FieldInfo> modifiedFields = new List<FieldInfo>();
+			List<string> primaryFileds = new List<string>();
+
+			for(int i = this.m_fieldList.Count; i < this.m_tableEditor.Rows.Count; i++)
+			{
+				if(this.m_tableEditor.Rows[i].IsNewRow == false)
+				{
+					addedFields.Add(this.m_tableEditor.ReadField(this.m_tableEditor.Rows[i].Cells["Field"].Value.ToString()));
+				}
+			}
+
+			for(int i = 0; i < this.m_modifiedFields.Count; i++)
+			{
+				FieldInfo info = this.m_tableEditor.ReadField(this.m_fieldList.IndexOf(this.m_modifiedFields[i]));
+				info.OldFieldName = this.m_modifiedFields[i];
+				modifiedFields.Add(info);
+			}
+
+			foreach(DataGridViewRow row in this.m_tableEditor.Rows)
+			{
+				if(row.IsNewRow == false)
+				{
+					if(Boolean.Parse(row.Cells["Pk"].Value.ToString()) == true)
+						primaryFileds.Add(row.Cells["Field"].Value.ToString());
+				}
+			}
+
+			if(this.m_primaryKeyCount > 0)
+				this.m_isDropPrimaryKey = true;
+
+			System.Console.WriteLine(MySqlGenerator.AlterTable(
+				this.m_db,
+				this.m_table,
+				addedFields.ToArray(),
+				modifiedFields.ToArray(),
+				this.m_removedFields.ToArray(),
+				primaryFileds.ToArray(),
+				this.m_isChangedPrimaryKey,
+				this.m_isDropPrimaryKey
+				));
 		}
 
 		/// <summary>
@@ -188,5 +268,14 @@ namespace Easy2.Forms
 		private TableOption m_tableOption = null;
 		private string m_db = null;
 		private string m_table = null;
+
+		private List<string> m_fieldList = new List<string>();	// 원본 필드
+		private List<string> m_removedFields = new List<string>();	// 삭제된 필드
+		private List<string> m_modifiedFields = new List<string>();	// 수정된 필드
+		private bool m_isChangedPrimaryKey = false;	// 프라이머리키가 수정됐는지의 여부
+		private bool m_isDropPrimaryKey = false;	// 프라이머리키를 지울지의 여부
+		private int m_primaryKeyCount = 0;	// 원래의 프라이머리 키의 갯수
+
+		private bool m_isInitialize = false;
 	}
 }

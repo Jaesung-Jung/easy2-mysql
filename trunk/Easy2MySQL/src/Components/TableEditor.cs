@@ -472,6 +472,48 @@ namespace Easy2.Components
 			}
 		}
 
+		/// <summary>
+		/// 한개의 필드정보를 읽습니다.
+		/// </summary>
+		/// <param name="index">인덱스입니다.</param>
+		/// <returns>필드정보입니다.</returns>
+		public FieldInfo ReadField(int index)
+		{
+			FieldInfo info = new FieldInfo();
+			DataGridViewRow row = this.Rows[index];
+			info.FieldName = row.Cells["Field"].Value != null ?
+						row.Cells["Field"].Value.ToString() : null;
+			info.DataType = row.Cells["Datatype"].Value != null ?
+				row.Cells["Datatype"].Value.ToString() : null;
+			info.DataLength = row.Cells["Length"].Value != null ?
+				row.Cells["Length"].Value.ToString() : null;
+			info.DefaultValue = row.Cells["Default"].Value != null ?
+				row.Cells["Default"].Value.ToString() : null;
+			info.PK = row.Cells["Pk"].Value != null ?
+				Boolean.Parse(row.Cells["Pk"].Value.ToString()) : false;
+			info.NotNull = row.Cells["NotNull"].Value != null ?
+				Boolean.Parse(row.Cells["NotNull"].Value.ToString()) : false;
+			info.Unsigned = row.Cells["Unsigned"].Value != null ?
+				Boolean.Parse(row.Cells["Unsigned"].Value.ToString()) : false;
+			info.AutoIncrement = row.Cells["AutoIncr"].Value != null ?
+				Boolean.Parse(row.Cells["AutoIncr"].Value.ToString()) : false;
+			info.Zerofill = row.Cells["Zerofill"].Value != null ?
+				Boolean.Parse(row.Cells["Zerofill"].Value.ToString()) : false;
+			info.Charset = row.Cells["Charset"].Value != null ?
+				row.Cells["Charset"].Value.ToString() : null;
+			info.Collation = row.Cells["Collation"].Value != null ?
+				row.Cells["Collation"].Value.ToString() : null;
+			info.Comment = row.Cells["Comment"].Value != null ?
+				row.Cells["Comment"].Value.ToString() : null;
+
+			return info;
+		}
+
+		/// <summary>
+		/// 한개의 필드정보를 읽습니다.
+		/// </summary>
+		/// <param name="filed">필드의 이름입니다.</param>
+		/// <returns>필드정보입니다.</returns>
 		public FieldInfo ReadField(string filed)
 		{
 			FieldInfo info = new FieldInfo();

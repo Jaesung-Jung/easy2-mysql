@@ -1055,7 +1055,7 @@ namespace Easy2.Classes
 
 			foreach(FieldInfo field in fields)
 			{
-				builder.Append(String.Format("`{0}` {1}", field.FiledName, field.DataType));
+				builder.Append(String.Format("`{0}` {1}", field.FieldName, field.DataType));
 
 				if(field.DataLength != null)
 					builder.Append(String.Format("({0})", field.DataLength));
@@ -1071,7 +1071,7 @@ namespace Easy2.Classes
 					builder.Append(" NOT NULL");
 				if(field.AutoIncrement == true)
 					builder.Append(" AUTO_INCREMENT");
-				if(field.PK == true && pkFields.Count > 1 && field.FiledName == pkFields[0].FiledName)
+				if(field.PK == true && pkFields.Count > 1 && field.FieldName == pkFields[0].FieldName)
 					builder.Append(" UNIQUE");
 				if(field.Comment != null)
 					builder.Append(String.Format(" COMMENT '{0}'", field.Comment));
@@ -1085,9 +1085,9 @@ namespace Easy2.Classes
 			foreach(FieldInfo field in pkFields)
 			{
 				if(field != pkFields[pkFields.Count - 1])
-					builder.Append(String.Format("`{0}`,", field.FiledName));
+					builder.Append(String.Format("`{0}`,", field.FieldName));
 				else
-					builder.Append(String.Format("`{0}`)", field.FiledName));
+					builder.Append(String.Format("`{0}`)", field.FieldName));
 			}
 
 			if(option != null)
@@ -1118,6 +1118,121 @@ namespace Easy2.Classes
 			else
 			{
 				builder.Append(");");
+			}
+
+			return builder.ToString();
+		}
+
+		/// <summary>
+		/// 테이블을 수정하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="database">수정할 테이블을 소유한 데이터베이스입니다.</param>
+		/// <param name="table">수정할 테이블입니다.</param>
+		/// <param name="addedFields">추가된 필드들의 정보입니다.</param>
+		/// <param name="modifiedFields">수정된 필드들의 정보입니다.</param>
+		/// <param name="removedFields">삭제된 필드들의 이름입니다.</param>
+		/// <param name="primaryFields">프라이머리키 필드들의 이름입니다.</param>
+		/// <param name="isChangedPrimaryKey">프라이머리키를 변경할지의 여부입니다.</param>
+		/// <param name="isDropPrimaryKey">프라이머리키를 지울지의 여부입니다.</param>
+		/// <returns>테이블을 수정하는 쿼리문입니다.</returns>
+		public static string AlterTable(
+			string database,
+			string table,
+			FieldInfo[] addedFields,
+			FieldInfo[] modifiedFields,
+			string[] removedFields,
+			string[] primaryFields,
+			bool isChangedPrimaryKey,
+			bool isDropPrimaryKey
+			)
+		{
+			StringBuilder builder = new StringBuilder();
+			builder.Append(String.Format("ALTER TABLE `{0}`.`{1}` ", database, table));
+
+			foreach(string removeField in removedFields)
+			{
+				builder.Append(String.Format("DROP COLUMN `{0}`, ", removeField));
+			}
+
+			foreach(FieldInfo info in addedFields)
+			{
+				builder.Append(String.Format("ADD COLUMN `{0}` ", info.FieldName));
+				if(info.DataLength == null)
+					builder.Append(String.Format("{0} ", info.DataType));
+				else
+					builder.Append(String.Format("{0}({1}) ", info.DataType, info.DataLength));
+				if(info.Charset != null && info.Charset != "DEFAULT")
+					builder.Append(String.Format("CHARSET {0} ", info.Charset));
+				if(info.Collation != null && info.Collation != "DEFAULT")
+					builder.Append(String.Format("COLLATE {0} ", info.Collation));
+				if(info.Unsigned == true)
+					builder.Append("UNSIGNED ");
+				if(info.Zerofill == true)
+					builder.Append("ZEROFILL ");
+				if(info.DefaultValue != null && info.DefaultValue != "''")
+					builder.Append(String.Format("DEFAULT '{0}' ", info.DefaultValue));
+				else if(info.DefaultValue != null && info.DefaultValue == "''")
+					builder.Append(String.Format("DEFAULT '' "));
+				if(info.NotNull == true)
+					builder.Append("NOT NULL ");
+				else
+					builder.Append("NULL ");
+				if(info.AutoIncrement == true)
+					builder.Append("AUTO_INCREMENT ");
+				if(info.Comment != null)
+					builder.Append(String.Format("COMMENT '{0}', ", info.Comment));
+			}
+
+			foreach(FieldInfo info in modifiedFields)
+			{
+				builder.Append(String.Format("CHANGE `{0}` `{1}` ", info.OldFieldName, info.FieldName));
+				if(info.DataLength == null)
+					builder.Append(String.Format("{0} ", info.DataType));
+				else
+					builder.Append(String.Format("{0}({1}) ", info.DataType, info.DataLength));
+				if(info.Charset != null && info.Charset != "DEFAULT")
+					builder.Append(String.Format("CHARSET {0} ", info.Charset));
+				if(info.Collation != null && info.Collation != "DEFAULT")
+					builder.Append(String.Format("COLLATE {0} ", info.Collation));
+				if(info.Unsigned == true)
+					builder.Append("UNSIGNED ");
+				if(info.Zerofill == true)
+					builder.Append("ZEROFILL ");
+				if(info.DefaultValue != null && info.DefaultValue != "''")
+					builder.Append(String.Format("DEFAULT '{0}' ", info.DefaultValue));
+				else if(info.DefaultValue != null && info.DefaultValue == "''")
+					builder.Append(String.Format("DEFAULT '' "));
+				if(info.NotNull == true)
+					builder.Append("NOT NULL ");
+				else
+					builder.Append("NULL ");
+				if(info.AutoIncrement == true)
+					builder.Append("AUTO_INCREMENT ");
+				if(info.Comment != null)
+					builder.Append(String.Format("COMMENT '{0}', ", info.Comment));
+			}
+
+			if(isChangedPrimaryKey == true)
+			{
+				if(isDropPrimaryKey == true && primaryFields.Length == 0)
+					builder.Append("DROP PRIMARY KEY");
+				else if(isDropPrimaryKey == true && primaryFields.Length != 0)
+					builder.Append("DROP PRIMARY KEY, ");
+				if(primaryFields.Length != 0)
+				{
+					builder.Append("ADD PRIMARY KEY(");
+					for(int i = 0; i < primaryFields.Length; i++)
+					{
+						if(i == primaryFields.Length - 1)
+							builder.Append(String.Format("'{0}')", primaryFields[i]));
+						else
+							builder.Append(String.Format("'{0}', ", primaryFields[i]));
+					}
+				}
+			}
+			else
+			{
+				builder.Replace(", ", "", builder.Length - 2, 2);
 			}
 
 			return builder.ToString();

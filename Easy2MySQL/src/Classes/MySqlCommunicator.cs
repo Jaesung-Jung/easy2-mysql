@@ -253,6 +253,33 @@ namespace Easy2.Classes
 		}
 
 		/// <summary>
+		/// 컬레이션에 해당하는 문자셋을 가져옵니다.
+		/// </summary>
+		/// <param name="collation">컬레이션입니다.</param>
+		/// <returns>문자셋입니다.</returns>
+		public string GetCharset(string collation)
+		{
+			MySqlDataReader reader = null;
+			string charset = null;
+			try
+			{
+				reader = ExecuteReader(MySqlGenerator.ShowCharset(collation, false));
+				reader.Read();
+
+				charset = reader["character_set_name"].ToString();
+
+				reader.Close();
+			}
+			finally
+			{
+				if(reader != null)
+					reader.Close();
+			}
+
+			return charset;
+		}
+
+		/// <summary>
 		/// 문자셋의 대한 설명을 가져옵니다.
 		/// </summary>
 		/// <param name="charset">해당하는 문자셋입니다.</param>

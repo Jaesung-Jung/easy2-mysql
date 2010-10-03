@@ -10,12 +10,21 @@ namespace Easy2.Classes
 	public class FieldInfo
 	{
 		/// <summary>
+		/// 예전 필드명을 나타냅니다.(테이블 수정에서 필요에 의하여 추가됨)
+		/// </summary>
+		public string OldFieldName
+		{
+			get { return this.m_oldFieldName; }
+			set { this.m_oldFieldName = value; }
+		}
+
+		/// <summary>
 		/// 필드명을 나타냅니다.
 		/// </summary>
-		public string FiledName
+		public string FieldName
 		{
-			get { return this.m_filedName; }
-			set { this.m_filedName = value; }
+			get { return this.m_fieldName; }
+			set { this.m_fieldName = value; }
 		}
 
 		/// <summary>
@@ -117,7 +126,8 @@ namespace Easy2.Classes
 			set { this.m_comment = value; }
 		}
 
-		private string m_filedName;
+		private string m_oldFieldName;
+		private string m_fieldName;
 		private string m_dataType;
 		private string m_dataLength;
 		private string m_defaultValue;

@@ -480,7 +480,7 @@ namespace Easy2.Components
 			{
 				if(row.Cells["Field"].Value.ToString() == filed)
 				{
-					info.FiledName = row.Cells["Field"].Value != null ?
+					info.FieldName = row.Cells["Field"].Value != null ?
 						row.Cells["Field"].Value.ToString() : null;
 					info.DataType = row.Cells["Datatype"].Value != null ?
 						row.Cells["Datatype"].Value.ToString() : null;
@@ -524,7 +524,7 @@ namespace Easy2.Components
 				if(row.IsNewRow != true)
 				{
 					FieldInfo info = new FieldInfo();
-					info.FiledName = row.Cells["Field"].Value != null ?
+					info.FieldName = row.Cells["Field"].Value != null ?
 						row.Cells["Field"].Value.ToString() : null;
 					info.DataType = row.Cells["Datatype"].Value != null ?
 						row.Cells["Datatype"].Value.ToString() : null;
@@ -562,7 +562,7 @@ namespace Easy2.Components
 					field.DefaultValue = "''";
 
 				this.Rows.Add(1);
-				this.Rows[this.Rows.Count - 2].Cells["Field"].Value = field.FiledName;
+				this.Rows[this.Rows.Count - 2].Cells["Field"].Value = field.FieldName;
 				this.Rows[this.Rows.Count - 2].Cells["Datatype"].Value = field.DataType.ToUpper();
 				this.Rows[this.Rows.Count - 2].Cells["Length"].Value = field.DataLength;
 				this.Rows[this.Rows.Count - 2].Cells["Default"].Value = field.DefaultValue;
@@ -574,7 +574,7 @@ namespace Easy2.Components
 				this.Rows[this.Rows.Count - 2].Cells["Charset"].Value = field.Charset.Length != 0 ? field.Charset : null;
 				this.Rows[this.Rows.Count - 2].Cells["Collation"].Value = field.Collation.Length != 0 ? field.Collation : null;
 				this.Rows[this.Rows.Count - 2].Cells["Comment"].Value = field.Comment;
-				//this.Rows.Add(field.FiledName, field.DataType, field.DataLength, defaultValue, field.PK, field.NotNull, field.Unsigned, field.AutoIncrement, field.Zerofill, field.Charset, field.Collation, field.Comment);
+				//this.Rows.Add(field.FieldName, field.DataType, field.DataLength, defaultValue, field.PK, field.NotNull, field.Unsigned, field.AutoIncrement, field.Zerofill, field.Charset, field.Collation, field.Comment);
 			}
 		}
 

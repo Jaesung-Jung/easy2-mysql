@@ -755,6 +755,16 @@ namespace Easy2.Forms
 			}
 		}
 
+		private void OnAlterTableClick(object sender, EventArgs e)
+		{
+			AlterTableForm alterTableForm = new AlterTableForm(Program.ActivateCommunicator.UseDatabaseName, this.m_objectBrowser.Tree.SelectedNode.Text);
+			alterTableForm.ShowDialog(this);
+			if(alterTableForm.DialogResult == DialogResult.OK)
+			{
+				// 테이블 객체 리로드..
+			}
+		}
+
 		private int m_queryEditorsCount;
 		private QueryEditor m_selectedQueryEditor;
 		private DockingManager m_dockingManager;

@@ -310,6 +310,17 @@ namespace Easy2.Classes
 		}
 
 		/// <summary>
+		/// 테이블의 상태를 조회하는 쿼리문을 생성합니다.
+		/// </summary>
+		/// <param name="db">데이터베이스입니다.</param>
+		/// <param name="table">테이블입니다.</param>
+		/// <returns>테이블의 상태를 조회하는 쿼리문입니다.</returns>
+		public static string ShowTableStatus(string db, string table)
+		{
+			return String.Format("SHOW TABLE STATUS FROM `{0}` LIKE '{1}';", db, table);
+		}
+
+		/// <summary>
 		/// MySQL 데이터베이스의 사용자들을 조회하는 쿼리문을 생성합니다.
 		/// </summary>
 		/// <returns>MySQL 데이터베이스의 사용자들을 조회하는 쿼리문입니다.</returns>

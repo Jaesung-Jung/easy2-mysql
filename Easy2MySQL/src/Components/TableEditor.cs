@@ -47,12 +47,12 @@ namespace Easy2.Components
 				}
 				if((this.m_permission[type] & DataTypePermission.Charset) == DataTypePermission.Charset)
 				{
-					ReadCharset();
+					if(this.m_charset.Count == 0)
+						ReadCharset();
 					ControlCell(changedRow.Cells["Charset"], "DEFAULT", false);
 				}
 				else
 				{
-					this.m_charset.Clear();
 					ControlCell(changedRow.Cells["Charset"], null, true);
 				}
 				if((this.m_permission[type] & DataTypePermission.Collation) == DataTypePermission.Collation)
@@ -512,6 +512,30 @@ namespace Easy2.Components
 				}
 			}
 			return columnList.ToArray();
+		}
+
+		public void WriteFields(FieldInfo[] fields)
+		{
+			foreach(FieldInfo field in fields)
+			{
+				if(field.DefaultValue != null && field.DefaultValue.Length == 0)
+					field.DefaultValue = "''";
+
+				this.Rows.Add(1);
+				this.Rows[this.Rows.Count - 2].Cells["Field"].Value = field.FiledName;
+				this.Rows[this.Rows.Count - 2].Cells["Datatype"].Value = field.DataType.ToUpper();
+				this.Rows[this.Rows.Count - 2].Cells["Length"].Value = field.DataLength;
+				this.Rows[this.Rows.Count - 2].Cells["Default"].Value = field.DefaultValue;
+				this.Rows[this.Rows.Count - 2].Cells["Pk"].Value = field.PK.ToString();
+				this.Rows[this.Rows.Count - 2].Cells["NotNull"].Value = field.NotNull.ToString();
+				this.Rows[this.Rows.Count - 2].Cells["Unsigned"].Value = field.Unsigned.ToString();
+				this.Rows[this.Rows.Count - 2].Cells["AutoIncr"].Value = field.AutoIncrement.ToString();
+				this.Rows[this.Rows.Count - 2].Cells["Zerofill"].Value = field.Zerofill.ToString();
+				this.Rows[this.Rows.Count - 2].Cells["Charset"].Value = field.Charset.Length != 0 ? field.Charset : null;
+				this.Rows[this.Rows.Count - 2].Cells["Collation"].Value = field.Collation.Length != 0 ? field.Collation : null;
+				this.Rows[this.Rows.Count - 2].Cells["Comment"].Value = field.Comment;
+				//this.Rows.Add(field.FiledName, field.DataType, field.DataLength, defaultValue, field.PK, field.NotNull, field.Unsigned, field.AutoIncrement, field.Zerofill, field.Charset, field.Collation, field.Comment);
+			}
 		}
 
 		private Dictionary<string, DataTypePermission> m_permission = new Dictionary<string, DataTypePermission>();

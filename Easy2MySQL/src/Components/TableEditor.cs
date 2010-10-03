@@ -303,7 +303,7 @@ namespace Easy2.Components
 			this.AllowUserToResizeRows = false;
 			this.BackgroundColor = Color.White;
 			this.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-			this.DefaultCellStyle.Font = new Font("맑은 고딕", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(129)));
+			this.DefaultCellStyle.Font = new Font("Courier New", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
 			this.Dock = DockStyle.Fill;
 			this.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
 			this.MultiSelect = false;

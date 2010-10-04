@@ -107,6 +107,9 @@
     <Compile Include="src\Components\DockingManager.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="src\Components\FieldEditor.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="src\Components\MessageWindow.cs" />
     <Compile Include="src\Components\NumericTextBox.cs">
       <SubType>Component</SubType>
@@ -127,9 +130,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="src\Components\SliderItemEx.cs" />
-    <Compile Include="src\Components\TableEditor.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="src\Components\TableViewer.cs">
       <SubType>Component</SubType>
     </Compile>

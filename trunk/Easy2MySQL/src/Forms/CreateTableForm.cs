@@ -19,8 +19,8 @@ namespace Easy2.Forms
 		public CreateTableForm()
 		{
 			InitializeComponent();
-			this.m_tableEditor.SelectionChanged += new EventHandler(this.OnTableEditorSelectionChanged);
-			base.TableEditorContainer = this.m_tableEditor;
+			this.m_fieldEditor.SelectionChanged += new EventHandler(this.OnFieldEditorSelectionChanged);
+			base.FieldEditorContainer = this.m_fieldEditor;
 		}
 
 		/// <summary>
@@ -28,9 +28,9 @@ namespace Easy2.Forms
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void OnTableEditorSelectionChanged(object sender, EventArgs e)
+		private void OnFieldEditorSelectionChanged(object sender, EventArgs e)
 		{
-			if(this.m_tableEditor.CurrentCell.OwningRow.IsNewRow == false)
+			if(this.m_fieldEditor.CurrentCell.OwningRow.IsNewRow == false)
 			{
 				this.m_deleteRowButton.Enabled = true;
 			}
@@ -48,7 +48,7 @@ namespace Easy2.Forms
 		protected override void OnCommitButtonClick(object sender, EventArgs e)
 		{
 			NewTableForm newTableForm = new NewTableForm();
-			if(this.m_tableEditor.Rows.Count == 1)
+			if(this.m_fieldEditor.Rows.Count == 1)
 			{
 				MessageBoxEx.Show(this, Resources.Easy2Message_EmptyTableData, Resources.Easy2Message_Title, MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
@@ -63,7 +63,7 @@ namespace Easy2.Forms
 						Program.ActivateCommunicator.CreateTable(
 							Program.ActivateCommunicator.UseDatabaseName,
 							this.m_table,
-							this.m_tableEditor.ReadFields(),
+							this.m_fieldEditor.ReadFields(),
 							this.m_tableOption
 							);
 						this.DialogResult = DialogResult.OK;
@@ -99,7 +99,7 @@ namespace Easy2.Forms
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		protected override void OnDeleteRowButtonClick(object sender, EventArgs e)
 		{
-			this.m_tableEditor.RemoveRow();
+			this.m_fieldEditor.RemoveRow();
 			base.OnDeleteRowButtonClick(sender, e);
 		}
 
@@ -108,7 +108,7 @@ namespace Easy2.Forms
 			get { return this.m_table; }
 		}
 
-		private TableEditor m_tableEditor = new TableEditor();
+		private FieldEditor m_fieldEditor = new FieldEditor();
 		private TableOption m_tableOption = null;
 		private string m_table = null;
 	}

@@ -1,5 +1,5 @@
 ﻿
-// TableEditor.cs
+// FieldEditor.cs
 //
 using Easy2.Properties;
 using Easy2.Classes;
@@ -14,9 +14,9 @@ using DevComponents.DotNetBar.Controls;
 
 namespace Easy2.Components
 {
-	public class TableEditor : DataGridViewX
+	public class FieldEditor : DataGridViewX
 	{
-		public TableEditor()
+		public FieldEditor()
 		{
 			InitializeComponents();
 			InitializeDataTypes();
@@ -298,7 +298,7 @@ namespace Easy2.Components
 			commentColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
 			commentColumn.Width = 200;
 			// 
-			// TableEditor
+			// FieldEditor
 			// 
 			this.AllowUserToResizeRows = false;
 			this.BackgroundColor = Color.White;

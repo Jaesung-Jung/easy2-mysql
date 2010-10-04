@@ -23,14 +23,14 @@ namespace Easy2.Forms
 		{
 			this.m_isInitialize = true;
 			InitializeComponent();
-			this.m_tableEditor.SelectionChanged += new EventHandler(OnTableEditorSelectionChanged);
-			this.m_tableEditor.RowsRemoved += new DataGridViewRowsRemovedEventHandler(OnTableEditorRowsRemoved);
-			this.m_tableEditor.CellValueChanged += new DataGridViewCellEventHandler(OnTableEditorCellValueChanged);
+			this.m_fieldEditor.SelectionChanged += new EventHandler(OnFieldEditorSelectionChanged);
+			this.m_fieldEditor.RowsRemoved += new DataGridViewRowsRemovedEventHandler(OnFieldEditorRowsRemoved);
+			this.m_fieldEditor.CellValueChanged += new DataGridViewCellEventHandler(OnFieldEditorCellValueChanged);
 			this.m_db = db;
 			this.m_table = table;
-			base.TableEditorContainer = this.m_tableEditor;
+			base.FieldEditorContainer = this.m_fieldEditor;
 
-			InitializeTableEditor();
+			InitializeFieldEditor();
 			InitializeAdvTablePropertiesForm();
 			this.m_isInitialize = false;
 		}
@@ -38,7 +38,7 @@ namespace Easy2.Forms
 		/// <summary>
 		/// 테이블에디터의 값을 초기화합니다.
 		/// </summary>
-		private void InitializeTableEditor()
+		private void InitializeFieldEditor()
 		{
 			MySqlDataReader reader = null;
 			try
@@ -78,7 +78,7 @@ namespace Easy2.Forms
 				}
 				reader.Close();
 
-				this.m_tableEditor.WriteFields(fields.ToArray());
+				this.m_fieldEditor.WriteFields(fields.ToArray());
 			}
 			catch(MySqlException ex)
 			{
@@ -144,9 +144,9 @@ namespace Easy2.Forms
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		private void OnTableEditorSelectionChanged(object sender, EventArgs e)
+		private void OnFieldEditorSelectionChanged(object sender, EventArgs e)
 		{
-			if(this.m_tableEditor.CurrentCell.OwningRow.IsNewRow == false)
+			if(this.m_fieldEditor.CurrentCell.OwningRow.IsNewRow == false)
 			{
 				this.m_deleteRowButton.Enabled = true;
 			}
@@ -161,7 +161,7 @@ namespace Easy2.Forms
 		/// </summary>
 		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
-		void OnTableEditorRowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+		void OnFieldEditorRowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
 		{
 			// 기존의 필드가 지워짐
 			if(e.RowIndex < this.m_fieldList.Count)
@@ -172,11 +172,11 @@ namespace Easy2.Forms
 			}
 		}
 
-		void OnTableEditorCellValueChanged(object sender, DataGridViewCellEventArgs e)
+		void OnFieldEditorCellValueChanged(object sender, DataGridViewCellEventArgs e)
 		{
 			if(this.m_isInitialize == false)
 			{
-				if(this.m_tableEditor.Columns[e.ColumnIndex].Name == "Pk")
+				if(this.m_fieldEditor.Columns[e.ColumnIndex].Name == "Pk")
 				{
 					this.m_isChangedPrimaryKey = true;
 				}
@@ -198,22 +198,22 @@ namespace Easy2.Forms
 			List<FieldInfo> modifiedFields = new List<FieldInfo>();
 			List<string> primaryFileds = new List<string>();
 
-			for(int i = this.m_fieldList.Count; i < this.m_tableEditor.Rows.Count; i++)
+			for(int i = this.m_fieldList.Count; i < this.m_fieldEditor.Rows.Count; i++)
 			{
-				if(this.m_tableEditor.Rows[i].IsNewRow == false)
+				if(this.m_fieldEditor.Rows[i].IsNewRow == false)
 				{
-					addedFields.Add(this.m_tableEditor.ReadField(this.m_tableEditor.Rows[i].Cells["Field"].Value.ToString()));
+					addedFields.Add(this.m_fieldEditor.ReadField(this.m_fieldEditor.Rows[i].Cells["Field"].Value.ToString()));
 				}
 			}
 
 			for(int i = 0; i < this.m_modifiedFields.Count; i++)
 			{
-				FieldInfo info = this.m_tableEditor.ReadField(this.m_fieldList.IndexOf(this.m_modifiedFields[i]));
+				FieldInfo info = this.m_fieldEditor.ReadField(this.m_fieldList.IndexOf(this.m_modifiedFields[i]));
 				info.OldFieldName = this.m_modifiedFields[i];
 				modifiedFields.Add(info);
 			}
 
-			foreach(DataGridViewRow row in this.m_tableEditor.Rows)
+			foreach(DataGridViewRow row in this.m_fieldEditor.Rows)
 			{
 				if(row.IsNewRow == false)
 				{
@@ -260,11 +260,11 @@ namespace Easy2.Forms
 		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		protected override void OnDeleteRowButtonClick(object sender, EventArgs e)
 		{
-			this.m_tableEditor.RemoveRow();
+			this.m_fieldEditor.RemoveRow();
 			base.OnDeleteRowButtonClick(sender, e);
 		}
 
-		private TableEditor m_tableEditor = new TableEditor();
+		private FieldEditor m_fieldEditor = new FieldEditor();
 		private TableOption m_tableOption = null;
 		private string m_db = null;
 		private string m_table = null;

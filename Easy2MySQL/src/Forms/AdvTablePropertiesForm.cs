@@ -33,7 +33,6 @@ namespace Easy2.Forms
 		{
 			try
 			{
-				this.m_engineCombo.Items.Add("DEFAULT");
 				this.m_engineCombo.Items.AddRange(Program.ActivateCommunicator.GetEngines());
 				this.m_engineCombo.SelectedIndex = 0;
 

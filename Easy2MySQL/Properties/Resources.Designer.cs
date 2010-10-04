@@ -550,6 +550,15 @@ namespace Easy2.Properties {
         }
         
         /// <summary>
+        ///   테이블 속성이 성공적으로 변경되었습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Easy2Message_TableAlterSuccessfully {
+            get {
+                return ResourceManager.GetString("Easy2Message_TableAlterSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Easy To MySQL과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string Easy2Message_Title {
@@ -577,7 +586,7 @@ namespace Easy2.Properties {
         }
         
         /// <summary>
-        ///   &apos;{0}&apos; 사용자 정보가 수정되었습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   &apos;{0}&apos; 사용자 정보가 성공적으로 변경되었습니다.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string Easy2Message_UserAlterSuccessfully {
             get {

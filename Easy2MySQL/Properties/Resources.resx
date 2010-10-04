@@ -449,7 +449,7 @@
     <value>'{0}' 사용자가 만들어졌습니다.</value>
   </data>
   <data name="Easy2Message_UserAlterSuccessfully" xml:space="preserve">
-    <value>'{0}' 사용자 정보가 수정되었습니다.</value>
+    <value>'{0}' 사용자 정보가 성공적으로 변경되었습니다.</value>
   </data>
   <data name="Easy2Message_UserDeleteQuestion" xml:space="preserve">
     <value>'{0}' 사용자를 삭제 하시겠습니까?</value>
@@ -491,5 +491,8 @@
   </data>
   <data name="Easy2Message_EmptyTableData" xml:space="preserve">
     <value>데이터가 입력되지 않았습니다.</value>
+  </data>
+  <data name="Easy2Message_TableAlterSuccessfully" xml:space="preserve">
+    <value>테이블 속성이 성공적으로 변경되었습니다.</value>
   </data>
 </root>

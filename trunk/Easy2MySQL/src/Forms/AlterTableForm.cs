@@ -172,6 +172,11 @@ namespace Easy2.Forms
 			}
 		}
 
+		/// <summary>
+		/// 필드에디터의 값이 변경되면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		void OnFieldEditorCellValueChanged(object sender, DataGridViewCellEventArgs e)
 		{
 			if(this.m_isInitialize == false)
@@ -225,16 +230,26 @@ namespace Easy2.Forms
 			if(this.m_primaryKeyCount > 0)
 				this.m_isDropPrimaryKey = true;
 
-			System.Console.WriteLine(MySqlGenerator.AlterTable(
-				this.m_db,
-				this.m_table,
-				addedFields.ToArray(),
-				modifiedFields.ToArray(),
-				this.m_removedFields.ToArray(),
-				primaryFileds.ToArray(),
-				this.m_isChangedPrimaryKey,
-				this.m_isDropPrimaryKey
-				));
+			try
+			{
+				Program.ActivateCommunicator.AlterTable(
+					this.m_db,
+					this.m_table,
+					addedFields.ToArray(),
+					modifiedFields.ToArray(),
+					this.m_removedFields.ToArray(),
+					primaryFileds.ToArray(),
+					this.m_isChangedPrimaryKey,
+					this.m_isDropPrimaryKey,
+					this.m_tableOption,
+					this.m_isChangedTableOption
+					);
+				MessageBoxEx.Show(this, Resources.Easy2Message_TableAlterSuccessfully, Resources.Easy2Message_Title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+			catch(MySqlException ex)
+			{
+				EasyToMySqlError.Show(this, ex.Message, Resources.Easy2Exception_ExecuteQuery, ex.Number);
+			}
 		}
 
 		/// <summary>
@@ -249,6 +264,7 @@ namespace Easy2.Forms
 			if(advPropertiesForm.DialogResult == DialogResult.OK)
 			{
 				this.m_tableOption = advPropertiesForm.ReadData();
+				this.m_isChangedTableOption = true;
 			}
 			base.OnAdvanceButtonClick(sender, e);
  		}
@@ -265,7 +281,6 @@ namespace Easy2.Forms
 		}
 
 		private FieldEditor m_fieldEditor = new FieldEditor();
-		private TableOption m_tableOption = null;
 		private string m_db = null;
 		private string m_table = null;
 
@@ -275,6 +290,8 @@ namespace Easy2.Forms
 		private bool m_isChangedPrimaryKey = false;	// 프라이머리키가 수정됐는지의 여부
 		private bool m_isDropPrimaryKey = false;	// 프라이머리키를 지울지의 여부
 		private int m_primaryKeyCount = 0;	// 원래의 프라이머리 키의 갯수
+		private TableOption m_tableOption = null;
+		private bool m_isChangedTableOption = false;
 
 		private bool m_isInitialize = false;
 	}

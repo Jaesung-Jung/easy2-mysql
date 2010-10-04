@@ -1132,8 +1132,10 @@ namespace Easy2.Classes
 		/// <param name="modifiedFields">수정된 필드들의 정보입니다.</param>
 		/// <param name="removedFields">삭제된 필드들의 이름입니다.</param>
 		/// <param name="primaryFields">프라이머리키 필드들의 이름입니다.</param>
-		/// <param name="isChangedPrimaryKey">프라이머리키를 변경할지의 여부입니다.</param>
+		/// <param name="isChangePrimaryKey">프라이머리키를 변경할지의 여부입니다.</param>
 		/// <param name="isDropPrimaryKey">프라이머리키를 지울지의 여부입니다.</param>
+		/// <param name="isChangeTableOption">테이블 옵션을 변경할지의 여부입니다.</param>
+		/// <param name="option">테이블 고급옵션 입니다.</param>
 		/// <returns>테이블을 수정하는 쿼리문입니다.</returns>
 		public static string AlterTable(
 			string database,
@@ -1142,8 +1144,10 @@ namespace Easy2.Classes
 			FieldInfo[] modifiedFields,
 			string[] removedFields,
 			string[] primaryFields,
-			bool isChangedPrimaryKey,
-			bool isDropPrimaryKey
+			bool isChangePrimaryKey,
+			bool isDropPrimaryKey,
+			TableOption option,
+			bool isChangeTableOption
 			)
 		{
 			StringBuilder builder = new StringBuilder();
@@ -1212,7 +1216,7 @@ namespace Easy2.Classes
 					builder.Append(String.Format("COMMENT '{0}', ", info.Comment));
 			}
 
-			if(isChangedPrimaryKey == true)
+			if(isChangePrimaryKey == true)
 			{
 				if(isDropPrimaryKey == true && primaryFields.Length == 0)
 					builder.Append("DROP PRIMARY KEY");
@@ -1224,15 +1228,43 @@ namespace Easy2.Classes
 					for(int i = 0; i < primaryFields.Length; i++)
 					{
 						if(i == primaryFields.Length - 1)
-							builder.Append(String.Format("'{0}')", primaryFields[i]));
+							builder.Append(String.Format("'{0}'), ", primaryFields[i]));
 						else
 							builder.Append(String.Format("'{0}', ", primaryFields[i]));
 					}
 				}
 			}
+
+			// 아래부터는 테이블옵션 변경
+			if(isChangeTableOption == true)
+			{
+				//문자셋
+				//컬레이션
+				//체크섬
+				if(option.Engine != null)
+					builder.Append(String.Format("ENGINE={0} ", option.Engine));
+				if(option.Checksum != null && option.Checksum != "DEFAULT")
+					builder.Append(String.Format("CHECKSUM={0} ", option.Checksum));
+				if(option.AutoIncrement != null)
+					builder.Append(String.Format("AUTO_INCREMENT={0} ", option.AutoIncrement));
+				if(option.AvgRowLength != null)
+					builder.Append(String.Format("AVG_ROW_LENGTH={0} ", option.AvgRowLength));
+				if(option.Comment != null)
+					builder.Append(String.Format("COMMENT='{0}' ", option.Comment));
+				if(option.MaximumRows != null)
+					builder.Append(String.Format("MAX_ROWS={0} ", option.MaximumRows));
+				if(option.MinimumRows != null)
+					builder.Append(String.Format("MIN_ROWS={0} ", option.MinimumRows));
+				if(option.Format != null)
+					builder.Append(String.Format("ROW_FORMAT={0} ", option.Format));
+				if(option.Charset != null)
+					builder.Append(String.Format("CHARSET={0} ", option.Charset));
+				if(option.Collation != null)
+					builder.Append(String.Format("COLLATE={0};", option.Collation));
+			}
 			else
 			{
-				builder.Replace(", ", "", builder.Length - 2, 2);
+				builder.Replace(", ", ";", builder.Length - 2, 2);
 			}
 
 			return builder.ToString();

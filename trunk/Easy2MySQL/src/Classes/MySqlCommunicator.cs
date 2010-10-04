@@ -605,8 +605,25 @@ namespace Easy2.Classes
 		/// <param name="option">테이블옵션 객체입니다.</param>
 		public void CreateTable(string database, string table, FieldInfo[] fields, TableOption option)
 		{
-			// System.Console.WriteLine(MySqlGenerator.CreateTable(database, tableName, columns, option));
 			Execute(MySqlGenerator.CreateTable(database, table, fields, option));
+		}
+
+		/// <summary>
+		/// 테이블을 수정합니다.
+		/// </summary>
+		/// <param name="database">수정할 테이블을 소유한 데이터베이스입니다.</param>
+		/// <param name="table">수정할 테이블입니다.</param>
+		/// <param name="addedFields">추가된 필드들의 정보입니다.</param>
+		/// <param name="modifiedFields">수정된 필드들의 정보입니다.</param>
+		/// <param name="removedFields">삭제된 필드들의 이름입니다.</param>
+		/// <param name="primaryFields">프라이머리키 필드들의 이름입니다.</param>
+		/// <param name="isChangePrimaryKey">프라이머리키를 변경할지의 여부입니다.</param>
+		/// <param name="isDropPrimaryKey">프라이머리키를 지울지의 여부입니다.</param>
+		/// <param name="isChangeTableOption">테이블 옵션을 변경할지의 여부입니다.</param>
+		/// <param name="option">테이블 고급옵션 입니다.</param>
+		public void AlterTable(string database, string table, FieldInfo[] addedFields, FieldInfo[] modifiedFields, string[] removedFields, string[] primaryFields, bool isChangePrimaryKey, bool isDropPrimaryKey, TableOption option, bool isChangeTableOption)
+		{
+			Execute(MySqlGenerator.AlterTable(database, table, addedFields, modifiedFields, removedFields, primaryFields, isChangePrimaryKey, isDropPrimaryKey, option, isChangeTableOption));
 		}
 
 		/// <summary>

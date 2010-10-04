@@ -56,7 +56,7 @@ namespace Easy2.Forms
 		/// <summary>
 		/// 테이블에디터를 담는 컨테이너를 나타냅니다.
 		/// </summary>
-		public TableEditor TableEditorContainer
+		public FieldEditor FieldEditorContainer
 		{
 			set { this.m_layoutPanel.Controls.Add(value); }
 		}

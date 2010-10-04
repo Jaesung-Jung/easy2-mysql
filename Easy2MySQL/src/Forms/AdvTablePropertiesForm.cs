@@ -105,13 +105,13 @@ namespace Easy2.Forms
 			option.Engine = this.m_engineCombo.SelectedItem.ToString();
 			option.Charset = this.m_charsetCombo.SelectedItem.ToString();
 			option.Collation = this.m_collationCombo.SelectedItem.ToString();
-			option.Comment = this.m_commentText.Text;
+			option.Comment = this.m_commentText.Text.Length != 0 ? this.m_commentText.Text : null;
 			option.Format = this.m_rowformatCombo.SelectedItem.ToString();
 			option.Checksum = this.m_checksumCombo.SelectedItem.ToString();
-			option.AutoIncrement = this.m_autoincrText.Text;
-			option.AvgRowLength = this.m_avgrowText.Text;
-			option.MinimumRows = this.m_minimumText.Text;
-			option.MaximumRows = this.m_maximumText.Text;
+			option.AutoIncrement = this.m_autoincrText.Text.Length != 0 ? this.m_autoincrText.Text : null;
+			option.AvgRowLength = this.m_avgrowText.Text.Length != 0 ? this.m_avgrowText.Text : null;
+			option.MinimumRows = this.m_minimumText.Text.Length != 0 ? this.m_minimumText.Text : null;
+			option.MaximumRows = this.m_maximumText.Text.Length != 0 ? this.m_maximumText.Text : null;
 
 			return option;
 		}
@@ -123,13 +123,13 @@ namespace Easy2.Forms
 				this.m_engineCombo.SelectedIndex = this.m_engineCombo.FindString(option.Engine);
 				this.m_charsetCombo.SelectedIndex = this.m_charsetCombo.FindString(option.Charset);
 				this.m_collationCombo.SelectedIndex = this.m_collationCombo.FindString(option.Collation);
-				this.m_commentText.Text = option.Comment;
+				this.m_commentText.Text = option.Comment != null ? option.Comment : "";
 				this.m_rowformatCombo.SelectedIndex = this.m_rowformatCombo.FindString(option.Format);
 				this.m_checksumCombo.SelectedIndex = this.m_checksumCombo.FindString(option.Checksum);
-				this.m_autoincrText.Text = option.AutoIncrement;
-				this.m_avgrowText.Text = option.AvgRowLength;
-				this.m_minimumText.Text = option.MinimumRows;
-				this.m_maximumText.Text = option.MaximumRows;
+				this.m_autoincrText.Text = option.AutoIncrement != null ? option.AutoIncrement : "";
+				this.m_avgrowText.Text = option.AvgRowLength != null ? option.AvgRowLength : "";
+				this.m_minimumText.Text = option.MinimumRows != null ? option.MinimumRows : "";
+				this.m_maximumText.Text = option.MaximumRows != null ? option.MaximumRows : "";
 			}
 		}
 	}

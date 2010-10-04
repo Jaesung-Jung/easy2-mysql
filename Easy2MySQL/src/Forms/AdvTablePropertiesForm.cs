@@ -47,7 +47,9 @@ namespace Easy2.Forms
 					"DEFAULT",
 					"COMPRESSED",
 					"DYNAMIC",
-					"FIXED"
+					"FIXED",
+					"REDUNDANT",
+					"COMPACT"
 				});
 				this.m_rowformatCombo.SelectedIndex = 0;
 
@@ -127,7 +129,7 @@ namespace Easy2.Forms
 				this.m_charsetCombo.SelectedIndex = this.m_charsetCombo.FindString(option.Charset);
 				this.m_collationCombo.SelectedIndex = this.m_collationCombo.FindString(option.Collation);
 				this.m_commentText.Text = option.Comment != null ? option.Comment : "";
-				this.m_rowformatCombo.SelectedIndex = this.m_rowformatCombo.FindString(option.Format);
+				this.m_rowformatCombo.SelectedIndex = this.m_rowformatCombo.FindString(option.Format.ToUpper());
 				this.m_checksumCombo.SelectedIndex = this.m_checksumCombo.FindString(option.Checksum);
 				this.m_autoincrText.Text = option.AutoIncrement != null ? option.AutoIncrement : "";
 				this.m_avgrowText.Text = option.AvgRowLength != null ? option.AvgRowLength : "";

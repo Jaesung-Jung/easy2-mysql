@@ -116,6 +116,10 @@ namespace Easy2.Forms
 			return option;
 		}
 
+		/// <summary>
+		/// 컨트롤에 값을 씁니다.
+		/// </summary>
+		/// <param name="option">쓰여질 테이블옵션 객체입니다.</param>
 		private void WriteData(TableOption option)
 		{
 			if(option != null)

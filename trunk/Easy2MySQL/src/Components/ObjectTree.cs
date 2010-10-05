@@ -86,71 +86,74 @@ namespace Easy2.Components
 						if(folderNode.Nodes.Count == 0)	// 노드가 없다면 테이블을 조회권한이 없다는 의미
 							break;
 
-						if(folderNode.Nodes[0].Text == "null")
+						folderNode.Nodes.Clear();
+						if(folderNode.Text == "테이블")
 						{
-							folderNode.Nodes.Clear();
-							if(folderNode.Text == "테이블")
-							{
-								reader = Program.ActivateCommunicator.ExecuteReader(
-									MySqlGenerator.ShowTables(Program.ActivateCommunicator.UseDatabaseName)
-									);
-								this.ReadTables(folderNode, reader);
-							}
-							else if(folderNode.Text == "뷰")
-							{
-								reader = Program.ActivateCommunicator.ExecuteReader(
-									MySqlGenerator.ShowViews(Program.ActivateCommunicator.UseDatabaseName)
-									);
-								this.ReadObject(folderNode, reader, ObjectNodeType.MySqlView);
-							}
-							else if(folderNode.Text == "저장 프로시저")
-							{
-								reader = Program.ActivateCommunicator.ExecuteReader(
-									MySqlGenerator.ShowStoredProcs(Program.ActivateCommunicator.UseDatabaseName)
-									);
-								this.ReadObject(folderNode, reader, ObjectNodeType.MySqlStoredProcs);
-							}
-							else if(folderNode.Text == "함수")
-							{
-								reader = Program.ActivateCommunicator.ExecuteReader(
-									MySqlGenerator.ShowFunctions(Program.ActivateCommunicator.UseDatabaseName)
-									);
-								this.ReadObject(folderNode, reader, ObjectNodeType.MySqlFunction);
-							}
-							else if(folderNode.Text == "트리거")
-							{
-								reader = Program.ActivateCommunicator.ExecuteReader(
-									MySqlGenerator.ShowTriggers(Program.ActivateCommunicator.UseDatabaseName)
-									);
-								this.ReadObject(folderNode, reader, ObjectNodeType.MySqlTrigger);
-							}
-							else if(folderNode.Text == "이벤트")
-							{
-								reader = Program.ActivateCommunicator.ExecuteReader(
-									MySqlGenerator.ShowEvents(Program.ActivateCommunicator.UseDatabaseName)
-									);
-								this.ReadObject(folderNode, reader, ObjectNodeType.MySqlEvent);
-							}
+							reader = Program.ActivateCommunicator.ExecuteReader(
+								MySqlGenerator.ShowTables(Program.ActivateCommunicator.UseDatabaseName)
+								);
+							this.ReadTables(folderNode, reader);
 						}
+						else if(folderNode.Text == "뷰")
+						{
+							reader = Program.ActivateCommunicator.ExecuteReader(
+								MySqlGenerator.ShowViews(Program.ActivateCommunicator.UseDatabaseName)
+								);
+							this.ReadObject(folderNode, reader, ObjectNodeType.MySqlView);
+						}
+						else if(folderNode.Text == "저장 프로시저")
+						{
+							reader = Program.ActivateCommunicator.ExecuteReader(
+								MySqlGenerator.ShowStoredProcs(Program.ActivateCommunicator.UseDatabaseName)
+								);
+							this.ReadObject(folderNode, reader, ObjectNodeType.MySqlStoredProcs);
+						}
+						else if(folderNode.Text == "함수")
+						{
+							reader = Program.ActivateCommunicator.ExecuteReader(
+								MySqlGenerator.ShowFunctions(Program.ActivateCommunicator.UseDatabaseName)
+								);
+							this.ReadObject(folderNode, reader, ObjectNodeType.MySqlFunction);
+						}
+						else if(folderNode.Text == "트리거")
+						{
+							reader = Program.ActivateCommunicator.ExecuteReader(
+								MySqlGenerator.ShowTriggers(Program.ActivateCommunicator.UseDatabaseName)
+								);
+							this.ReadObject(folderNode, reader, ObjectNodeType.MySqlTrigger);
+						}
+						else if(folderNode.Text == "이벤트")
+						{
+							reader = Program.ActivateCommunicator.ExecuteReader(
+								MySqlGenerator.ShowEvents(Program.ActivateCommunicator.UseDatabaseName)
+								);
+							this.ReadObject(folderNode, reader, ObjectNodeType.MySqlEvent);
+						}
+						else if(folderNode.Text == "컬럼")
+						{
+							reader = Program.ActivateCommunicator.ExecuteReader(
+								MySqlGenerator.ShowColumns(folderNode.Parent.Text)
+								);
+							this.ReadColumns(folderNode, reader);
+						}
+						else if(folderNode.Text == "인덱스")
+						{
+							reader = Program.ActivateCommunicator.ExecuteReader(
+								MySqlGenerator.ShowIndexes(folderNode.Parent.Text)
+							);
+							this.ReadIndexes(folderNode, reader);
+						}
+						if(reader != null)
+							reader.Close();
 						break;
 
 					case ObjectNodeType.MySqlTable:
-						Node tableNode = e.Node;
-						if(tableNode.Nodes[0].Nodes.Count == 0)
-						{
-							reader = Program.ActivateCommunicator.ExecuteReader(
-								MySqlGenerator.ShowColumns(tableNode.Text)
-								);
-							this.ReadColumns(tableNode.Nodes[0], reader);
-							reader.Close();
-						}
-						if(tableNode.Nodes[1].Nodes.Count == 0)
-						{
-							reader = Program.ActivateCommunicator.ExecuteReader(
-								MySqlGenerator.ShowIndexes(tableNode.Text)
-								);
-							this.ReadIndexes(tableNode.Nodes[1], reader);
-						}
+						ObjectNode tableNode = (ObjectNode)e.Node;
+						tableNode.Nodes.Clear();
+						tableNode.Nodes.Add(new ObjectNode(tableNode, "컬럼", ObjectNodeType.Folder));
+						tableNode.Nodes[0].Nodes.Add(new ObjectNode((ObjectNode)tableNode.Nodes[0], "null", ObjectNodeType.Folder));
+						tableNode.Nodes.Add(new ObjectNode(tableNode, "인덱스", ObjectNodeType.Folder));
+						tableNode.Nodes[1].Nodes.Add(new ObjectNode((ObjectNode)tableNode.Nodes[1], "null", ObjectNodeType.Folder));
 						break;
 				}
 			}
@@ -252,7 +255,9 @@ namespace Easy2.Components
 			{
 				ObjectNode tableNode = new ObjectNode((ObjectNode)folderNode, reader.GetString(0), ObjectNodeType.MySqlTable);
 				tableNode.Nodes.Add(new ObjectNode(tableNode, "컬럼", ObjectNodeType.Folder));
+				tableNode.Nodes[0].Nodes.Add(new ObjectNode((ObjectNode)tableNode.Nodes[0], "null", ObjectNodeType.Folder));
 				tableNode.Nodes.Add(new ObjectNode(tableNode, "인덱스", ObjectNodeType.Folder));
+				tableNode.Nodes[1].Nodes.Add(new ObjectNode((ObjectNode)tableNode.Nodes[1], "null", ObjectNodeType.Folder));
 				folderNode.Nodes.Add(tableNode);
 			}
 		}

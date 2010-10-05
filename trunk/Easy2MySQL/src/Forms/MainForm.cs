@@ -761,7 +761,7 @@ namespace Easy2.Forms
 			alterTableForm.ShowDialog(this);
 			if(alterTableForm.DialogResult == DialogResult.OK)
 			{
-				// 테이블 객체 리로드..
+				alterTableForm.Close();
 			}
 		}
 

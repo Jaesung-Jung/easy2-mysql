@@ -184,10 +184,13 @@ namespace Easy2.Forms
 				if(this.m_fieldEditor.Columns[e.ColumnIndex].Name == "Pk")
 				{
 					this.m_isChangedPrimaryKey = true;
+					if(this.m_modifiedFields.IndexOf(this.m_fieldList[e.RowIndex]) == -1)
+						this.m_modifiedFields.Add(this.m_fieldList[e.RowIndex]);
 				}
 				else if(e.RowIndex < this.m_fieldList.Count)
 				{
-					this.m_modifiedFields.Add(this.m_fieldList[e.RowIndex]);
+					if(this.m_modifiedFields.IndexOf(this.m_fieldList[e.RowIndex]) == -1)
+						this.m_modifiedFields.Add(this.m_fieldList[e.RowIndex]);
 				}
 			}
 		}

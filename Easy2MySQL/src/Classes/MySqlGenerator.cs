@@ -1228,9 +1228,9 @@ namespace Easy2.Classes
 					for(int i = 0; i < primaryFields.Length; i++)
 					{
 						if(i == primaryFields.Length - 1)
-							builder.Append(String.Format("'{0}'), ", primaryFields[i]));
+							builder.Append(String.Format("`{0}`), ", primaryFields[i]));
 						else
-							builder.Append(String.Format("'{0}', ", primaryFields[i]));
+							builder.Append(String.Format("`{0}`, ", primaryFields[i]));
 					}
 				}
 			}

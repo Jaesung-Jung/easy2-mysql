@@ -145,6 +145,7 @@
 			// 
 			this.m_commitButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.m_commitButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+			this.m_commitButton.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.m_commitButton.Location = new System.Drawing.Point(3, 3);
 			this.m_commitButton.Name = "m_commitButton";
 			this.m_commitButton.Size = new System.Drawing.Size(116, 25);

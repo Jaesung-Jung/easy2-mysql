@@ -319,7 +319,7 @@ namespace Easy2.Components
 		{
 			ObjectNode databaseNode = new ObjectNode(this.m_activateNode, database, ObjectNodeType.MySqlDatabase);
 			string[] folderList = { "테이블", "뷰", "저장 프로시저", "함수", "트리거", "이벤트" };
-			m_activateNode.Nodes.Add(databaseNode);
+			this.m_activateNode.Nodes.Add(databaseNode);
 
 			foreach(string folder in folderList)
 			{
@@ -327,6 +327,8 @@ namespace Easy2.Components
 				databaseNode.Nodes.Add(folderNode);
 				folderNode.Nodes.Add(new ObjectNode(folderNode, "null", ObjectNodeType.Folder));
 			}
+
+			this.m_activateNode.Nodes.Sort();
 		}
 
 		/// <summary>
@@ -377,7 +379,7 @@ namespace Easy2.Components
 		/// 테이블 노드를 추가합니다.
 		/// </summary>
 		/// <param name="table">추가될 테이블 노드의 이름입니다.</param>
-		public void AddTable(string database, string table)
+		public void InsertTable(string database, string table)
 		{
 			ObjectNode tableFolderNode = null;
 			foreach(Node node in this.m_activateNode.Nodes)
@@ -399,6 +401,8 @@ namespace Easy2.Components
 					ObjectNode folderNode = new ObjectNode(tableNode, folder, ObjectNodeType.Folder);
 					tableNode.Nodes.Add(folderNode);
 				}
+
+				tableFolderNode.Nodes.Sort();
 			}
 		}
 
@@ -413,6 +417,9 @@ namespace Easy2.Components
 			}
 		}
 
+		/// <summary>
+		/// 현재 활성화된 연결의 노드를 나타냅니다.
+		/// </summary>
 		public Node ActivateNode
 		{
 			get

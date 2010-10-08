@@ -748,20 +748,25 @@ namespace Easy2.Forms
 			createTableForm.ShowDialog(this);
 			if(createTableForm.DialogResult == DialogResult.OK)
 			{
-				this.m_objectBrowser.Tree.AddTable(
+				this.m_objectBrowser.Tree.InsertTable(
 					Program.ActivateCommunicator.UseDatabaseName,
 					createTableForm.CreateTableName
 					);
 			}
 		}
 
+		/// <summary>
+		/// 테이블수정하기 버튼을 클릭하면 호출됩니다.
+		/// </summary>
+		/// <param name="sender">이벤트를 발생시킨 객체입니다.</param>
+		/// <param name="e">이벤트정보를 가진 객체입니다.</param>
 		private void OnAlterTableClick(object sender, EventArgs e)
 		{
 			AlterTableForm alterTableForm = new AlterTableForm(Program.ActivateCommunicator.UseDatabaseName, this.m_objectBrowser.Tree.SelectedNode.Text);
 			alterTableForm.ShowDialog(this);
 			if(alterTableForm.DialogResult == DialogResult.OK)
 			{
-				alterTableForm.Close();
+				// 테이블 객체 리로드
 			}
 		}
 

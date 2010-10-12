@@ -91,6 +91,7 @@
     <Compile Include="src\Classes\CommunicatorCollection.cs" />
     <Compile Include="src\Classes\DatabasePrivilege.cs" />
     <Compile Include="src\Classes\FieldInfo.cs" />
+    <Compile Include="src\Classes\MenuControler.cs" />
     <Compile Include="src\Classes\MySqlCommunicator.cs" />
     <Compile Include="src\Classes\MySqlConnectInfo.cs" />
     <Compile Include="src\Classes\MySqlGenerator.cs" />

@@ -27,25 +27,35 @@ namespace Easy2.Classes
 
 		void OnEditorSelectionChanged(object sender, EventArgs e)
 		{
-			if(this.m_editor.Selection.Length != 0)
+			if(this.m_editor != null)
 			{
-				// 선택취소, 지우기, 잘라내기, 복사하기, 선택된 쿼리실행 활성화
-			}
-			else
-			{
-				// 선택취소, 지우기, 잘라내기, 복사하기, 선택된 쿼리실행 비활성화
+				if(this.m_editor.Selection.Length != 0)
+				{
+					// 선택취소, 지우기, 잘라내기, 복사하기, 선택된 쿼리실행 활성화
+					this.m_main.ControlRibbonTabItem2(true, true, true, true, true);
+				}
+				else
+				{
+					// 선택취소, 지우기, 잘라내기, 복사하기, 선택된 쿼리실행 비활성화
+					this.m_main.ControlRibbonTabItem2(false, false, false, false, false);
+				}
 			}
 		}
 
 		void OnEditorTextChanged(object sender, EventArgs e)
 		{
-			if(this.m_editor.Text.Length != 0)
+			if(this.m_editor != null)
 			{
-				// 모두선택, 쿼리실행, 모든 쿼리실행 활성화
-			}
-			else
-			{
-				// 모두선택, 쿼리실행, 모든 쿼리실행 비활성화
+				if(this.m_editor.Text.Length != 0)
+				{
+					// 모두선택, 쿼리실행, 모든 쿼리실행 활성화
+					this.m_main.ControlRibbonTabItem1(true, true, true);
+				}
+				else
+				{
+					// 모두선택, 쿼리실행, 모든 쿼리실행 비활성화
+					this.m_main.ControlRibbonTabItem1(false, false, false);
+				}
 			}
 		}
 
@@ -74,8 +84,20 @@ namespace Easy2.Classes
 			}
 		}
 
+		public QueryEditor Editor
+		{
+			set
+			{
+				this.m_editor.TextChanged -= new EventHandler<EventArgs>(OnEditorTextChanged);
+				this.m_editor.SelectionChanged -= new EventHandler(OnEditorSelectionChanged);
+				value.TextChanged += new EventHandler<EventArgs>(OnEditorTextChanged);
+				value.SelectionChanged += new EventHandler(OnEditorSelectionChanged);
+				this.m_editor = value;
+			}
+		}
+
 		readonly MainForm m_main;
 		readonly ObjectTree m_tree;
-		readonly QueryEditor m_editor;
+		QueryEditor m_editor;
 	}
 }

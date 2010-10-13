@@ -240,6 +240,8 @@ namespace Easy2.Forms
 			this.m_selectedQueryEditor.DataBindings.Add("Zoom", this.m_zoomSlider, "Value");
  			this.m_zoomSlider.DataBindings.Clear();
  			this.m_zoomSlider.DataBindings.Add("Value", this.m_selectedQueryEditor, "Zoom");
+			if(this.m_menuControler != null)
+				this.m_menuControler.Editor = this.m_selectedQueryEditor;
 		}
 
 		/// <summary>
@@ -289,6 +291,9 @@ namespace Easy2.Forms
 			this.m_objectBrowser.Tree.UpdateTree();
 			this.m_objectBrowser.Tree.ActivateConnection = Program.CoummunicatorList.Count - 1;
 			this.m_objectBrowser.Tree.SelectedNode.Expand();
+
+			// 메뉴컨트롤러
+			this.m_menuControler = new MenuControler(this, this.m_objectBrowser.Tree, this.m_selectedQueryEditor);
 		}
 
 		/// <summary>
@@ -770,6 +775,22 @@ namespace Easy2.Forms
 			}
 		}
 
+		public void ControlRibbonTabItem1(bool sa, bool eq, bool eaq)
+		{
+			this.m_selectAll.Enabled = sa;
+			this.m_executeQuery.Enabled = eq;
+			this.m_execyteAllQuery.Enabled = eaq;
+		}
+
+		public void ControlRibbonTabItem2(bool cs, bool cr, bool cut, bool cp, bool esq)
+		{
+			this.m_cancelSelection.Enabled = cs;
+			this.m_clearSelection.Enabled = cr;
+			this.m_cutSelection.Enabled = cut;
+			this.m_copySelection.Enabled = cp;
+			this.m_executeSelectQuery.Enabled = esq;
+		}
+
 		private int m_queryEditorsCount;
 		private QueryEditor m_selectedQueryEditor;
 		private DockingManager m_dockingManager;
@@ -777,6 +798,7 @@ namespace Easy2.Forms
 		private MessageWindow m_messageWindow;
 		private TableWindow m_tableWindow;
 		private Bar m_dockContainerItemBar;
+		private MenuControler m_menuControler;
 	}
 
 	/// <summary>

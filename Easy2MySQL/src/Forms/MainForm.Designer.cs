@@ -156,8 +156,8 @@
 			this.m_ribbonControl.BackgroundStyle.Class = "";
 			this.m_ribbonControl.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_ribbonControl.CaptionVisible = true;
-			this.m_ribbonControl.Controls.Add(this.m_createPanel);
 			this.m_ribbonControl.Controls.Add(this.m_homePanel);
+			this.m_ribbonControl.Controls.Add(this.m_createPanel);
 			this.m_ribbonControl.Controls.Add(this.m_toolPanel);
 			this.m_ribbonControl.Dock = System.Windows.Forms.DockStyle.Top;
 			this.m_ribbonControl.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -205,7 +205,6 @@
 			this.m_homePanel.StyleMouseOver.Class = "";
 			this.m_homePanel.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_homePanel.TabIndex = 1;
-			this.m_homePanel.Visible = false;
 			// 
 			// m_executeBar
 			// 
@@ -245,6 +244,7 @@
 			// 
 			// m_executeQuery
 			// 
+			this.m_executeQuery.Enabled = false;
 			this.m_executeQuery.Image = ((System.Drawing.Image)(resources.GetObject("m_executeQuery.Image")));
 			this.m_executeQuery.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_executeQuery.KeyTips = "QE";
@@ -255,6 +255,7 @@
 			// 
 			// m_executeSelectQuery
 			// 
+			this.m_executeSelectQuery.Enabled = false;
 			this.m_executeSelectQuery.Image = ((System.Drawing.Image)(resources.GetObject("m_executeSelectQuery.Image")));
 			this.m_executeSelectQuery.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_executeSelectQuery.KeyTips = "QS";
@@ -265,6 +266,7 @@
 			// 
 			// m_execyteAllQuery
 			// 
+			this.m_execyteAllQuery.Enabled = false;
 			this.m_execyteAllQuery.Image = ((System.Drawing.Image)(resources.GetObject("m_execyteAllQuery.Image")));
 			this.m_execyteAllQuery.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_execyteAllQuery.KeyTips = "QA";
@@ -312,6 +314,7 @@
 			// 
 			// m_findData
 			// 
+			this.m_findData.Enabled = false;
 			this.m_findData.Image = ((System.Drawing.Image)(resources.GetObject("m_findData.Image")));
 			this.m_findData.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_findData.KeyTips = "F";
@@ -337,6 +340,7 @@
 			// m_replaceData
 			// 
 			this.m_replaceData.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_replaceData.Enabled = false;
 			this.m_replaceData.Image = ((System.Drawing.Image)(resources.GetObject("m_replaceData.Image")));
 			this.m_replaceData.KeyTips = "E";
 			this.m_replaceData.Name = "m_replaceData";
@@ -346,6 +350,7 @@
 			// m_goToLine
 			// 
 			this.m_goToLine.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_goToLine.Enabled = false;
 			this.m_goToLine.Image = ((System.Drawing.Image)(resources.GetObject("m_goToLine.Image")));
 			this.m_goToLine.KeyTips = "G";
 			this.m_goToLine.Name = "m_goToLine";
@@ -370,6 +375,7 @@
 			// m_selectAll
 			// 
 			this.m_selectAll.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_selectAll.Enabled = false;
 			this.m_selectAll.Image = ((System.Drawing.Image)(resources.GetObject("m_selectAll.Image")));
 			this.m_selectAll.KeyTips = "A";
 			this.m_selectAll.Name = "m_selectAll";
@@ -379,6 +385,7 @@
 			// m_cancelSelection
 			// 
 			this.m_cancelSelection.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_cancelSelection.Enabled = false;
 			this.m_cancelSelection.Image = ((System.Drawing.Image)(resources.GetObject("m_cancelSelection.Image")));
 			this.m_cancelSelection.KeyTips = "X";
 			this.m_cancelSelection.Name = "m_cancelSelection";
@@ -388,6 +395,7 @@
 			// m_clearSelection
 			// 
 			this.m_clearSelection.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_clearSelection.Enabled = false;
 			this.m_clearSelection.Image = ((System.Drawing.Image)(resources.GetObject("m_clearSelection.Image")));
 			this.m_clearSelection.KeyTips = "L";
 			this.m_clearSelection.Name = "m_clearSelection";
@@ -463,6 +471,7 @@
 			// 
 			// m_pasteToClipboard
 			// 
+			this.m_pasteToClipboard.Enabled = false;
 			this.m_pasteToClipboard.Image = ((System.Drawing.Image)(resources.GetObject("m_pasteToClipboard.Image")));
 			this.m_pasteToClipboard.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_pasteToClipboard.KeyTips = "P";
@@ -488,6 +497,7 @@
 			// m_cutSelection
 			// 
 			this.m_cutSelection.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_cutSelection.Enabled = false;
 			this.m_cutSelection.Image = ((System.Drawing.Image)(resources.GetObject("m_cutSelection.Image")));
 			this.m_cutSelection.KeyTips = "T";
 			this.m_cutSelection.Name = "m_cutSelection";
@@ -497,6 +507,7 @@
 			// m_copySelection
 			// 
 			this.m_copySelection.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+			this.m_copySelection.Enabled = false;
 			this.m_copySelection.Image = ((System.Drawing.Image)(resources.GetObject("m_copySelection.Image")));
 			this.m_copySelection.KeyTips = "C";
 			this.m_copySelection.Name = "m_copySelection";
@@ -555,10 +566,10 @@
 			this.m_createPanel.Controls.Add(this.m_databaseBar);
 			this.m_createPanel.Controls.Add(this.m_userBar);
 			this.m_createPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_createPanel.Location = new System.Drawing.Point(0, 56);
+			this.m_createPanel.Location = new System.Drawing.Point(0, 0);
 			this.m_createPanel.Name = "m_createPanel";
 			this.m_createPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-			this.m_createPanel.Size = new System.Drawing.Size(1104, 122);
+			this.m_createPanel.Size = new System.Drawing.Size(1104, 178);
 			// 
 			// 
 			// 
@@ -575,6 +586,7 @@
 			this.m_createPanel.StyleMouseOver.Class = "";
 			this.m_createPanel.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
 			this.m_createPanel.TabIndex = 2;
+			this.m_createPanel.Visible = false;
 			// 
 			// m_objectBar
 			// 
@@ -601,7 +613,7 @@
             this.m_createEvent});
 			this.m_objectBar.Location = new System.Drawing.Point(554, 0);
 			this.m_objectBar.Name = "m_objectBar";
-			this.m_objectBar.Size = new System.Drawing.Size(446, 119);
+			this.m_objectBar.Size = new System.Drawing.Size(446, 175);
 			this.m_objectBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_objectBar.TabIndex = 3;
 			this.m_objectBar.Text = "오브젝트";
@@ -618,6 +630,7 @@
 			// 
 			// m_dropColumn
 			// 
+			this.m_dropColumn.Enabled = false;
 			this.m_dropColumn.Image = ((System.Drawing.Image)(resources.GetObject("m_dropColumn.Image")));
 			this.m_dropColumn.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_dropColumn.KeyTips = "C";
@@ -627,6 +640,7 @@
 			// 
 			// m_createIndex
 			// 
+			this.m_createIndex.Enabled = false;
 			this.m_createIndex.Image = ((System.Drawing.Image)(resources.GetObject("m_createIndex.Image")));
 			this.m_createIndex.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_createIndex.KeyTips = "I";
@@ -667,6 +681,7 @@
 			// 
 			// m_createView
 			// 
+			this.m_createView.Enabled = false;
 			this.m_createView.Image = ((System.Drawing.Image)(resources.GetObject("m_createView.Image")));
 			this.m_createView.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_createView.KeyTips = "V";
@@ -707,6 +722,7 @@
 			// 
 			// m_createStoredProc
 			// 
+			this.m_createStoredProc.Enabled = false;
 			this.m_createStoredProc.Image = ((System.Drawing.Image)(resources.GetObject("m_createStoredProc.Image")));
 			this.m_createStoredProc.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_createStoredProc.KeyTips = "P";
@@ -747,6 +763,7 @@
 			// 
 			// m_createFunction
 			// 
+			this.m_createFunction.Enabled = false;
 			this.m_createFunction.Image = ((System.Drawing.Image)(resources.GetObject("m_createFunction.Image")));
 			this.m_createFunction.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_createFunction.KeyTips = "F";
@@ -787,6 +804,7 @@
 			// 
 			// m_createTrigger
 			// 
+			this.m_createTrigger.Enabled = false;
 			this.m_createTrigger.Image = ((System.Drawing.Image)(resources.GetObject("m_createTrigger.Image")));
 			this.m_createTrigger.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_createTrigger.KeyTips = "G";
@@ -827,6 +845,7 @@
 			// 
 			// m_createEvent
 			// 
+			this.m_createEvent.Enabled = false;
 			this.m_createEvent.Image = ((System.Drawing.Image)(resources.GetObject("m_createEvent.Image")));
 			this.m_createEvent.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_createEvent.KeyTips = "E";
@@ -885,7 +904,7 @@
             this.m_tableItemContainer});
 			this.m_tableBar.Location = new System.Drawing.Point(362, 0);
 			this.m_tableBar.Name = "m_tableBar";
-			this.m_tableBar.Size = new System.Drawing.Size(192, 119);
+			this.m_tableBar.Size = new System.Drawing.Size(192, 175);
 			this.m_tableBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_tableBar.TabIndex = 2;
 			this.m_tableBar.Text = "테이블";
@@ -970,7 +989,7 @@
             this.m_databaseItemContainer});
 			this.m_databaseBar.Location = new System.Drawing.Point(192, 0);
 			this.m_databaseBar.Name = "m_databaseBar";
-			this.m_databaseBar.Size = new System.Drawing.Size(170, 119);
+			this.m_databaseBar.Size = new System.Drawing.Size(170, 175);
 			this.m_databaseBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_databaseBar.TabIndex = 1;
 			this.m_databaseBar.Text = "데이터베이스";
@@ -1058,7 +1077,7 @@
             this.m_privilegeUser});
 			this.m_userBar.Location = new System.Drawing.Point(3, 0);
 			this.m_userBar.Name = "m_userBar";
-			this.m_userBar.Size = new System.Drawing.Size(189, 119);
+			this.m_userBar.Size = new System.Drawing.Size(189, 175);
 			this.m_userBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_userBar.TabIndex = 0;
 			this.m_userBar.Text = "사용자";
@@ -1110,10 +1129,10 @@
 			this.m_toolPanel.Controls.Add(this.m_bakupBar);
 			this.m_toolPanel.Controls.Add(this.m_openBar);
 			this.m_toolPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.m_toolPanel.Location = new System.Drawing.Point(0, 56);
+			this.m_toolPanel.Location = new System.Drawing.Point(0, 0);
 			this.m_toolPanel.Name = "m_toolPanel";
 			this.m_toolPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-			this.m_toolPanel.Size = new System.Drawing.Size(1104, 122);
+			this.m_toolPanel.Size = new System.Drawing.Size(1104, 178);
 			// 
 			// 
 			// 
@@ -1152,7 +1171,7 @@
             this.m_exportExternal});
 			this.m_externalBar.Location = new System.Drawing.Point(198, 0);
 			this.m_externalBar.Name = "m_externalBar";
-			this.m_externalBar.Size = new System.Drawing.Size(140, 119);
+			this.m_externalBar.Size = new System.Drawing.Size(140, 175);
 			this.m_externalBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_externalBar.TabIndex = 2;
 			this.m_externalBar.Text = "가져오기/내보내기";
@@ -1169,6 +1188,7 @@
 			// 
 			// m_importExternal
 			// 
+			this.m_importExternal.Enabled = false;
 			this.m_importExternal.Image = ((System.Drawing.Image)(resources.GetObject("m_importExternal.Image")));
 			this.m_importExternal.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_importExternal.KeyTips = "I";
@@ -1178,6 +1198,7 @@
 			// 
 			// m_exportExternal
 			// 
+			this.m_exportExternal.Enabled = false;
 			this.m_exportExternal.Image = ((System.Drawing.Image)(resources.GetObject("m_exportExternal.Image")));
 			this.m_exportExternal.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_exportExternal.KeyTips = "E";
@@ -1205,7 +1226,7 @@
             this.m_restoreDatabase});
 			this.m_bakupBar.Location = new System.Drawing.Point(70, 0);
 			this.m_bakupBar.Name = "m_bakupBar";
-			this.m_bakupBar.Size = new System.Drawing.Size(128, 119);
+			this.m_bakupBar.Size = new System.Drawing.Size(128, 175);
 			this.m_bakupBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_bakupBar.TabIndex = 1;
 			this.m_bakupBar.Text = "백업/복구";
@@ -1222,6 +1243,7 @@
 			// 
 			// m_backupDatabase
 			// 
+			this.m_backupDatabase.Enabled = false;
 			this.m_backupDatabase.Image = ((System.Drawing.Image)(resources.GetObject("m_backupDatabase.Image")));
 			this.m_backupDatabase.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_backupDatabase.KeyTips = "DB";
@@ -1231,6 +1253,7 @@
 			// 
 			// m_restoreDatabase
 			// 
+			this.m_restoreDatabase.Enabled = false;
 			this.m_restoreDatabase.Image = ((System.Drawing.Image)(resources.GetObject("m_restoreDatabase.Image")));
 			this.m_restoreDatabase.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_restoreDatabase.KeyTips = "DR";
@@ -1257,7 +1280,7 @@
             this.m_openObject});
 			this.m_openBar.Location = new System.Drawing.Point(3, 0);
 			this.m_openBar.Name = "m_openBar";
-			this.m_openBar.Size = new System.Drawing.Size(67, 119);
+			this.m_openBar.Size = new System.Drawing.Size(67, 175);
 			this.m_openBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
 			this.m_openBar.TabIndex = 0;
 			this.m_openBar.Text = "열기";
@@ -1274,6 +1297,7 @@
 			// 
 			// m_openObject
 			// 
+			this.m_openObject.Enabled = false;
 			this.m_openObject.Image = ((System.Drawing.Image)(resources.GetObject("m_openObject.Image")));
 			this.m_openObject.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
 			this.m_openObject.KeyTips = "O";
@@ -1466,6 +1490,7 @@
 			// 
 			// m_homeTab
 			// 
+			this.m_homeTab.Checked = true;
 			this.m_homeTab.KeyTips = "H";
 			this.m_homeTab.Name = "m_homeTab";
 			this.m_homeTab.Panel = this.m_homePanel;
@@ -1473,7 +1498,6 @@
 			// 
 			// m_createTab
 			// 
-			this.m_createTab.Checked = true;
 			this.m_createTab.KeyTips = "C";
 			this.m_createTab.Name = "m_createTab";
 			this.m_createTab.Panel = this.m_createPanel;
@@ -1498,6 +1522,7 @@
 			// 
 			// m_appSettings
 			// 
+			this.m_appSettings.Enabled = false;
 			this.m_appSettings.Image = ((System.Drawing.Image)(resources.GetObject("m_appSettings.Image")));
 			this.m_appSettings.Name = "m_appSettings";
 			this.m_appSettings.Text = "환경설정(&U)...";
@@ -1558,6 +1583,7 @@
 			// 
 			// m_helpDocument
 			// 
+			this.m_helpDocument.Enabled = false;
 			this.m_helpDocument.Image = ((System.Drawing.Image)(resources.GetObject("m_helpDocument.Image")));
 			this.m_helpDocument.Name = "m_helpDocument";
 			this.m_helpDocument.Text = "도움말(&H)...";
@@ -1565,6 +1591,7 @@
 			// m_updateCheck
 			// 
 			this.m_updateCheck.BeginGroup = true;
+			this.m_updateCheck.Enabled = false;
 			this.m_updateCheck.Image = ((System.Drawing.Image)(resources.GetObject("m_updateCheck.Image")));
 			this.m_updateCheck.Name = "m_updateCheck";
 			this.m_updateCheck.Text = "업데이트 확인(&U)...";

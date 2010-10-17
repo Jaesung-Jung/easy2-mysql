@@ -132,6 +132,11 @@ namespace Easy2.Components
 			return queries;
 		}
 
+		protected override void WndProc(ref Message m)
+		{
+			base.WndProc(ref m);
+		}
+
 		/// <summary>
 		/// 파일 경로를 나타냅니다.
 		/// </summary>
